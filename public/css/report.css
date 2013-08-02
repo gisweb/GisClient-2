@@ -1,0 +1,130 @@
+	body{
+			background-color:#FFFFFF;
+			margin-right:5%;
+		}
+		.contenitore{
+			width:100%;
+			margin-left:25px;
+			margin-top:0px;
+			margin-bottom:0px;
+			background-color:#FFFFFF;
+			color:#000000;
+			padding-top:5px;
+			padding-left:5px;
+			padding-bottom:5px;
+		}
+		.titolofff{
+			width:100%;
+			background-color:rgb(100,180,230);
+			color:#000000;
+			font-size:15px;
+			font-weight:bold;
+			font-variant:small-caps;
+			border-top:1px solid white;
+			border-bottom:1px solid white;
+			padding-left:2px;
+			padding-top:2px;
+			padding-bottom:2px;
+			padding-right:10px;
+			
+		}
+		DIV.conteggio{
+			width:100%;
+			background-color:rgb(206,227,216);
+			margin-top:1px;
+		}
+		DIV.conteggio1{
+			color:#000000;
+			font-size:14px;
+			font-weight:bold;
+			padding-right:10px;
+			padding-left:5px;
+			border-right:1px solid #FFFFFF;
+			display:inline;
+		}
+		TABLE.tabella{
+			width:100%;
+			margin-top:0px;
+			font-size:12px;
+			/*border-collapse:collapse;*/
+			
+		}
+		TR.tabella{
+			background-color:rgb(235,245,252);
+			border: 1px solid #FFFFFF;
+		}
+		TD.tabella{
+			background-color:rgb(235,245,252);
+			border: 1px solid #FFFFFF;
+			text-align:center;
+		}
+		TH.tabella{
+			background-color:rgb(206,232,247);
+			border: 1px solid #FFFFFF;
+		}
+		caption.tabella{
+			font-size:14px;
+		}
+		.dato1{
+			background-color:rgb(235,245,252);
+			border: 1px solid #FFFFFF;
+			border-collapse:collapse;
+			font-size:9pt;
+		}
+		.dato2{
+			background-color:rgb(218,237,250);
+			border: 1px solid #FFFFFF;
+			border-collapse:collapse;
+			font-size:9pt;
+		}
+		.intestazione{
+			background-color:rgb(190,220,245);
+			border-top:1px solid white;
+			border-bottom:1px solid white;
+			font-weight:bold;
+		}
+		TD.ident{
+			border-left:1px solid rgb(154,183,205);
+			}
+		TD.tot
+		{
+			border-bottom:2px solid rgb(100,180,230);
+			
+		}
+		td.titolo
+				{
+				font-size:16px;
+				padding-top:3px;
+				padding-bottom:3px;
+				padding-left:8px;
+				padding-right:8px;
+				font-family:tahoma;
+				font-weight:bold;
+				color:#FFFFFF;
+				height:30px;
+				background-color:rgb(53,84,106);
+				text-align:left;
+				margin-top:2px;
+				
+				}
+		td.aggregazione
+				{
+				background-color:rgb(154,183,205);
+				border-top:1px solid white;
+				border-bottom:1px solid white;
+				font-weight:bold;
+				font-size:14px
+				}
+				
+		 .aggregazione A
+			{
+			color:#000000;
+			text-decoration:none;
+			font-weight:normal;
+			}
+		
+		.aggregazione A:hover
+			{
+			color:#FF0000;
+			}
+		

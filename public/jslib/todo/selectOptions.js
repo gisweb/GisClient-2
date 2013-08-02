@@ -1,0 +1,32 @@
+function setSelectOptions(){
+		var selOption = '';
+		var checked;
+		selOption += "<fieldset id=\gc_settings\" class=\"searchInput\"><legend>" + GC_LABEL["DataOptions"] + "<br /></legend>";
+		checked = GC_optionResultWin?"checked='checked'":"";
+		selOption += "<input type=\"checkbox\" id=\"chk_resultwin\" onclick=\"javascript:GC_optionResultWin=this.checked\" "+checked+" />";
+		selOption += "&nbsp;<label for=\"chk_resultwin\">" + GC_LABEL["OptionResultWin"] + "</label><br />";
+		checked = GC_optionUseForm?"checked='checked'":"";
+		selOption += "<input type=\"checkbox\" id=\"chk_useform\" onclick=\"javascript:GC_optionUseForm=this.checked\" "+checked+" />";
+		selOption += "&nbsp;<label for=\"chk_useform\">" + GC_LABEL["OptionUseForm"] + "</label></fieldset>";
+		selOption += "<fieldset class=\"searchInput\"><legend>" + GC_LABEL["SelectOptions"] + "<br /></legend>";
+		checked = GC_optionSelect==0?"checked='checked'":"";
+		selOption += "<input type=\"radio\" id=\"opt_typesel_0\" name=\"opt_typesel\" value=\"0\" "+checked+" onclick=\"javascript:GC_optionSelect=this.value\" \">";
+		selOption += "&nbsp;<label for=\"opt_typesel_0\" >" + GC_LABEL["OptionSelectIntersect"] + "</label><br />";
+		checked = GC_optionSelect==1?"checked='checked'":"";
+		selOption += "<input type=\"radio\" id=\"opt_typesel_1\" name=\"opt_typesel\" value=\"1\" "+checked+" onclick=\"javascript:GC_optionSelect=this.value\" \">";
+		selOption += "&nbsp;<label for=\"opt_typesel_1\" >" + GC_LABEL["OptionSelectWithin"] + "</label></fieldset>";
+		selOption += "<fieldset class=\"searchInput\"><legend>" + GC_LABEL["ActionOptions"] + "<br /></legend>";
+		checked = GC_optionAction==0?"checked='checked'":"";
+		selOption += "<input type=\"radio\" id=\"opt_action_0\" name=\"opt_action\" value=\"0\" "+checked+" onclick=\"javascript:GC_optionAction=this.value\" \">";
+		selOption += "&nbsp;<label for=\"opt_action_0\" >" + GC_LABEL["ActionOptionNoaction"] + "</label><br />";
+		checked = GC_optionAction==1?"checked='checked'":"";
+		selOption += "<input type=\"radio\" id=\"opt_action_1\" name=\"opt_action\" value=\"1\" "+checked+" onclick=\"javascript:GC_optionAction=this.value\" \">";
+		selOption += "&nbsp;<label for=\"opt_action_1\" >" + GC_LABEL["ActionOptionHighlight"] + "</label><br />";
+		checked = GC_optionAction==2?"checked='checked'":"";
+		selOption += "<input type=\"radio\" id=\"opt_action_2\" name=\"opt_action\" value=\"2\" "+checked+" onclick=\"javascript:GC_optionAction=this.value\" \">";
+		selOption += "&nbsp;<label for=\"opt_action_2\" >" + GC_LABEL["ActionOptionZoom"] + "</label><br />";
+		checked = GC_optionAction==3?"checked='checked'":"";
+		selOption += "<input type=\"radio\" id=\"opt_action_3\" name=\"opt_action\" value=\"3\" "+checked+" onclick=\"javascript:GC_optionAction=this.value\" \">";
+		selOption += "&nbsp;<label for=\"opt_action_3\" >" + GC_LABEL["ActionOptionCenter"] + "</label></fieldset>";
+		return selOption;
+	}

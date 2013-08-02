@@ -1,0 +1,131 @@
+<?php
+/*
+GisClient map browser
+
+Copyright (C) 2008 - 2009  Roberto Starnini - Gis & Web S.r.l. -info@gisweb.it
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+*/
+
+session_start();
+
+//Max tempo di esecuzione x script in sec
+ini_set('max_execution_time',240);
+
+//Max memoria che può essere ‘consumata’ x script
+ini_set('memory_limit','1024M'); 
+
+error_reporting (E_ERROR | E_PARSE);
+
+//error_reporting  (E_ERROR | E_ALL);
+//error_reporting  (E_ALL);
+
+//tempo max di esecuzione (sec.) e quantità di memoria disponibile (MB) in caso di operazioni tipo export/import
+define('LONG_EXECUTIONE_TIME',300);
+define('LONG_EXECUTION_MEMORY','512M');
+
+/*******************Installation path *************************/
+define('ROOT_PATH','<@ROOTPATH@>');
+define('IMAGE_PATH','<@IMAGEPATH@>');
+define('IMAGE_URL','<@IMAGEURL@>');
+/*******************                  *************************/
+
+require_once (ROOT_PATH."lib/postgres.php");
+require_once (ROOT_PATH."lib/debug.php");
+require_once (ROOT_PATH."config/config.db.php");
+
+// Path di default  Author 
+define('ADMIN_PATH',ROOT_PATH.'public/admin/');
+
+// Debugging attivo o no (1 on 0 off) e path di scaricamento file debug
+define('DEBUG_DIR',ROOT_PATH.'config/debug/');
+define('DEBUG', 0); 
+
+require_once (ROOT_PATH."config/login.php");
+
+//Costanti dei REPORT
+define('MAX_REPORT_ROWS',5000);//n° max di righe di report per export pdf
+define('REPORT_PROJECT_NAME','REPORT');
+define('REPORT_MAPSET_NAME','report');
+define('FONT_LIST','fonts_sample');
+define('MS_VERSION','');
+
+//elenco delle estensioni caricabili sul layer
+define('CATALOG_EXT','SHP,TIFF,TIF,ECW');
+
+//buffer in metri intorno all’oggetto selezionato con zoom lente in caso non venga specificato layer.tolerance
+define('DEFAULT_ZOOM_BUFFER',100); 
+
+//massimo numero di viste memorizzate 
+define('MAX_HISTORY',6);
+
+//massimo numero di oggetti selezionati mediante query di ricerca
+define('MAX_OBJ_SELECTED',10000);
+
+// spessore della linea di selezione (in pixel) per oggetti lineari e poligonali
+define('WIDTH_SELECTION', 2);
+
+// dimensione del pallino di selezione
+define('SIZE_SELECTION', 20);
+
+//trasparenza della polilinea di selezione
+define('TRASP_SELECTION', 50);
+
+//colore della polilinea di selezione (default giallo)
+define('COLOR_SELECTION', '255 0 255');
+
+//colore dello sfondo per default
+define('MAP_BG_COLOR', '255 255 255');
+
+//Raggio di ricerca in caso non venga specificato layer.tolerance
+define('DEFAULT_TOLERANCE',2);
+
+//Nome per i layer di selezione 
+define('LAYER_SELECTION','__sel_layer');
+
+//Nome per il layer testo sulla mappa
+define('LAYER_IMAGELABEL','__image_label');
+
+//Nome per il layer di redline  sulla mappa
+define('LAYER_READLINE','__readline_layer');
+
+//nome riservato ad alias per il nome della tabella del layer (usato dal sistema nelle query, non ci devono essere tabelle con questo nome)
+define('DATALAYER_ALIAS_TABLE','__data__');
+
+//Carattere per forzare il ritorno a capo nei commenti in redline (\) 
+define('WRAP_READLINE','\\');
+
+//Colore annotazioni di redline
+define('COLOR_REDLINE','0 0 255'); 
+
+//Colore Line di contorno oggetti poligono o linea selezionati
+define('OBJ_COLOR_SELECTION','255 255 0');
+
+//Mapserver map resolution
+define('MAP_DPI',96); 
+
+//Mapserver map resolution per migliorare la qualità di stampa (default 1)
+define('PDF_K',1);
+
+//icone della legenda
+define('LEGEND_ICON_W',24);
+define('LEGEND_ICON_H',16);
+define('LEGEND_POINT_SIZE',15);
+define('LEGEND_LINE_WIDTH',1);
+define('LEGEND_POLYGON_WIDTH',2);
+define('PRINT_PDF_FONT','times');
+
+?>

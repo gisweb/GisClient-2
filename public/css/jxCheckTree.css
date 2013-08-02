@@ -1,0 +1,36 @@
+.treeBox {
+  margin: 5px; 
+}
+.jxTreeCheck {
+  position: absolute;
+  display: inline;
+  left: 16px;
+  top: 1px;
+  width: 16px;
+  height: 20px;
+  z-index: 1;
+  border: 0px;
+  margin: 0px;
+  disabled:"disabled";
+}
+.jxTree a, 
+.jxTreeRoot a {
+	margin-left:32px;
+}
+
+.jxTree a:focus,
+.jxTreeRoot a:focus {
+  margin: 0px 0px 0px 32px;
+}
+
+.jxTree a:hover, 
+.jxTreeRoot a:hover {
+  margin: 0px 0px 0px 32px;
+}
+
+.jxTree a.jxTreeItemPressed,
+.jxTree a.jxTreeItemPressed:hover,
+.jxTreeRoot a.jxTreeItemPressed,
+.jxTreeRoot a.jxTreeItemPressed:hover {
+  margin: 0px 0px 0px 32px;
+}

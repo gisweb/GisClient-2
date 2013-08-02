@@ -1,0 +1,27 @@
+ALTER TABLE gisclient_20.qtfield ADD COLUMN default_op character varying;
+ALTER TABLE gisclient_20.qtfield ALTER COLUMN default_op SET STORAGE EXTENDED;
+
+ALTER TABLE gisclient_20.qt ADD COLUMN qtresultype_id integer;
+ALTER TABLE gisclient_20.qt ALTER COLUMN qtresultype_id SET STORAGE PLAIN;
+
+ALTER TABLE gisclient_20.qt ADD COLUMN qt_filter character varying;
+   
+ALTER TABLE gisclient_20.project_admin
+  ADD CONSTRAINT username_project_name_fkey FOREIGN KEY (project_name)
+      REFERENCES gisclient_20.project (project_name) MATCH FULL
+      ON UPDATE CASCADE ON DELETE CASCADE;
+	  
+
+ALTER TABLE gisclient_20.project ADD COLUMN project_title varchar;  
+ALTER TABLE gisclient_20.project ADD COLUMN project_note text;
+ALTER TABLE gisclient_20.language_project RENAME description TO title;
+ALTER TABLE gisclient_20.selgroup ADD COLUMN selgroup_title character varying;
+ALTER TABLE gisclient_20.language_selgroup RENAME name TO title;
+
+ALTER TABLE gisclient_20.mapset ADD COLUMN mapset_description text;
+ALTER TABLE gisclient_20.mapset ADD COLUMN mapset_note text;
+
+ALTER TABLE gisclient_20.layergroup ADD COLUMN hidden integer DEFAULT 0;
+
+delete from gisclient_20.e_form where name='project_groups';
+delete from gisclient_20.e_level where name='project_groups';

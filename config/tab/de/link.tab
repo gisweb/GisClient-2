@@ -1,0 +1,28 @@
+[standard]
+table = "link"
+pkey = "link_id"
+dato[] = "Name;link_name;40;text"
+dato[] = "Link;link_def;60x3;textarea"
+dato[] = "Fenstergröße:<br>Breite;winw;4;intero|Höhe;winh;4;intero"
+dato[] = "Speichern;azione;;submit;all;salva|Abbrechen;azione;;submit;all;annulla|Löschen;azione;;submit;edit;elimina"
+[list]
+table = "link"
+pkey = "link_id"
+order_fld = "link_name#link_order"
+dato[] = ";link_id;3%;info"
+dato[] = "Name;link_name;50%#link_id;goto"
+dato[] = "Link;link_def;40%;text"
+dato[] = "Reihenfolge;link_order;7%;text"
+
+[title]
+edit = "Link"
+view = "Link"
+new = "Neuer Link"
+list = "Link"
+
+[menu]
+new = "Neuer Link"
+standard = "link_name"
+
+[message]
+nodata = ""

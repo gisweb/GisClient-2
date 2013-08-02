@@ -1,0 +1,1977 @@
+-----------------------------------------------
+--SCHEMA AUTHOR GEOWEB 
+-----------------------------------------------
+
+CREATE SCHEMA <@DBSCHEMA@>;
+
+SET search_path = <@DBSCHEMA@>, pg_catalog;
+
+CREATE TYPE qt_selgroup_type AS (
+	qt_selgroup_id integer,
+	qt_id integer,
+	selgroup_id integer,
+	presente integer,
+	project_id integer
+);
+
+CREATE TYPE slgrp_qt AS (
+	qt_selgroup_id integer,
+	presente integer,
+	qt_id integer,
+	selgroup_id integer,
+	project_name character varying,
+	qt_name character varying,
+	selgroup_name character varying,
+	qt_order smallint,
+	theme_id integer,
+	theme_title character varying
+);
+
+CREATE TYPE tree AS (
+	id integer,
+	name character varying,
+	lvl_id integer,
+	lvl_name character varying
+);
+
+CREATE FUNCTION check_catalog() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+BEGIN
+	if(coalesce(new.catalog_path,'')<>'' and new.connection_type=1) then
+		if (not new.catalog_path ~ '^(.+)/$') then
+			new.catalog_path:=new.catalog_path||'/';
+		end if;
+	end if;
+	return new;
+END
+$_$;
+
+CREATE FUNCTION check_class() RETURNS "trigger"
+    LANGUAGE plpgsql IMMUTABLE
+    AS $_$
+DECLARE
+	ok boolean;
+BEGIN
+	if trim(coalesce(new.label_angle,''))<>'' then
+		if not((new.label_angle ~ '^([0-9]+)(\.[0-9])?$') or (new.label_angle ~ '^([\[]{1})([A-z0-9]+)([\]]{1})$') or (upper(new.label_angle) = 'AUTO')) then 	--CONTROLLO IL VALORE DEL LABEL_ANGLE
+			raise exception 'label_angle @ Il valore deve essere un numero, AUTO oppure un campo di binding (es. [nome_campo])';
+		end if;
+	end if;
+	if trim(coalesce(new.label_size,''))<>'' then
+		if not((new.label_size ~ '^([0-9]+)$') or (new.label_size ~ '^([\[]{1})([A-z0-9]+)([\]]{1})$')) then 	--CONTROLLO IL VALORE DEL LABEL_SIZE
+			raise exception 'label_size @ Il valore deve essere un numero intero oppure un campo di binding (es. [nome_campo])';
+		end if;
+	end if;
+	return new;
+END
+$_$;
+
+CREATE FUNCTION check_layer() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE
+	pr_name varchar;
+	presente integer;
+	newindex integer;
+	ok boolean;
+BEGIN
+	--CONTROLLO CHE IL NOME SIA COMPOSTO DA CARATTERI ALFA-NUMERICI
+	if(new.layer_name ~* '([ ]+)')	then 	
+		raise exception 'layer_name @ Il nome del layer deve essere alfanumerico senza spazi bianchi';
+	end if;
+
+	--CONTROLLO IL VALORE DELLA TRASPARENCY
+	if(coalesce(new.transparency,'')<>'') then 	
+		new.transparency:=upper(new.transparency);
+		select into ok (new.transparency='ALPHA' or new.transparency ='100' or new.transparency ~* '^([0-9]{1,2})$');
+		if not ok then
+			raise exception 'transparency @ Il valore deve essere un intero compreso tra 1-100 oppure ALPHA.';
+		end if;
+	end if;
+
+	return new;
+END
+$_$;
+
+CREATE FUNCTION check_layergroup() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE
+	pr_name varchar;
+	presente integer;
+	newindex integer;
+	ok boolean;
+BEGIN
+	--CONTROLLO IL VALORE DELLA TRASPARENCY
+	if(coalesce(new.transparency,'')<>'') then 	
+		new.transparency:=upper(new.transparency);
+		select into ok (new.transparency='ALPHA' or new.transparency ='100' or new.transparency ~* '^([0-9]{1,2})$');
+		if not ok then
+			raise exception 'transparency @ Il valore deve essere un intero compreso tra 1-100 oppure ALPHA.';
+		end if;
+	end if;
+
+	return new;
+END
+$_$;
+
+CREATE FUNCTION check_mapset() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE
+	ext varchar;
+	presente integer;
+BEGIN
+
+	new.mapset_name:=regexp_replace(trim(new.mapset_name),'([\t ]+)','_','g');
+	select coalesce(project_extent,'') into ext from <@DBSCHEMA@>.project where project_name=new.project_name;
+	if (coalesce(new.mapset_extent,'')='') then
+		new.mapset_extent:=ext;
+	else
+		new.mapset_extent:=regexp_replace(trim(new.mapset_extent),'([\t ]+)',' ','g');
+		if (new.mapset_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+	if (coalesce(new.refmap_extent,'')='') then
+		new.refmap_extent=new.mapset_extent;
+	else
+		new.refmap_extent:=regexp_replace(trim(new.refmap_extent),'([\t ]+)',' ','g');
+		if (new.refmap_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+	if (coalesce(new.test_extent,'')='') then
+		new.test_extent=new.mapset_extent;
+	else
+		new.test_extent:=regexp_replace(trim(new.test_extent),'([\t ]+)',' ','g');
+		if (new.test_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+
+	return new;
+END
+$_$;
+
+CREATE FUNCTION check_project() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE 
+	ok boolean;
+	presente integer;
+	sk varchar;
+	query text;
+	newid integer;
+BEGIN
+	ok:=false;
+	sk:='<@DBSCHEMA@>';	
+	-- AGGIUNGO AL BASE URL LO SLASH FINALE (UTILE PER I LINK)
+	if(coalesce(new.base_url,'')<>'') then
+		if (not new.base_url ~ '^(.+)/$') then
+			new.base_url:=new.base_url||'/';
+		end if;
+	end if;
+	if(coalesce(new.base_path,'')<>'') then
+		if (not new.base_path ~ '^(.+)/$') then
+			new.base_path:=new.base_path||'/';
+		end if;
+	end if;
+
+	-- CONTROLLO DELL'EXTENT
+	if (trim(coalesce(new.project_extent,''))!='') then
+		new.project_extent:=regexp_replace(trim(new.project_extent),'([\t ]+)',' ','g');
+		if (new.project_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+	return new;
+END
+$_$;
+
+CREATE FUNCTION delete_qt() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	delete from <@DBSCHEMA@>.qtfield where qt_id=old.qt_id;
+	return old;
+END
+$$;
+
+CREATE FUNCTION delete_qtrelation() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	delete from <@DBSCHEMA@>.qtfield where qtrelation_id=old.qtrelation_id;
+	return old;
+END
+$$;
+
+CREATE FUNCTION enc_pwd() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	if (coalesce(new.pwd,'')<>'') then
+		new.enc_pwd:=md5(new.pwd);
+	end if;
+	return new;
+END
+$$;
+
+CREATE FUNCTION gw_findtree(id integer, lvl character varying) RETURNS SETOF tree
+    LANGUAGE plpgsql IMMUTABLE
+    AS $$
+DECLARE
+	rec record;
+	t <@DBSCHEMA@>.tree;
+	i integer;
+	d integer;
+BEGIN
+	select into d coalesce(depth,-1) from <@DBSCHEMA@>.e_level where name=lvl;
+	if (d=-1) then
+		raise exception 'Livello % non esistente',lvl;
+	end if;
+	for i in reverse d..1 loop
+		return next t;
+	end loop;
+	
+END
+$$;
+
+CREATE FUNCTION move_layergroup() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	if(new.theme_id<>old.theme_id) then
+		update <@DBSCHEMA@>.qt set theme_id=new.theme_id where qt_id in (select distinct qt_id from <@DBSCHEMA@>.qt inner join <@DBSCHEMA@>.layer using(layer_id) inner join <@DBSCHEMA@>.layergroup using(layergroup_id) where layergroup_id=new.layergroup_id);
+	end if;
+	return new;
+END
+$$;
+
+CREATE FUNCTION new_pkey(tab character varying, id_fld character varying) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+declare
+    newid integer;
+	sk varchar;
+	query varchar;
+begin
+	sk:='<@DBSCHEMA@>';
+	query:='select '||sk||'.new_pkey('''||tab||''','''||id_fld||''',0)';
+	execute query into newid;
+	return newid;
+end
+$$;
+
+CREATE FUNCTION new_pkey(tab character varying, id_fld character varying, st integer) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+declare
+    str varchar;
+start_value integer;
+    newid record;
+    sk varchar;
+begin
+	sk:='<@DBSCHEMA@>';
+	if (st=0) then
+		start_value:=0;
+	else
+		start_value:=st-1;
+	end if;
+	str:='select '||id_fld||' as id from '||sk||'.'||tab||' where '||id_fld||' ='||start_value||'+1';
+	execute str into newid;
+	if (coalesce(newid.id,0)=0) then
+		return (start_value+1);
+	end if;
+	str:='SELECT coalesce(min('||id_fld||'),0)+1 as id FROM '||sk||'.'||tab||' f1
+    WHERE NOT EXISTS (SELECT 1 FROM '||sk||'.'||tab||' f2 WHERE f2.'||id_fld||' = (f1.'||id_fld||'+1)) and '||id_fld||' > '||start_value||';';
+	--raise notice '%',str;
+	execute str into newid;
+	return newid.id;
+
+ 
+end
+$$;
+
+CREATE FUNCTION new_pkey(sk character varying, tab character varying, id_fld character varying, st integer) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+declare
+    str varchar;
+start_value integer;
+    newid record;
+begin
+	if (st=0) then
+		start_value:=0;
+	else
+		start_value:=st-1;
+	end if;
+	str:='select '||id_fld||' as id from '||sk||'.'||tab||' where '||id_fld||' ='||start_value||'+1';
+	execute str into newid;
+	if (coalesce(newid.id,0)=0) then
+		return (start_value+1);
+	end if;
+	str:='SELECT coalesce(min('||id_fld||'),0)+1 as id FROM '||sk||'.'||tab||' f1
+    WHERE NOT EXISTS (SELECT 1 FROM '||sk||'.'||tab||' f2 WHERE f2.'||id_fld||' = (f1.'||id_fld||'+1)) and '||id_fld||' > '||start_value||';';
+	execute str into newid;
+	return newid.id;
+
+ 
+end
+$$;
+
+CREATE FUNCTION new_pkey(sk character varying, tab character varying, id_fld character varying) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+declare
+    newid integer;
+begin
+	select <@DBSCHEMA@>.new_pkey(sk ,tab,id_fld,0) into newid; 
+	return newid;
+end
+$$;
+
+CREATE FUNCTION new_pkey_varchar(tb character varying, fld character varying, val character varying) RETURNS character varying
+    LANGUAGE plpgsql IMMUTABLE
+    AS $_$
+DECLARE
+	query text;
+	presente integer;
+	newval varchar;
+BEGIN
+query:='select count(*) from <@DBSCHEMA@>.'||tb||' where '||fld||'='''||val||''';';
+execute query into presente;
+if(presente>0) then
+	query:='select map||(max(newindex)+1)::varchar from (select regexp_replace('||fld||',''([0-9]+)$'','''') as map,case when(regexp_replace('||fld||',''^([A-z_]+)'','''')='''') then 0 else regexp_replace('||fld||',''^([A-z_]+)'','''')::integer end as newindex from <@DBSCHEMA@>.'||tb||' where '''||val||''' ~* regexp_replace('||fld||',''([0-9]+)$'','''')) X group by map;';
+	execute query into newval;
+	return newval;
+else
+	return val;
+end if;
+END
+$_$;
+
+CREATE FUNCTION rm_project_groups() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+
+BEGIN
+	delete from <@DBSCHEMA@>.mapset_groups where mapset_name in (select distinct mapset_name from <@DBSCHEMA@>.mapset where project_name=old.project_name) and group_name=old.group_name;
+	return old;
+END
+$$;
+
+
+CREATE FUNCTION set_depth() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	if (TG_OP='INSERT') then
+		update <@DBSCHEMA@>.e_level set depth=(select coalesce(depth+1,0) from <@DBSCHEMA@>.e_level where id=new.parent_id) where id=new.id;
+	elseif(new.parent_id<>coalesce(old.parent_id,-1)) then
+		update <@DBSCHEMA@>.e_level set depth=(select coalesce(depth+1,0) from <@DBSCHEMA@>.e_level where id=new.parent_id) where id=new.id;
+	end if;
+	return new;
+END
+$$;
+
+CREATE FUNCTION set_leaf() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	if(TG_OP='INSERT') then
+		update <@DBSCHEMA@>.e_level X set leaf=(select case when (count(parent_id)>0) then 0 else 1 end from <@DBSCHEMA@>.e_level where parent_id=X.id);
+	elsif (new.parent_id<> coalesce(old.parent_id,-1)) then
+		update <@DBSCHEMA@>.e_level X set leaf=(select case when (count(parent_id)>0) then 0 else 1 end from <@DBSCHEMA@>.e_level where parent_id=X.id);
+	end if;
+	return new;
+END
+$$;
+
+
+CREATE FUNCTION set_map_extent() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE
+	ext varchar;
+BEGIN
+
+	new.mapset_name:=regexp_replace(trim(new.mapset_name),'([\t ]+)','_','g');
+	select coalesce(project_extent,'') into ext from <@DBSCHEMA@>.project where project_name=new.project_name;
+	if (coalesce(new.mapset_extent,'')='') then
+		new.mapset_extent:=ext;
+	else
+		new.mapset_extent:=regexp_replace(trim(new.mapset_extent),'([\t ]+)',' ','g');
+		if (new.mapset_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+	if (coalesce(new.refmap_extent,'')='') then
+		new.refmap_extent=new.mapset_extent;
+	else
+		new.refmap_extent:=regexp_replace(trim(new.refmap_extent),'([\t ]+)',' ','g');
+		if (new.refmap_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+	if (coalesce(new.test_extent,'')='') then
+		new.test_extent=new.mapset_extent;
+	else
+		new.test_extent:=regexp_replace(trim(new.test_extent),'([\t ]+)',' ','g');
+		if (new.test_extent !~* '^([0-9. -]+)$') then
+			raise exception 'extent @ I valori di Extent devono essere 4 valori numerici separati da uno spazio essere un percorso valido';
+		end if;
+	end if;
+
+	return new;
+END
+$_$;
+
+CREATE FUNCTION style_name() RETURNS "trigger"
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE
+	num integer;
+	rec record;
+	check_hatch smallint;
+BEGIN
+	if ((coalesce(new.symbol_name,'')<>'') and (coalesce(new.size,0)=0)) then
+		select into rec * from <@DBSCHEMA@>.symbol where symbol_name=new.symbol_name;
+		if rec.style_def='TYPE HATCH' then
+			raise exception 'size @ Per questo tipo di Simbolo ?ecessario definire il campo size';
+		end if;
+	end if;
+	if trim(coalesce(new.angle,''))<>'' then
+		if not((new.angle ~ '^([0-9]+)(\.[0-9])?$') or (new.angle ~ '^([\[]{1})([A-z0-9]+)([\]]{1})$') or (upper(new.angle) = 'AUTO')) then 	--CONTROLLO IL VALORE DEL LABEL_ANGLE
+			raise exception 'angle @ Il valore deve essere un numero, AUTO oppure un campo di binding (es. [nome_campo])';
+		end if;
+	end if;
+	
+	if coalesce(new.style_name,'')='' then
+		if new.style_order > 0 then 
+			num:=new.style_order;
+		else
+			SELECT INTO num count(*)+1 FROM <@DBSCHEMA@>.style WHERE class_id=new.class_id and style_name ~* 'Stile ([0-9]+)';
+		end if;
+		new.style_name:='Stile '||num::varchar;
+	end if;
+	return new;
+END
+$_$;
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--INTERFACCIA UTENTE AUTHOR
+
+CREATE TABLE e_form (
+    id integer NOT NULL,
+    name character varying,
+    config_file character varying,
+    tab_type integer,
+    level_destination integer,
+    form_destination character varying,
+    save_data character varying,
+    parent_level integer,
+    js text,
+    table_name character varying,
+    order_by character varying
+);
+
+CREATE TABLE e_level (
+    id integer NOT NULL,
+    name character varying,
+    parent_name character varying,
+    "order" smallint,
+    parent_id smallint,
+    depth smallint,
+    leaf smallint,
+    export integer DEFAULT 1,
+    struct_parent_id integer,
+    "table" character varying,
+    admintype_id integer DEFAULT 2
+);
+
+CREATE TABLE form_level (
+    id integer NOT NULL,
+    level integer,
+    mode integer,
+    form integer,
+    order_fld integer,
+    visible smallint DEFAULT 1
+);
+
+CREATE VIEW elenco_form AS
+    SELECT form_level.id AS "ID", form_level."mode", CASE WHEN (form_level."mode" = 2) THEN 'New'::text WHEN (form_level."mode" = 3) THEN 'Elenco'::text WHEN (form_level."mode" = 0) THEN 'View'::text WHEN (form_level."mode" = 1) THEN 'Edit'::text ELSE 'Non definito'::text END AS "Modo Visualizzazione Pagina", e_form.id AS "Form ID", e_form.name AS "Nome Form", e_form.tab_type AS "Tipo Tabella", x.name AS "Livello Destinazione", e_level.name AS "Livello Visualizzazione", CASE WHEN (COALESCE((e_level.depth)::integer, -1) = -1) THEN 0 ELSE (e_level.depth + 1) END AS "Profondita Albero", form_level.order_fld AS "Ordine Visualizzazione", CASE WHEN (form_level.visible = 1) THEN 'SI'::text ELSE 'NO'::text END AS "Visibile" FROM (((form_level JOIN e_level ON ((form_level."level" = e_level.id))) JOIN e_form ON ((e_form.id = form_level.form))) JOIN e_level x ON ((x.id = e_form.level_destination))) ORDER BY CASE WHEN (COALESCE((e_level.depth)::integer, -1) = -1) THEN 0 ELSE (e_level.depth + 1) END, form_level."level", CASE WHEN (form_level."mode" = 2) THEN 'Nuovo'::text WHEN ((form_level."mode" = 0) OR (form_level."mode" = 3)) THEN 'Elenco'::text WHEN (form_level."mode" = 1) THEN 'View'::text ELSE 'Edit'::text END, form_level.order_fld;
+
+--ELENCO FORM INTERFACCIA UTENTE AUTHOR
+
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (1, 'root', NULL, 1, NULL, NULL, 0, 0, NULL, NULL, 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (2, 'project', 'project', 2, 1, 0, 0, 1, 1, 'project', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (3, 'groups', 'groups', 7, 1, 0, 0, 0, 1, 'groups', 1);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (4, 'users', 'users', 6, 1, 0, 0, 0, 1, 'users', 1);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (5, 'theme', 'theme', 3, 2, 1, 0, 5, 2, 'theme', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (6, 'project_srs', 'project_srs', 4, 2, 1, 1, 1, 2, 'project_srs', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (7, 'catalog', 'catalog', 13, 2, 1, 1, 2, 2, 'catalog', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (8, 'mapset', 'mapset', 15, 2, 1, 0, 6, 2, 'mapset', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (9, 'link', 'link', 15, 2, 1, 1, 4, 2, 'link', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (10, 'layergroup', 'layergroup', 4, 5, 2, 0, 1, 5, 'layergroup', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (11, 'layer', 'layer', 5, 10, 3, 0, 1, 10, 'layer', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (12, 'class', 'class', 6, 11, 4, 0, 1, 11, 'class', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (13, 'qt', 'qt', 9, 5, 2, 0, 1, 11, 'qt', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (14, 'style', 'style', 7, 12, 5, 1, 1, 12, 'style', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (16, 'qtrelation', 'qtrelation', 10, 13, 3, 1, 1, 13, 'qtrelation', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (17, 'qtfield', 'qtfield', 11, 13, 3, 1, 2, 13, 'qtfield', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (19, 'qt_link', 'qt', 12, 13, 3, 1, 3, 13, 'qt_link', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (21, 'mapset_groups', 'mapset_groups', 16, 8, 2, 1, 4, 8, 'mapset_usergroup', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (22, 'mapset_layergroup', 'mapset_layergroup', 17, 8, 2, 1, 1, 8, 'mapset_layergroup', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (23, 'mapset_qt', 'mapset_qt', 18, 8, 2, 1, 2, 8, 'mapset_qt', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (24, 'mapset_link', 'mapset_link', 19, 8, 2, 1, 3, 8, 'mapset_link', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (27, 'selgroup', 'selgroup', NULL, 2, 1, 0, 8, 2, 'selgroup', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (28, 'qt_selgroup', 'selgroup', NULL, 27, 2, 1, 1, 27, 'qt_selgroup', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (33, 'project_admin', 'project_admin', 15, 2, 1, 1, 0, 2, 'project_admin', 2);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (45, 'group_users', 'user_groups', NULL, 4, 2, 1, 0, 4, 'user_group', 1);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (46, 'user_groups', 'group_users', NULL, 3, 2, 1, 0, 3, 'user_group', 1);
+INSERT INTO e_level (id, name, parent_name, "order", parent_id, depth, leaf, export, struct_parent_id, "table", admintype_id) VALUES (32, 'user_project', 'project', 8, 2, 1, 1, 0, 2, 'user_project', 2);
+
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (2, 'progetto', 'project', 0, 2, NULL, NULL, NULL, NULL, NULL, 'project_name');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (3, 'progetto', 'project', 1, 2, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (5, 'mapset', 'mapset', 0, 8, NULL, NULL, NULL, NULL, NULL, 'title');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (6, 'progetto', 'project', 2, 2, '', 'project', NULL, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (7, 'progetto', 'project', 1, 2, NULL, 'project', NULL, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (8, 'temi', 'theme', 0, 5, NULL, NULL, NULL, NULL, NULL, 'theme_order,theme_title');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (9, 'temi', 'theme', 1, 5, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (10, 'temi', 'theme', 1, 5, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (11, 'temi', 'theme', 2, 5, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (12, 'project_srs', 'project_srs', 0, 6, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (13, 'project_srs', 'project_srs', 1, 6, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (14, 'project_srs', 'project_srs', 2, 6, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (16, 'user', 'user', 4, 4, NULL, 'user', 2, NULL, 'user', NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (18, 'user', 'user', 50, 4, NULL, 'user', 2, NULL, 'user', NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (20, 'group', 'group', 4, 3, NULL, 'group', 2, NULL, 'group', NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (23, 'group', 'group', 50, 3, NULL, 'group', 2, NULL, 'group', NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (26, 'mapset', 'mapset', 1, 8, '', NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (27, 'mapset', 'mapset', 1, 8, NULL, 'mapset', 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (28, 'mapset', 'mapset', 2, 2, NULL, 'mapset', 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (30, 'layergroup', 'layergroup', 0, 10, NULL, NULL, 5, NULL, NULL, 'layergroup_order,layergroup_title');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (31, 'layergroup', 'layergroup', 1, 10, NULL, NULL, 5, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (32, 'layergroup', 'layergroup', 1, 10, NULL, NULL, 5, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (33, 'layergroup', 'layergroup', 2, 10, NULL, NULL, 5, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (34, 'layer', 'layer', 0, 11, NULL, NULL, 10, NULL, NULL, 'layer_order,layer_name');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (35, 'layer', 'layer', 1, 11, NULL, 'layer', 10, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (36, 'layer', 'layer', 1, 11, NULL, 'layer', 10, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (37, 'layer', 'layer', 2, 11, NULL, 'layer', 10, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (38, 'classi', 'class', 0, 12, NULL, NULL, 11, NULL, NULL, 'class_order');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (39, 'classi', 'class', 1, 12, NULL, NULL, 11, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (40, 'classi', 'class', 1, 12, NULL, 'class', 11, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (41, 'classi', 'class', 2, 12, NULL, 'class', 11, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (42, 'stili', 'style', 0, 14, NULL, NULL, 12, NULL, NULL, 'style_order');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (43, 'stili', 'style', 1, 14, NULL, NULL, 12, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (44, 'stili', 'style', 1, 14, NULL, 'style', 12, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (45, 'stili', 'style', 2, 14, NULL, 'style', 12, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (50, 'catalog', 'catalog', 0, 7, NULL, NULL, 2, NULL, NULL, 'catalog_name');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (51, 'catalog', 'catalog', 1, 7, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (52, 'catalog', 'catalog', 1, 7, NULL, 'catalog', 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (53, 'catalog', 'catalog', 2, 7, NULL, 'catalog', 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (54, 'query_template', 'qt', 0, 13, NULL, NULL, 5, NULL, NULL, 'qt_order');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (55, 'query_template', 'qt', 1, 13, NULL, NULL, 5, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (56, 'query_template', 'qt', 1, 13, NULL, NULL, 5, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (57, 'query_template', 'qt', 2, 13, NULL, NULL, 5, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (58, 'qt_relation', 'qtrelation', 0, 16, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (59, 'qt_relation', 'qtrelation', 1, 16, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (60, 'qt_relation', 'qtrelation', 1, 16, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (61, 'qt_relation', 'qtrelation', 2, 16, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (62, 'qt_fields', 'qtfield', 0, 17, NULL, NULL, 13, NULL, NULL, 'qtrelationtype_id,qtrelation_name,field_header,qtfield_name');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (63, 'qt_fields', 'qtfield', 1, 17, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (64, 'qt_fields', 'qtfield', 1, 17, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (65, 'qt_fields', 'qtfield', 2, 17, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (66, 'qt_links', 'qt_links', 2, 19, NULL, 'qt_links', 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (67, 'qt_links', 'qt_links', 0, 19, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (68, 'qt_links', 'qt_links', 1, 19, NULL, 'qt_links', 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (69, 'qt_links', 'qt_links', 110, 19, NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (70, 'links', 'link', 0, 9, '', NULL, 2, NULL, NULL, 'link_order,link_name');
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (72, 'links', 'link', 1, 9, '', NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (73, 'links', 'link', 1, 9, '', NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (74, 'links', 'link', 2, 9, '', NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (81, 'map_group', 'mapset_group', 4, 21, NULL, 'mapset_groups', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (82, 'map_group', 'mapset_group', 5, 21, NULL, 'mapset_groups', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (83, 'map_group', 'mapset_group', 0, 21, NULL, NULL, 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (84, 'map_layer', 'mapset_layergroup', 4, 22, NULL, 'map_layer', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (85, 'map_layer', 'mapset_layergroup', 5, 22, NULL, 'map_layer', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (86, 'map_layer', 'mapset_layergroup', 0, 22, NULL, NULL, 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (87, 'map_qt', 'mapset_qt', 4, 23, NULL, 'mapset_qt', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (88, 'map_qt', 'mapset_qt', 5, 23, NULL, 'mapset_qt', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (89, 'map_qt', 'mapset_qt', 0, 23, NULL, NULL, 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (90, 'map_qtlink', 'mapset_link', 4, 24, NULL, 'map_link', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (91, 'map_qtlink', 'mapset_link', 5, 24, NULL, 'map_link', 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (92, 'map_qtlink', 'mapset_link', 0, 24, NULL, NULL, 8, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (105, 'selgroup', 'selgroup', 0, 27, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (106, 'selgroup', 'selgroup', 1, 27, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (107, 'selgroup', 'selgroup', 1, 27, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (108, 'qt_selgroup', 'qt_selgroup', 4, 28, NULL, 'qt_selgroup', 27, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (109, 'qt_selgroup', 'qt_selgroup', 5, 28, NULL, 'qt_selgroup', 27, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (133, 'project_admin', 'admin_project', 2, 33, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (134, 'project_admin', 'admin_project', 5, 33, NULL, 'admin_project', 6, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (149, 'group_users', 'group_users', 4, 45, NULL, 'group_users', 3, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (150, 'group_users', 'group_users', 5, 45, NULL, 'group_users', 3, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (151, 'user_groups', 'user_groups', 4, 46, NULL, 'user_groups', 4, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (152, 'user_groups', 'user_groups', 5, 46, NULL, 'user_groups', 4, NULL, NULL, NULL);
+INSERT INTO e_form (id, name, config_file, tab_type, level_destination, form_destination, save_data, parent_level, js, table_name, order_by) VALUES (75, 'qt_relation', 'qt_relation_addnew', 0, 16, NULL, NULL, 13, NULL, NULL, NULL);
+
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (1, 1, 3, 2, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (2, 2, 0, 3, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (4, 2, 3, 8, 5, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (5, 2, 3, 5, 8, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (7, 2, 1, 7, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (8, 2, 2, 6, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (14, 2, 3, 12, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (15, 6, 1, 13, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (16, 6, 2, 13, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (17, 6, 0, 13, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (19, 8, 0, 26, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (20, 8, 1, 27, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (21, 8, 2, 28, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (22, 5, 0, 9, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (23, 5, 1, 10, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (24, 5, 2, 11, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (25, 5, 3, 30, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (26, 10, 0, 31, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (27, 10, 1, 32, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (28, 10, 2, 33, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (29, 10, 3, 34, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (30, 11, 0, 35, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (31, 11, 1, 36, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (32, 11, 2, 37, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (33, 11, 3, 38, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (34, 12, 0, 39, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (35, 12, 1, 40, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (36, 12, 2, 41, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (37, 12, 3, 42, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (38, 14, 0, 43, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (39, 14, 1, 44, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (40, 14, 2, 45, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (45, 2, 3, 50, 4, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (46, 7, 0, 51, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (47, 7, 1, 52, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (48, 7, 2, 53, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (49, 5, 3, 54, 5, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (50, 13, 0, 55, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (51, 13, 3, 58, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (52, 13, 3, 62, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (53, 13, 3, 66, 4, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (54, 16, 0, 59, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (55, 16, 1, 60, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (56, 16, 2, 61, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (57, 17, 0, 63, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (58, 17, 1, 64, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (59, 17, 2, 65, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (60, 19, 0, 67, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (61, 19, 1, 68, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (62, 19, 1, 69, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (63, 2, 3, 70, 7, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (64, 9, 0, 72, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (65, 9, 1, 73, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (66, 9, 2, 74, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (67, 13, 1, 56, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (68, 13, 2, 57, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (74, 8, 3, 81, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (75, 21, 1, 82, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (77, 8, 3, 84, 6, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (78, 22, 1, 85, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (80, 8, 3, 87, 4, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (81, 23, 1, 88, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (83, 8, 3, 90, 5, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (84, 24, 1, 91, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (98, 2, 3, 105, 6, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (99, 27, 1, 106, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (101, 27, 0, 107, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (102, 28, 1, 109, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (116, 27, 3, 108, 6, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (127, 33, 1, 134, 15, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (131, 2, 3, 133, 15, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (132, 27, 2, 106, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (164, 1, 3, 16, 3, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (165, 4, 0, 18, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (166, 4, 1, 18, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (167, 4, 2, 18, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (168, 1, 3, 20, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (169, 3, 0, 23, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (170, 3, 1, 23, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (171, 3, 2, 23, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (172, 3, 3, 149, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (173, 45, 1, 150, 1, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (175, 4, 3, 151, 2, 1);
+INSERT INTO form_level (id, level, mode, form, order_fld, visible) VALUES (176, 46, 1, 152, 1, 1);
+
+--TABELLE AUTHOR
+
+CREATE TABLE e_conntype (
+    conntype_id smallint NOT NULL,
+    conntype_name character varying NOT NULL,
+    conntype_order smallint
+);
+
+CREATE TABLE e_datatype (
+    datatype_id smallint NOT NULL,
+    datatype_name character varying NOT NULL,
+    datatype_order smallint
+);
+
+CREATE TABLE e_fieldformat (
+    fieldformat_id integer NOT NULL,
+    fieldformat_name character varying NOT NULL,
+    fieldformat_format character varying NOT NULL,
+    fieldformat_order smallint
+);
+
+CREATE TABLE e_fieldtype (
+    fieldtype_id smallint NOT NULL,
+    fieldtype_name character varying NOT NULL,
+    fieldtype_order smallint
+);
+
+CREATE TABLE e_filetype (
+    filetype_id smallint NOT NULL,
+    filetype_name character varying NOT NULL,
+    filetype_order smallint
+);
+
+CREATE TABLE e_language (
+    language_id character(2) NOT NULL,
+    language_name character varying NOT NULL,
+    language_order integer
+);
+
+CREATE TABLE e_layertype (
+    layertype_id smallint NOT NULL,
+    layertype_name character varying NOT NULL,
+    layertype_ms smallint,
+    layertype_order smallint
+);
+
+CREATE TABLE e_lblposition (
+    lblposition_id integer NOT NULL,
+    lblposition_name character varying NOT NULL,
+    lblposition_order smallint
+);
+
+CREATE TABLE e_legendtype (
+    legendtype_id smallint NOT NULL,
+    legendtype_name character varying NOT NULL,
+    legendtype_order smallint
+);
+
+
+CREATE TABLE e_orderby (
+    orderby_id smallint NOT NULL,
+    orderby_name character varying NOT NULL,
+    orderby_order smallint
+);
+
+CREATE TABLE e_outputformat (
+    outputformat_id smallint NOT NULL,
+    outputformat_name character varying NOT NULL,
+    outputformat_def character varying NOT NULL,
+    outputformat_order smallint
+);
+
+CREATE TABLE e_papersize (
+    papersize_id integer NOT NULL,
+    papersize_name character varying NOT NULL,
+    papersize_size character varying NOT NULL,
+    papersize_orientation character varying,
+    papaersize_order smallint
+);
+
+CREATE TABLE e_qtrelationtype (
+    qtrelationtype_id integer NOT NULL,
+    qtrelationtype_name character varying NOT NULL,
+    qtrelationtype_order smallint
+);
+
+CREATE TABLE e_resultype (
+    resultype_id smallint NOT NULL,
+    resultype_name character varying NOT NULL,
+    resultype_order smallint
+);
+
+CREATE TABLE e_searchtype (
+    searchtype_id smallint NOT NULL,
+    searchtype_name character varying NOT NULL,
+    searchtype_order smallint
+);
+
+CREATE TABLE e_sizeunits (
+    sizeunits_id smallint NOT NULL,
+    sizeunits_name character varying NOT NULL,
+    sizeunits_order smallint
+);
+
+CREATE TABLE e_symbolcategory (
+    symbolcategory_id smallint NOT NULL,
+    symbolcategory_name character varying NOT NULL,
+    symbolcategory_order smallint
+);
+
+--TABELLE INDIPENTENTI DAL PROGETTO
+
+CREATE TABLE font (
+    font_name character varying NOT NULL,
+    file_name character varying NOT NULL
+);
+
+CREATE TABLE groups (
+    groupname character varying NOT NULL,
+    description character varying
+);
+
+CREATE TABLE symbol (
+    symbol_name character varying NOT NULL,
+    symbolcategory_id integer DEFAULT 1 NOT NULL,
+    icontype integer DEFAULT 0 NOT NULL,
+    symbol_image bytea,
+    symbol_def text
+);
+
+CREATE TABLE symbol_ttf (
+    symbol_ttf_name character varying NOT NULL,
+    font_name character varying NOT NULL,
+    symbolcategory_id integer DEFAULT 0,
+    ascii_code smallint NOT NULL,
+    "position" character(2),
+    symbol_ttf_image bytea
+);
+
+CREATE TABLE users (
+    username character varying NOT NULL,
+    pwd character varying,
+    enc_pwd character varying,
+    data_creazione date,
+    data_scadenza date,
+    data_modifica date,
+    attivato smallint DEFAULT 1 NOT NULL,
+    ultimo_accesso timestamp without time zone,
+    cognome character varying,
+    nome character varying,
+    macaddress character varying,
+    ip character varying,
+    host character varying,
+    controllo character varying,
+    userdata character varying,
+    email character varying
+);
+
+CREATE TABLE user_group (
+    username character varying NOT NULL,
+    groupname character varying NOT NULL
+);
+
+
+
+--TABELLE DI PROGETTO
+
+CREATE TABLE project (
+    project_name character varying NOT NULL,
+    project_title character varying,
+    project_description text,
+    base_path character varying,
+    base_url character varying,
+    project_extent character varying NOT NULL,
+    sel_user_color character varying,
+    sel_transparency integer DEFAULT 50,
+    imagelabel_font character varying,
+    imagelabel_text character varying,
+    imagelabel_offset_x integer DEFAULT 5,
+    imagelabel_offset_y integer DEFAULT 5,
+    imagelabel_position character(2) DEFAULT 'LR'::bpchar,
+    icon_w smallint DEFAULT 36,
+    icon_h smallint DEFAULT 24,
+    history smallint DEFAULT 4,
+    project_srid integer,
+    imagelabel_size integer DEFAULT 18,
+    imagelabel_color character varying DEFAULT '0 0 0'::character varying,
+    login_page character varying,
+    project_note text
+);
+
+CREATE TABLE catalog (
+    catalog_id integer NOT NULL,
+    catalog_name character varying NOT NULL,
+    project_name character varying NOT NULL,
+    connection_type smallint NOT NULL,
+    catalog_path character varying NOT NULL,
+    catalog_url character varying,
+    catalog_description text
+);
+
+
+--IMPORTAZIONE DATI
+CREATE TABLE catalog_import (
+    catalog_import_id integer NOT NULL,
+    project_name character varying NOT NULL,
+    catalog_import_name text,
+    catalog_from integer NOT NULL,
+    catalog_to integer NOT NULL,
+    catalog_import_description text
+);
+
+CREATE TABLE theme (
+    theme_id integer NOT NULL,
+    project_name character varying,
+    theme_name character varying NOT NULL,
+    theme_title character varying,
+    theme_link character varying,
+    theme_order integer,
+    locked smallint DEFAULT 0
+);
+
+CREATE TABLE layergroup (
+    layergroup_id integer NOT NULL,
+    theme_id integer NOT NULL,
+    layergroup_name character varying NOT NULL,
+    layergroup_title character varying,
+    layergroup_link character varying,
+    layergroup_maxscale integer,
+    layergroup_minscale integer,
+    layergroup_smbscale integer,
+    layergroup_order integer,
+    locked smallint DEFAULT 0,
+    multi smallint DEFAULT 0,
+    hidden integer DEFAULT 0
+);
+
+CREATE TABLE layer (
+    layer_id integer NOT NULL,
+    layergroup_id integer NOT NULL,
+    layer_name character varying NOT NULL,
+    layertype_id smallint NOT NULL,
+    catalog_id integer NOT NULL,
+    data character varying,
+    data_geom character varying,
+    data_unique character varying,
+    data_srid integer,
+    data_filter character varying,
+    classitem character varying,
+    labelitem character varying,
+    labelsizeitem character varying,
+    labelminscale character varying,
+    labelmaxscale character varying,
+    maxscale character varying,
+    minscale character varying,
+    symbolscale integer,
+    requires character varying,
+    labelrequires character varying,
+    transparency character varying,
+    maxfeatures integer,
+    sizeunits_id smallint DEFAULT 1,
+    layer_def text,
+    metadata text,
+    template character varying,
+    header character varying,
+    footer character varying,
+    tolerance integer,
+    layer_order integer DEFAULT 0,
+    mapset_filter smallint DEFAULT 0,
+    locked smallint DEFAULT 0,
+    static integer DEFAULT 1,
+    CONSTRAINT layer_layertype_id_check CHECK ((layertype_id > 0))
+);
+
+CREATE TABLE class (
+    class_id integer NOT NULL,
+    layer_id integer NOT NULL,
+    class_name character varying NOT NULL,
+    class_title character varying,
+    class_link character varying,
+    class_text character varying,
+    expression character varying,
+    maxscale character varying,
+    minscale character varying,
+    class_template character varying,
+    class_order integer,
+    legendtype_id smallint DEFAULT 1,
+    symbol_ttf_name character varying,
+    label_font character varying,
+    label_angle character varying,
+    label_color character varying,
+    label_outlinecolor character varying,
+    label_bgcolor character varying,
+    label_size character varying,
+    label_minsize smallint,
+    label_maxsize smallint,
+    label_position character varying,
+    label_antialias smallint DEFAULT 0,
+    label_free smallint DEFAULT 0,
+    label_priority smallint,
+    label_wrap character(1),
+    label_buffer integer DEFAULT 0,
+    label_force smallint DEFAULT 0,
+    label_def text,
+    locked integer DEFAULT 0,
+    class_image bytea
+);
+
+CREATE TABLE style (
+    style_id integer NOT NULL,
+    class_id integer NOT NULL,
+    style_name character varying NOT NULL,
+    symbol_name character varying,
+    color character varying,
+    outlinecolor character varying,
+    bgcolor character varying,
+    angle character varying,
+    size character varying,
+    minsize smallint,
+    maxsize smallint,
+    width real,
+    maxwidth real,
+    minwidth real,
+    locked smallint DEFAULT 0,
+    style_def text,
+    style_order integer
+);
+
+CREATE TABLE project_srs (
+    project_name character varying NOT NULL,
+    srid integer NOT NULL,
+    param character varying
+);
+
+CREATE TABLE project_admin (
+    project_name character varying NOT NULL,
+    username character varying NOT NULL
+);
+
+
+
+
+
+--MODELLI DI RICERCA
+
+CREATE TABLE qt (
+    qt_id integer NOT NULL,
+    theme_id integer NOT NULL,
+    layer_id integer NOT NULL,
+    qt_name character varying NOT NULL,
+    max_rows smallint DEFAULT 25,
+    papersize_id integer,
+    edit_url character varying,
+    groupobject integer DEFAULT 0,
+    selection_color character varying,
+    qt_order smallint DEFAULT 0,
+    qtresultype_id integer,
+    qt_filter character varying,
+    zoom_buffer integer
+);
+
+CREATE TABLE qtrelation (
+    qtrelation_id integer NOT NULL,
+    qt_id integer NOT NULL,
+    catalog_id integer NOT NULL,
+    qtrelation_name character varying NOT NULL,
+    qtrelationtype_id integer DEFAULT 1 NOT NULL,
+    data_field_1 character varying NOT NULL,
+    data_field_2 character varying,
+    data_field_3 character varying,
+    table_name character varying NOT NULL,
+    table_field_1 character varying NOT NULL,
+    table_field_2 character varying,
+    table_field_3 character varying,
+    language_id character varying(2)
+);
+
+CREATE TABLE qtfield (
+    qtfield_id integer NOT NULL,
+    qt_id integer NOT NULL,
+    qtrelation_id integer DEFAULT 0 NOT NULL,
+    qtfield_name character varying NOT NULL,
+    field_header character varying NOT NULL,
+    fieldtype_id smallint DEFAULT 1 NOT NULL,
+    searchtype_id smallint DEFAULT 1 NOT NULL,
+    resultype_id smallint DEFAULT 3 NOT NULL,
+    field_format character varying,
+    column_width integer,
+    orderby_id integer DEFAULT 0 NOT NULL,
+    field_filter integer DEFAULT 0 NOT NULL,
+    datatype_id smallint DEFAULT 1 NOT NULL,
+    qtfield_order smallint DEFAULT 0 NOT NULL,
+    default_op character varying,
+    CONSTRAINT qtfield_qtrelation_id_check CHECK ((qtrelation_id >= 0))
+);
+
+CREATE TABLE link (
+    link_id integer NOT NULL,
+    project_name character varying NOT NULL,
+    link_name character varying NOT NULL,
+    link_def character varying NOT NULL,
+    link_order smallint DEFAULT 0,
+    winw smallint DEFAULT 800,
+    winh smallint DEFAULT 600
+);
+
+CREATE TABLE selgroup (
+    selgroup_id integer NOT NULL,
+    project_name character varying NOT NULL,
+    selgroup_name character varying NOT NULL,
+    selgroup_title character varying,
+    selgroup_order smallint DEFAULT 1
+);
+
+CREATE TABLE qt_link (
+    qt_id integer NOT NULL,
+    link_id integer NOT NULL,
+    resultype_id smallint
+);
+
+CREATE TABLE qt_selgroup (
+    qt_id integer NOT NULL,
+    selgroup_id integer NOT NULL
+);
+
+
+--MAPSET
+
+CREATE TABLE mapset (
+    mapset_name character varying NOT NULL,
+    project_name character varying NOT NULL,
+    mapset_title character varying,
+    mapset_description text,
+    template character varying,
+    mapset_extent character varying NOT NULL,
+    page_size character varying,
+    filter_data character varying,
+    dl_image_res character varying,
+    legend_icon_w integer DEFAULT 18,
+    legend_icon_h integer DEFAULT 14,
+    imagelabel smallint DEFAULT 0,
+    bg_color character varying DEFAULT '255 255 255'::character varying,
+    refmap_extent character varying,
+    test_extent character varying,
+    mapset_srid integer DEFAULT -1,
+    mapset_def character varying,
+    mapset_group character varying,
+    outputformat_id integer,
+    interlace smallint DEFAULT 0,
+    geocoord integer DEFAULT 0,
+    private integer DEFAULT 0,
+    sizeunits_id smallint DEFAULT 5,
+    readline_color character varying,
+    static_reference integer DEFAULT 0,
+    metadata text,
+    mapset_note text,
+    mask character varying
+);
+
+CREATE TABLE mapset_groups (
+    mapset_name character varying NOT NULL,
+    group_name character varying NOT NULL,
+    edit integer DEFAULT 0,
+    redline integer DEFAULT 0
+);
+
+CREATE TABLE mapset_layergroup (
+    mapset_name character varying NOT NULL,
+    layergroup_id integer NOT NULL,
+    status smallint DEFAULT 0,
+    refmap smallint DEFAULT 0
+);
+
+CREATE TABLE mapset_qt (
+    mapset_name character varying NOT NULL,
+    qt_id integer NOT NULL
+);
+
+CREATE TABLE mapset_link (
+    mapset_name character varying NOT NULL,
+    link_id integer NOT NULL,
+    CONSTRAINT mapset_link_qtlink_id_check CHECK ((link_id > 0))
+);
+
+
+
+--LINGUE IN JOIN
+
+CREATE TABLE language_project (
+    language_id character(2) NOT NULL,
+    project_name character varying NOT NULL,
+    title character varying NOT NULL
+);
+
+CREATE TABLE language_theme (
+    language_id character(2) NOT NULL,
+    theme_id integer NOT NULL,
+    title character varying NOT NULL,
+    link character varying
+);
+
+CREATE TABLE language_layergroup (
+    language_id character(2) NOT NULL,
+    layergroup_id integer NOT NULL,
+    title character varying NOT NULL,
+    link character varying
+);
+
+CREATE TABLE language_layer (
+    language_id character(2) NOT NULL,
+    layer_id integer NOT NULL,
+    labelitem character varying NOT NULL,
+    template character varying,
+    header character varying,
+    footer character varying
+);
+
+CREATE TABLE language_class (
+    language_id character(2) NOT NULL,
+    class_id integer NOT NULL,
+    title character varying NOT NULL,
+    link character varying,
+    template character varying
+);
+
+CREATE TABLE language_mapset (
+    language_id character(2) NOT NULL,
+    mapset_name character varying NOT NULL,
+    title character varying NOT NULL
+);
+
+CREATE TABLE language_selgroup (
+    language_id character(2) NOT NULL,
+    selgroup_id integer NOT NULL,
+    title character varying NOT NULL
+);
+
+
+-- ELENCO DELLE VISTE UTILIZZATE IN AUTHOR
+
+CREATE VIEW seldb_catalog AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, '0' AS project_name UNION SELECT catalog.catalog_id AS id, catalog.catalog_name AS opzione, catalog.project_name FROM catalog;
+
+CREATE VIEW seldb_catalog_wms AS
+    SELECT catalog.catalog_id AS id, catalog.catalog_name AS opzione, catalog.project_name FROM catalog WHERE (catalog.connection_type = 7);
+
+CREATE VIEW seldb_conntype AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione UNION (SELECT e_conntype.conntype_id AS id, e_conntype.conntype_name AS opzione FROM e_conntype ORDER BY e_conntype.conntype_order);
+
+CREATE VIEW seldb_datatype AS
+    SELECT e_datatype.datatype_id AS id, e_datatype.datatype_name AS opzione FROM e_datatype;
+
+CREATE VIEW seldb_field_filter AS
+    SELECT -1 AS id, 'Nessuno' AS opzione, 0 AS qtfield_id, 0 AS qt_id UNION (SELECT x.qtfield_id AS id, x.field_header AS opzione, y.qtfield_id, x.qt_id FROM (qtfield x JOIN qtfield y USING (qt_id)) WHERE (x.qtfield_id <> y.qtfield_id) ORDER BY x.qtfield_id, x.qtfield_order);
+
+CREATE VIEW seldb_fieldtype AS
+    SELECT e_fieldtype.fieldtype_id AS id, e_fieldtype.fieldtype_name AS opzione FROM e_fieldtype;
+
+CREATE VIEW seldb_filetype AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione UNION SELECT e_filetype.filetype_id AS id, e_filetype.filetype_name AS opzione FROM e_filetype;
+
+CREATE VIEW seldb_font AS
+    SELECT '' AS id, 'Seleziona ====>' AS opzione UNION SELECT font.font_name AS id, font.font_name AS opzione FROM font;
+
+CREATE VIEW seldb_language AS
+    SELECT e_language.language_id AS id, e_language.language_name AS opzione FROM e_language;
+
+CREATE VIEW seldb_layertype AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione UNION (SELECT e_layertype.layertype_id AS id, e_layertype.layertype_name AS opzione FROM e_layertype ORDER BY e_layertype.layertype_name);
+
+CREATE VIEW seldb_lblposition AS
+    SELECT '' AS id, 'Seleziona ====>' AS opzione UNION (SELECT e_lblposition.lblposition_name AS id, e_lblposition.lblposition_name AS opzione FROM e_lblposition ORDER BY e_lblposition.lblposition_order);
+
+CREATE VIEW seldb_legendtype AS
+    SELECT e_legendtype.legendtype_id AS id, e_legendtype.legendtype_name AS opzione FROM e_legendtype ORDER BY e_legendtype.legendtype_order;
+
+CREATE VIEW seldb_link AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, '' AS project_name UNION SELECT link.link_id AS id, link.link_name AS opzione, link.project_name FROM link;
+
+CREATE VIEW seldb_mapset_link AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, '' AS mapset_name UNION (SELECT DISTINCT foo.link_id AS id, foo.link_title AS opzione, mapset_layergroup.mapset_name FROM (((((SELECT qt_link.qt_id, qt_link.link_id, link.link_name AS link_title FROM (link JOIN qt_link USING (link_id))) foo JOIN qt USING (qt_id)) JOIN layer USING (layer_id)) JOIN layergroup USING (layergroup_id)) JOIN mapset_layergroup USING (layergroup_id)) ORDER BY foo.link_id, foo.link_title, mapset_layergroup.mapset_name);
+
+CREATE VIEW seldb_option_filter AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, 0 AS qtfield_id, 0 AS qt_id UNION (SELECT x.qtfield_id AS id, x.field_header AS opzione, y.qtfield_id, x.qt_id FROM (qtfield x JOIN qtfield y USING (qt_id)) WHERE ((x.qtfield_id <> y.qtfield_id) AND COALESCE((x.qtrelation_id = y.qtrelation_id))) ORDER BY x.qtfield_id, x.qtfield_order);
+
+CREATE VIEW seldb_orderby AS
+    SELECT e_orderby.orderby_id AS id, e_orderby.orderby_name AS opzione FROM e_orderby;
+
+CREATE VIEW seldb_outputformat AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione UNION SELECT e_outputformat.outputformat_id AS id, e_outputformat.outputformat_name AS opzione FROM e_outputformat;
+
+CREATE VIEW seldb_papersize AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione UNION SELECT e_papersize.papersize_id AS id, e_papersize.papersize_name AS opzione FROM e_papersize;
+
+CREATE VIEW seldb_project AS
+    SELECT '' AS id, 'Seleziona ====>' AS opzione UNION (SELECT DISTINCT project.project_name AS id, project.project_name AS opzione FROM project ORDER BY project.project_name, project.project_name);
+
+CREATE VIEW seldb_qt AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, '' AS mapset_name UNION SELECT qt.qt_id AS id, qt.qt_name AS opzione, mapset_layergroup.mapset_name FROM ((qt qt LEFT JOIN layer USING (layer_id)) LEFT JOIN mapset_layergroup USING (layergroup_id));
+
+CREATE VIEW seldb_qtrelation AS
+    SELECT 0 AS id, 'layer' AS opzione, 0 AS qt_id UNION SELECT qtrelation.qtrelation_id AS id, qtrelation.qtrelation_name AS opzione, qtrelation.qt_id FROM qtrelation;
+
+CREATE VIEW seldb_qtrelationtype AS
+    SELECT e_qtrelationtype.qtrelationtype_id AS id, e_qtrelationtype.qtrelationtype_name AS opzione FROM e_qtrelationtype;
+
+CREATE VIEW seldb_querytemplate AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, '' AS mapset_name UNION SELECT querytemplate.qt_id AS id, querytemplate.qt_name AS opzione, mapset_layergroup.mapset_name FROM ((qt querytemplate LEFT JOIN layer USING (layer_id)) LEFT JOIN mapset_layergroup USING (layergroup_id));
+
+CREATE VIEW seldb_resultype AS
+    SELECT e_resultype.resultype_id AS id, e_resultype.resultype_name AS opzione FROM e_resultype ORDER BY e_resultype.resultype_order;
+
+CREATE VIEW seldb_searchtype AS
+    SELECT e_searchtype.searchtype_id AS id, e_searchtype.searchtype_name AS opzione FROM e_searchtype;
+
+CREATE VIEW seldb_sizeunits AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione UNION SELECT e_sizeunits.sizeunits_id AS id, e_sizeunits.sizeunits_name AS opzione FROM e_sizeunits;
+
+CREATE VIEW seldb_theme AS
+    SELECT -1 AS id, 'Seleziona ====>' AS opzione, '' AS project_name UNION SELECT theme.theme_id AS id, theme.theme_name AS opzione, theme.project_name FROM theme;
+
+CREATE VIEW vista_mapset_link AS
+    SELECT mapset_link.mapset_name, mapset_link.link_id, link.link_name AS link_title FROM (mapset_link LEFT JOIN link USING (link_id));
+
+CREATE VIEW vista_qtfield AS
+    SELECT qtfield.qtfield_id, qtfield.qt_id, qtfield.fieldtype_id, x.qtrelation_id, qtfield.qtfield_name, qtfield.field_header, qtfield.qtfield_order, COALESCE(qtfield.column_width, 0) AS column_width, x.name AS qtrelation_name, x.qtrelationtype_id, x.qtrelationtype_name FROM ((qtfield JOIN e_fieldtype USING (fieldtype_id)) JOIN (SELECT y.qtrelationtype_id, y.qtrelation_id, y.name, z.qtrelationtype_name FROM ((SELECT 0 AS qtrelation_id, 'Data Layer' AS name, 0 AS qtrelationtype_id UNION SELECT qtrelation.qtrelation_id, COALESCE(qtrelation.qtrelation_name, 'Nessuna Relazione'::character varying) AS name, qtrelation.qtrelationtype_id FROM qtrelation) y JOIN (SELECT 0 AS qtrelationtype_id, '' AS qtrelationtype_name UNION SELECT e_qtrelationtype.qtrelationtype_id, e_qtrelationtype.qtrelationtype_name FROM e_qtrelationtype) z USING (qtrelationtype_id))) x USING (qtrelation_id)) ORDER BY qtfield.qtfield_id, x.qtrelation_id, x.qtrelationtype_id;
+
+CREATE VIEW vista_style AS
+    SELECT style.style_id, style.class_id, style.style_name, style.angle, style.color, style.outlinecolor, style.bgcolor, style.size, style.minsize, style.maxsize, style.minwidth, style.width, style.maxwidth, style.style_def, style.locked, style.symbol_name, symbol.symbol_image, style.style_order FROM (style LEFT JOIN symbol USING (symbol_name)) ORDER BY style.style_order;
+
+
+--Dati di ELENCO	
+
+INSERT INTO e_language (language_id, language_name, language_order) VALUES ('en', 'English', 1);
+INSERT INTO e_language (language_id, language_name, language_order) VALUES ('fr', 'Francais', 2);
+INSERT INTO e_language (language_id, language_name, language_order) VALUES ('de', 'Deutsch', 3);
+INSERT INTO e_language (language_id, language_name, language_order) VALUES ('es', 'Espanol', 4);	
+		
+INSERT INTO e_conntype (conntype_id, conntype_name, conntype_order) VALUES (7, 'WMS', 4);
+INSERT INTO e_conntype (conntype_id, conntype_name, conntype_order) VALUES (6, 'Postgis', 2);
+INSERT INTO e_conntype (conntype_id, conntype_name, conntype_order) VALUES (1, 'Local Folder', 1);
+INSERT INTO e_conntype (conntype_id, conntype_name, conntype_order) VALUES (9, 'WFS', 5);
+
+INSERT INTO e_datatype (datatype_id, datatype_name, datatype_order) VALUES (1, 'Stringa di testo', NULL);
+INSERT INTO e_datatype (datatype_id, datatype_name, datatype_order) VALUES (2, 'Numero', NULL);
+INSERT INTO e_datatype (datatype_id, datatype_name, datatype_order) VALUES (3, 'Data', NULL);
+
+INSERT INTO e_fieldformat (fieldformat_id, fieldformat_name, fieldformat_format, fieldformat_order) VALUES (1, 'intero', '%d', 10);
+INSERT INTO e_fieldformat (fieldformat_id, fieldformat_name, fieldformat_format, fieldformat_order) VALUES (2, 'decimale (1 cifra)', '%01.1f', 20);
+INSERT INTO e_fieldformat (fieldformat_id, fieldformat_name, fieldformat_format, fieldformat_order) VALUES (3, 'decimale (2 cifre)', '%01.2f', 30);
+
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (1, 'Standard', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (2, 'Collegamento', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (3, 'E-mail', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (10, 'Intestazione di gruppo', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (8, 'Immagine', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (107, 'Varianza', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (106, 'Deviazione  St', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (105, 'Conteggio', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (104, 'Max', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (103, 'Min', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (102, 'Media', NULL);
+INSERT INTO e_fieldtype (fieldtype_id, fieldtype_name, fieldtype_order) VALUES (101, 'Somma', NULL);
+
+INSERT INTO e_filetype (filetype_id, filetype_name, filetype_order) VALUES (1, 'File SQL', 1);
+INSERT INTO e_filetype (filetype_id, filetype_name, filetype_order) VALUES (2, 'File CSV', 2);
+INSERT INTO e_filetype (filetype_id, filetype_name, filetype_order) VALUES (3, 'File Shape', 3);
+
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (5, 'annotation          ', 4, NULL);
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (1, 'point               ', 0, NULL);
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (2, 'line                ', 1, NULL);
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (3, 'polygon             ', 2, NULL);
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (4, 'raster              ', 3, NULL);
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (10, 'text', 99, NULL);
+INSERT INTO e_layertype (layertype_id, layertype_name, layertype_ms, layertype_order) VALUES (8, 'tileindex', 7, NULL);
+
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (1, 'UL', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (2, 'UC', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (3, 'UR', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (4, 'CL', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (5, 'CC', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (6, 'CR', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (7, 'LL', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (8, 'LC', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (9, 'LR', NULL);
+INSERT INTO e_lblposition (lblposition_id, lblposition_name, lblposition_order) VALUES (10, 'AUTO', NULL);
+
+INSERT INTO e_legendtype (legendtype_id, legendtype_name, legendtype_order) VALUES (1, 'auto', 1);
+INSERT INTO e_legendtype (legendtype_id, legendtype_name, legendtype_order) VALUES (0, 'nessuna', 2);
+
+INSERT INTO e_orderby (orderby_id, orderby_name, orderby_order) VALUES (0, 'Nessuno', NULL);
+INSERT INTO e_orderby (orderby_id, orderby_name, orderby_order) VALUES (1, 'Crescente', NULL);
+INSERT INTO e_orderby (orderby_id, orderby_name, orderby_order) VALUES (2, 'Decresente', NULL);
+
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (1, 'A4 Verticale', 'A4', 'P', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (2, 'A4 Orizzontale', 'A4', 'L', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (3, 'A3 Verticale', 'A3', 'P', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (4, 'A3 Orizzontale', 'A3', 'L', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (5, 'A2 Verticale', 'A2', 'P', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (6, 'A2 Orizzontale', 'A2', 'L', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (7, 'A1 Verticale', 'A1', 'P', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (8, 'A1 Orizzontale', 'A1', 'L', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (9, 'A0 Verticale', 'A0', 'P', NULL);
+INSERT INTO e_papersize (papersize_id, papersize_name, papersize_size, papersize_orientation, papaersize_order) VALUES (10, 'A0 Orizzontale', 'A0', 'L', NULL);
+
+INSERT INTO e_qtrelationtype (qtrelationtype_id, qtrelationtype_name, qtrelationtype_order) VALUES (1, 'Dettaglio (1 a 1)', NULL);
+INSERT INTO e_qtrelationtype (qtrelationtype_id, qtrelationtype_name, qtrelationtype_order) VALUES (2, 'Secondaria (Info 1 a molti)', NULL);
+
+INSERT INTO e_resultype (resultype_id, resultype_name, resultype_order) VALUES (3, 'Singolo oggetto e tabella', 1);
+INSERT INTO e_resultype (resultype_id, resultype_name, resultype_order) VALUES (4, 'Non visualizzato', 4);
+INSERT INTO e_resultype (resultype_id, resultype_name, resultype_order) VALUES (2, 'Tabella', 3);
+INSERT INTO e_resultype (resultype_id, resultype_name, resultype_order) VALUES (1, 'Singolo oggetto', 2);
+
+INSERT INTO e_searchtype (searchtype_id, searchtype_name, searchtype_order) VALUES (4, 'Numerico', NULL);
+INSERT INTO e_searchtype (searchtype_id, searchtype_name, searchtype_order) VALUES (5, 'Data', NULL);
+INSERT INTO e_searchtype (searchtype_id, searchtype_name, searchtype_order) VALUES (1, 'Testo', NULL);
+INSERT INTO e_searchtype (searchtype_id, searchtype_name, searchtype_order) VALUES (2, 'Parte di testo', NULL);
+INSERT INTO e_searchtype (searchtype_id, searchtype_name, searchtype_order) VALUES (3, 'Lista di valori', NULL);
+INSERT INTO e_searchtype (searchtype_id, searchtype_name, searchtype_order) VALUES (0, 'Nessuno', NULL);
+
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (2, 'feet', NULL);
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (3, 'inches', NULL);
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (1, 'pixels', NULL);
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (4, 'kilometers', NULL);
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (5, 'meters', NULL);
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (6, 'miles', NULL);
+INSERT INTO e_sizeunits (sizeunits_id, sizeunits_name, sizeunits_order) VALUES (7, 'dd', NULL);
+
+INSERT INTO e_symbolcategory (symbolcategory_id, symbolcategory_name, symbolcategory_order) VALUES (1, 'Tutti', NULL);
+
+INSERT INTO e_outputformat (outputformat_id, outputformat_name, outputformat_def, outputformat_order) VALUES (7, 'JPEG', '  NAME jpeg
+  DRIVER "GD/JPEG"
+  MIMETYPE "image/jpeg"
+  IMAGEMODE RGB
+  FORMATOPTION "QUALITY=70"
+  EXTENSION "jpg"', NULL);
+INSERT INTO e_outputformat (outputformat_id, outputformat_name, outputformat_def, outputformat_order) VALUES (5, 'PNG 24 bit', '  NAME png24
+  DRIVER "GD/PNG"
+  MIMETYPE "image/png"
+  IMAGEMODE RGB
+  EXTENSION "png"', NULL);
+INSERT INTO e_outputformat (outputformat_id, outputformat_name, outputformat_def, outputformat_order) VALUES (4, 'PNG 8 bit', '  NAME png8
+  DRIVER "GD/PNG"
+  MIMETYPE "image/png"
+  IMAGEMODE PC256
+  EXTENSION "png"', NULL);
+INSERT INTO e_outputformat (outputformat_id, outputformat_name, outputformat_def, outputformat_order) VALUES (3, 'AGG JPG', ' NAME AGGJPEG
+ DRIVER AGG/JPEG
+ IMAGEMODE RGB', NULL);
+INSERT INTO e_outputformat (outputformat_id, outputformat_name, outputformat_def, outputformat_order) VALUES (1, 'AGG PNG 24 bit', ' NAME AGG24
+ DRIVER AGG/PNG
+ IMAGEMODE RGB', NULL);
+
+
+--CHIAVI
+
+ALTER TABLE ONLY catalog
+    ADD CONSTRAINT catalog_catalog_name_key UNIQUE (catalog_name, project_name);
+
+ALTER TABLE ONLY catalog
+    ADD CONSTRAINT catalog_pkey PRIMARY KEY (catalog_id);
+    
+ALTER TABLE ONLY catalog_import
+    ADD CONSTRAINT catalog_import_pkey PRIMARY KEY (catalog_import_id);
+    
+ALTER TABLE ONLY catalog_import
+   ADD CONSTRAINT catalog_import_catalog_import_name_key UNIQUE (catalog_import_name, project_name);  
+    
+ALTER TABLE ONLY class
+    ADD CONSTRAINT class_layer_id_key UNIQUE (layer_id, class_name);
+
+ALTER TABLE ONLY class
+    ADD CONSTRAINT class_pkey PRIMARY KEY (class_id);
+
+ALTER TABLE ONLY e_conntype
+    ADD CONSTRAINT e_conntype_pkey PRIMARY KEY (conntype_id);
+
+ALTER TABLE ONLY e_datatype
+    ADD CONSTRAINT e_datatype_pkey PRIMARY KEY (datatype_id);
+
+ALTER TABLE ONLY e_fieldformat
+    ADD CONSTRAINT e_fieldformat_pkey PRIMARY KEY (fieldformat_id);
+
+ALTER TABLE ONLY e_fieldtype
+    ADD CONSTRAINT e_fieldtype_pkey PRIMARY KEY (fieldtype_id);
+
+ALTER TABLE ONLY e_filetype
+    ADD CONSTRAINT e_filetype_pkey PRIMARY KEY (filetype_id);
+
+ALTER TABLE ONLY e_form
+    ADD CONSTRAINT e_form_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY e_language
+    ADD CONSTRAINT e_language_pkey PRIMARY KEY (language_id);
+
+ALTER TABLE ONLY e_layertype
+    ADD CONSTRAINT e_layertype_pkey PRIMARY KEY (layertype_id);
+
+ALTER TABLE ONLY e_lblposition
+    ADD CONSTRAINT e_lblposition_pkey PRIMARY KEY (lblposition_id);
+
+ALTER TABLE ONLY e_legendtype
+    ADD CONSTRAINT e_legendtype_pkey PRIMARY KEY (legendtype_id);
+
+ALTER TABLE ONLY e_level
+    ADD CONSTRAINT e_level_name_key UNIQUE (name);
+
+ALTER TABLE ONLY e_level
+    ADD CONSTRAINT e_livelli_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY e_orderby
+    ADD CONSTRAINT e_orderby_pkey PRIMARY KEY (orderby_id);
+
+ALTER TABLE ONLY e_outputformat
+    ADD CONSTRAINT e_outputformat_pkey PRIMARY KEY (outputformat_id);
+
+ALTER TABLE ONLY e_papersize
+    ADD CONSTRAINT e_papersize_pkey PRIMARY KEY (papersize_id);
+
+ALTER TABLE ONLY e_qtrelationtype
+    ADD CONSTRAINT e_qtrelationtype_pkey PRIMARY KEY (qtrelationtype_id);
+
+ALTER TABLE ONLY e_resultype
+    ADD CONSTRAINT e_resultype_pkey PRIMARY KEY (resultype_id);
+
+ALTER TABLE ONLY e_searchtype
+    ADD CONSTRAINT e_searchtype_pkey PRIMARY KEY (searchtype_id);
+
+ALTER TABLE ONLY e_sizeunits
+    ADD CONSTRAINT e_sizeunits_pkey PRIMARY KEY (sizeunits_id);
+
+ALTER TABLE ONLY e_symbolcategory
+    ADD CONSTRAINT e_symbolcategory_pkey PRIMARY KEY (symbolcategory_id);
+
+ALTER TABLE ONLY font
+    ADD CONSTRAINT font_pkey PRIMARY KEY (font_name);
+
+ALTER TABLE ONLY groups
+    ADD CONSTRAINT groups_pkey PRIMARY KEY (groupname);
+
+ALTER TABLE ONLY language_class
+    ADD CONSTRAINT language_class_pkey PRIMARY KEY (language_id, class_id);
+
+ALTER TABLE ONLY language_layer
+    ADD CONSTRAINT language_label_pkey PRIMARY KEY (language_id, layer_id);
+
+ALTER TABLE ONLY language_layergroup
+    ADD CONSTRAINT language_layergroup_pkey PRIMARY KEY (language_id, layergroup_id);
+
+ALTER TABLE ONLY language_mapset
+    ADD CONSTRAINT language_mapset_pkey PRIMARY KEY (language_id, mapset_name);
+
+ALTER TABLE ONLY language_project
+    ADD CONSTRAINT language_project_pkey PRIMARY KEY (language_id, project_name);
+
+ALTER TABLE ONLY language_selgroup
+    ADD CONSTRAINT language_selgroup_pkey PRIMARY KEY (language_id, selgroup_id);
+
+ALTER TABLE ONLY language_theme
+    ADD CONSTRAINT language_theme_pkey PRIMARY KEY (language_id, theme_id);
+
+ALTER TABLE ONLY layer
+    ADD CONSTRAINT layer_layergroup_id_key UNIQUE (layergroup_id, layer_name);
+
+ALTER TABLE ONLY layer
+    ADD CONSTRAINT layer_pkey PRIMARY KEY (layer_id);
+
+ALTER TABLE ONLY layergroup
+    ADD CONSTRAINT layergroup_pkey PRIMARY KEY (layergroup_id);
+
+ALTER TABLE ONLY layergroup
+    ADD CONSTRAINT layergroup_theme_key UNIQUE (theme_id, layergroup_name);
+
+ALTER TABLE ONLY link
+    ADD CONSTRAINT link_pkey PRIMARY KEY (link_id);
+
+ALTER TABLE ONLY form_level
+    ADD CONSTRAINT livelli_form_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY mapset_groups
+    ADD CONSTRAINT mapset_groups_pkey PRIMARY KEY (mapset_name, group_name);
+
+ALTER TABLE ONLY mapset_layergroup
+    ADD CONSTRAINT mapset_layergroup_pkey PRIMARY KEY (mapset_name, layergroup_id);
+
+ALTER TABLE ONLY mapset_link
+    ADD CONSTRAINT mapset_link_pkey PRIMARY KEY (mapset_name, link_id);
+
+ALTER TABLE ONLY mapset
+    ADD CONSTRAINT mapset_mapset_name_key UNIQUE (mapset_name);
+
+ALTER TABLE ONLY mapset
+    ADD CONSTRAINT mapset_pkey PRIMARY KEY (mapset_name);
+
+ALTER TABLE ONLY mapset_qt
+    ADD CONSTRAINT mapset_qt_pkey PRIMARY KEY (mapset_name, qt_id);
+
+ALTER TABLE ONLY project_admin
+    ADD CONSTRAINT project_admin_pkey PRIMARY KEY (project_name, username);
+
+ALTER TABLE ONLY project
+    ADD CONSTRAINT project_pkey PRIMARY KEY (project_name);
+
+ALTER TABLE ONLY project_srs
+    ADD CONSTRAINT project_srs_pkey PRIMARY KEY (project_name, srid);
+
+ALTER TABLE ONLY theme
+    ADD CONSTRAINT project_theme_id_key UNIQUE (project_name, theme_name);
+
+ALTER TABLE ONLY qt_link
+    ADD CONSTRAINT qt_link_pkey PRIMARY KEY (qt_id, link_id);
+
+ALTER TABLE ONLY qt_link
+    ADD CONSTRAINT qt_link_qt_id_key UNIQUE (qt_id, link_id, resultype_id);
+
+ALTER TABLE ONLY qt
+    ADD CONSTRAINT qt_pkey PRIMARY KEY (qt_id);
+
+ALTER TABLE ONLY qt_selgroup
+    ADD CONSTRAINT qt_selgroup_pkey PRIMARY KEY (qt_id, selgroup_id);
+
+ALTER TABLE ONLY qt
+    ADD CONSTRAINT qt_theme_key UNIQUE (theme_id, qt_name);
+
+ALTER TABLE ONLY qtfield
+    ADD CONSTRAINT qtfield_pkey PRIMARY KEY (qtfield_id);
+
+ALTER TABLE ONLY qtfield
+    ADD CONSTRAINT qtfield_qt_id_key UNIQUE (qt_id, field_header);
+
+ALTER TABLE ONLY qtrelation
+    ADD CONSTRAINT qtrelation_pkey PRIMARY KEY (qtrelation_id);
+
+ALTER TABLE ONLY selgroup
+    ADD CONSTRAINT selgroup_pkey PRIMARY KEY (selgroup_id);
+
+ALTER TABLE ONLY selgroup
+    ADD CONSTRAINT selgroup_selgroup_name_key UNIQUE (selgroup_name, project_name);
+
+ALTER TABLE ONLY style
+    ADD CONSTRAINT style_class_id_key UNIQUE (class_id, style_name);
+
+ALTER TABLE ONLY style
+    ADD CONSTRAINT style_pkey PRIMARY KEY (style_id);
+
+ALTER TABLE ONLY symbol
+    ADD CONSTRAINT symbol_pkey PRIMARY KEY (symbol_name);
+
+ALTER TABLE ONLY symbol_ttf
+    ADD CONSTRAINT symbol_ttf_pkey PRIMARY KEY (symbol_ttf_name, font_name);
+
+ALTER TABLE ONLY theme
+    ADD CONSTRAINT theme_pkey PRIMARY KEY (theme_id);
+
+ALTER TABLE ONLY user_group
+    ADD CONSTRAINT user_group_pkey PRIMARY KEY (username, groupname);
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT user_pkey PRIMARY KEY (username);
+
+CREATE INDEX fki_catalog_conntype_fkey ON catalog USING btree (connection_type);
+
+CREATE INDEX fki_catalog_project_name_fkey ON catalog USING btree (project_name);
+
+CREATE INDEX fki_catalog_import_project_name_fkey ON catalog_import USING btree (project_name);
+
+CREATE INDEX fki_catalog_import_from_fkey ON catalog_import USING btree (catalog_from);
+
+CREATE INDEX fki_catalog_import_to_fkey ON catalog_import USING btree (catalog_to);
+
+CREATE INDEX fki_class_layer_id_fkey ON "class" USING btree (layer_id);
+
+CREATE INDEX fki_layer_layergroup_id ON layer USING btree (layergroup_id);
+
+CREATE INDEX fki_layergroup_theme_id ON layergroup USING btree (theme_id);
+
+CREATE INDEX fki_link_project_name_fkey ON link USING btree (project_name);
+
+CREATE INDEX fki_mapset_layergroup_layergroup_id_fkey ON mapset_layergroup USING btree (layergroup_id);
+
+CREATE INDEX fki_mapset_layergroup_mapset_name_fkey ON mapset_layergroup USING btree (mapset_name);
+
+CREATE INDEX fki_mapset_link_link_id_fkey ON mapset_link USING btree (link_id);
+
+CREATE INDEX fki_mapset_link_mapset_name_fkey ON mapset_link USING btree (mapset_name);
+
+CREATE INDEX fki_mapset_name ON mapset_groups USING btree (mapset_name);
+
+CREATE INDEX fki_mapset_project_name_fkey ON mapset USING btree (project_name);
+
+CREATE INDEX fki_mapset_qt_mapset_name_fkey ON mapset_qt USING btree (mapset_name);
+
+CREATE INDEX fki_mapset_qt_qt_id_fkey ON mapset_qt USING btree (qt_id);
+
+CREATE INDEX fki_project_theme_fkey ON theme USING btree (project_name);
+
+CREATE INDEX fki_qt_layer_id_fkey ON qt USING btree (layer_id);
+
+CREATE INDEX fki_qt_link_link_id_fkey ON qt_link USING btree (link_id);
+
+CREATE INDEX fki_qt_link_qt_id_fkey ON qt_link USING btree (qt_id);
+
+CREATE INDEX fki_qt_selgroup_qt_id_fkey ON qt_selgroup USING btree (qt_id);
+
+CREATE INDEX fki_qt_selgroup_selgroup_id_fkey ON qt_selgroup USING btree (selgroup_id);
+
+CREATE INDEX fki_qt_theme_id_fkey ON qt USING btree (theme_id);
+
+CREATE INDEX fki_qtfield_fieldtype_id_fkey ON qtfield USING btree (fieldtype_id);
+
+CREATE INDEX fki_qtfield_qt_id_fkey ON qtfield USING btree (qt_id);
+
+CREATE INDEX fki_qtrelation_catalog_id_fkey ON qtrelation USING btree (catalog_id);
+
+CREATE INDEX fki_qtrelation_qt_id_fkey ON qtrelation USING btree (qt_id);
+
+CREATE INDEX fki_selgroup_project_name_fkey ON selgroup USING btree (project_name);
+
+CREATE INDEX fki_style_class_id_fkey ON style USING btree (class_id);
+
+CREATE INDEX fki_symbol_icontype_id_fkey ON symbol USING btree (icontype);
+
+CREATE INDEX fki_symbol_symbolcategory_id_fkey ON symbol USING btree (symbolcategory_id);
+
+CREATE INDEX fki_symbol_ttf_fkey ON "class" USING btree (symbol_ttf_name, label_font);
+
+CREATE INDEX fki_symbol_ttf_font_fkey ON symbol_ttf USING btree (font_name);
+
+CREATE INDEX fki_symbol_ttf_symbolcategory_id_fkey ON symbol_ttf USING btree (symbolcategory_id);
+
+CREATE INDEX language_class_class ON language_class USING btree (class_id);
+
+CREATE INDEX language_class_language ON language_class USING btree (language_id);
+
+CREATE INDEX language_label_language ON language_layer USING btree (language_id);
+
+CREATE INDEX language_label_layer ON language_layer USING btree (layer_id);
+
+CREATE INDEX language_layergroup_language ON language_layergroup USING btree (language_id);
+
+CREATE INDEX language_layergroup_layergroup ON language_layergroup USING btree (layergroup_id);
+
+CREATE INDEX language_mapset_language ON language_mapset USING btree (language_id);
+
+CREATE INDEX language_mapset_mapset ON language_mapset USING btree (mapset_name);
+
+CREATE INDEX language_project_language ON language_project USING btree (language_id);
+
+CREATE INDEX language_project_project ON language_project USING btree (project_name);
+
+CREATE INDEX language_selgroup_language ON language_selgroup USING btree (language_id);
+
+CREATE INDEX language_selgroup_selgroup ON language_selgroup USING btree (selgroup_id);
+
+CREATE INDEX language_theme_language ON language_theme USING btree (language_id);
+
+CREATE INDEX language_theme_theme ON language_theme USING btree (theme_id);
+
+--TRIGGER
+
+CREATE TRIGGER check_mapset
+    BEFORE INSERT OR UPDATE ON mapset
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_mapset();
+
+CREATE TRIGGER chk_catalog
+    BEFORE INSERT OR UPDATE ON catalog
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_catalog();
+
+CREATE TRIGGER chk_class
+    BEFORE INSERT OR UPDATE ON class
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_class();
+
+CREATE TRIGGER chk_layer
+    BEFORE INSERT OR UPDATE ON layer
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_layer();
+
+CREATE TRIGGER delete_qtfields_qt
+    AFTER DELETE ON qt
+    FOR EACH ROW
+    EXECUTE PROCEDURE delete_qt();
+
+CREATE TRIGGER delete_qtrelation
+    AFTER DELETE ON qtrelation
+    FOR EACH ROW
+    EXECUTE PROCEDURE delete_qtrelation();
+
+CREATE TRIGGER depth
+    AFTER INSERT OR UPDATE ON e_level
+    FOR EACH ROW
+    EXECUTE PROCEDURE set_depth();
+
+CREATE TRIGGER leaf
+    AFTER INSERT OR UPDATE ON e_level
+    FOR EACH ROW
+    EXECUTE PROCEDURE set_leaf();
+
+CREATE TRIGGER move_layergroup
+    AFTER UPDATE ON layergroup
+    FOR EACH ROW
+    EXECUTE PROCEDURE move_layergroup();
+
+CREATE TRIGGER set_encpwd
+  BEFORE INSERT OR UPDATE
+  ON users
+  FOR EACH ROW
+  EXECUTE PROCEDURE enc_pwd();		
+	
+
+--FOREIGN KEY	
+	
+ALTER TABLE ONLY catalog
+    ADD CONSTRAINT catalog_conntype_fkey FOREIGN KEY (connection_type) REFERENCES e_conntype(conntype_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY catalog
+    ADD CONSTRAINT catalog_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY catalog_import
+   ADD CONSTRAINT catalog_import_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+    
+ALTER TABLE ONLY class
+    ADD CONSTRAINT class_layer_id_fkey FOREIGN KEY (layer_id) REFERENCES layer(layer_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY e_form
+    ADD CONSTRAINT e_form_level_destination_fkey FOREIGN KEY (level_destination) REFERENCES e_level(id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY e_level
+    ADD CONSTRAINT e_level_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES e_level(id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY form_level
+    ADD CONSTRAINT form_level_level_fkey FOREIGN KEY ("level") REFERENCES e_level(id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE form_level
+	ADD CONSTRAINT form_level_form_fkey FOREIGN KEY (form) REFERENCES e_form (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+	
+ALTER TABLE ONLY language_class
+    ADD CONSTRAINT language_class FOREIGN KEY (class_id) REFERENCES "class"(class_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_class
+    ADD CONSTRAINT language_class_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_layer
+    ADD CONSTRAINT language_label FOREIGN KEY (layer_id) REFERENCES layer(layer_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_layer
+    ADD CONSTRAINT language_label_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_layergroup
+    ADD CONSTRAINT language_layergroup FOREIGN KEY (layergroup_id) REFERENCES layergroup(layergroup_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_layergroup
+    ADD CONSTRAINT language_layergroup_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_mapset
+    ADD CONSTRAINT language_mapset FOREIGN KEY (mapset_name) REFERENCES mapset(mapset_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_mapset
+    ADD CONSTRAINT language_mapset_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_project
+    ADD CONSTRAINT language_project_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_selgroup
+    ADD CONSTRAINT language_selgroup_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_theme
+    ADD CONSTRAINT language_theme FOREIGN KEY (theme_id) REFERENCES theme(theme_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY language_theme
+    ADD CONSTRAINT language_theme_language FOREIGN KEY (language_id) REFERENCES e_language(language_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY layer
+    ADD CONSTRAINT layer_layergroup_id_fkey FOREIGN KEY (layergroup_id) REFERENCES layergroup(layergroup_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY layergroup
+    ADD CONSTRAINT layergroup_theme_id_fkey FOREIGN KEY (theme_id) REFERENCES theme(theme_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY link
+    ADD CONSTRAINT link_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_groups
+    ADD CONSTRAINT mapset_groups_mapset_name_fkey FOREIGN KEY (mapset_name) REFERENCES mapset(mapset_name) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_layergroup
+    ADD CONSTRAINT mapset_layergroup_layergroup_id_fkey FOREIGN KEY (layergroup_id) REFERENCES layergroup(layergroup_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_layergroup
+    ADD CONSTRAINT mapset_layergroup_mapset_name_fkey FOREIGN KEY (mapset_name) REFERENCES mapset(mapset_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_link
+    ADD CONSTRAINT mapset_link_link_id_fkey FOREIGN KEY (link_id) REFERENCES link(link_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_link
+    ADD CONSTRAINT mapset_link_mapset_name_fkey FOREIGN KEY (mapset_name) REFERENCES mapset(mapset_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset
+    ADD CONSTRAINT mapset_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_qt
+    ADD CONSTRAINT mapset_qt_mapset_name_fkey FOREIGN KEY (mapset_name) REFERENCES mapset(mapset_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY mapset_qt
+    ADD CONSTRAINT mapset_qt_qt_id_fkey FOREIGN KEY (qt_id) REFERENCES qt(qt_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY project_srs
+    ADD CONSTRAINT project_srs_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qt
+    ADD CONSTRAINT qt_layer_id_fkey FOREIGN KEY (layer_id) REFERENCES layer(layer_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qt_link
+    ADD CONSTRAINT qt_link_link_id_fkey FOREIGN KEY (link_id) REFERENCES link(link_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qt_link
+    ADD CONSTRAINT qt_link_qt_id_fkey FOREIGN KEY (qt_id) REFERENCES qt(qt_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qt_selgroup
+    ADD CONSTRAINT qt_selgroup_qt_id_fkey FOREIGN KEY (qt_id) REFERENCES qt(qt_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qt
+    ADD CONSTRAINT qt_theme_id_fkey FOREIGN KEY (theme_id) REFERENCES theme(theme_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qtfield
+    ADD CONSTRAINT qtfield_fieldtype_id_fkey FOREIGN KEY (fieldtype_id) REFERENCES e_fieldtype(fieldtype_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qtfield
+    ADD CONSTRAINT qtfield_qt_id_fkey FOREIGN KEY (qt_id) REFERENCES qt(qt_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qtrelation
+    ADD CONSTRAINT qtrelation_catalog_fkey FOREIGN KEY (catalog_id) REFERENCES catalog(catalog_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY qtrelation
+    ADD CONSTRAINT qtrelation_qt_id_fkey FOREIGN KEY (qt_id) REFERENCES qt(qt_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY selgroup
+    ADD CONSTRAINT selgroup_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY style
+    ADD CONSTRAINT style_class_id_fkey FOREIGN KEY (class_id) REFERENCES "class"(class_id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY symbol
+    ADD CONSTRAINT symbol_symbolcategory_id_fkey FOREIGN KEY (symbolcategory_id) REFERENCES e_symbolcategory(symbolcategory_id) MATCH FULL ON UPDATE CASCADE;
+
+ALTER TABLE ONLY symbol_ttf
+    ADD CONSTRAINT symbol_ttf_font_fkey FOREIGN KEY (font_name) REFERENCES font(font_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY symbol_ttf
+    ADD CONSTRAINT symbol_ttf_symbolcategory_id_fkey FOREIGN KEY (symbolcategory_id) REFERENCES e_symbolcategory(symbolcategory_id) MATCH FULL ON UPDATE CASCADE;
+
+ALTER TABLE ONLY theme
+    ADD CONSTRAINT theme_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY user_group
+    ADD CONSTRAINT user_group_groupname_fkey FOREIGN KEY (groupname) REFERENCES groups(groupname) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY user_group
+    ADD CONSTRAINT user_group_username_fkey FOREIGN KEY (username) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY project_admin
+    ADD CONSTRAINT username_project_name_fkey FOREIGN KEY (project_name) REFERENCES project(project_name) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+-- solo x geoweb
+ALTER TABLE ONLY project_admin
+	ADD CONSTRAINT project_admin_username_fkey FOREIGN KEY (username) REFERENCES users(username) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;  

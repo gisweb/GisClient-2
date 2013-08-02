@@ -1,0 +1,31 @@
+<?php
+
+	$domain=explode(".",$_SERVER["HTTP_HOST"]);
+	$userIp=$_SERVER['REMOTE_ADDR'];
+	$dbName='<@DBNAME@>';
+	$dbSchema='<@DBSCHEMA@>';
+	$userSchema=$dbSchema;
+	$charSet='<@CHARSET@>';
+
+	
+	//Impostazioni database Postgresql
+	define('DB_NAME',$dbName);
+	define('DB_SCHEMA',$dbSchema);
+	define('USER_SCHEMA',$userSchema);
+	define('CHAR_SET',$charSet);
+	define('DB_HOST','<@DBHOST@>');
+	define('DB_PORT','<@DBPORT@>');
+	define('DB_USER','<@DBADMIN@>');//Superutente
+	define('DB_PWD','<@DBPWD@>');
+	
+	//Utente scritto sul file .map
+	define('MAP_USER','<@MAPUSER@>');
+	define('MAP_PWD','<@MAPPWD@>');
+	
+	//Superutente per l'accesso ad Author
+	define('SUPER_USER','<@SUPERUSER@>');
+	define('SUPER_PWD','<@SUPERPWD@>');	
+	
+
+	
+?>

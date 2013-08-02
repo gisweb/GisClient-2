@@ -1,0 +1,31 @@
+[standard]
+table = "layergroup"
+pkey = "layergroup_id"
+dato[] = "Name;layergroup_name;30;text"
+dato[] = "Titel;layergroup_title;55;text"
+dato[] = "Link;layergroup_link;55;text"
+dato[] = "Sichtbarer Maßstab:<br>Höchstens;layergroup_maxscale;8;intero|Mindestens;layergroup_minscale;8;intero|Am besten;layergroup_smbscale;8;intero"
+dato[] = "Gruppiert;multi;3;noyes|Versteckt;hidden;3;noyes"
+dato[] = "Reihenfolge;layergroup_order;3;intero"
+dato[] = "Speichern;azione;;submit;all;salva|Abbrechen;azione;;submit;all;annulla|Löschen;azione;;submit;edit;elimina|Kopieren von;copia;#get_azioni#theme;button;new;copia da|Verschieben;sposta;#get_azioni#layergroup;button;edit;sposta|Exportieren;azione;;submit;edit;esporta|Importieren;azione;;submit;new;importa|Raster importieren;azione;120;submit;edit;importa raster|Wizard WMS;azione;120;submit;new;wizard wms"
+[list]
+table = "layergroup"
+pkey = "layergroup_id"
+order_fld = "layergroup_title#layergroup_order"
+dato[] = ";layergroup_id;3%;info"
+dato[] = "Titel;layergroup_title;50%#layergroup_id;goto"
+dato[] = "Name;layergroup_name;40%;text"
+dato[] = "Reihenfolge;layergroup_order;7%;text"
+
+[title]
+edit = "Daten der Layerguppe"
+view = "Daten der Layerguppe"
+new = "Neue Layerguppe"
+list = "Layerguppe"
+
+[menu]
+new = "Neue Layergruppe"
+standard = "layergroup_name"
+
+[message]
+nodata = ""

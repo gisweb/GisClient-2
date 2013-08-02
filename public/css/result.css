@@ -1,0 +1,93 @@
+	div.intestazione, table.tabinfo, div.barretta, div.barretta_ultima
+		{
+		
+		}
+	
+			div.intestazione, td.intestazione
+				{
+				font-size:14px;
+				padding-top:3px;
+				padding-bottom:3px;
+				padding-left:8px;
+				padding-right:8px;
+				font-family:tahoma;
+				font-weight:bold;
+				color:#FFFFFF;
+				height:24px;
+				background-color:rgb(53,84,106);
+				text-align:left;
+				margin-top:2px;
+				
+				}
+			table.tabinfo
+				{
+				width:90%;
+				border-collapse:collapse;
+				font-family:tahoma;
+				font-size:12px;
+				}
+			table.tabinfo td
+				{
+				padding-top:2px;
+				padding-bottom:2px;
+				padding-left:8px;
+				padding-right:8px;
+				text-align:left;
+				}
+			table.tabinfo tr td.colonna1
+				{
+				width:80px;
+				background-color:rgb(196,204,200);
+				border-top:1px solid white;
+				border-bottom:1px solid white;
+				font-weight:bold;
+				}
+			table.tabinfo td.colonna2
+				{
+				color:#000000;
+				border-bottom:1px solid rgb(196,204,200);
+				background-color:rgb(255,255,255);
+				}
+				
+			div.barretta, div.barretta_ultima, td.barretta_ultima
+				{
+				background-color:rgb(154,183,205);
+				color:#FFFFFF;
+				font-family:tahoma;
+				font-size:11px;
+				padding-top:2px;
+				padding-bottom:2px;
+				padding-left:8px;
+				padding-right:8px;
+				border-bottom:1px solid white;
+				border-top:1px solid white;
+				}
+			div.barretta
+				{
+				height:14px;
+				}			
+			div.barretta_ultima
+				{
+				height:20px;
+				border-bottom:2px solid rgb(65,142,171);
+				margin-bottom:1px;
+				
+				}
+
+			img.foto
+				{
+				margin-top:2px;
+				margin-bottom:6px;
+				}	
+
+
+
+
+
+
+
+
+
+
+
+

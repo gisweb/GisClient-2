@@ -1,0 +1,229 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; BACKGROUND-COLOR: white
+}
+H1 {
+	MARGIN-TOP: 0em; FONT-SIZE: 16px; MARGIN-BOTTOM: 0em; COLOR: #000066; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+H2 {
+	MARGIN-TOP: 1.5em; FONT-SIZE: 12px; MARGIN-BOTTOM: 0.1em; COLOR: #000066; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+H2.blueBanner {
+	PADDING-RIGHT: 3px; BORDER-TOP: #556e9b 1px solid; MARGIN-TOP: 1em; PADDING-LEFT: 4px; FONT-WEIGHT: normal; FONT-SIZE: 12px; BACKGROUND: #e5ecf9; MARGIN-BOTTOM: 0.5em; PADDING-BOTTOM: 5px; BORDER-LEFT: #556e9b 1px solid; COLOR: #000066; PADDING-TOP: 3px; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+H2.noTopMargin {
+	MARGIN-TOP: 0em; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.1em; COLOR: #000066; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+H3 {
+	MARGIN-TOP: 1.5em; FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.1em; TEXT-TRANSFORM: uppercase; COLOR: #000066; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; FONT-VARIANT: normal
+}
+H3.noTopMargin {
+	MARGIN-TOP: 0em; FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.1em; TEXT-TRANSFORM: uppercase; COLOR: #000066; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; FONT-VARIANT: normal
+}
+H3.withRule {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 3em; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN-BOTTOM: 0em; PADDING-BOTTOM: 2px; TEXT-TRANSFORM: uppercase; COLOR: #000066; PADDING-TOP: 0px; BORDER-BOTTOM: #556e9b 1px solid; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+H4 {
+	MARGIN-TOP: 1.5em; FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN-BOTTOM: 0em; COLOR: #000066; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; FONT-VARIANT: normal
+}
+P {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.8em; COLOR: black; LINE-HEIGHT: 1.4em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; TEXT-ALIGN: left; paddding-bottom: .1em
+}
+UL {
+	MARGIN-TOP: 0em; LIST-STYLE-POSITION: outside; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.8em; LINE-HEIGHT: 1.6em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; LIST-STYLE-TYPE: disc
+}
+UL.menuList {
+	MARGIN-TOP: 0em; LIST-STYLE-POSITION: outside; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.8em; LINE-HEIGHT: 1.4em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; LIST-STYLE-TYPE: square
+}
+OL {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.8em; LINE-HEIGHT: 1.8em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+TABLE#main_layout {
+	MARGIN: 0px; WIDTH: 100%; BORDER-COLLAPSE: separate; border-spacing: 0px
+}
+TD#main_content_column {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: top; PADDING-TOP: 0px; TEXT-ALIGN: left; BORDER-RIGHT-WIDTH: 0px
+}
+TD#scan_column {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: top; PADDING-TOP: 0px; TEXT-ALIGN: left; BORDER-RIGHT-WIDTH: 0px
+}
+#breadCrumb {
+	MARGIN-TOP: 1em; FONT-SIZE: 11px; MARGIN-BOTTOM: 0em; COLOR: #333333; LINE-HEIGHT: 1.1em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+.dateLine {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 11px; COLOR: #336699; LINE-HEIGHT: 1.1em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+.footer {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 9px; COLOR: #000099; LINE-HEIGHT: 1.6em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+.footerlinks {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 11px; MARGIN-BOTTOM: 0.8em; COLOR: black; LINE-HEIGHT: 1.4em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; TEXT-ALIGN: right; paddding-bottom: .1em
+}
+#nav-buttons A {
+	PADDING-RIGHT: 4px; DISPLAY: block; PADDING-LEFT: 9px; FONT-SIZE: 11px; PADDING-BOTTOM: 4px; MARGIN: 1px 0px; COLOR: #324362; PADDING-TOP: 4px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #c2d0ea; TEXT-DECORATION: none
+}
+#nav-buttons A:hover {
+	PADDING-RIGHT: 4px; DISPLAY: block; PADDING-LEFT: 9px; PADDING-BOTTOM: 4px; MARGIN: 1px 0px; COLOR: #000099; PADDING-TOP: 4px; BACKGROUND-COLOR: #eeedc0
+}
+
+A.iter-button {
+	PADDING-RIGHT: 4px; DISPLAY: block; PADDING-LEFT: 9px; FONT-SIZE: 11px; PADDING-BOTTOM: 4px; COLOR:#FFFFFF; PADDING-TOP: 4px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #336699; TEXT-DECORATION: none;
+}
+A:hover.iter-button {
+	PADDING-RIGHT: 4px; DISPLAY: block; PADDING-LEFT: 9px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; COLOR:#000000; BACKGROUND-COLOR: #AAB4DC; TEXT-DECORATION: none;
+}
+
+#print_banner {
+	DISPLAY: none
+}
+.scanColumnText {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 10px; MARGIN-BOTTOM: 0.8em; MARGIN-LEFT: 1em; COLOR: #415578; LINE-HEIGHT: 1.4em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif; TEXT-ALIGN: left; paddding-bottom: .1em
+}
+.example {
+	BORDER-RIGHT: 0pt; BORDER-TOP: 0pt; PADDING-LEFT: 0em; FLOAT: none; MARGIN: 0em 0em 0.5em; WORD-SPACING: 0em; FONT: 11px/1.3em Verdana, Geneva, Arial, sans-serif; VERTICAL-ALIGN: baseline; TEXT-TRANSFORM: none; BORDER-LEFT: 0pt; TEXT-INDENT: 0em; BORDER-BOTTOM: 0pt; LETTER-SPACING: 0em; TEXT-ALIGN: left; TEXT-DECORATION: none; paddding-bottom: 0em; paddding-right: 0em; paddding-top: 0em
+}
+TABLE.example {
+	BORDER-RIGHT: red 2px solid; BORDER-TOP: red 2px solid; MARGIN: 0px; BORDER-LEFT: red 2px solid; WIDTH: 100%; BORDER-BOTTOM: red 2px solid; BACKGROUND-COLOR: red; border-spacing: 0px
+}
+.selezione {
+	MARGIN-TOP: 0.3em; FONT-SIZE: 12px; COLOR: #336699; LINE-HEIGHT: 1.2em; FONT-FAMILY: Verdana, Geneva, Arial, sans-serif
+}
+TABLE.stiletabella {
+BORDER-RIGHT: white 2px solid; BORDER-TOP: white 2px solid; MARGIN: 0px; BORDER-LEFT: white 2px solid; BORDER-BOTTOM: white 2px solid; BACKGROUND-COLOR: white;
+}
+.stiletabella {
+BORDER-RIGHT: 0pt;  BORDER-TOP: 0pt; COLOR: #415578; PADDING-LEFT: 0em; FLOAT: none; MARGIN: 0em 0em 0.5em; WORD-SPACING: 0em; FONT: 11px/1.3em Verdana, Geneva, Arial, sans-serif; VERTICAL-ALIGN: baseline; TEXT-TRANSFORM: none; BORDER-LEFT: 0pt; TEXT-INDENT: 0em; BORDER-BOTTOM: 0pt; LETTER-SPACING: 0em; TEXT-DECORATION: none; paddding-bottom: 0em; paddding-right: 0em; paddding-top: 0em
+}
+
+TABLE.stiletabella2 {
+BORDER-RIGHT: #000066 0px solid; BORDER-TOP: #000066 0px solid; MARGIN: 0px; BORDER-LEFT: #000066 0px solid; BORDER-BOTTOM: #000066 1px solid; BACKGROUND-COLOR: white; border-spacing: 10px
+}
+.stiletabella2 {
+BORDER-RIGHT: 0pt; BORDER-TOP: 0pt; COLOR: #336699; PADDING-LEFT: 0em; FLOAT: none; MARGIN: 0em 0em 0.5em; WORD-SPACING: 0em; FONT: 11px/1.3em Verdana, Geneva, Arial, sans-serif; VERTICAL-ALIGN: baseline; TEXT-TRANSFORM: none; BORDER-LEFT: 0pt; TEXT-INDENT: 0em; BORDER-BOTTOM: 0pt; LETTER-SPACING: 0em; TEXT-ALIGN: left; TEXT-DECORATION: none; paddding-bottom: 0em; paddding-right: 0em; paddding-top: 0em
+}
+
+TABLE.stiletabellaleggi {
+BORDER-RIGHT: white 1px solid; BORDER-TOP: white 1px solid; MARGIN: 0px; BORDER-LEFT: white 1px solid; WIDTH: 90%; BORDER-BOTTOM: white 2px solid; BACKGROUND-COLOR: white; border-spacing: 5px
+}
+.stiletabellaleggi {
+BORDER-RIGHT: 0pt; BORDER-TOP: 0pt; COLOR: #000000; PADDING-LEFT: 0em; FLOAT: none; MARGIN: 0em 0em 0.5em; WORD-SPACING: 0em; FONT: 12px/1.3em Verdana, Geneva, Arial, sans-serif; VERTICAL-ALIGN: baseline; TEXT-TRANSFORM: none; BORDER-LEFT: 0pt; TEXT-INDENT: 0em; BORDER-BOTTOM: 0pt; LETTER-SPACING: 0em; TEXT-ALIGN: left; TEXT-DECORATION: none; paddding-bottom: 0em; paddding-right: 0em; paddding-top: 0em
+}
+
+
+
+.form {
+margin-bottom : 0; 
+}
+
+
+.textbox {
+BORDER-RIGHT: 2px solid; 
+BORDER-TOP: 2px solid; 
+BORDER-LEFT: 1.5px solid; 
+BORDER-BOTTOM: 1.5px solid ;
+BORDER-COLOR:#336699;
+FONT-SIZE: 11px; 
+COLOR: #000066;
+HEIGHT:20px;
+FONT-FAMILY: Verdana, Geneva, Arial, sans-serif;
+BACKGROUND-COLOR:#FFFFFF
+#e5ecf9;
+}
+
+.errors {
+BORDER-RIGHT: 2px solid; 
+BORDER-TOP: 2px solid; 
+BORDER-LEFT: 1.5px solid; 
+BORDER-BOTTOM: 1.5px solid ;
+BORDER-COLOR:#000000;
+FONT-SIZE: 11px; 
+COLOR: #000066;
+HEIGHT:20px;
+FONT-FAMILY: Verdana, Geneva, Arial, sans-serif;
+BACKGROUND-COLOR:#F58189;
+#e5ecf9;
+}
+
+.riquadro {
+width:280px;
+background-color:#FFFFFF;
+padding:16 16 16 32;
+}
+
+.label {
+font-weight:bold;
+font-family:verdana; 
+font-weight:bold; 
+
+}
+
+.casella {
+width:100%;
+}
+
+.vincoli {
+font-size:10pt;
+font-family:arial;
+font-weight:normal;
+color:#000066; 
+border-style:inset;
+border-color:#ffffff;
+border-width:1px;
+
+
+}
+
+.hexfield {
+font-size:10pt;
+font-family:arial;
+font-weight:normal;
+color:#000066; 
+border-style:inset;
+border-color:#ffffff;
+border-width:1px;
+background-color:#C2D0EA;
+width:80px;
+height:22px;
+}
+
+.hexfield1 {
+font-size:9pt;
+font-family:Verdana;
+font-weight:normal;
+color:#FFFFFF; 
+border-style:solid;
+border-color:#003366;
+border-width:1px;
+background-color:#728bb8;
+height:20px;
+}
+
+TD.stampe {
+font-family:Verdana,sans-serif;
+font-size:11px;
+color:#415578;
+text-align:left;
+}
+
+IMG.imm_azione{
+	cursor:pointer;
+}
+
+.titolo_sx{
+font-family:Verdana,sans-serif;
+font-size:11px;
+color:#FFFFFF;
+text-align:center;
+background-color:#415578;
+height:20;
+}
+
+.testo_login{
+	width:240; 
+	height:200; 
+	background-color:#C2D0EA; 
+	padding:6 8 8 8px; 
+	border-right:1px solid #728bb8; 
+	font-family:verdana; 
+	font-weight:bold; 
+	color:#FFFFFF;"
+}
