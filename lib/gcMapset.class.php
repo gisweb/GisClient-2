@@ -927,9 +927,9 @@ class GCMapset{
 			$styText[]="WIDTH ".$aStyle["width"];
 		else
 			$styText[]="WIDTH 1";//pach mapserver 5.6 non disegna un width di default
+		if(isset($aStyle["pattern_def"]) && ms_GetVersionInt()>502000) $styText[]=$aStyle["pattern_def"];
 		if(isset($aStyle["minwidth"]) && $aStyle["minwidth"]) $styText[]="MINWIDTH ".$aStyle["minwidth"];
 		if(isset($aStyle["maxwidth"]) && $aStyle["maxwidth"]) $styText[]="MAXWIDTH ".$aStyle["maxwidth"];
-		if(isset($aStyle["pattern_def"]) && ms_GetVersionInt()>502000) $styText[]=$aStyle["pattern_def"];
 		if((isset($aStyle["symbol_name"]))&&(!in_array($aStyle["symbol_name"],$this->aSymbol))) $this->aSymbol[]=$aStyle["symbol_name"];
 		if(isset($aStyle["style_def"])) $styText[]=$aStyle["style_def"];
 		return "\t".implode("\n\t\t\t",$styText);	

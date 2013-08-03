@@ -39,18 +39,27 @@ class GCMap{
 			$this->mapError=140;
 			return;
 		}
-		ms_ResetErrorList();	
-		$this->map=ms_newMapObj($sMapFile);
-		$error = ms_GetErrorObj();
-		if($error->code != MS_NOERR){
-			$this->mapError=150;
-			while($error->code != MS_NOERR){
-				print("MAPFILE ERROR <br>");
-				printf("Error in %s: %s<br>\n", $error->routine, $error->message);
-				$error = $error->next();
-			}
+
+		//test sintassi mapfile		
+		ms_ResetErrorList();
+		try {
+			$this->map = @ms_newMapobj($sMapFile);
+		} 
+		catch (Exception $e) {
+			$error = ms_GetErrorObj();		
+			if($error->code != MS_NOERR){
+				$this->mapError=150;
+				while(is_object($error) && $error->code != MS_NOERR) {
+					print("MAPFILE ERROR <br>");
+					printf("Error in %s: %s<br>\n", $error->routine, $error->message);
+					$error = $error->next();
+				}
+				return;
+			}	
 			return;
-		}		
+		}
+
+		
 		$this->mapFile = $sMapFile;
 		$this->msVersion = ms_GetVersionInt();
 	}
