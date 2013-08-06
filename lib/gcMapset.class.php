@@ -883,7 +883,7 @@ class GCMapset{
 			$clsText[]="\tFONT \"$lblFont\"";		
 			if($aClass["label_angle"]) $clsText[]="\tANGLE ".$aClass["label_angle"];				
 			if($aClass["label_color"]) $clsText[]="\tCOLOR ".$aClass["label_color"];			
-			if($aClass["label_bgcolor"]) $clsText[]="\tBACKGROUNDCOLOR " .$aClass["label_bgcolor"];	
+			//if($aClass["label_bgcolor"]) $clsText[]="\tBACKGROUNDCOLOR " .$aClass["label_bgcolor"];	REMOVED IN MS6
 			if($aClass["label_outlinecolor"]) $clsText[]="\tOUTLINECOLOR " .$aClass["label_outlinecolor"];	
 			if($aClass["label_size"]) $clsText[]="\tSIZE ".$aClass["label_size"];	
 			if($aClass["label_minsize"]) $clsText[]="\tMINSIZE ".$aClass["label_minsize"];	
