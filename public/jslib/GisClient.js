@@ -1,8 +1,8 @@
 window.GisClient = {
 
-	BaseUrl:"/gisclient2/", // if using https, put the full URL here as a hint for IE 
+	BaseUrl:"/gisclient/", // if using https, put the full URL here as a hint for IE 
 	Template:"gisclient", 
-	VERSION:"2.1",
+	VERSION:"2.7",
 	gcEditGeometry:false,
 	LanguageList:['en','it'],
 	Language:navigator.language ? navigator.language.substring(0,2):navigator.userLanguage.substring(0,2),

@@ -1,6 +1,6 @@
 -- MAPSERVER 6 --
------- GISCLIENT 2.5 -----------
-SET search_path = gisclient_25, pg_catalog;
+------ GISCLIENT 2.7 -----------
+SET search_path = gisclient_27, pg_catalog;
 
 -- *********** SIMBOLOGIA LINEARE: SOSTITUZIONE DI STYLE CON PATTERN *********************
 CREATE TABLE e_pattern
@@ -48,13 +48,26 @@ delete from symbol where symbol_def like '%CARTOLINE%';
 
 		   
 -- *********** SIMBOLOGIA PUNTUALE: CREAZIONE DI SIMBOLI TRUETYPE IN SOSTITUZIONE DEL CARATTERE IN CLASS_TEXT *********************
+--PULIZIA
+UPDATE class set symbol_ttf_name=null where symbol_ttf_name='';
+UPDATE class set label_font=null where label_font='';
+UPDATE class set label_position=null where label_position='';
+
+--TOLGO FONT E SIMBOLI INUTILI (soprattutto esri e robe amga)
+DELETE from symbol_ttf where font_name like 'esri%' and font_name||'_'||symbol_ttf_name not in (SELECT label_font||'_'||symbol_ttf_name from class where label_font like 'esri%');
+DELETE from symbol_ttf where font_name = 'galatone_si';
+DELETE from symbol_ttf where font_name = 'padania_acque';
+DELETE from symbol_ttf where font_name = 'atena';
+
+
+
 --INSERISCO I NUOVI SIMBOLI NELLA TABELLA
 insert into symbol (symbol_name,symbolcategory_id,icontype,symbol_type,font_name,ascii_code,symbol_def)
 select  font_name||'_'||symbol_ttf_name,1,0,'TRUETYPE',font_name,ascii_code,'ANTIALIAS TRUE' from symbol_ttf where font_name like 'esri%' order by 1;
 
 --AGGIUNGO GLI STILI ALLE CLASSI---
 insert into style(style_id,class_id,style_name,symbol_name,color,angle,size,minsize,maxsize)
-select class_id+10000,class_id,symbol_ttf_name,label_font||'_'||symbol_ttf_name,label_color,label_angle,label_size,label_minsize,label_maxsize from class where label_font like 'esri%' and coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
+select class_id+10000,class_id,symbol_ttf_name,label_font||'_'||symbol_ttf_name,label_color,label_angle,label_size,label_minsize,label_maxsize from class where label_font like 'esri%' and symbol_ttf_name is not null and label_font is not null;
 
 --INSERISCO I NUOVI SIMBOLI NELLA TABELLA
 insert into symbol (symbol_name,symbolcategory_id,icontype,symbol_type,font_name,ascii_code,symbol_def)
@@ -62,10 +75,11 @@ select symbol_ttf_name,1,0,'TRUETYPE',font_name,ascii_code,'ANTIALIAS TRUE' from
 
 --AGGIUNGO GLI STILI ALLE CLASSI---
 insert into style(style_id,class_id,style_name,symbol_name,color,angle,size,minsize,maxsize)
-select class_id+10000,class_id,symbol_ttf_name,symbol_ttf_name,label_color,label_angle,label_size,label_minsize,label_maxsize from class where not label_font like 'esri%' and coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
+select class_id+10000,class_id,symbol_ttf_name,symbol_ttf_name,label_color,label_angle,label_size,label_minsize,label_maxsize from class where not label_font like 'esri%' and symbol_ttf_name is not null and label_font is not null;
+
 
 --TOLGO I SYMBOLI TTF DA CLASSI
-update class set symbol_ttf_name=null,label_font=null where coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
+update class set symbol_ttf_name=null,label_font=null where and symbol_ttf_name is not null and label_font is not null;
 
 --PULIZIA
 --DROP TABLE symbol_ttf;
