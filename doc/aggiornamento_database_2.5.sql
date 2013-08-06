@@ -14,7 +14,7 @@ CREATE TABLE e_pattern
 ALTER TABLE style ADD COLUMN pattern_id integer;
 
 ALTER TABLE style  ADD CONSTRAINT pattern_id_fkey FOREIGN KEY (pattern_id)
-      REFERENCES gisclient_25.e_pattern (pattern_id) MATCH SIMPLE
+      REFERENCES e_pattern (pattern_id) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE NO ACTION;
 	  
 CREATE INDEX fki_pattern_id_fkey ON style USING btree (pattern_id );
@@ -25,6 +25,14 @@ UNION ALL
          SELECT pattern_id AS id, pattern_name AS opzione
            FROM e_pattern;
 
+--UPGRADE DELLA TABELLA DEI SIMBOLI		   
+ALTER TABLE symbol ADD COLUMN symbol_type character varying;
+ALTER TABLE symbol ADD COLUMN font_name character varying;
+ALTER TABLE symbol ADD COLUMN ascii_code integer;
+ALTER TABLE symbol ADD COLUMN filled numeric(1,0) DEFAULT 0;
+ALTER TABLE symbol ADD COLUMN points character varying;
+ALTER TABLE symbol ADD COLUMN image character varying;
+		   
 --INSERISCO I PATTERN EREDITATI DAGLI STYLE CHE VENGONO APPLICATI ALLE LINEE NELLA VECCHIA VERSIONE
 insert into e_pattern(pattern_name,pattern_def)
 select symbol_name,'PATTERN' ||replace(substring(symbol_def from 'STYLE(.+)END'),'\n',' ') || 'END' from symbol where symbol_def like '%STYLE%';
@@ -41,19 +49,20 @@ delete from symbol where symbol_def like '%CARTOLINE%';
 		   
 -- *********** SIMBOLOGIA PUNTUALE: CREAZIONE DI SIMBOLI TRUETYPE IN SOSTITUZIONE DEL CARATTERE IN CLASS_TEXT *********************
 --INSERISCO I NUOVI SIMBOLI NELLA TABELLA
-insert into symbol (symbol_name,symbolcategory_id,icontype,symbol_def)
-select  symbol_ttf_name||'@'||font_name,1,0,
-	'TYPE TRUETYPE
-	FONT "'||font_name||'"
-	CHARACTER "&#'||ascii_code||';"
-	ANTIALIAS TRUE'
-from symbol_ttf;
-update symbol set symbol_def=replace(symbol_def,'"""','"''"')where symbol_def like '%"""%';
-
+insert into symbol (symbol_name,symbolcategory_id,icontype,symbol_type,font_name,ascii_code,symbol_def)
+select  font_name||'_'||symbol_ttf_name,1,0,'TRUETYPE',font_name,ascii_code,'ANTIALIAS TRUE' from symbol_ttf where font_name like 'esri%' order by 1;
 
 --AGGIUNGO GLI STILI ALLE CLASSI---
 insert into style(style_id,class_id,style_name,symbol_name,color,angle,size,minsize,maxsize)
-select class_id+10000,class_id,symbol_ttf_name,symbol_ttf_name||'@'||label_font,label_color,label_angle,label_size,label_minsize,label_maxsize from class where coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
+select class_id+10000,class_id,symbol_ttf_name,label_font||'_'||symbol_ttf_name,label_color,label_angle,label_size,label_minsize,label_maxsize from class where label_font like 'esri%' and coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
+
+--INSERISCO I NUOVI SIMBOLI NELLA TABELLA
+insert into symbol (symbol_name,symbolcategory_id,icontype,symbol_type,font_name,ascii_code,symbol_def)
+select symbol_ttf_name,1,0,'TRUETYPE',font_name,ascii_code,'ANTIALIAS TRUE' from symbol_ttf where not font_name like 'esri%' order by 1;
+
+--AGGIUNGO GLI STILI ALLE CLASSI---
+insert into style(style_id,class_id,style_name,symbol_name,color,angle,size,minsize,maxsize)
+select class_id+10000,class_id,symbol_ttf_name,symbol_ttf_name,label_color,label_angle,label_size,label_minsize,label_maxsize from class where not label_font like 'esri%' and coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
 
 --TOLGO I SYMBOLI TTF DA CLASSI
 update class set symbol_ttf_name=null,label_font=null where coalesce(symbol_ttf_name,'')<>'' and coalesce(label_font,'')<>'';
@@ -65,7 +74,7 @@ update class set symbol_ttf_name=null,label_font=null where coalesce(symbol_ttf_
 		   
 
 
-
+		   
 
 
 

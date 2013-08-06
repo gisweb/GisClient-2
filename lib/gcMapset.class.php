@@ -939,17 +939,33 @@ class GCMapset{
 	//print_debug($this->aSymbol,null,$myMap);
 		$dbSchema=DB_SCHEMA;
 		$smbList=implode("','",$this->aSymbol);
-		$sql="select symbol_name,symbol_def from $dbSchema.symbol where symbol_name in ('$smbList');";
+		$sql="select * from $dbSchema.symbol where symbol_name in ('$smbList');";
 		$this->db->sql_query($sql);
 		$res=$this->db->sql_fetchrowset();	
 		//print_debug($sql,null,'writemap');		
 		$smbText=array();	
 		for($i=0;$i<count($res);$i++){
 			$smbText[]="SYMBOL";
+			$smbText[]="\tNAME \"".$res[$i]["symbol_name"]."\"";
+			if($res[$i]["symbol_type"])$smbText[]="\tTYPE ".$res[$i]["symbol_type"];
+			if($res[$i]["font_name"]) $smbText[]="\tFONT \"".$res[$i]["font_name"]."\"";
+			//if($res[$i]["ascii_code"]) $smbText[]="\tCHARACTER \"&#".$res[$i]["ascii_code"].";\"";//IN MAPSERVER 5.0 SEMBRA DARE PROBLEMI
+//			if($res[$i]["ascii_code"]) $smbText[]=($res[$i]["ascii_code"]==34)?"\tCHARACTER '".chr($res[$i]["ascii_code"])."'":"\tCHARACTER \"".chr($res[$i]["ascii_code"])."\"";
+			if($res[$i]["ascii_code"]) $smbText[]=($res[$i]["ascii_code"]==34)?"\tCHARACTER '".chr($res[$i]["ascii_code"])."'":"\tCHARACTER \"".($res[$i]["ascii_code"]==92?chr(92):'').chr($res[$i]["ascii_code"])."\"";
+			if($res[$i]["filled"]) $smbText[]="\tFILLED TRUE";
+			if($res[$i]["points"]) $smbText[]="\tPOINTS ".$res[$i]["points"]." END";
+			if($res[$i]["image"]) $smbText[]="\tIMAGE \"".$res[$i]["image"]."\"";
+			if($res[$i]["symbol_def"]) $smbText[]=$res[$i]["symbol_def"];
+			$smbText[]="END";
+		}		
+		/*	
+		for($i=0;$i<count($res);$i++){
+			$smbText[]="SYMBOL";
 			$smbText[]="NAME \"".$res[$i]["symbol_name"]."\"";
 			$smbText[]=$res[$i]["symbol_def"];
 			$smbText[]="END";
 		}
+		*/
 		//Da mettere o nel codice o su config
 		$smbText[]="SYMBOL";
 		$smbText[]="NAME \"line_select\"";

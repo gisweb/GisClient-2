@@ -23,6 +23,7 @@ $oSymbol=new Symbol($table);
 if($table=="symbol"){
 	if(isset($category)) $filter[]="symbolcategory_name='$category'";
 	if(isset($name)) $filter[]="lower(symbol_name)=lower('$name')";
+	if(isset($font)) $filter[]="symbol.font_name='$font'";
 	$oSymbol->filter=implode (" AND ",$filter);
 }
 
@@ -35,8 +36,6 @@ elseif($table=="class"){
 	$oSymbol->filter=implode (" AND ",$filter);
 }
 $oSymbol->createIcon();
-
-
 
 $smbList = $oSymbol->getList();
 
