@@ -32,6 +32,8 @@ class GCMapset{
 
 	function __construct ($mapsetName){
 		$this->mapsetName=$mapsetName;
+		$this->msVersion = substr(ms_GetVersionInt(),0,1);
+		
 		$this->db = new sql_db(DB_HOST.":".DB_PORT,DB_USER,DB_PWD,DB_NAME, false);
 		if(!$this->db->db_connect_id) $this->mapError=100;
 	}
@@ -883,7 +885,7 @@ class GCMapset{
 			$clsText[]="\tFONT \"$lblFont\"";		
 			if($aClass["label_angle"]) $clsText[]="\tANGLE ".$aClass["label_angle"];				
 			if($aClass["label_color"]) $clsText[]="\tCOLOR ".$aClass["label_color"];			
-			//if($aClass["label_bgcolor"]) $clsText[]="\tBACKGROUNDCOLOR " .$aClass["label_bgcolor"];	REMOVED IN MS6
+			if($aClass["label_bgcolor"] && $this->msVersion=='5') $clsText[]="\tBACKGROUNDCOLOR " .$aClass["label_bgcolor"];	//REMOVED IN MS6
 			if($aClass["label_outlinecolor"]) $clsText[]="\tOUTLINECOLOR " .$aClass["label_outlinecolor"];	
 			if($aClass["label_size"]) $clsText[]="\tSIZE ".$aClass["label_size"];	
 			if($aClass["label_minsize"]) $clsText[]="\tMINSIZE ".$aClass["label_minsize"];	

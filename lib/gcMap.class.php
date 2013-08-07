@@ -61,7 +61,7 @@ class GCMap{
 
 		
 		$this->mapFile = $sMapFile;
-		$this->msVersion = ms_GetVersionInt();
+		$this->msVersion = substr(ms_GetVersionInt(),0,1);	
 	}
 	
 	function initMap(){
@@ -845,7 +845,7 @@ class GCMap{
 				$count=0;
 				
 				
-				if(substr($this->msVersion,0,1)=='6'){
+				if($this->msVersion=='6'){
 					$tmpExpr = array();
 					//TOLGO LA CLASSIFICAZIONE CHE CREA PROBLEMI
 					for ($cl=0; $cl < $oLayer->numclasses; $cl++) {
