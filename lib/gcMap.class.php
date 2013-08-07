@@ -610,16 +610,23 @@ class GCMap{
 			}
 		}
 		$_SESSION[$myMap]["REF_MAP"]["EXTENT"] = array($oMap->extent->minx,$oMap->extent->miny,$oMap->extent->maxx,$oMap->extent->maxy);
+		//test sintassi mapfile		
 		ms_ResetErrorList();
-		$oImage=$oMap->draw();
-		$error = ms_GetErrorObj();
-		if($error->code != MS_NOERR){
-			$this->mapError=150;
-			while($error->code != MS_NOERR){
-				printf("Error in %s: %s<br>\n", $error->routine, $error->message);
-				$error = $error->next();
-			}
-			exit;
+		try {
+			$oImage=@$oMap->draw();
+		} 
+		catch (Exception $e) {
+			$error = ms_GetErrorObj();		
+			if($error->code != MS_NOERR){
+				$this->mapError=150;
+				while(is_object($error) && $error->code != MS_NOERR) {
+					print("CREATE MAP ERROR <br>");
+					printf("Error in %s: %s<br>\n", $error->routine, $error->message);
+					$error = $error->next();
+				}
+				return;
+			}	
+			return;
 		}
 		$imgRef=$oImage->saveWebImage();
 		return $imgRef;

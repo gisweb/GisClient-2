@@ -660,7 +660,26 @@ class GCMapset{
 		$f = fopen ($mapsetFile,"w");
 		$ret=fwrite($f, $fileContent);
 		fclose($f);
-			
+
+		//test sintassi mapfile				
+		ms_ResetErrorList();
+		try {
+			@ms_newMapobj($mapsetFile);	
+		} 
+		catch (Exception $e) {
+			$error = ms_GetErrorObj();		
+			if($error->code != MS_NOERR){
+				$this->mapError=150;
+				$sErr='Errore: ';
+				while(is_object($error) && $error->code != MS_NOERR) {
+					$sErr.=$error->message." ";
+					$error = $error->next();
+				}
+				$aResult[] = array($mapName,$sErr);
+			}	
+			return $aResult;
+		}
+
 		//creo la legenda
 		$this->_createLegend($mapName);
 			
