@@ -44,7 +44,7 @@ define('RESULT_TYPE_NONE',4);
 define('ONE_TO_ONE_RELATION',1);
 define('ONE_TO_MANY_RELATION',2);
 
-define('AGGREGATE_NULL_VALUE','----');
+define('AGGREGATE_NULL_VALUE',' ');
 
 define('ORDER_FIELD_ASC',1);
 define('ORDER_FIELD_DESC',2);

@@ -4,27 +4,27 @@ pkey = "layergroup_id"
 dato[] = "Nome;layergroup_name;30;text"
 dato[] = "Titolo;layergroup_title;55;text"
 dato[] = "Collegamento;layergroup_link;55;text"
-dato[] = "Scala di visibilit‡:<br>Massima;layergroup_maxscale;8;intero|Minima;layergroup_minscale;8;intero|Ottimale;layergroup_smbscale;8;intero"
+dato[] = "Scala di visibilit√†:<br>Massima;layergroup_maxscale;8;intero|Minima;layergroup_minscale;8;intero|Ottimale;layergroup_smbscale;8;intero"
 dato[] = "Raggruppato;multi;3;noyes|Nascosto;hidden;3;noyes"
 dato[] = "Ordine;layergroup_order;3;intero"
 dato[] = "Salva;azione;;submit;all;salva|Annulla;azione;;submit;all;annulla|Elimina;azione;;submit;edit;elimina|Copia da;copia;#get_azioni#theme;button;new;copia da|Sposta;sposta;#get_azioni#layergroup;button;edit;sposta|Esporta;azione;;submit;edit;esporta|Importa;azione;;submit;new;importa|Importa Raster;azione;120;submit;edit;importa raster"
 [list]
 table = "layergroup"
 pkey = "layergroup_id"
-order_fld = "layergroup_title#layergroup_order"
+order_fld = "layergroup_order#layergroup_title"
 dato[] = ";layergroup_id;3%;info"
 dato[] = "Titolo;layergroup_title;50%#layergroup_id;goto"
 dato[] = "Nome;layergroup_name;40%;text"
 dato[] = "Ordine;layergroup_order;7%;text"
 
 [title]
-edit = "Dati del LayerGroup"
-view = "Dati del LayerGroup"
-new = "Nuovo LayerGroup"
-list = "LayerGroup"
+edit = "Dati del Gruppo di layer"
+view = "Dati del Gruppo di layer"
+new = "Nuovo Gruppo di layer"
+list = "Gruppi di layer"
 
 [menu]
-new = "Nuovo Layergroup"
+new = "Nuovo Gruppo di layer"
 standard = "layergroup_name"
 
 [message]

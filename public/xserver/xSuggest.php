@@ -159,6 +159,7 @@
 		$aValues = array();
 		if(!$dbData = pg_connect($datalayerConnection)) print "errore da gestire";	
 		$sqlQuery.= ' ORDER BY 1';
+		if (strtoupper(CHAR_SET) != 'UTF-8') $sqlQuery = utf8_decode($sqlQuery);
 		$result = pg_query($dbData, $sqlQuery);
 
 		while ($row = pg_fetch_row($result)) {
