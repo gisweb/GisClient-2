@@ -1,0 +1,19 @@
+[standard]
+table = "tb_import_table"
+pkey = "tb_import_table_id"
+order_fld = "table_name"
+dato[] = "Tipo Importazione;tb_update;15%#seldb_importtype;selectdb"
+dato[] = "Nome Tabella;table_name;;text"
+[list]
+table = "#"
+[title]
+edit = "Seleziona tabelle per importazione da Topobase"
+view = "Seleziona tabelle per importazione da Topobase"
+new = "Seleziona tabelle per importazione da Topobase"
+list = "Seleziona tabelle per importazione da Topobase"
+
+[menu]
+standard = "Profilo importazione"
+
+[message]
+nodata = ""

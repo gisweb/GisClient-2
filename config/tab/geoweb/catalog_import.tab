@@ -1,0 +1,29 @@
+[standard]
+table = "catalog_import"
+pkey = "catalog_import_id"
+dato[] = "Nome;catalog_import_name;33;text"
+dato[] = "Da catalogo;catalog_from;200#seldb_catalog#project_name;selectdb"
+dato[] = "A catalogo;catalog_to;200#seldb_catalog#project_name;selectdb"
+dato[] = "Descrizione;catalog_import_description;50x2;text"
+dato[] = "Salva;azione;;submit;all;salva|Annulla;azione;;submit;all;annulla|Elimina;azione;;submit;edit;elimina|Importa Catalogo;azione;120;submit;edit;import catalogo"
+
+[list]
+table = "catalog_import"
+pkey = "catalog_import_id"
+order_fld = "catalog_import_name"
+dato[] = ";catalog_import_id;3%;info"
+dato[] = "Nome;catalog_import_name;17%#catalog_import_id;goto"
+dato[] = "Descrizione;catalog_import_description;80%;text"
+
+[title]
+edit = "Importa Catalogo"
+view = "Importa Catalogo"
+new = "Nuovo Importa Catalogo"
+list = "Importa Cataloghi"
+
+[menu]
+new = "Nuovo Importa Catalogo"
+standard = "catalog_import_name"
+
+[message]
+nodata = ""

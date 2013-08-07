@@ -1,0 +1,18 @@
+[standard]
+table = ""
+pkey = ""
+dato[] = "Percorso File Batch;batchpath;70;text"
+dato[] = "Percorso File Log;logpath;70;text"
+dato[] = "Salva Batch;azione;;submit;all|Annulla;azione;;submit;all"
+[title]
+edit = "Crea file batch di importazione"
+view = "Crea file batch di importazione"
+new = "Crea file batch di importazione"
+list = "Crea file batch di importazione"
+
+[menu]
+new = "Crea file batch di importazione"
+standard = "Crea file batch di importazione"
+
+[message]
+nodata = "Nessun Utente Presente"

@@ -1,0 +1,29 @@
+[standard]
+table = "theme"
+pkey = "theme_id"
+dato[] = "Nome;theme_name;55;text"
+dato[] = "Titolo;theme_title;55;text"
+dato[] = "Collegamento;theme_link;55;text"
+dato[] = "Ordine;theme_order;3;intero"
+dato[] = "Salva;azione;;submit;all;salva|Annulla;azione;;submit;all;annulla|Elimina;azione;;submit;edit;elimina|Copia da;copia;#get_azioni;button;new;copia da|Esporta;azione;;submit;edit;esporta|Importa;azione;;submit;new;importa"
+[list]
+table = "theme"
+pkey = "theme_id"
+order_fld = "theme_order"
+dato[] = ";theme_id;3%;info"
+dato[] = "Titolo;theme_title;50%#theme_id;goto"
+dato[] = "Nome;theme_name;40%;text"
+dato[] = "Ordine;theme_order;7%;text"
+
+[title]
+edit = "Dati del Tema"
+view = "Dati del Tema"
+new = "Nuovo Tema"
+list = "Temi"
+
+[menu]
+new = "Nuovo Tema"
+standard = "theme_name"
+
+[message]
+nodata = "Nessun Tema Presente"

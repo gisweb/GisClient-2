@@ -934,7 +934,8 @@ class GCMapset{
 		return implode("\n\t\t",$clsText);		
 	}
 	
-	function _getStyleText($aStyle){	
+	function _getStyleText($aStyle){
+	//print_debug($aStyle,null,'style');
 		$styText=array();
 		if(isset($aStyle["color"])) $styText[]="COLOR ".$aStyle["color"];
 		if(isset($aStyle["symbol_name"])) $styText[]="SYMBOL \"".$aStyle["symbol_name"]."\"";
@@ -948,7 +949,7 @@ class GCMapset{
 			$styText[]="WIDTH ".$aStyle["width"];
 		else
 			$styText[]="WIDTH 1";//pach mapserver 5.6 non disegna un width di default
-		if(isset($aStyle["pattern_def"]) && ms_GetVersionInt()>502000) $styText[]=$aStyle["pattern_def"];
+		if(isset($aStyle["pattern_def"]) && $this->msVersion=='6') $styText[]=$aStyle["pattern_def"];
 		if(isset($aStyle["minwidth"]) && $aStyle["minwidth"]) $styText[]="MINWIDTH ".$aStyle["minwidth"];
 		if(isset($aStyle["maxwidth"]) && $aStyle["maxwidth"]) $styText[]="MAXWIDTH ".$aStyle["maxwidth"];
 		if((isset($aStyle["symbol_name"]))&&(!in_array($aStyle["symbol_name"],$this->aSymbol))) $this->aSymbol[]=$aStyle["symbol_name"];
@@ -971,7 +972,6 @@ class GCMapset{
 			if($res[$i]["symbol_type"])$smbText[]="\tTYPE ".$res[$i]["symbol_type"];
 			if($res[$i]["font_name"]) $smbText[]="\tFONT \"".$res[$i]["font_name"]."\"";
 			//if($res[$i]["ascii_code"]) $smbText[]="\tCHARACTER \"&#".$res[$i]["ascii_code"].";\"";//IN MAPSERVER 5.0 SEMBRA DARE PROBLEMI
-//			if($res[$i]["ascii_code"]) $smbText[]=($res[$i]["ascii_code"]==34)?"\tCHARACTER '".chr($res[$i]["ascii_code"])."'":"\tCHARACTER \"".chr($res[$i]["ascii_code"])."\"";
 			if($res[$i]["ascii_code"]) $smbText[]=($res[$i]["ascii_code"]==34)?"\tCHARACTER '".chr($res[$i]["ascii_code"])."'":"\tCHARACTER \"".($res[$i]["ascii_code"]==92?chr(92):'').chr($res[$i]["ascii_code"])."\"";
 			if($res[$i]["filled"]) $smbText[]="\tFILLED TRUE";
 			if($res[$i]["points"]) $smbText[]="\tPOINTS ".$res[$i]["points"]." END";
