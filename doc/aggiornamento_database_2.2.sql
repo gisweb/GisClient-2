@@ -1,6 +1,6 @@
 -- MAPSERVER 6 --
------- GISCLIENT 2.5 -----------
-SET search_path = gisclient_25, pg_catalog;
+------ GISCLIENT 2.2 -----------
+SET search_path = gisclient_22, pg_catalog;
 
 -- *********** SIMBOLOGIA LINEARE: SOSTITUZIONE DI STYLE CON PATTERN *********************
 CREATE TABLE e_pattern
