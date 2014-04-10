@@ -18,7 +18,7 @@ GisClient.Mapset = new Class({
 		'userMode':MODE_SELECT,
 		'resultWin':false,
 		'useForm':false,
-		'cleanForm':false, //NON + USATO
+		'cleanForm':true, //NON + USATO
 		'selectMode':0,
 		'selectAction':2,
 		'zoomAction':2,
@@ -1315,7 +1315,7 @@ GisClient.Mapset = new Class({
 			}	
 
 			fieldSet += "<label class=\"searchLabel\" for=\"qf[" + this.response.qtfield[i][0] + "]\">" + this.response.qtfield[i][1] + waitImage + "</label>"; 
-			fieldSet += "<input type=\"text\" id=\"op_qf[" + this.response.qtfield[i][0] + "]\" name=\"query_fields_op\" size=\"1\" value=\"=\" class=\"boolOp\" />";
+			fieldSet += "<input type=\"text\" id=\"op_qf[" + this.response.qtfield[i][0] + "]\" name=\"query_fields_op\" size=\"1\" value=\"=\" class=\"boolOp\" tabindex=\"-1\" />";
 			fieldSet += "<input type=\"text\" id=\"qf[" + this.response.qtfield[i][0] + "]\" name=\"query_fields\" size=\"" + w + "\" />"+btn+"<br />";
 		}
 
