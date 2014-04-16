@@ -45,6 +45,7 @@ GisClient.Mapset = new Class({
 		GC_optionUseForm = this.options.useForm;
 		GC_optionSelect = this.options.selectMode;
 		GC_optionAction = this.options.selectAction;
+		GC_optionCleanForm = this.options.cleanForm;
 		
 		this.containerDiv = new Element('div',{'class':'gisclientContainer'});
 		this.toolbarDiv = new Element('div',{'class':'toolbarBox'});
@@ -1572,9 +1573,8 @@ GisClient.Mapset = new Class({
 				);
 			}
 		}
-		
+		console.log(this)
 		//empty query fields
-		/*
 		if(GC_optionCleanForm){
 			var queryFields = $$('input[name=query_fields]').filter(function(item) { return item.get('value') });
 			if(queryFields.length>0){
@@ -1584,7 +1584,6 @@ GisClient.Mapset = new Class({
 				});
 			}
 		}
-		*/
 		this.setBusy(false);
 	
 	},
