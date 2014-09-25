@@ -1037,12 +1037,21 @@ class GCMap{
 			$oLayer->set('sizeunits', MS_PIXELS);	
 			
 			$oClass = ms_newClassObj($oLayer);
-			$oClass->label->set('type', MS_TRUETYPE);
-			$oClass->label->set('font', $sFont);
-			$oClass->label->color->setRGB($colorList[0], $colorList[1], $colorList[2]);
-			$oClass->label->set('size', $Size);
-			$oClass->label->outlinecolor->setRGB(255, 255, 255);
-			$oClass->label->set('position', $iPosition);			
+			//MAPSERVER >6.2
+			try{
+				$label = $oClass->label;
+			}
+			catch (Exception $e) {
+				$label = new labelObj();
+				$oClass->addLabel($label);
+			}
+			
+			$label->set('type', MS_TRUETYPE);
+			$label->set('font', $sFont);
+			$label->color->setRGB($colorList[0], $colorList[1], $colorList[2]);
+			$label->set('size', $Size);
+			$label->outlinecolor->setRGB(255, 255, 255);
+			$label->set('position', $iPosition);			
 			
 			$oLayer->addFeature($oShape);
 
