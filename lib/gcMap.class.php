@@ -331,7 +331,14 @@ class GCMap{
              $classes = array();
                 for ($cl=0; $cl < $numclasses; $cl++) {
                     $class = $layer->getClass($cl);
-                    if ($label = $class->label) {
+                    //MAPSERVER >6.2
+					try{
+						$label = $class->label;
+					}
+					catch (Exception $e) {
+						$label = $class->getLabel(0);
+ì					}
+                    if ($label) {
                         if ($label->type != 3) {
                             $labelSize0 = $label->size;
                             //$label->set("minsize", $label->minsize * $factor);
@@ -777,14 +784,23 @@ class GCMap{
         $pntClass = ms_newClassObj($txtLayer);
         $clStyle = ms_newStyleObj($pntClass);
         $clStyle->color->setRGB($color[0], $color[1], $color[2]);
+
+		//MAPSERVER >6.2
+		try{
+			$label = $pntClass->label;
+		}
+		catch (Exception $e) {
+			$label = new labelObj();
+			$pntClass->addLabel($label);
+		}
             
         // Label properties
-        $pntClass->label->set("position", MS_UC);
-        $pntClass->label->set("font", "arial");
-        $pntClass->label->set("type", MS_TRUETYPE);
-        $pntClass->label->set("size", 14);
-        $pntClass->label->set("wrap", ord(WRAP_READLINE));
-        $pntClass->label->color->setRGB($color[0], $color[1], $color[2]);
+        $label->set("position", MS_UC);
+        $label->set("font", "arial");
+        $label->set("type", MS_TRUETYPE);
+        $label->set("size", 14);
+        $label->set("wrap", ord(WRAP_READLINE));
+        $label->color->setRGB($color[0], $color[1], $color[2]);
 
 		//AGGIUNGO GLI OGGETTI
 		$redline = $_SESSION[$myMap]["REDLINE"];
