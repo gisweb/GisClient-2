@@ -336,8 +336,9 @@ class GCMap{
 						$label = $class->label;
 					}
 					catch (Exception $e) {
-						$label = $class->getLabel(0);
-ì					}
+						if($class->numlabels > 0 )
+							$label = $class->getLabel(0);
+					}
                     if ($label) {
                         if ($label->type != 3) {
                             $labelSize0 = $label->size;

@@ -51,6 +51,8 @@ class userApps extends user{
 		$JOIN=($mode==0)?(" INNER JOIN "):(" LEFT JOIN ");
 		$sql="select distinct '$project' as project_name,user_group.username,case when (coalesce(X.username,'')<>'') then 1 else 0 end as presente from ".USER_SCHEMA.".user_group $JOIN (SELECT username FROM ".DB_SCHEMA.".project_admin WHERE project_name="
 		.$this->db->quote($project).") X on (user_group.username=X.username) where coalesce(user_group.username,'')<>'' order by user_group.username";
+
+		print_debug($sql,null,'GC_USERS');
 		if(!$this->db->sql_query($sql)){
 			return -1;
 		}
@@ -160,7 +162,8 @@ class userApps extends user{
 				$this->error->getError("1");
 				return false;
 			}
-			$presente = $this->db->sql_fetchfield('presente');
+			$presente = $this->db->sql_fetchrow();
+			$presente=$presente[0];
 			if ($presente == 0)
 				return false;
 
@@ -174,7 +177,8 @@ class userApps extends user{
 					return false;
 				}
 			}
-			$presente = $this->db->sql_fetchfield('presente');
+			$presente = $this->db->sql_fetchrow();
+                        $presente=$presente[0];
 			return $this->setInfo($presente,$this->data["username"]);
 			
 		}
