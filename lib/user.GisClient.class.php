@@ -164,8 +164,9 @@ class userApps extends user{
 			}
 			$presente = $this->db->sql_fetchrow();
 			$presente=$presente[0];
-			if ($presente == 0)
+			if ($presente == 0){
 				return false;
+			}
 
 			if($this->context=='author'){
 				$sql = "SELECT count(*) as presente FROM ".DB_SCHEMA.".project_admin  WHERE username=".
@@ -177,8 +178,7 @@ class userApps extends user{
 					return false;
 				}
 			}
-			$presente = $this->db->sql_fetchrow();
-                        $presente=$presente[0];
+
 			return $this->setInfo($presente,$this->data["username"]);
 			
 		}
