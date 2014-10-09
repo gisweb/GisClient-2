@@ -601,7 +601,8 @@ function get_chiave_esterna($val,$fld,$tab,$campo){
 			print_debug("Errore Chiave Esterna\n".$sql,null,"error");
 	
 	}
-	return $this->db->sql_fetchfield($campo);
+	$row = $this->db->sql_fetchrow();
+	return $row[0];
 	
 }
 }//end class
