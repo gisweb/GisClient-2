@@ -165,7 +165,8 @@ Class saveData{
 				$sql="select ".DB_SCHEMA.".new_pkey('$this->schema','$this->table','$pkey',1);";
 				$this->db->sql_query ($sql);
 				print_debug($sql,null,"save.class");
-				$newid=$this->db->sql_fetchfield('new_pkey');
+				$row = $this->db->sql_fetchrow();
+				$newid=$row[0];
 				$Dati[$pkey]=$newid;
 				//INSERISCO I VALORI DEI GENITORI DELLA TABELLA
 				if($this->parent_flds){
@@ -258,7 +259,8 @@ Class saveData{
 							if ($pkey) {
 								$sql="select ".DB_SCHEMA.".new_pkey('$this->schema','$this->table','$pkey',1);";
 								$result = $this->db->sql_query ($sql);
-								$newid=$this->db->sql_fetchfield('new_pkey');
+								$row = $this->db->sql_fetchrow();
+								$newid=$row[0];
 								if ($newid) $Dati[$i][$pkey]=$newid;
 							}
 							$sqlinsertfield=Array();
@@ -297,7 +299,8 @@ Class saveData{
 						if(preg_match("|(.+)_id|Ui",$pkey) && $pkey != 'language_id'){ // strozzo Roberto (dice Marco)
 							$sql="select ".DB_SCHEMA.".new_pkey('$this->schema','$this->table','$pkey',$start);";
 							$this->db->sql_query ($sql);
-							$newid=$this->db->sql_fetchfield('new_pkey');
+							$row = $this->db->sql_fetchrow();
+							$newid=$row[0];
 							if($newid) $Dati[$pkey]=$newid;
 						}
 						else if (isset($this->data[$pkey])){
@@ -434,7 +437,8 @@ Class saveData{
 		foreach($arr_id as $id){
 			$sql="select ".DB_SCHEMA.".new_pkey('".DB_SCHEMA."','".$struct["name"]."','".$struct["name"]."_id') as id;";
 			$this->db->sql_query($sql);
-			$idx=$this->db->sql_fetchfield('id');
+			$row = $this->db->sql_fetchrow();
+			$idx=$row[0];
 			$parent[$lev][$id]=Array("key"=>$struct["name"],"value"=>$idx);
 			
 			$sql="INSERT INTO ".DB_SCHEMA.".".$struct["name"]."(".$struct["name"]."_id,$list_flds) SELECT $idx,$list_value FROM ".DB_SCHEMA.".".$struct["name"]." WHERE ".$struct["name"]."_id=$id;";

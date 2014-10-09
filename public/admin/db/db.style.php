@@ -7,7 +7,8 @@ if($save->status==1 && $save->action=="salva"){
 	$sql="SELECT legendtype_id as type FROM ".DB_SCHEMA.".class WHERE class_id=$class_id";
 	$save->db->sql_query($sql);
 	print_debug($sql,null,"save.class");
-	$type=$save->db->sql_fetchfield("type");
+	$row = $save->db->sql_fetchrow();
+	$type=$row[0];
 	if($type==1){
 		include_once ROOT_PATH."lib/gcSymbol.class.php";
 		$smb=new Symbol("class");

@@ -936,9 +936,10 @@ class PgQuery{
 		$sql="select mapset_qt.qt_id,layer.layergroup_id,theme.theme_id from $dbschema.mapset_qt inner join $dbschema.qt using(qt_id) inner join $dbschema.theme using(theme_id) inner join $dbschema.layer using(layer_id) where lower(theme_name)=lower('".$_REQUEST["theme"]."') and lower(qt_name)=lower('".$_REQUEST["qt"]."');";
 		print_debug($sql,null,'extcall');
 		$this->db->sql_query($sql);
-		$qtId = $this->db->sql_fetchfield('qt_id');
-		$layergroupId = $this->db->sql_fetchfield('layergroup_id');
-		$themeId = $this->db->sql_fetchfield('theme_id');
+		$row = $this->db->sql_fetchrow();
+		$qtId = $row[0];
+		$layergroupId = $row[1];
+		$themeId = $row[2];
 		$sql="select qtfield_id,field_header from $dbschema.qtfield where qt_id=$qtId";
 		$this->db->sql_query($sql);
 		$qfdata=array();

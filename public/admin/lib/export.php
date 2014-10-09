@@ -37,7 +37,8 @@ function _getFieldValue($table,$fld,$pk,$pkVal){		// SI PUO' ANCHE MODIFICARE PE
 	$filter.=implode(' AND ',$flt);
 	$sql="SELECT $fld FROM ".DB_SCHEMA.".$table WHERE $filter;";
 	if(!$db->sql_query($sql)) echo "<p>$sql</p>";
-	return $db->sql_fetchfield($fld);
+	$row = $db->sql_fetchrow();
+	return $row[0];
 }
 
 
@@ -95,7 +96,8 @@ function import($f,$parentId,$parentName,$newName='',$parentkey=null){
 					$tables[]=DB_SCHEMA.'.project';
 					$sqlVal="SELECT $fld as val FROM ".implode(",",array_unique($tables))." WHERE ".implode(' AND ',array_unique($flt)).";";
 					if($db->sql_query($sqlVal)){
-						$newVal=$db->sql_fetchfield('val');
+						$row = $db->sql_fetchrow();
+						$newVal=$row[0];
 					}
 					else 
 						echo "<p>$sqlVal</p>";
@@ -120,7 +122,8 @@ function import($f,$parentId,$parentName,$newName='',$parentkey=null){
 				$table=str_replace('_id','',$out[1]);
 				$sqlId="select ".DB_SCHEMA.".new_pkey('$table','".$out[1]."_id') as newid;";
 				$db->sql_query($sqlId);
-				$newid[$out[1]][$out[2]]=$db->sql_fetchfield('newid');
+				$row = $db->sql_fetchrow();
+				$newid[$out[1]][$out[2]]=$row[0];
 			}
 		}
 		elseif(preg_match("|@NEWKEY_V\[(.+)\]\[(.+)\]@|Ui",$sql,$out)) {
@@ -131,7 +134,8 @@ function import($f,$parentId,$parentName,$newName='',$parentkey=null){
 				$table=str_replace('_name','',$out[1]);
 				$sqlId="select ".DB_SCHEMA.".new_pkey_varchar('$table','".$out[1]."_name','$out[2]') as newid;";
 				$db->sql_query($sqlId);
-				$newid[$out[1]][$out[2]]=$db->sql_fetchfield('newid');
+				$row = $db->sql_fetchrow();
+				$newid[$out[1]][$out[2]]=$row[0];
 			}
 		}
 		//if($out){
@@ -163,7 +167,8 @@ function import_raster($d,$ext,$layergroup_id,$catalog_id,$srid=-1,$filtro="",$d
 	$sql="select coalesce(base_path,'')||'/".$shapeDir."'||coalesce(catalog_path,'')||'/".$d."' as dir from ".DB_SCHEMA.".catalog inner join ".DB_SCHEMA.".project using (project_name) where catalog_id=$catalog_id";
 	
     if(!$db->sql_query($sql)) return -1;
-	$dir=str_replace("//","/",$db->sql_fetchfield("dir"));
+    $row = $db->sql_fetchrow();
+	$dir=str_replace("//","/",$row[0]);
 	require_once "filesystem.php";
 	$fileList=Array();
 	foreach($ext as $e){
@@ -230,7 +235,8 @@ function _getListValue($level,$val,$db){
 				
 			}
 			if(!$db->sql_query($sql)) echo "<p>$sql</p>";
-			$name=$db->sql_fetchfield('name');
+			$row = $db->sql_fetchrow();
+			$name=$row[0];
 			if($level=="qtrelation" && !$val){
 				$result[]="[$level][0]";
 				return implode("",$result);
@@ -238,7 +244,9 @@ function _getListValue($level,$val,$db){
 			else
 				$result[]="[$level][$name]";
 			$level=$pk["parent"][$level];
-			$val=$db->sql_fetchfield('parentpk');
+			$row = $db->sql_fetchrow();
+			$val=$row[1];
+
 			
 		}
 	}

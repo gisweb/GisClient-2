@@ -44,8 +44,10 @@
 			$sql="SELECT project_name FROM ".DB_SCHEMA.".project WHERE project_name='$project';";
 			if(!$db->sql_query($sql))
 				echo "<p>Impossibile eseguire la query : $sql</p>";
-			else
-				$projectName=$db->sql_fetchfield("project_name");
+			else{
+				$row = $db->sql_fetchrow();
+				$projectName=$row[0];
+			}
 		}
 		else
 			$projectName=$_POST["name"];

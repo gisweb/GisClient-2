@@ -530,7 +530,8 @@ function elenco_selectfield($campo,$selezionato,$filtro){
 	print_debug($sql,NULL,"tabella");
 	$this->db->sql_query ($sql);	
 	//$elenco = $this->db->sql_fetchrowset();
-	$elenco=$this->db->sql_fetchfield($campo);
+	$row = $this->db->sql_fetchrow();
+	$elenco=$row[0];
 	if (!$elenco){
 		return;
 	}

@@ -14,7 +14,12 @@ $upd_sql = array();
 if($save->status==1){
 	if(!$_POST["dati"]["mapset_extent"]){
 		$sql="SELECT project_extent as extent FROM ".DB_SCHEMA.".project WHERE project_name='$parent'";
-		$ext=($save->db->sql_query($sql))?($save->db->sql_fetchfield('extent')):("");
+		if(!$save->db->sql_query($sql))
+			echo "<p>Impossibile eseguire la query : $sql</p>";
+		else{
+			$row = $save->db->sql_fetchrow();
+			$ext=$row[0];
+		}
 		$upd_sql[]="mapset_extent='$ext'";
 	}
 	else	

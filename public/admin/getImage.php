@@ -14,7 +14,8 @@ $sql="select ".$table."_image as image from $dbSchema.$table where $filter";
 
 print_debug($sql,null,'getImage');
 $db->sql_query($sql);
-$img=$db->sql_fetchfield("image");
+$row = $db->sql_fetchrow();
+$img=$row[0];
 header('Content-type:image/png');
 header("Cache-Control: no-store, no-cache, must-revalidate");  // HTTP/1.1
 header("Cache-Control: post-check=0, pre-check=0", false);

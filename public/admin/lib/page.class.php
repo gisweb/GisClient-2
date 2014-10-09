@@ -170,9 +170,9 @@
 
 					if(!$this->db->sql_query($sql)){
 						print_debug($sql,null,"navtree");	
-						
 					}
-					$navTreeTitle=strtolower($this->db->sql_fetchfield("val"));
+					$row = $this->db->sql_fetchrow();
+					$navTreeTitle=strtolower($row[0]);
 					if ((is_numeric($value) && $value>0) || (!is_numeric($value) && strlen($value)>0))
 						$lbl.=" > <a class=\"link_label\" href=\"#\" onclick=\"javascript:navigate(['".@implode("','",$lvl)."'],['".@implode("','",$val)."'])\">$navTreeTitle</a>\n\t\t\t\t\t";
 					else
@@ -265,7 +265,8 @@
 					
 				}
 				else{
-					return $this->db->sql_fetchfield("id");
+					$row = $this->db->sql_fetchrow();
+					return $row[0];
 				}
 			}
 			else{

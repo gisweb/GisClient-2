@@ -34,8 +34,9 @@ if(!$db->db_connect_id)  die( "Impossibile connettersi al database    pippo   ".
 $sql="SELECT lower(papersize_size) as papersize_size,papersize_orientation FROM $sk.e_papersize WHERE papersize_id=".$_REQUEST["papersize"];
 
 $db->sql_query($sql);
-$size=$db->sql_fetchfield("papersize_size");
-$orient=$db->sql_fetchfield("papersize_orientation");
+$row = $db->sql_fetchrow();
+$size=$row[0];
+$orient=$row[1];
 $orient=($orient=="O")?"landscape":"portrait";
 	
 $oQuery=new PgQuery();

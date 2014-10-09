@@ -83,7 +83,8 @@ class Tabella{
 		$ncol=count($data["dato"]);
 		for ($i=0;$i<$ncol;$i++){//comincio da 1 perchè sulla prima riga ho il nome della tabella e i campi obbligatori
 			$d=$data["dato"][$i];
-			if (strtoupper(CHAR_SET) == 'UTF-8') $d=utf8_encode($data["dato"][$i]);
+			//if (strtoupper(CHAR_SET) == 'UTF-8') $d=utf8_encode($data["dato"][$i]);
+			if (strtoupper(CHAR_SET) != 'UTF-8') $d=utf8_decode($d);
 			$row[]=explode('|',$d);//array di configurazione delle tabelle
 		}
 		$tmp_ncol=$ncol;

@@ -351,7 +351,8 @@ class GCMapset{
 			$sql="select theme_id from $dbSchema.qt where qt_id=".$_REQUEST["qt"];
 			print_debug($sql,null,'temiricerca');
 			$this->db->sql_query ($sql);
-			$this->selectedqTheme = intval($this->db->sql_fetchfield("theme_id"));
+			$row = $this->db->sql_fetchrow();;
+			$this->selectedqTheme = intval($row[0]);
 		}
 		//Se passo l'elenco degli oggetti da zoomare
 		if(isset($_REQUEST["objid"]) && $_REQUEST["objid"]){
@@ -724,7 +725,8 @@ class GCMapset{
 				//ATTENZIONE NEL GRUPPO CI DEVE ESSERE SOLO 1 LAYER DI TIPO RASTER
 				$sql="select catalog_path from $dbSchema.layer inner join $dbSchema.e_layertype using(layertype_id) inner join $dbSchema.catalog using (catalog_id) where layergroup_id=".$aLayer["layergroup_id"]." and layertype_ms=3;";
 				$this->db->sql_query($sql);
-				$filepath=$this->db->sql_fetchfield('catalog_path');
+				$row = $this->db->sql_fetchrow();
+				$filepath=$row[0];
 				$filepath = (substr(trim($filepath),0,1)=='/')?trim($filepath):$this->basePath.trim($filepath);
 				$aLayer["layertype_name"]="POLYGON";
 			}

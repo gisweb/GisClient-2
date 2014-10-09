@@ -52,8 +52,9 @@ switch($campo) {
 					//Recupero base path del progetto
 					$sql="select base_path from ".DB_SCHEMA.".project where project_name='$project'";
 					if (!$db->sql_query($sql))
-						print_debug($sql,null,"elenco");
-					$projectPath=$db->sql_fetchfield('base_path');
+					print_debug($sql,null,"elenco");
+					$row = $db->sql_fetchrow();
+					$projectPath=$row[0];
 					$fileDir=$projectPath.$fileDir;	
 				}
 				$navDir=($_REQUEST["dir"])?("/".@implode("/",$_REQUEST["dir"])):("");
@@ -458,7 +459,8 @@ switch($campo) {
 					$sql="SELECT data FROM ".DB_SCHEMA.".layer WHERE layer_id=$idlayer order by data;";
 					$db->sql_query($sql);
 					print_debug($sql,null,"elenco");
-					$data=$db->sql_fetchfield("data");
+					$row = $db->sql_fetchrow();
+					$data=$row[0];
 				}
 				// VERIFICO SE E' UNA TABELLA OPPURE UNA RELAZIONE
 				if(preg_match("|select (.+) from (.+)|i",$data,$tmp))
@@ -530,8 +532,8 @@ switch($campo) {
 		$sql="SELECT table_name FROM ".DB_SCHEMA.".qtrelation WHERE qtrelation_id=$idqtrelation order by table_name;";
 		print_debug($sql,null,"elenco");
 		$db->sql_query($sql);
-		$tb_name=$db->sql_fetchfield("table_name");
-		//$tb_alias=$db->sql_fetchfield("table_alias");
+		$row = $db->sql_fetchrow();
+		$tb_name=$row[0];
 
 		switch($ris["connection_type"]){
 			case 1:		//Local Folder
@@ -560,7 +562,8 @@ switch($campo) {
 						$sql="SELECT data FROM ".DB_SCHEMA.".layer LEFT JOIN ".DB_SCHEMA.".qt USING (layer_id) WHERE qt_id=$idqt order by data;";
 						print_debug($sql,null,"elenco");
 						$db->sql_query($sql);
-						$data=$db->sql_fetchfield('data');;
+						$row = $db->sql_fetchrow();
+						$data=$db->row[0];
 						// VERIFICO SE E' UNA TABELLA OPPURE UNA RELAZIONE
 						if(preg_match("|select (.+) from (.+)|i",$data,$tmp))
 							$sql=trim($data);
@@ -651,7 +654,8 @@ switch($campo) {
 				$sql="SELECT data FROM ".DB_SCHEMA.".layer LEFT JOIN ".DB_SCHEMA.".qt USING (layer_id) WHERE qt_id=$idqt order by data;";
 				print_debug($sql,null,"elenco");
 				$db->sql_query($sql);
-				$data=$db->sql_fetchfield('data');;
+				$row = $db->sql_fetchrow();
+				$data=$row[0];
 				// VERIFICO SE E' UNA TABELLA OPPURE UNA RELAZIONE
 				if(preg_match("|select (.+) from (.+)|i",$data,$tmp))
 					$sql=trim($data);
@@ -1073,7 +1077,8 @@ switch($campo) {
 					$sql="SELECT data FROM ".DB_SCHEMA.".layer WHERE layer_id=$idlayer order by data;";
 					$db->sql_query($sql);
 					print_debug($sql,null,"elenco");
-					$data=$db->sql_fetchfield("data");
+					$row = $db->sql_fetchrow();
+					$data=$row[0];
 				}
 			
 			
@@ -1229,8 +1234,9 @@ switch($campo) {
 			// CONNESSIONE GISCLIENT
 			$sql="select catalog_path,base_path from ".DB_SCHEMA.".catalog inner join ".DB_SCHEMA.".project using (project_name) where catalog_id=$idCat";
 			$db->sql_query($sql);
-			$shp_dir=$db->sql_fetchfield('catalog_path');
-			$base_path=$db->sql_fetchfield('base_path');
+			$row = $db->sql_fetchrow();
+			$shp_dir=$row[0];
+			$base_path=$row[1];
 			if(substr($base_path,-1)!="/") $base_path.="/";
 			$navDir=($_REQUEST["dir"])?("/".@implode("/",$_REQUEST["dir"])):("");
 			$dir=str_replace("//","/",$base_path.$shp_dir.$navDir);

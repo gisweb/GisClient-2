@@ -182,7 +182,8 @@ class userApps extends user{
 					return false;
 				}
 			}
-			$presente = $this->db->sql_fetchfield('presente');
+			$row = $this->db->sql_fetchrow();
+	        $presente =  $row[0];
 			return $this->setInfo($presente,$this->data["username"]);
 			
 		}
@@ -194,10 +195,11 @@ class userApps extends user{
 
 		$sql="SELECT username,d,n FROM ".$this->schema.".users inner join admin.users_key using(username) WHERE md5(username)='".$this->data["usr"]."'";
 		if($this->db->sql_query($sql)){
-			$d=$this->db->sql_fetchfield('d');
-			$n=$this->db->sql_fetchfield('n');
-			$activate=$this->db->sql_fetchfield('attivato');
-			$username=$this->db->sql_fetchfield('username');
+			$row = $this->db->sql_fetchrow();
+			$d = $row[1];
+			$n = $row[2];
+			//$activate=$this->db->sql_fetchfield('attivato');
+			$username = $row[0];
 			$rsa = New SecurityRSA;
 			$decoded = $rsa->rsa_decrypt($authstring, $d, $n); 
 			$tmp=explode("##",$decoded);
@@ -217,7 +219,7 @@ class userApps extends user{
 				return false;
 			}*/
 			
-			$attivato = $this->db->sql_fetchfield('attivato');
+			//$attivato = $this->db->sql_fetchfield('attivato');
 			$attivato=1;
 			return $this->setInfo($attivato,$ris["username"]);
 		

@@ -5,7 +5,8 @@ $p=$save->performAction($p);
 //$sql="DELETE FROM ".DB_SCHEMA.".project_admin WHERE NOT username IN (SELECT DISTINCT username FROM ".USER_SCHEMA.".users)";
 //echo "<p>$sql</p>";
 /*$save->db->sql_query($sql);
-$adminType=$save->db->sql_fetchfield("type");
+$row = $save->db->sql_fetchrow();
+$adminType=$row[0];
 if(!$adminType){
 	$save->status=-1;
 	$p->errors["generic"]="Impossibile determinare il ruolo dell'Utente.";

@@ -373,8 +373,8 @@ $all="center";
 		print_debug($sql,null,"fkey");
 		if(!$this->db->sql_query($sql))
 			print_debug($sql,null,"tabella");
-		
-		return $this->db->sql_fetchfield($campo);
+		$row = $this->db->sql_fetchrow();
+		return $row[0];
 	}*/
 }//end class
 
