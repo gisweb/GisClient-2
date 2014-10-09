@@ -361,7 +361,8 @@ $all="center";
 				print_debug("Errore Chiave Esterna\n".$sql,null,"error");
 		
 		}
-		return $this->db->sql_fetchfield($campo);
+		$row = $this->db->sql_fetchrow();
+		return $row[0];
 	
 	}
 	/*
