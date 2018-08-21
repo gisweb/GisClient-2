@@ -18,7 +18,7 @@ GisClient.Mapset = new Class({
 		'userMode':MODE_SELECT,
 		'resultWin':false,
 		'useForm':false,
-		'cleanForm':true, //NON + USATO
+		'cleanForm':false, //NON + USATO
 		'selectMode':0,
 		'selectAction':2,
 		'zoomAction':2,
