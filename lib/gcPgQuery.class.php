@@ -492,7 +492,7 @@ class PgQuery{
             }
 		}
 		else{
-			$queryString="select distinct ".DATALAYER_ALIAS_TABLE.".$datalayerKey as objid,round(xmin(box3d($geomColumn))::numeric,2) - $zoomBuffer as minx, round(ymin(box3d($geomColumn))::numeric,2) - $zoomBuffer as miny, round(xmax(box3d($geomColumn))::numeric,2) + $zoomBuffer as maxx, round(ymax(box3d($geomColumn))::numeric,2) + $zoomBuffer as maxy $fieldString from $joinString $whereString $orderbyString ";		
+			$queryString="select distinct ".DATALAYER_ALIAS_TABLE.".$datalayerKey as objid,round(st_xmin(box3d($geomColumn))::numeric,2) - $zoomBuffer as minx, round(st_ymin(box3d($geomColumn))::numeric,2) - $zoomBuffer as miny, round(st_xmax(box3d($geomColumn))::numeric,2) + $zoomBuffer as maxx, round(st_ymax(box3d($geomColumn))::numeric,2) + $zoomBuffer as maxy $fieldString from $joinString $whereString $orderbyString ";		
 			if(isset($aTemplate["max_rows"]) && !(isset($_REQUEST["allpage"]) && $_REQUEST["allpage"])){
 				$maxrows=intval($aTemplate["max_rows"]);
 				$pageIndex=(isset($_REQUEST["pageIndex"]) && $_REQUEST["pageIndex"])?intval($_REQUEST["pageIndex"]):1;
