@@ -1,0 +1,1072 @@
+MAP
+	NAME "vezzano_gb"
+	EXTENT 1566229 4887780 1576472 4888791
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+		"ows_enable_request" "*"
+		"wms_srs" "EPSG:3003 EPSG:4326 EPSG:23032 EPSG:25832 EPSG:32632 EPSG:900913"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "acque_34"
+	NAME "acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.acque using unique bordo_gb"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "ACQUE"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 255 255
+			SIZE 10
+			WIDTH 1
+			PATTERN 1 10 END
+			MINWIDTH 5
+		END
+	END
+END
+LAYER #----------------1-----------------
+	GROUP "strade_35"
+	NAME "strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "STRADE"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------2-----------------
+	GROUP "acque_34"
+	NAME "mappali_con_acqua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "foglio='18' and mappale in ('14','20','410')"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "acque"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------3-----------------
+	GROUP "particelle_31"
+	NAME "particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	CLASS
+		NAME "GRIGIA"
+		TITLE "Particelle (>1:10000)"
+		MINSCALEDENOM 10000
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold-italic"
+		END
+		STYLE
+			OUTLINECOLOR 128 128 128
+			SIZE 1
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "NERA"
+		TITLE "Particelle (<1:10000)"
+		MAXSCALEDENOM 10000
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold-italic"
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "fabbricati_32"
+	NAME "fabbricati_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "fabbricati_1"
+		TITLE "Fabbricati"
+		STYLE
+			COLOR 238 169 184
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "fabbricati_32"
+	NAME "fabbricati_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	CLASS
+		NAME "FABBRICATO"
+		TITLE "Fabbricato"
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "varie_37"
+	NAME "linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"varie"
+		"ows_title"	"varie"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from nct_gb.varie using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS pixels
+	CLASSITEM "codice"
+	OPACITY 30
+	CLASS
+		NAME "linee_varie"
+		TITLE "Linee varie"
+		EXPRESSION /^linee_varie$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "particelle_31"
+	NAME "freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "the_geom from nct_gb.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "freccette"
+		TITLE "freccette"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+		END
+		STYLE
+			COLOR 150 150 150
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "particelle_31"
+	NAME "numeri_particelle"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct_gb.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	LABELITEM "mappale"
+	MAXSCALEDENOM 5001
+	FORCE true
+	CLASS
+		NAME "TESTI_PARTICELLE"
+		TITLE "Testo Particelle Catastali"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			SIZE [dimensione]
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "simboli_36"
+	NAME "simboli"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct_gb.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "PICCHETTI"
+		TITLE "Picchetti"
+		EXPRESSION /^2$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "OSSO"
+		TITLE "Osso di morto"
+		EXPRESSION /^4$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "OSSO MORTO"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FLUSSO_SCORRIMENTO_ACQUE"
+		TITLE "Flusso scorrimento acque - medio"
+		EXPRESSION /^5$|^6$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "FRECCIA2"
+			SIZE 9
+			MINSIZE 5
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAG"
+		TITLE "Graffa di annessione grande"
+		EXPRESSION /^9$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "TERMINE"
+		TITLE "Termine Catastale Provinciale"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 6
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAP"
+		TITLE "Graffa di annessione - piccola"
+		EXPRESSION /^14$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------10-----------------
+	GROUP "fiduciali_33"
+	NAME "fiduciali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct_gb.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "FIDUCIALI_CERCHIO"
+		TITLE "Punto fiduciale"
+		EXPRESSION /^20$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "FIDUCIALE"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FIDUCIALI_TRIANGOLO"
+		TITLE "Punto trigonometrico"
+		EXPRESSION /^8$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "TRIGONOMETRICO"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------11-----------------
+	GROUP "fiduciali_33"
+	NAME "numeri_fiduciali"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "rappresentazione_gb from nct_gb.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	LABELITEM "numero"
+	CLASS
+		NAME "TESTO_NUMERO"
+		TITLE "Numero di fiduciale"
+		EXPRESSION /^simboli$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 255 0 0
+			SIZE 4
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------12-----------------
+	GROUP "testi_30"
+	NAME "testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"testi"
+		"ows_title"	"testi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct_gb.testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS pixels
+	LABELITEM "testo"
+	LABELMINSCALEDENOM 200
+	LABELMAXSCALEDENOM 5000
+	MAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "testi_luoghi"
+		TITLE "Testi dei luoghi"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 160 0 0
+			SIZE 10
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION UR
+		PARTIALS false
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "fogli_38"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	SIZEUNITS pixels
+	CLASSITEM "foglio"
+	LABELITEM "foglio"
+	MINSCALEDENOM 8001
+	OPACITY 60
+	CLASS
+		NAME "foglio_01"
+		TITLE "Foglio 1"
+		EXPRESSION /^1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 183 145 4
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_02"
+		TITLE "Foglio 2"
+		EXPRESSION /^2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 227 147 39
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_03"
+		TITLE "Foglio 3"
+		EXPRESSION /^3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 45 160 213
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_04"
+		TITLE "Foglio 4"
+		EXPRESSION /^4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 171 219 115
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_05"
+		TITLE "Foglio 5"
+		EXPRESSION /^5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 251 169 181
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_06"
+		TITLE "Foglio 6"
+		EXPRESSION /^6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 15 209 191
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_07"
+		TITLE "Foglio 7"
+		EXPRESSION /^7$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 249 214 81
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_08"
+		TITLE "Foglio 8"
+		EXPRESSION /^8$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 30 53 75
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_09"
+		TITLE "Foglio 9"
+		EXPRESSION /^9$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 242 215 64
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_10"
+		TITLE "Foglio 10"
+		EXPRESSION /^10$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 131 117 248
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_11"
+		TITLE "Foglio 11"
+		EXPRESSION /^11$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 227 180 63
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_12"
+		TITLE "Foglio 12"
+		EXPRESSION /^12$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 27 68 119
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_13"
+		TITLE "Foglio 13"
+		EXPRESSION /^13$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 155 13 99
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_14"
+		TITLE "Foglio 14"
+		EXPRESSION /^14$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 30 255 189
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_15"
+		TITLE "Foglio 15"
+		EXPRESSION /^15$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 11 2 174
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_16"
+		TITLE "Foglio 16"
+		EXPRESSION /^16$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 244 181 192
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_17"
+		TITLE "Foglio 17"
+		EXPRESSION /^17$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 36 173 157
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_18"
+		TITLE "Foglio 18"
+		EXPRESSION /^18$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 249 19
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_19"
+		TITLE "Foglio 19"
+		EXPRESSION /^19$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 232 220 161
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_20"
+		TITLE "Foglio 20"
+		EXPRESSION /^20$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 230 147 68
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+SYMBOL
+	NAME "FIDUCIALE"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "B"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FRECCIA2"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "G"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "GRAFFA"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "E"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "OSSO MORTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "I"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PICCHETTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "D"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "TRIGONOMETRICO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "A"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

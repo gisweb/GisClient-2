@@ -1,0 +1,1110 @@
+MAP
+	NAME "puc_vezzano"
+	EXTENT 1566229 4887780 1576472 4888791
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+		"ows_enable_request" "*"
+		"wms_srs" "EPSG:3003 EPSG:4326 EPSG:23032 EPSG:25832 EPSG:32632 EPSG:900913"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "grp_ambiti_39"
+	NAME "lay_nulli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"grp_ambiti"
+		"ows_title"	"grp_ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli_gb.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_102016' and nome_zona='NULLO'"
+	SIZEUNITS meters
+	OPACITY 50
+	CLASS
+		NAME "nulli"
+		TITLE "nulli"
+		STYLE
+			COLOR 192 192 0
+			OUTLINECOLOR 128 128 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------1-----------------
+	GROUP "grp_ambiti_39"
+	NAME "lay_ambiti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"grp_ambiti"
+		"ows_title"	"grp_ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli_gb.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_102016' and nome_tavola='AMBITI' and nome_zona <> 'NULLO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5000
+	OPACITY 65
+	CLASS
+		NAME "cls_am_e23"
+		TITLE "Am.E2.3 - Corridoi ambientali"
+		EXPRESSION /^e2_3/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 96 230 132
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_52"
+		TITLE "B5.2 - Edifici esistenti a media/altà densità"
+		EXPRESSION /^b5_2|^b_5_2/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 176 112 3
+			SYMBOL "GRAFFA"
+			OUTLINECOLOR 176 112 3
+			SIZE 10
+			MINSIZE 6
+			MAXSIZE 16
+			WIDTH 2
+			PATTERN 1 10 1 10 END
+			MINWIDTH 2
+		END
+	END
+	CLASS
+		NAME "cls_b6"
+		TITLE "B6 - Areali strategici"
+		EXPRESSION /^b6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 250 227 194
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 250 227 194
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_dc_c0"
+		TITLE "DS.C0 - Distretti residenziali di trasformazione - Bioarchitettura"
+		EXPRESSION /^ds_c0/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			MINSIZE 4
+			MAXSIZE 12
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_dr"
+		TITLE "DR - Areali ricettivi di riqualificazione"
+		EXPRESSION /^dr/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 180 209 233
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_dp_trz"
+		TITLE "DP TRZ - Areali produttivi specialistici"
+		EXPRESSION /^dp_trz$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 230 207 200
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 230 207 200
+			SYMBOL "HATCH"
+			OUTLINECOLOR 0 0 0
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_dc"
+		TITLE "DC - Aree commerciali di riqualificazione"
+		EXPRESSION /^dc/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 210 186 227
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_dp"
+		TITLE "DP - Areali produttivi di riqualificazione"
+		EXPRESSION /^dp1|^dp2|^dp_b|^am_dp_1|^am_dp_a/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 230 207 200
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_trz_parco"
+		TITLE "TRZ Parco - Frantoi in area Parco da rilocalizzare"
+		EXPRESSION /^dp_trz_parco$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 128 128 128
+			SYMBOL "HATCH"
+			OUTLINECOLOR 0 0 0
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 128 128 128
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_dpl"
+		TITLE "DPL - Areali liberi per applicazione UIU"
+		EXPRESSION /^dpl$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			OUTLINECOLOR 0 0 0
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 230 207 200
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_ds_cn"
+		TITLE "DS.Cn - Distretti di espensione residenzale - a densità progressiva"
+		EXPRESSION /^ds_c1|^ds_c2/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 176 97
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_ds_cx"
+		TITLE "DS.Cx - Distretti in corso di realizzazione - ex AP del PRG"
+		EXPRESSION /^ds_c_a|^ds_c_b|^ds_cc/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 176 97
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_ds_dc"
+		TITLE "Ds.DC - Distretto commerciale di Prati"
+		EXPRESSION /^ds_dc$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 192 255
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 255 192 255
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_a2"
+		TITLE "A2 - Edifici storici e/o di valore testimoniale isolati"
+		EXPRESSION /^a2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			WIDTH 1
+			PATTERN 1 0 END
+			ANGLE 45
+SIZE 3
+WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_am_a1"
+		TITLE "Am.A1 - Ambiti di conservazione"
+		EXPRESSION /^am_a1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_a1"
+		TITLE "A1 - Edifici storici vincolati"
+		EXPRESSION /^a1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			WIDTH 1
+			PATTERN 1 10 END
+			ANGLE 315
+SIZE 3
+WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			WIDTH 1
+			PATTERN 1 0 END
+			ANGLE 45
+SIZE 3
+WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_am_e62"
+		TITLE "Am.E6.2 - Aree agricole perifluviali"
+		EXPRESSION /^am_e6_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 221 0
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 110 221 0
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cls_am_a2"
+		TITLE "Am.A2 - Ambiti di conservazione"
+		EXPRESSION /^am_a2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_am_e22"
+		TITLE "Am.E2.2 - Rete dei canali della piana (canale lunense)"
+		EXPRESSION /^am_e2_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 99 233 143
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_am_e1"
+		TITLE "Am.E1 - Aree boscate"
+		EXPRESSION /^am_e1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 155 254 155
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_am_e4"
+		TITLE "Am.E4 - Aree verdi collinari di presidio"
+		EXPRESSION /^am_e4$|^am_e4_1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 222 255 189
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_am_e21"
+		TITLE "Am.E2.1 - Vegetazione igrofila"
+		EXPRESSION /^am_e2_1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 97 194 0
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_am_e3"
+		TITLE "E3 - Aree di valore paesaggistico"
+		EXPRESSION /^am_e3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 155 254 155
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+		STYLE
+			COLOR 100 202 22
+			SYMBOL "HATCH"
+			WIDTH 1
+			PATTERN 1 0 END
+			ANGLE 45
+SIZE 3
+WIDTH 2
+		END
+	END
+	CLASS
+		NAME "cls_am_e61"
+		TITLE "Am.E6.1 - Parco agricolo-produttivo della piana"
+		EXPRESSION /^am_e6_1$|^e6_1/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 223 255 127
+			WIDTH 5
+			PATTERN 1 0 END
+			MINWIDTH 5
+		END
+	END
+	CLASS
+		NAME "cls_e5"
+		TITLE "E5 - Sistema di orti e giardini:parco urbano"
+		EXPRESSION /^e5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 99 133 0
+			SYMBOL "GRAFFA"
+			OUTLINECOLOR 99 133 0
+			SIZE 10
+			MINSIZE 8
+			MAXSIZE 20
+			WIDTH 2
+			PATTERN 1 10 1 10 END
+			MINWIDTH 2
+		END
+	END
+	CLASS
+		NAME "cls_b"
+		TITLE "Bn - Completamento urbano"
+		EXPRESSION /^b1$|^b2$|^b3$|^b4$|^am_b2|^am_b3/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 251 231 203
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "cls_b51"
+		TITLE "B5.1 - Edifici esistenti a bassa densità"
+		EXPRESSION /^b5_1/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 176 112 3
+			SYMBOL "GRAFFA"
+			OUTLINECOLOR 176 112 3
+			SIZE 13
+			MINSIZE 8
+			MAXSIZE 22
+			WIDTH 2
+			PATTERN 1 10 1 10 END
+			MINWIDTH 2
+		END
+	END
+	CLASS
+		NAME "cls_ds_dr"
+		TITLE "DS.DR - Distretto turistico-ricettivo La Colombera"
+		EXPRESSION /^ds_dr$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 128 128 255
+			SYMBOL "HATCH"
+			SIZE 6
+			MINSIZE 4
+			MAXSIZE 8
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 128 128 255
+			WIDTH 2
+			PATTERN 1 0 END
+			MINWIDTH 2
+		END
+	END
+END
+LAYER #----------------2-----------------
+	GROUP "acque_34"
+	NAME "acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.acque using unique bordo_gb"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "ACQUE"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 255 255
+			SIZE 10
+			WIDTH 1
+			PATTERN 1 10 END
+			MINWIDTH 5
+		END
+	END
+END
+LAYER #----------------3-----------------
+	GROUP "acque_34"
+	NAME "mappali_con_acqua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "foglio='18' and mappale in ('14','20','410')"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "acque"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "strade_35"
+	NAME "strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "STRADE"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "particelle_31"
+	NAME "particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	CLASS
+		NAME "GRIGIA"
+		TITLE "Particelle (>1:10000)"
+		MINSCALEDENOM 10000
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold-italic"
+		END
+		STYLE
+			OUTLINECOLOR 128 128 128
+			SIZE 1
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "NERA"
+		TITLE "Particelle (<1:10000)"
+		MAXSCALEDENOM 10000
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold-italic"
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "fabbricati_32"
+	NAME "fabbricati_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	OPACITY 60
+	CLASS
+		NAME "fabbricati_1"
+		TITLE "Fabbricati"
+		STYLE
+			COLOR 238 169 184
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "fabbricati_32"
+	NAME "fabbricati_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct_gb.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	CLASS
+		NAME "FABBRICATO"
+		TITLE "Fabbricato"
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "particelle_31"
+	NAME "freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "the_geom from nct_gb.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "freccette"
+		TITLE "freccette"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+		END
+		STYLE
+			COLOR 150 150 150
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "particelle_31"
+	NAME "numeri_particelle"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_vezzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct_gb.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	LABELITEM "mappale"
+	MAXSCALEDENOM 5001
+	FORCE true
+	CLASS
+		NAME "TESTI_PARTICELLE"
+		TITLE "Testo Particelle Catastali"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			SIZE [dimensione]
+			POSITION UR
+		END
+	END
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "GRAFFA"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "E"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

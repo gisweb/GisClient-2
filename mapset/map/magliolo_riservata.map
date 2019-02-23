@@ -1,0 +1,1350 @@
+MAP
+	NAME "magliolo_riservata"
+	EXTENT 1433870 4892564 1440860 4899321
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "idrogeologico_465"
+	NAME "query"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idrogeologico"
+		"ows_title"	"idrogeologico"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' or (nome_vincolo='ASSETTO_IDROGEOLOGICO' and nome_tavola='PERICOLOSITA_GEOMORFOLOGICA') or (nome_vincolo='ASSETTO_IDROGEOLOGICO' and nome_tavola='FASCE_DI_RISPETTO')"
+END
+LAYER #----------------1-----------------
+	GROUP "ctrn_502"
+	NAME "228151"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn"
+		"ows_title"	"ctrn"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/magliolo/cartografia/228151.tif"
+	SIZEUNITS meters
+END
+LAYER #----------------2-----------------
+	GROUP "tavole_472"
+	NAME "tavola"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+END
+LAYER #----------------3-----------------
+	GROUP "assetto_insediativo_484"
+	NAME "ptcp_i"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='INSEDIATIVO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "anitr_ai"
+		TITLE "ANI TR-AI"
+		EXPRESSION /^ANITR_AI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 176 196 222
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ani_ce"
+		TITLE "ANI CE"
+		EXPRESSION /^ANICE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 95 158 160
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ani_ma"
+		TITLE "ANI MA"
+		EXPRESSION /^ANIMA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 102 205 170
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id_co"
+		TITLE "ID CO"
+		EXPRESSION /^IDCO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 170 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id_ma"
+		TITLE "ID MA"
+		EXPRESSION /^IDMA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 110 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id_mo_a"
+		TITLE "ID MO-A"
+		EXPRESSION /^IDMO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 200 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_ma"
+		TITLE "IS MA"
+		EXPRESSION /^ISMA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 238 154 73
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_tr_ai"
+		TITLE "IS TR-AI"
+		EXPRESSION /^ISTR_AI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 160 122
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_mo_b"
+		TITLE "IS MO-B"
+		EXPRESSION /^ISMO_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 238 118 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_ma"
+		TITLE "NI MA"
+		EXPRESSION /^NIMA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 139 58 58
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "me"
+		TITLE "ME"
+		EXPRESSION /^ME$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 38 38
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ae"
+		TITLE "AE"
+		EXPRESSION /^AE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 252 252 252
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tu"
+		TITLE "TU"
+		EXPRESSION /^TU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 240 240 240
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_ce"
+		TITLE "IS CE"
+		EXPRESSION /^ISCE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 238 134 20
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "assetto_geomorfologico_485"
+	NAME "ptcp_g"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_geomorfologico"
+		"ows_title"	"assetto_geomorfologico"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='GEOMORFOLOGICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "ca"
+		TITLE "CA"
+		EXPRESSION /^CA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 139 76 57
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ma"
+		TITLE "MA"
+		EXPRESSION /^MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 145 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "mo_b"
+		TITLE "MO-B"
+		EXPRESSION /^MO_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 246 143
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "assetto_vegetazionale_486"
+	NAME "ptcp_v"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_vegetazionale"
+		"ows_title"	"assetto_vegetazionale"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='VEGETAZIONALE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "bat_co"
+		TITLE "BAT CO"
+		EXPRESSION /^BATCO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 145 197 107
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "col_idsco"
+		TITLE "COL-IDS CO"
+		EXPRESSION /^COL_IDSCO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 160 71
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "col_iss_ma"
+		TITLE "COL-ISS MA"
+		EXPRESSION /^COL_ISSMA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 211 155
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ce"
+		TITLE "CE"
+		EXPRESSION /^CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			COLOR 121 205 205
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "idrogeologico_465"
+	NAME "idrogeologico_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idrogeologico"
+		"ows_title"	"idrogeologico"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "(nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='IDROGEOLOGICO') or (nome_vincolo='ASSETTO_IDROGEOLOGICO' and nome_tavola='PERICOLOSITA_GEOMORFOLOGICA')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "idrogeologico"
+		TITLE "Vincolo idrogeologico ex R.D. 3267/23"
+		EXPRESSION /^IDROGEOLOGICO$/
+		STYLE
+			COLOR 164 164 255
+			SYMBOL "HATCH"
+			SIZE 20
+			ANGLE 45
+			WIDTH 20
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "idrogeologico_465"
+	NAME "idrogeologico_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idrogeologico"
+		"ows_title"	"idrogeologico"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "(nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='IDROGEOLOGICO') or (nome_vincolo='ASSETTO_IDROGEOLOGICO' and nome_tavola='PERICOLOSITA_GEOMORFOLOGICA')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "idrogeologico_2"
+		TITLE "Aree PG2-PG3-PG4 sottoposte a vinc. idrogeologico"
+		EXPRESSION /^PG2$|^PG3$|^PG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 164 164 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "centri_abitati_466"
+	NAME "centri_abitati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"centri_abitati"
+		"ows_title"	"centri_abitati"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='CENTRI_ABITATI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10000
+	CLASS
+		NAME "centri_abitati"
+		TITLE "Delimitazione centri abitati"
+		EXPRESSION /^CA_/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 15
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 4
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "particelle_19"
+	NAME "nct_particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	OPACITY ALPHA
+	CLASS
+		NAME "particelle"
+		TITLE "Particelle"
+		STYLE
+			OUTLINECOLOR 0 0 0
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------10-----------------
+	GROUP "demanio_467"
+	NAME "demaniale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"demanio"
+		"ows_title"	"demanio"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='DEMANIO'"
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "demanio"
+		TITLE "Proprietà demaniale"
+		EXPRESSION /^IMMOBILE$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------11-----------------
+	GROUP "monumentale_469"
+	NAME "monumentale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"monumentale"
+		"ows_title"	"monumentale"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='MONUMENTALE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "monumentale"
+		TITLE "Vincolo monumentale ex D.Lgs. 42/04"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 255 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 8
+			MINSIZE 3
+			MAXSIZE 12
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 5
+		END
+	END
+END
+LAYER #----------------12-----------------
+	GROUP "cimiteriale_470"
+	NAME "cimiteri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"cimiteriale"
+		"ows_title"	"cimiteriale"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='RISPETTO_CIMITERIALE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "cimitero"
+		TITLE "Area cimiteriale"
+		EXPRESSION /^CIMITERO$/
+		STYLE
+			COLOR 150 150 150
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "cimiteriale_470"
+	NAME "cimiteriale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"cimiteriale"
+		"ows_title"	"cimiteriale"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='RISPETTO_CIMITERIALE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "cimiteriale"
+		TITLE "Vincolo cimiteriale"
+		EXPRESSION /^RISPETTO_CIMITERIALE$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 5
+		END
+	END
+END
+LAYER #----------------14-----------------
+	GROUP "particelle_19"
+	NAME "nct_freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from nct.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "freccette"
+		TITLE "freccette"
+		STYLE
+			COLOR 100 100 100
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------15-----------------
+	GROUP "particelle_19"
+	NAME "nct_numeri_particelle"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	LABELITEM "mappale"
+	MAXSCALEDENOM 3001
+	OPACITY ALPHA
+	CLASS
+		NAME "TESTI_PARTICELLE"
+		TITLE "Testo Particelle Catastali"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			SIZE [dimensione]
+			POSITION UR
+		FORCE true
+		END
+	END
+END
+LAYER #----------------16-----------------
+	GROUP "incendi_473"
+	NAME "incendi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"incendi"
+		"ows_title"	"incendi"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='INCENDI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "incendi"
+		TITLE "Aree percorse dal fuoco"
+		EXPRESSION /^INCENDIO_/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 192 0 0
+			SIZE 16
+			MINSIZE 8
+			MAXSIZE 24
+			POSITION CC
+		FORCE true
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 255 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------17-----------------
+	GROUP "canale_lunense_474"
+	NAME "canali"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"canale_lunense"
+		"ows_title"	"canale_lunense"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='CANALE_LUNENSE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	CLASS
+		NAME "canali"
+		TITLE "Canali di irrigazione"
+		EXPRESSION /^CANALE$|^CANALE_2$/
+		STYLE
+			OUTLINECOLOR 0 170 255
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------18-----------------
+	GROUP "canale_lunense_474"
+	NAME "buffer_canali"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"canale_lunense"
+		"ows_title"	"canale_lunense"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='CANALE_LUNENSE'"
+	SIZEUNITS pixels
+END
+LAYER #----------------19-----------------
+	GROUP "elettrodotti_475"
+	NAME "elettrodotti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"elettrodotti"
+		"ows_title"	"elettrodotti"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='ELETTRODOTTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "elettrodotti"
+		TITLE "Fascia di rispetto degli elettrodotti"
+		EXPRESSION /^RISPETTO_13M$/
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------20-----------------
+	GROUP "ferroviario_476"
+	NAME "ferroviario"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ferroviario"
+		"ows_title"	"ferroviario"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='FERROVIA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	CLASS
+		NAME "ferroviario"
+		TITLE "Vincolo ferroviario ex art. 49 DPR 753/80"
+		EXPRESSION /^RISPETTO_30M$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------21-----------------
+	GROUP "autostradale_477"
+	NAME "autostradale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"autostradale"
+		"ows_title"	"autostradale"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='AUTOSTRADA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	CLASS
+		NAME "autostradale"
+		TITLE "Vincolo autostradale ex art. 4 D.M. 1/4/1968"
+		EXPRESSION /^RISPETTO_60M$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------22-----------------
+	GROUP "militare_478"
+	NAME "servitu_militare"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"militare"
+		"ows_title"	"militare"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='SERVITU_MILITARE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 50
+	CLASS
+		NAME "servitu_militare"
+		TITLE "Servitù militare"
+		EXPRESSION /^SERVITU_MILITARE_47D$|^SERVITU_MILITARE_48D$/
+		STYLE
+			COLOR 0 164 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------23-----------------
+	GROUP "militare_478"
+	NAME "area_militare"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"militare"
+		"ows_title"	"militare"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='SERVITU_MILITARE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	CLASS
+		NAME "area_militare"
+		TITLE "Area militare"
+		EXPRESSION /^AREA_MILITARE_47D$|^AREA_MILITARE_48D$/
+		STYLE
+			COLOR 0 164 0
+			SYMBOL "HATCH"
+			SIZE 5
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------24-----------------
+	GROUP "idraulico_471"
+	NAME "idraulico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idraulico"
+		"ows_title"	"idraulico"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "(nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='IDRAULICO') or (nome_vincolo='ASSETTO_IDROGEOLOGICO' and nome_tavola='FASCE_DI_RISPETTO')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "idraulico"
+		TITLE "Vincolo idraulico - R.D. 523/1904 (art. 96 lett. f)"
+		STYLE
+			COLOR 0 0 255
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 150
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------25-----------------
+	GROUP "sic_479"
+	NAME "sic"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sic"
+		"ows_title"	"sic"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='SIC'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "sic"
+		TITLE "Siti di interesse comunitario"
+		EXPRESSION /^SIC$/
+		STYLE
+			COLOR 255 0 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------26-----------------
+	GROUP "alluvione_10"
+	NAME "alluvione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"alluvione"
+		"ows_title"	"alluvione"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='ALLUVIONE'"
+	SIZEUNITS pixels
+	OPACITY 60
+	CLASS
+		NAME "alluvione"
+		TITLE "Alluvione"
+		STYLE
+			COLOR 0 0 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------27-----------------
+	GROUP "pozzi_idrici_fascia_rispetto_22"
+	NAME "pozzi_idrici"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"pozzi_idrici_fascia_rispetto"
+		"ows_title"	"pozzi_idrici_fascia_rispetto"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='RETE_IDRICA' and nome_tavola='IMPIANTI_IDRICI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "pozzo_emungimento"
+		TITLE "Pozzo emungimento"
+		EXPRESSION /^POZZO_EMUNGIMENTO$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PUNKT"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			COLOR 60 60 255
+			SYMBOL "PUNKT"
+			SIZE 11
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PUNKT"
+			SIZE 4
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------28-----------------
+	GROUP "pozzi_idrici_fascia_rispetto_22"
+	NAME "fascia_rispetto_10_m"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pozzi_idrici_fascia_rispetto"
+		"ows_title"	"pozzi_idrici_fascia_rispetto"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='RETE_IDRICA' and nome_tavola='FASCE_DI_RISPETTO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "fascia_rispetto_10m"
+		TITLE "Fascia di inedificabilità (10m pozzi)"
+		EXPRESSION /^DISTANZA_10M$/
+		STYLE
+			COLOR 60 180 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------29-----------------
+	GROUP "piano_casa_21"
+	NAME "piano_casa"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piano_casa"
+		"ows_title"	"piano_casa"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='PIANO_CASA'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "zone_escluse"
+		TITLE "Zone escluse"
+		EXPRESSION /^ZONE_ESCLUSE$/
+		STYLE
+			COLOR 192 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------30-----------------
+	GROUP "siti_da_bonificare_29"
+	NAME "siti_da_bonificare"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"siti_da_bonificare"
+		"ows_title"	"siti_da_bonificare"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI' and nome_tavola='SITI_DA_BONIFICARE'"
+	SIZEUNITS pixels
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "siti_da_bonificare"
+		TITLE "Siti da bonificare"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 128 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+SYMBOL
+	NAME "PUNKT"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED TRUE
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

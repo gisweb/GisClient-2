@@ -1,0 +1,2255 @@
+MAP
+	NAME "magliolo_pubblica"
+	EXTENT 1433870 4892564 1440860 4899321
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "ctrn_502"
+	NAME "lay_ctr"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn"
+		"ows_title"	"ctrn"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/magliolo/cartografia/raster/magliolo_ctr.tif"
+	MAXSCALEDENOM 25000
+	SYMBOLSCALEDENOM 5000
+END
+LAYER #----------------1-----------------
+	GROUP "acque_24"
+	NAME "nct_acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.acque using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	OPACITY ALPHA
+	CLASS
+		NAME "ACQUE"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			SIZE 10
+			WIDTH 1
+			MINWIDTH 5
+		END
+	END
+END
+LAYER #----------------2-----------------
+	GROUP "strade_25"
+	NAME "nct_strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	OPACITY 60
+	CLASS
+		NAME "strade"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------3-----------------
+	GROUP "particelle_19"
+	NAME "nct_particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	OPACITY ALPHA
+	CLASS
+		NAME "particelle"
+		TITLE "Particelle"
+		STYLE
+			OUTLINECOLOR 0 0 0
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "fabbricati_20"
+	NAME "nct_fabbricati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	SYMBOLSCALEDENOM 1000
+	OPACITY ALPHA
+	CLASS
+		NAME "FABBRICATO"
+		TITLE "Fabbricato"
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "varie_27"
+	NAME "nct_linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"varie"
+		"ows_title"	"varie"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from nct.varie using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS pixels
+	CLASSITEM "codice"
+	OPACITY ALPHA
+	CLASS
+		NAME "TIPO_1"
+		TITLE "Linee varie tipo 1"
+		EXPRESSION /^1$/
+		STYLE
+			COLOR 160 160 160
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "TIPO_5"
+		TITLE "Linee varie tipo 5"
+		EXPRESSION /^5$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "TIPO_6"
+		TITLE "Linee varie tipo 6"
+		EXPRESSION /^6$/
+		STYLE
+			COLOR 160 160 160
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "TIPO_11"
+		TITLE "Linee varie tipo 11"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "simboli_26"
+	NAME "nct_simboli"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "TERMINE"
+		TITLE "Termine Catastale Provinciale"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 6
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAP"
+		TITLE "Graffa di annessione - piccola"
+		EXPRESSION /^14$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 3
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAG"
+		TITLE "Graffa di annessione grande"
+		EXPRESSION /^9$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "COPIA_DI_FLUSSO_SCORRIMENTO_ACQUE"
+		TITLE "Flusso scorrimento acque - medio"
+		EXPRESSION /^6$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "FRECCIA2"
+			SIZE 10
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "CONTROLOO"
+		TITLE "Punto di controllo per orientamento"
+		EXPRESSION /^1$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "+"
+			SIZE 10
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "PICCHETTI"
+		TITLE "Picchetti"
+		EXPRESSION /^2$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "OSSO"
+		TITLE "Osso di morto"
+		EXPRESSION /^4$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "OSSO MORTO"
+			SIZE 8
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "fiduciali_23"
+	NAME "nct_fiduciali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "FIDUCIALI_TRIANGOLO"
+		TITLE "Punto trigonometrico"
+		EXPRESSION /^8$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "TRIGONOMETRICO"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FIDUCIALI_CERCHIO"
+		TITLE "Punto fiduciale"
+		EXPRESSION /^20$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "FIDUCIALE"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "fiduciali_23"
+	NAME "nct_numeri_fiduciali"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "rappresentazione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	LABELITEM "numero"
+	CLASS
+		NAME "TESTO_NUMERO"
+		TITLE "Numero di fiduciale"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 255 0 0
+			SIZE 4
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "particelle_19"
+	NAME "nct_freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from nct.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "freccette"
+		TITLE "freccette"
+		STYLE
+			COLOR 100 100 100
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------10-----------------
+	GROUP "particelle_19"
+	NAME "nct_numeri_particelle"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	LABELITEM "mappale"
+	MAXSCALEDENOM 3001
+	OPACITY ALPHA
+	CLASS
+		NAME "TESTI_PARTICELLE"
+		TITLE "Testo Particelle Catastali"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			SIZE [dimensione]
+			POSITION UR
+		FORCE true
+		END
+	END
+END
+LAYER #----------------11-----------------
+	GROUP "testi_18"
+	NAME "nct_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"testi"
+		"ows_title"	"testi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	MAXSCALEDENOM 10001
+	CLASS
+		NAME "TESTI"
+		TITLE "Testi della Mappa"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 0 0 80
+			SIZE [dimensione]
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------12-----------------
+	GROUP "zonizzazione_1"
+	NAME "zonizzazione_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"zonizzazione"
+		"ows_title"	"zonizzazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "a"
+		TITLE "A - Area a servizi di zona"
+		EXPRESSION /^A01$|^A02$|^A03$|^A04$|^A05$|^A06$|^A06SP$|^A07$|^A08$|^A09$|^A10$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "b"
+		TITLE "B - Zona di completamento"
+		EXPRESSION /^B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ba"
+		TITLE "BA - Zona di conservazione e integrazione"
+		EXPRESSION /^BA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "bs"
+		TITLE "BS - Zona di completamento satura"
+		EXPRESSION /^BS$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "abr"
+		TITLE "ABr - Zona ad interventi particolari - agricolo boschiva sottoposta a progetto di riqualificazione ambientale"
+		EXPRESSION /^ABR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "c"
+		TITLE "C - Zona di espansione"
+		EXPRESSION /^C1$|^C2$|^C3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 192 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "da"
+		TITLE "DA- Zona ad interventi particolari - discarica in atto"
+		EXPRESSION /^DA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "e1"
+		TITLE "E1 - Zona agricola tradizionale o mista"
+		EXPRESSION /^E1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 192 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "e2"
+		TITLE "E2 - Zona boschiva"
+		EXPRESSION /^E2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ec"
+		TITLE "EC - Zona di conservazione"
+		EXPRESSION /^EC$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 64 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pu"
+		TITLE "PU - Zona per servizi generali"
+		EXPRESSION /^PU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 192 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "sf"
+		TITLE "SF - Zona a carattere e destinazione speciale - struttura polifunzionale per l'incentivazione dello sviluppo della produzione agricola locale"
+		EXPRESSION /^SF$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 192 64 192
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "str"
+		TITLE "Viabilità"
+		EXPRESSION /^STR$/
+		STYLE
+			COLOR 200 200 200
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "sr"
+		TITLE "Sr - Zona ad interventi particolari - di salvaguardia sottoposta a progetto di riqualificazione ecologica e ambientale"
+		EXPRESSION /^SR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 98 65 135
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "v"
+		TITLE "V - Zona di salvaguardia delle aree di contesto dei nuclei"
+		EXPRESSION /^V$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 64 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "zonizzazione_1"
+	NAME "zonizzazione_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"zonizzazione"
+		"ows_title"	"zonizzazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "fasce_rispetto_viabilita"
+		TITLE "Fasce di rispetto della viabilità"
+		EXPRESSION /^FASCE_RISPETTO_VIABILITA$/
+		STYLE
+			OUTLINECOLOR 168 83 0
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 168 83 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------14-----------------
+	GROUP "ambiti_2"
+	NAME "zone_f"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "servizi"
+		TITLE "Standard urbanistici e servizi"
+		EXPRESSION /^EDIFICI_PUBBLICI_F1$|^EDIFICI_PUBBLICI_F2$|^EDIFICI_PUBBLICI_F3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------15-----------------
+	GROUP "ambiti_2"
+	NAME "ambiti_distretti_servizi_rispetti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "c_ce"
+		TITLE "Ambiti di conservazione e riqualificazione"
+		EXPRESSION /^C_CE_1$|^C_CE_2$|^C_CE_3$|^C_CE_4$|^C_CE_5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "c_cs"
+		TITLE "Ambiti di conservazione e consolidamento"
+		EXPRESSION /^C_CS_1$|^C_CS_2$|^C_CS_3$|^C_CS_4$|^C_CS_5$|^C_CS_6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "r_st"
+		TITLE "Ambiti di riqualificazione saturi"
+		EXPRESSION /^R_ST_1$|^R_ST_2$|^R_ST_3$|^R_ST_4$|^R_ST_5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "r_cs"
+		TITLE "Ambiti di riqualificazione in consolidamento"
+		EXPRESSION /^R_CS_1$|^R_CS_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 221 110 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "r_cm"
+		TITLE "Ambiti di riqualificazione in completamento"
+		EXPRESSION /^R_CM$|^R_CM_1$|^R_CM_2$|^R_CM_3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 126 0
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "r_sp"
+		TITLE "Ambiti di riqualificazione in estensione"
+		EXPRESSION /^R_SP_1$|^R_SP_2$|^R_SP_3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 184 138 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 184 138 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "rtu"
+		TITLE "Ambiti di riqualificazione con destinazione turistica/residenziale"
+		EXPRESSION /^RTU_1$|^RTU_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 0 255 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "rpr"
+		TITLE "Ambiti di riqualificazione produttivi"
+		EXPRESSION /^RPR_1$|^RPR_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 191 0 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "apa"
+		TITLE "Ambiti di riqualificazione in aree di produzione agricola"
+		EXPRESSION /^APA_01$|^APA_02$|^APA_03$|^APA_06$|^APA_07$|^APA_08$|^APA_09$|^APA_10$|^APA_11$|^APA_12$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 191 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "apa_anima"
+		TITLE "Ambiti di riqualificazione in aree di produzione agricola (ANIMA)"
+		EXPRESSION /^APA_ANIMA_01$|^APA_ANIMA_02$|^APA_ANIMA_03$|^APA_ANIMA_04$|^APA_ANIMA_05$|^APA_ANIMA_07$|^APA_ANIMA_08$|^APA_ANIMA_10$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 191 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 255 191 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "tpa_di"
+		TITLE "Ambiti di riqualificazione in Territori di presidio ambientale debolmente insediabili"
+		EXPRESSION /^TPA_DI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "tpa_ni"
+		TITLE "Ambiti di riqualificazione in Territori di presidio ambientale non insediabili"
+		EXPRESSION /^TPA_NI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 100 199 110
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "tni"
+		TITLE "Ambiti di riqualificazione in territori non insediabili"
+		EXPRESSION /^TNI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 40 190 60
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 40 190 60
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "r_sua"
+		TITLE "Strumenti urbanistici Attuativi"
+		EXPRESSION /^R_SUA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "dt_pr1"
+		TITLE "Distretto di trasformazione produttivo"
+		EXPRESSION /^DT_PR1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 126 255
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 255 255 255
+			SYMBOL "HATCH"
+			SIZE 20
+			ANGLE 90
+			WIDTH 10
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pu"
+		TITLE "Parco urbano"
+		EXPRESSION /^PU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 126 255 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ai"
+		TITLE "Attrezzature ed impianti"
+		EXPRESSION /^AI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 126 223
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 255 126 223
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "vr"
+		TITLE "Verde di rispetto"
+		EXPRESSION /^VR_1$|^VR_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 160 255 127
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 160 255 127
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------16-----------------
+	GROUP "ambiti_2"
+	NAME "sua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "sua"
+		TITLE "Strumenti Urbanistici Attuativi"
+		EXPRESSION /^R_SUA1$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------17-----------------
+	GROUP "ambiti_2"
+	NAME "rispetto_cimiteriale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "rispetto_cimiteriale"
+		TITLE "Fascia di rispetto cimiteriale"
+		EXPRESSION /^FASCIA_RISPETTO_CIMITERIALE$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 1 5 1 5 END
+		END
+	END
+END
+LAYER #----------------18-----------------
+	GROUP "ambiti_2"
+	NAME "borgate_storiche"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "borgate_storiche"
+		TITLE "Borgate storiche"
+		EXPRESSION /^FASCIA_RISPETTO_BORGATE_STORICHE$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 3 3 3 3 END
+		END
+	END
+END
+LAYER #----------------19-----------------
+	GROUP "ambiti_2"
+	NAME "depuratore"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "depuratore"
+		TITLE "Fascia di rispetto del depuratore"
+		EXPRESSION /^FASCIA_RISPETTO_DEPURATORE$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 1 10 1 10 END
+		END
+	END
+END
+LAYER #----------------20-----------------
+	GROUP "ambiti_2"
+	NAME "servizi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI_DISTRETTI_SERVIZI_RISPETTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "servizi"
+		TITLE "Standard urbanistici e servizi"
+		EXPRESSION /^STRUTTURA_SCOLASTICA_1$|^AREA_CIMITERIALE$|^AREA_PARCHEGGIO_01$|^AREA_PARCHEGGIO_02$|^AREA_PARCHEGGIO_03$|^AREA_PARCHEGGIO_04$|^AREA_PARCHEGGIO_05$|^AREA_PARCHEGGIO_06$|^AREA_PARCHEGGIO_07$|^AREA_PARCHEGGIO_08$|^AREA_PARCHEGGIO_09$|^AREA_PARCHEGGIO_12$|^AREA_PARCHEGGIO_13$|^AREA_PARCHEGGIO_14$|^EDIFICI_PUBBLICI_IC1$|^EDIFICI_PUBBLICI_IC4$|^EDIFICI_PUBBLICI_IC5$|^EDIFICI_PUBBLICI_IC7$|^EDIFICI_PUBBLICI_IC_A$|^EDIFICI_PUBBLICI_IC_B$|^EDIFICI_PUBBLICI_IC_C$|^PARCO_GIOCHI_01$|^PARCO_GIOCHI_02$|^PARCO_GIOCHI_03$|^PARCO_GIOCHI_04$|^PARCO_GIOCHI_05$|^PARCO_GIOCHI_06$|^PARCO_GIOCHI_07$|^PARCO_GIOCHI_08$|^PARCO_GIOCHI_09$|^PARCO_GIOCHI_10$|^PARCO_GIOCHI_11$|^PARCO_GIOCHI_12$|^PARCO_GIOCHI_13$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 64 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 0 64 255
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 64 255
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------21-----------------
+	GROUP "rischio_idraulico_3"
+	NAME "rischio_idraulico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rischio_idraulico"
+		"ows_title"	"rischio_idraulico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='RISCHIO_IDRAULICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "ri0"
+		TITLE "Rischio idraulico lieve"
+		EXPRESSION /^RI0$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "RI1"
+		TITLE "Rischio idraulico moderato"
+		EXPRESSION /^RI1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 160 224 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ri2"
+		TITLE "Rischio idraulico medio"
+		EXPRESSION /^RI2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ri3"
+		TITLE "Rischio idraulico elevato"
+		EXPRESSION /^RI3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 165 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ri4"
+		TITLE "Rischio idraulico molto elevato"
+		EXPRESSION /^RI4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------22-----------------
+	GROUP "suscettivita_al_dissesto_4"
+	NAME "suscettivita_al_dissesto"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"suscettivita_al_dissesto"
+		"ows_title"	"suscettivita_al_dissesto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='SUSCETTIVITA_AL_DISSESTO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "pg0"
+		TITLE "Aree a suscettività molto bassa"
+		EXPRESSION /^PG0$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 202 236 251
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg1"
+		TITLE "Area a suscettività bassa"
+		EXPRESSION /^PG1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 199 230 47
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg2"
+		TITLE "Area a suscettività media"
+		EXPRESSION /^PG2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 251 191
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg3b"
+		TITLE "Aree a suscettività alta - Aree non di frana quiescente"
+		EXPRESSION /^PG3B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 249 217 101
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg3a"
+		TITLE "Area a suscettività alta - Frane quiescenti"
+		EXPRESSION /^PG3A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 240 147 50
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg4"
+		TITLE "Area a suscettività molto alta - Aree in frana attiva"
+		EXPRESSION /^PG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------23-----------------
+	GROUP "suscettivita_al_dissesto_4"
+	NAME "classe_speciale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"suscettivita_al_dissesto"
+		"ows_title"	"suscettivita_al_dissesto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='SUSCETTIVITA_AL_DISSESTO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "classe_speciale"
+		TITLE "Aree speciali di tipo B1 - Cave inattive, Miniere abbandonate"
+		EXPRESSION /^B1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 0 255
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 0 0 255
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 135
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------24-----------------
+	GROUP "fasce_fluviali_5"
+	NAME "fasce_fluviali"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fasce_fluviali"
+		"ows_title"	"fasce_fluviali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_magliolo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='FASCE_FLUVIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "A"
+		TITLE "Aree inondabili con tempo di ritorno di 50 anni"
+		EXPRESSION /^A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 129 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "b"
+		TITLE "Aree inondabili con tempo di ritorno di 200 anni"
+		EXPRESSION /^B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "c"
+		TITLE "Aree inondabili con tempo di ritorno di 500 anni"
+		EXPRESSION /^C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "+"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "C"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FIDUCIALE"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "B"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FRECCIA2"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "G"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "GRAFFA"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "E"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "OSSO MORTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "I"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PICCHETTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "D"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "TRIGONOMETRICO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "A"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

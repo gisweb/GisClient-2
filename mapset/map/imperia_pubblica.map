@@ -1,0 +1,5220 @@
+MAP
+	NAME "imperia_pubblica"
+	EXTENT 1415399 4856931 1425484 4866286
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "258122"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/258122.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------1-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "258124"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/258124.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------2-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259093"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259093.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------3-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259051"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259051.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------4-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259091"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259091.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------5-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "258081"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/258081.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------6-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "258082"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/258082.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------7-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259093"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259093.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------8-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "258083"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/258083.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------9-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259054"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259054.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------10-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259091"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259091.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------11-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259054"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259054.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------12-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259053"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259053.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------13-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259052"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259052.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------14-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259051"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259051.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------15-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "258124"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//258124.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------16-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "258122"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//258122.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------17-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "258121"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//258121.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------18-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "258083"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//258083.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------19-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "259094"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//259094.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------20-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "258082"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//258082.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------21-----------------
+	GROUP "ctrn_raster_grp_11"
+	NAME "258081"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_grp"
+		"ows_title"	"ctrn_raster_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster/ctrn//258081.tif"
+	SIZEUNITS pixels
+END
+LAYER #----------------22-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259052"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259052.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------23-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259094"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259094.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------24-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "259053"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/259053.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------25-----------------
+	GROUP "ctrn_raster_2_grp_87"
+	NAME "258121"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctrn_raster_2_grp"
+		"ows_title"	"ctrn_raster_2_grp"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	DATA "/data/imperia/cartografia/raster//ctrn_2/258121.tif"
+	SIZEUNITS pixels
+	OFFSITE 255 255 255
+END
+LAYER #----------------26-----------------
+	GROUP "ortofoto_2011_21"
+	NAME "ortofoto_2011"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto_2011"
+		"ows_title"	"ortofoto_2011"
+	END
+	DATA "/data/imperia/cartografia/raster//ortofoto_2011/vrt_index.vrt"
+	SIZEUNITS feet
+END
+LAYER #----------------27-----------------
+	GROUP "zonizzazione_497"
+	NAME "testo"
+	STATUS ON
+	TYPE annotation
+	TRANSFORM FALSE
+	LABELCACHE OFF
+	FEATURE
+	POINTS 10 10 END
+	END
+	FORCE TRUE
+	CLASS
+		NAME "testo"
+		TITLE "Testo"
+		TEXT "(PRG: Adot. D.C.C. 74-28/8/94 e appr. D.P.G.R. n° 46-24/02/99)"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 10
+			POSITION LR
+			FORCE TRUE
+		END
+	END
+END
+LAYER #----------------28-----------------
+	GROUP "ortofoto_2003_20"
+	NAME "ortofoto_2003"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto_2003"
+		"ows_title"	"ortofoto_2003"
+	END
+	DATA "/data/imperia/cartografia/raster//ortofoto_2003/vrt_index.vrt"
+	SIZEUNITS feet
+END
+LAYER #----------------29-----------------
+	GROUP "sezioni_2"
+	NAME "sezioni_poligoni"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sezioni"
+		"ows_title"	"sezioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	CLASSITEM "nomefile"
+	MINSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "moltedo"
+		TITLE "Moltedo"
+		EXPRESSION /^E290E/
+		STYLE
+			COLOR 0 104 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "costa_d_oneglia"
+		TITLE "Costa d'Oneglia"
+		EXPRESSION /^E290D/
+		STYLE
+			COLOR 0 104 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "montegrazie"
+		TITLE "Montegrazie"
+		EXPRESSION /^E290F/
+		STYLE
+			COLOR 255 128 128
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "piani"
+		TITLE "Piani"
+		EXPRESSION /^E290H/
+		STYLE
+			COLOR 184 88 61
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "poggi"
+		TITLE "Poggi"
+		EXPRESSION /^E290I/
+		STYLE
+			COLOR 73 101 148
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "torrazza"
+		TITLE "Torrazza"
+		EXPRESSION /^E290M/
+		STYLE
+			COLOR 0 104 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "portomaurizio"
+		TITLE "Porto Maurizio"
+		EXPRESSION /^E290L/
+		STYLE
+			COLOR 93 164 251
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "borgo_sant_agata"
+		TITLE "Borgo Sant'Agata"
+		EXPRESSION /^E290A/
+		STYLE
+			COLOR 225 220 107
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "oneglia"
+		TITLE "Oneglia"
+		EXPRESSION /^E290G/
+		STYLE
+			COLOR 73 101 148
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "caramagna"
+		TITLE "Caramagna"
+		EXPRESSION /^E290B/
+		STYLE
+			COLOR 223 209 98
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "castelvecchio"
+		TITLE "Castelvecchio"
+		EXPRESSION /^E290C/
+		STYLE
+			COLOR 184 88 61
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------30-----------------
+	GROUP "zonizzazione_497"
+	NAME "zonizzazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"zonizzazione"
+		"ows_title"	"zonizzazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 5000
+	OPACITY 60
+	CLASS
+		NAME "a"
+		TITLE "Zone A"
+		EXPRESSION /^A/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 192
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "it"
+		TITLE "Zone IT"
+		EXPRESSION /^IT/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 199 27 108
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fa"
+		TITLE "Zone FA"
+		EXPRESSION /^FA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 64 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "bs"
+		TITLE "Zone BS"
+		EXPRESSION /^BS/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 253 127 59
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "bc"
+		TITLE "Zone BC"
+		EXPRESSION /^BC/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 209 5 125
+			OUTLINECOLOR 0 0 0
+			SIZE 5000
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "zr"
+		TITLE "Zone ZR"
+		EXPRESSION /^ZR[0-9]|^ZR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			BACKGROUNDCOLOR 252 163 132
+			OUTLINECOLOR 0 0 0
+			SIZE 8
+			MINSIZE 8
+			MAXSIZE 8
+			ANGLE 90
+			WIDTH 1
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PUNKT"
+			SIZE 3
+			MINSIZE 3
+			MAXSIZE 3
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "zrl"
+		TITLE "Zone ZRL"
+		EXPRESSION /^ZRL$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			BACKGROUNDCOLOR 83 249 138
+			OUTLINECOLOR 0 0 0
+			SIZE 10
+			MINSIZE 10
+			MAXSIZE 10
+			ANGLE 90
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "pp"
+		TITLE "Zone PP"
+		EXPRESSION /^PP/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "TRIANGLE_NOFILL_3"
+			BACKGROUNDCOLOR 252 255 25
+			OUTLINECOLOR 0 0 0
+			SIZE 15
+			MINSIZE 15
+			MAXSIZE 15
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "c"
+		TITLE "Zone C"
+		EXPRESSION /^C[0-9]/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 13 154 213
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cr"
+		TITLE "Zone CR"
+		EXPRESSION /^CR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 95 95 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cra"
+		TITLE "Zone CRA"
+		EXPRESSION /^CRA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 226 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "cra_apostrofo"
+		TITLE "Zone CRA'"
+		EXPRESSION /^CRA_APOSTROFO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 102 185 21
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "ceep"
+		TITLE "Zone Ceep"
+		EXPRESSION /^CEEP/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 254 255 141
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "d"
+		TITLE "Zone D"
+		EXPRESSION /^D[0-9]/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 251 221 179
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "do"
+		TITLE "Zone DO"
+		EXPRESSION /^DO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 173 255 173
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "dam"
+		TITLE "Zone DAM"
+		EXPRESSION /^DAM[0-9]/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 245 170 63
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "dm"
+		TITLE "Zone DM"
+		EXPRESSION /^DM/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 192 192
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "tn"
+		TITLE "Zone TN"
+		EXPRESSION /^TN/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 229 232 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "tc"
+		TITLE "Zone TC"
+		EXPRESSION /^TC/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 229 232 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "ei"
+		TITLE "Zone EI"
+		EXPRESSION /^EI/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 183 183
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "es"
+		TITLE "Zone ES"
+		EXPRESSION /^ES/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 143 143
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "ee"
+		TITLE "Zone EE"
+		EXPRESSION /^EE/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 249 247 199
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "s"
+		TITLE "Zone S"
+		EXPRESSION /^S$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 254 213 154
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "sa"
+		TITLE "Zone SA"
+		EXPRESSION /^SA/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 105 175 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fic"
+		TITLE "Zone FIc"
+		EXPRESSION /^FIC/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 16
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 192 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fis"
+		TITLE "Zone FIs"
+		EXPRESSION /^FIS/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 16
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 117 117
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fvs"
+		TITLE "Zone FVS"
+		EXPRESSION /^FVS[0-9]|^FVS$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 16
+			POSITION CC
+		END
+		STYLE
+			COLOR 193 193 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 0 78 0
+			SYMBOL "VERDE_PUBBLICO"
+			SIZE 5
+			MINSIZE 5
+			MAXSIZE 5
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "fv"
+		TITLE "Zone FV"
+		EXPRESSION /^FV[0-9]|^FV$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 16
+			POSITION CC
+		END
+		STYLE
+			COLOR 193 193 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+		STYLE
+			COLOR 0 78 0
+			SYMBOL "VERDE_PUBBLICO"
+			SIZE 5
+			MINSIZE 5
+			MAXSIZE 5
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "p"
+		TITLE "Zone P"
+		EXPRESSION /^P/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 16
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 222
+			SYMBOL "PUNKT"
+			BACKGROUNDCOLOR 192 255 192
+			SIZE 3
+			MINSIZE 3
+			MAXSIZE 3
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "fc"
+		TITLE "Zone FC"
+		EXPRESSION /^FC$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "DOPPIA_VERT"
+			BACKGROUNDCOLOR 121 186 223
+			SIZE 20
+			MINSIZE 20
+			MAXSIZE 20
+			ANGLE 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fp"
+		TITLE "Zona FP"
+		EXPRESSION /^FP$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 253 172 107
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fm"
+		TITLE "Zone FM"
+		EXPRESSION /^FM/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 128 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "fci"
+		TITLE "Zone FCI"
+		EXPRESSION /^FCI/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 254 186 106
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "ra"
+		TITLE "Zone RA"
+		EXPRESSION /^RA/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 230 126 158
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			MINWIDTH 1
+		END
+	END
+END
+LAYER #----------------31-----------------
+	GROUP "acque_491"
+	NAME "acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.acque using unique bordo_gb"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	OPACITY 60
+	CLASS
+		NAME "ACQUE"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			SIZE 10
+			WIDTH 1
+			MINWIDTH 5
+		END
+	END
+END
+LAYER #----------------32-----------------
+	GROUP "strade_492"
+	NAME "strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	MAXSCALEDENOM 2001
+	OPACITY 60
+	CLASS
+		NAME "STRADE"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------33-----------------
+	GROUP "particelle_488"
+	NAME "codice_particelle"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "p_interno_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	LABELITEM "mappale"
+	LABELMAXSCALEDENOM 2001
+	CLASS
+		NAME "NERA"
+		TITLE "Particelle Catasto Terreni"
+		MAXSCALEDENOM 5001
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 7
+			MINSIZE 6
+			MAXSIZE 8
+			POSITION CC
+		END
+	END
+END
+LAYER #----------------34-----------------
+	GROUP "particelle_488"
+	NAME "particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione in (0,1)"
+	SIZEUNITS pixels
+	LABELMAXSCALEDENOM 2001
+	CLASS
+		NAME "NERA"
+		TITLE "Particelle Catasto Terreni"
+		MAXSCALEDENOM 10001
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			SIZE 7
+			MINSIZE 6
+			MAXSIZE 8
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 80 80 80
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------35-----------------
+	GROUP "fabbricati_489"
+	NAME "fabbricati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	OPACITY 80
+	CLASS
+		NAME "fabbricati"
+		TITLE "Fabbricati"
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 3
+			MINSIZE 3
+			MAXSIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------36-----------------
+	GROUP "varie_494"
+	NAME "linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"varie"
+		"ows_title"	"varie"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from nct.varie using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	MAXSCALEDENOM 2001
+	OPACITY 30
+	CLASS
+		NAME "linee_varie"
+		TITLE "Linee varie"
+		EXPRESSION /^linee_varie$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------37-----------------
+	GROUP "simboli_493"
+	NAME "simboli"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "PICCHETTI"
+		TITLE "Picchetti"
+		EXPRESSION /^2$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "OSSO"
+		TITLE "Osso di morto"
+		EXPRESSION /^4$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "OSSO MORTO"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FLUSSO_SCORRIMENTO_ACQUE"
+		TITLE "Flusso scorrimento acque - medio"
+		EXPRESSION /^5$|^6$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "FRECCIA2"
+			SIZE 9
+			MINSIZE 5
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAG"
+		TITLE "Graffa di annessione grande"
+		EXPRESSION /^9$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "TERMINE"
+		TITLE "Termine Catastale Provinciale"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 6
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAP"
+		TITLE "Graffa di annessione - piccola"
+		EXPRESSION /^14$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------38-----------------
+	GROUP "fiduciali_490"
+	NAME "fiduciali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "FIDUCIALI_CERCHIO"
+		TITLE "Punto fiduciale"
+		EXPRESSION /^20$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "FIDUCIALE"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FIDUCIALI_TRIANGOLO"
+		TITLE "Punto trigonometrico"
+		EXPRESSION /^8$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "TRIGONOMETRICO"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------39-----------------
+	GROUP "fiduciali_490"
+	NAME "numeri_fiduciali"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "rappresentazione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	LABELITEM "numero"
+	MAXSCALEDENOM 2001
+	CLASS
+		NAME "TESTO_NUMERO"
+		TITLE "Numero di fiduciale"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 255 0 0
+			SIZE 4
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------40-----------------
+	GROUP "testi_487"
+	NAME "testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"testi"
+		"ows_title"	"testi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0 and testo not like '(%'"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	LABELMAXSCALEDENOM 2001
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "testi_luoghi"
+		TITLE "Testi dei luoghi"
+		EXPRESSION ([dimensione]>8)
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 160 0 0
+			SIZE 10
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION UR
+		PARTIALS false
+		END
+	END
+	CLASS
+		NAME "testi_acque"
+		TITLE "Testi acque e strade"
+		EXPRESSION ([dimensione]<8)
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 0 0 255
+			SIZE 6
+			MINSIZE 3
+			MAXSIZE 12
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------41-----------------
+	GROUP "assetto_insediativo_484"
+	NAME "assetto_insediativo"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 25001
+	OPACITY 60
+	CLASS
+		NAME "ae"
+		TITLE "Autostrade"
+		EXPRESSION /^AE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ai_co"
+		TITLE "Attrezzature impianti - Consolidamento"
+		EXPRESSION /^AI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 215 215 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ani_ma"
+		TITLE "Area non insediata - Mantenimento"
+		EXPRESSION /^ANI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 145 255 190
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ani_tr_id"
+		TITLE "Area non insediata - Trasformabilità"
+		EXPRESSION /^ANI_TR_ID$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 220 255 220
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id_co"
+		TITLE "Insediamento diffuso - Consolidamento"
+		EXPRESSION /^ID_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 210 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id_ma"
+		TITLE "Insediamento diffuso - Mantenimento"
+		EXPRESSION /^ID_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 170 70
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id_mo_a"
+		TITLE "Insediamento diffuso - Modificabilità tipo A"
+		EXPRESSION /^ID_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 210 120
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_ce"
+		TITLE "Insediamento sparso - Conservazione"
+		EXPRESSION /^IS_CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 156 136
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_ma"
+		TITLE "Insediamento sparso - Mantenimento"
+		EXPRESSION /^IS_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 230 173 153
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_mo_b"
+		TITLE "Insediamento sparso - Modificabilità tipo B"
+		EXPRESSION /^IS_MO_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 192 164
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_tr_ai"
+		TITLE "Insediamento sparso - Trasformabilità (AI)"
+		EXPRESSION /^IS_TR_AI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 218 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_tr_id"
+		TITLE "Insediamento sparso - Trasformabilità (ID)"
+		EXPRESSION /^IS_TR_ID$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 218 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "iu"
+		TITLE "Immagine urbana"
+		EXPRESSION /^IU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_co"
+		TITLE "Nucleo isolato - Consolidamento"
+		EXPRESSION /^NI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 185 110 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_ma"
+		TITLE "Nucleo isolato - Mantenimento"
+		EXPRESSION /^NI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 186 36 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pu"
+		TITLE "Parco urbano"
+		EXPRESSION /^PU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "su"
+		TITLE "Struttura urbana qualificata"
+		EXPRESSION /^SU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tu"
+		TITLE "Tessuto urbano"
+		EXPRESSION /^TU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "manufatti_emergenti_sistemi"
+		TITLE "Manufatti emergenti e sistemi"
+		EXPRESSION /^ME_83$|^ME_84$|^ME_90$|^ME_91$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------42-----------------
+	GROUP "proposta_variante_1"
+	NAME "proposta_di_variante"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"proposta_variante"
+		"ows_title"	"proposta_variante"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO_VARIANTE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "proposta_di_variante"
+		TITLE "Proposta di variante"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------43-----------------
+	GROUP "proposta_variante_1"
+	NAME "lay_ptcp_i_var_l"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"proposta_variante"
+		"ows_title"	"proposta_variante"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO_VARIANTE'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 25001
+	OPACITY 80
+	CLASS
+		NAME "cls_ptcpi_zone"
+		TITLE "Assetti insediativo - Variante proposta"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE AUTO
+			COLOR 0 0 255
+			SIZE 16
+			MINSIZE 8
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 192
+			WIDTH 5
+			MINWIDTH 3
+		END
+	END
+END
+LAYER #----------------44-----------------
+	GROUP "assetto_insediativo_484"
+	NAME "manufatti_emergenti"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "nome_zona"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "me"
+		TITLE "Manufatti emergenti"
+		EXPRESSION /^ME_/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 16
+			POSITION CC
+			WRAP "_"
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RIQUADRO_ME"
+			SIZE 50
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------45-----------------
+	GROUP "sezioni_2"
+	NAME "sezioni_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"sezioni"
+		"ows_title"	"sezioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "centroide from nct.sezioni using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	LABELITEM "descrizione"
+	LABELMINSCALEDENOM 10001
+	LABELMAXSCALEDENOM 50001
+	CLASS
+		NAME "sezioni"
+		TITLE "Sezioni"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial_black"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+	END
+END
+LAYER #----------------46-----------------
+	GROUP "bacini_3"
+	NAME "bacini"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"bacini"
+		"ows_title"	"bacini"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='BACINI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "bacini"
+		TITLE "Bacini"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 192
+			OUTLINECOLOR 255 255 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 192
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------47-----------------
+	GROUP "fasce_fluviali_5"
+	NAME "fasce_fluviali"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fasce_fluviali"
+		"ows_title"	"fasce_fluviali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='FASCE_FLUVIALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY 60
+	CLASS
+		NAME "a"
+		TITLE "Fascia A: Tr = 50 anni"
+		EXPRESSION /^A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "as"
+		TITLE "Fascia As"
+		EXPRESSION /^AS$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 128 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "b"
+		TITLE "Fascia B: Tr = 200 anni"
+		EXPRESSION /^B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "c"
+		TITLE "Fascia C: Tr = 500 anni"
+		EXPRESSION /^C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "alveo_a_cielo_aperto"
+		TITLE "Alveo a cielo aperto"
+		EXPRESSION /^ALVEO_A_CIELO_APERTO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "alveo_tombinato"
+		TITLE "Alveo tombinato"
+		EXPRESSION /^ALVEO_TOMBINATO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 0 192
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "fascia_di_riassetto"
+		TITLE "Fascia di riassetto fluviale (RF)"
+		EXPRESSION /^FASCIA_DI_RIASSETTO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 128 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------48-----------------
+	GROUP "rischio_geomorfologico_6"
+	NAME "rischio_geomorfologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rischio_geomorfologico"
+		"ows_title"	"rischio_geomorfologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='RISCHIO_GEOMORFOLOGICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY 60
+	CLASS
+		NAME "rg0"
+		TITLE "Rg0: Rischio lieve o trascurabile"
+		EXPRESSION /^RG0$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "rg1"
+		TITLE "Rg1: Rischio moderato"
+		EXPRESSION /^RG1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "rg2"
+		TITLE "Rg2: Rischio medio"
+		EXPRESSION /^RG2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "rg3"
+		TITLE "Rg3: Rischio elevato"
+		EXPRESSION /^RG3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "rg4"
+		TITLE "Rg4: Rischio molto elevato"
+		EXPRESSION /^RG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "s"
+		TITLE "S"
+		EXPRESSION /^S$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "alveo"
+		TITLE "Alveo"
+		EXPRESSION /^ALVEO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 192 255 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------49-----------------
+	GROUP "rischio_idrogeologico_7"
+	NAME "rischio_idrogeologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rischio_idrogeologico"
+		"ows_title"	"rischio_idrogeologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='RISCHIO_IDROGEOLOGICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY 60
+	CLASS
+		NAME "alveo"
+		TITLE "Alveo"
+		EXPRESSION /^ALVEO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 192 255 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ri0"
+		TITLE "Ri0: Rischio lieve o trascurabile"
+		EXPRESSION /^RI0$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "ri1"
+		TITLE "Ri1: Rischio moderato"
+		EXPRESSION /^RI1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "ri2"
+		TITLE "Ri2: Rischio medio"
+		EXPRESSION /^RI2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "ri3"
+		TITLE "Ri3: Rischio elevato"
+		EXPRESSION /^RI3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "ri4"
+		TITLE "Ri4: Rischio molto elevato"
+		EXPRESSION /^RI4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------50-----------------
+	GROUP "suscettivita_dissesto_8"
+	NAME "suscettivita_dissesto"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"suscettivita_dissesto"
+		"ows_title"	"suscettivita_dissesto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='SUSCETTIVITA_DISSESTO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY 60
+	CLASS
+		NAME "pg0"
+		TITLE "PG0: Suscettibilità al dissesto molto bassa"
+		EXPRESSION /^PG0$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "pg1"
+		TITLE "PG1: Suscettibilità molto bassa"
+		EXPRESSION /^PG1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "pg2"
+		TITLE "PG2: Suscettibilità al dissesto bassa"
+		EXPRESSION /^PG2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "pg3"
+		TITLE "PG3: Suscettibilità al dissesto elevata"
+		EXPRESSION /^PG3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "pg3a"
+		TITLE "PG3a: Suscettibilità al dissesto molto elevata"
+		EXPRESSION /^PG3A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "pg3b"
+		TITLE "PG3b: Suscettibilità al dfissesto elevata"
+		EXPRESSION /^PG3B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "pg4"
+		TITLE "PG4: Suscettibilità al dissesto molto elevata - frana attiva"
+		EXPRESSION /^PG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "s"
+		TITLE "S"
+		EXPRESSION /^S$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------51-----------------
+	GROUP "sua_4"
+	NAME "sua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sua"
+		"ows_title"	"sua"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='SUA'"
+	SIZEUNITS pixels
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY ALPHA
+	CLASS
+		NAME "sua"
+		TITLE "SUA"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------52-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2009"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2009"
+		TITLE "Aree percorse dal fuoco nel 2009"
+		EXPRESSION /_2009$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 60 34 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------53-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2008"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2008"
+		TITLE "Aree percorse dal fuoco nel 2008"
+		EXPRESSION /_2008$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 206 214 47
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------54-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2007"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2007"
+		TITLE "Aree percorse dal fuoco nel 2007"
+		EXPRESSION /_2007$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 139 85 69
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------55-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2006"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2006"
+		TITLE "Aree percorse dal fuoco nel 2006"
+		EXPRESSION /_2006$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 253 134 80
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------56-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2005"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2005"
+		TITLE "Aree percorse dal fuoco nel 2005"
+		EXPRESSION /_2005$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 139 216 95
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------57-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2004"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2004"
+		TITLE "Aree percorse dal fuoco nel 2004"
+		EXPRESSION /_2004$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 231 158
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------58-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2000"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2000"
+		TITLE "Aree percorse dal fuoco nel 2000"
+		EXPRESSION /_2000$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 51 34 89
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------59-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2001"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2001"
+		TITLE "Aree percorse dal fuoco nel 2001"
+		EXPRESSION /_2001$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 69 111 206
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------60-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2003"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2003"
+		TITLE "Aree percorse dal fuoco nel 2003"
+		EXPRESSION /_2003$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 195 56 50
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------61-----------------
+	GROUP "aree_percorse_dal_fuoco_10"
+	NAME "2002"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='AREE_PERCORSE_DAL_FUOCO' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "anno_2002"
+		TITLE "Aree percorse dal fuoco nel 2002"
+		EXPRESSION /_2002$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		OFFSET 5 20
+		END
+		STYLE
+			COLOR 160 68 214
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------62-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1963_02_19"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1963_02_19"
+		TITLE "D.M. 19/02/1963"
+		EXPRESSION /^DM_1963_02_19$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------63-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_05"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_05"
+		TITLE "D.M. 05/08/1950"
+		EXPRESSION /^DM_1950_08_05$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------64-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_24_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_24_a"
+		TITLE "D.M. 24/08/1950"
+		EXPRESSION /^DM_1950_08_24_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------65-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_24_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_24_b"
+		TITLE "D.M. 24/08/1950"
+		EXPRESSION /^DM_1950_08_24_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------66-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_24_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_24_c"
+		TITLE "D.M. 24/08/1950"
+		EXPRESSION /^DM_1950_08_24_C$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------67-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_29_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_29_a"
+		TITLE "D.M. 29/08/1950"
+		EXPRESSION /^DM_1950_08_29_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------68-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_29_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_29_b"
+		TITLE "D.M. 29/08/1950"
+		EXPRESSION /^DM_1950_08_29_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------69-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_29_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_29_c"
+		TITLE "D.M. 29/08/1950"
+		EXPRESSION /^DM_1950_08_29_C$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------70-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_08_29_d"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_08_29_d"
+		TITLE "D.M. 29/08/1950"
+		EXPRESSION /^DM_1950_08_29_D$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------71-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_09_02_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_09_02_a"
+		TITLE "D.M. 02/09/1950"
+		EXPRESSION /^DM_1950_09_02_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------72-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_09_02_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_09_02_b"
+		TITLE "D.M. 02/09/1950"
+		EXPRESSION /^DM_1950_09_02_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------73-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_10_21_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_10_21_a"
+		TITLE "D.M. 21/10/1950"
+		EXPRESSION /^DM_1950_10_21_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------74-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_10_21_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_10_21_b"
+		TITLE "D.M. 21/10/1950"
+		EXPRESSION /^DM_1950_10_21_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------75-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_04_02"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_04_02"
+		TITLE "D.M. 02/04/1951"
+		EXPRESSION /^DM_1951_04_02$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------76-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_04_04_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_04_04_a"
+		TITLE "D.M. 04/04/1951"
+		EXPRESSION /^DM_1951_04_04_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------77-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_04_04_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_04_04_b"
+		TITLE "D.M. 04/04/1951"
+		EXPRESSION /^DM_1951_04_04_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------78-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_04_04_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_04_04_c"
+		TITLE "D.M. 04/04/1951"
+		EXPRESSION /^DM_1951_04_04_C$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------79-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_06_23"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_06_23"
+		TITLE "D.M. 23/06/1951"
+		EXPRESSION /^DM_1951_06_23$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------80-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_06_30"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_06_30"
+		TITLE "D.M. 30/06/1951"
+		EXPRESSION /^DM_1951_06_30$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------81-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_07_05"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_07_05"
+		TITLE "D.M. 05/07/1951"
+		EXPRESSION /^DM_1951_07_05$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------82-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_08_14"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_08_14"
+		TITLE "D.M. 14/08/1951"
+		EXPRESSION /^DM_1951_08_14$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------83-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_10_27_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_10_27_a"
+		TITLE "D.M. 27/10/1951"
+		EXPRESSION /^DM_1951_10_27_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------84-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1951_10_27_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1951_10_27_b"
+		TITLE "D.M. 27/10/1951"
+		EXPRESSION /^DM_1951_10_27_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------85-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1952_03_20"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1952_03_20"
+		TITLE "D.M. 20/03/1952"
+		EXPRESSION /^DM_1952_03_20$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------86-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1953_01_31"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1953_01_31"
+		TITLE "D.M. 31/01/1953"
+		EXPRESSION /^DM_1953_01_31$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------87-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1953_04_10"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1953_04_10"
+		TITLE "D.M. 10/04/1953"
+		EXPRESSION /^DM_1953_04_10$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------88-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1953_10_20_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1953_10_20_a"
+		TITLE "D.M. 20/10/1953"
+		EXPRESSION /^DM_1953_10_20_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------89-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1953_10_20_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1953_10_20_b"
+		TITLE "D.M. 20/10/1953"
+		EXPRESSION /^DM_1953_10_20_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------90-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1959_08_06"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1959_08_06"
+		TITLE "D.M. 06/08/1959"
+		EXPRESSION /^DM_1959_08_06$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------91-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1962_07_13"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1962_07_13"
+		TITLE "D.M. 13/07/1962"
+		EXPRESSION /^DM_1962_07_13$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------92-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1962_11_16"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1962_11_16"
+		TITLE "D.M. 16/11/1962"
+		EXPRESSION /^DM_1962_11_16$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------93-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1963_01_25"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1963_01_25"
+		TITLE "D.M. 25/01/1963"
+		EXPRESSION /^DM_1963_01_25$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------94-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1963_06_11"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1963_06_11"
+		TITLE "D.M. 11/06/1963"
+		EXPRESSION /^DM_1963_06_11$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------95-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1975_04_15"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1975_04_15"
+		TITLE "D.M. 15/04/1975"
+		EXPRESSION /^DM_1975_04_15$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------96-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1985_04_24_a"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1985_04_24_a"
+		TITLE "D.M. 24/04/1985"
+		EXPRESSION /^DM_1985_04_24_A$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------97-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1985_04_24_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1985_04_24_b"
+		TITLE "D.M. 24/04/1985"
+		EXPRESSION /^DM_1985_04_24_B$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------98-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1985_04_24_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1985_04_24_c"
+		TITLE "D.M. 24/04/1985"
+		EXPRESSION /^DM_1985_04_24_C$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------99-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1985_04_24_d"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1985_04_24_d"
+		TITLE "D.M. 24/04/1985"
+		EXPRESSION /^DM_1985_04_24_D$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------100-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1950_04_29"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1950_04_29"
+		TITLE "D.M. 29/04/1950"
+		EXPRESSION /^DM_1950_04_29$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------101-----------------
+	GROUP "notevole_interesse_pubblico_13"
+	NAME "dm_1956_03_26"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"notevole_interesse_pubblico"
+		"ows_title"	"notevole_interesse_pubblico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_136_NOTEVOLE_INTERESSE_PUBBLICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "dm_1956_03_26"
+		TITLE "D.M. 26/03/1956"
+		EXPRESSION /^DM_1956_03_26$/
+		STYLE
+			COLOR 0 128 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------102-----------------
+	GROUP "tutela_per_legge_14"
+	NAME "lett_m_zone_archeologiche_aree"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"tutela_per_legge"
+		"ows_title"	"tutela_per_legge"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='ART_142_TUTELA_PER_LEGGE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lett_m_zone_archeologiche"
+		TITLE "Zone archeologiche"
+		EXPRESSION /^LETT_M_ZONE_ARCHEOLOGICHE$/
+		STYLE
+			COLOR 128 64 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------103-----------------
+	GROUP "notifiche_vincoli_architettoni_15"
+	NAME "vincoli_architettonici_puntuali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"notifiche_vincoli_architettoni"
+		"ows_title"	"notifiche_vincoli_architettoni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004' and nome_tavola='VINCOLI_ARCHITETTONICI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "vincoli_architettonici_puntuali"
+		TITLE "Vincoli Architettonici puntuali"
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "DISK"
+			SIZE 12
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------104-----------------
+	GROUP "fogli_9"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	LABELITEM "foglio"
+	LABELMAXSCALEDENOM 12001
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+SYMBOL
+	NAME "DISK"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED FALSE
+END
+SYMBOL
+	NAME "TRIANGLE_NOFILL_3"
+TYPE VECTOR
+POINTS
+1 1
+3 1
+2 2
+1 1
+-99 -99
+5 1
+7 1
+6 2
+5 1
+-99 -99
+3 3
+5 3
+4 4
+3 3
+-99 -99
+8 4
+7 3
+8 3
+-99 -99
+0 3
+1 3
+0 4
+END
+FILLED FALSE
+END
+SYMBOL
+	NAME "DOPPIA_VERT"
+TYPE VECTOR
+POINTS
+0 0
+0 6
+-99 -99
+2 0
+2 6
+END
+FILLED FALSE
+END
+SYMBOL
+	NAME "PUNKT"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED TRUE
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "RIQUADRO_ME"
+TYPE VECTOR
+POINTS
+0  20
+1  22
+2  23
+4  24
+20 24
+22 23
+23 22
+24 20
+24 4
+23 2
+22 1
+20 0
+4 0
+2 1
+1 2
+0 4
+0 20
+END
+FILLED false
+END
+SYMBOL
+	NAME "VERDE_PUBBLICO"
+TYPE vector
+POINTS
+1 1
+2 2
+3 1
+END
+FILLED false
+END
+SYMBOL
+	NAME "FIDUCIALE"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "B"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FRECCIA2"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "G"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "GRAFFA"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "E"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "OSSO MORTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "I"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PICCHETTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "D"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "TRIGONOMETRICO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "A"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

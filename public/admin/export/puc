@@ -1,0 +1,20 @@
+--Project:vezzano
+--Type:qt
+--Name:qt
+set search_path to @DB_SCHEMA@,public;
+INSERT INTO qt(qt_id,theme_id,layer_id,qt_name,max_rows,papersize_id,edit_url,groupobject,selection_color,qt_order,qtresultype_id,qt_filter,zoom_buffer) VALUES('@NEWKEY_I[qt][43]@',@PARENTID@,@PARENTKEY@,'@OBJECTNAME@','25'::int2,'4'::int4,null::varchar,0::int4,null::varchar,'100'::int2,null::int4,null::varchar,null::int4);
+
+INSERT INTO qtrelation(qtrelation_id,qt_id,catalog_id,qtrelation_name,qtrelationtype_id,data_field_1,data_field_2,data_field_3,table_name,table_field_1,table_field_2,table_field_3,language_id) VALUES('@NEWKEY_I[qtrelation][38]@','@KEY[qt][43]@',@FOREIGNKEY[catalog][vincoli]@,'zona'::varchar,'1'::int4,'nome_vincolo'::varchar,'nome_tavola'::varchar,'nome_zona'::varchar,'zona'::varchar,'nome_vincolo'::varchar,'nome_tavola'::varchar,'nome_zona'::varchar,'fr'::varchar);
+
+INSERT INTO qtfield(qtfield_id,qt_id,qtrelation_id,qtfield_name,field_header,fieldtype_id,searchtype_id,resultype_id,field_format,column_width,orderby_id,field_filter,datatype_id,qtfield_order,default_op) VALUES('@NEWKEY_I[qtfield][145]@','@KEY[qt][43]@','@KEY[qtrelation][38]@','sigla'::varchar,'Zona'::varchar,'1'::int2,'3'::int2,'3'::int2,null::varchar,null::int4,'1'::int4,'-1'::int4,'1'::int2,'1'::int2,null::varchar);
+
+INSERT INTO qtfield(qtfield_id,qt_id,qtrelation_id,qtfield_name,field_header,fieldtype_id,searchtype_id,resultype_id,field_format,column_width,orderby_id,field_filter,datatype_id,qtfield_order,default_op) VALUES('@NEWKEY_I[qtfield][146]@','@KEY[qt][43]@','@KEY[qtrelation][38]@','descrizione'::varchar,'Descrizione'::varchar,'1'::int2,0::int2,'3'::int2,null::varchar,null::int4,0::int4,'-1'::int4,'1'::int2,'2'::int2,null::varchar);
+
+INSERT INTO qtfield(qtfield_id,qt_id,qtrelation_id,qtfield_name,field_header,fieldtype_id,searchtype_id,resultype_id,field_format,column_width,orderby_id,field_filter,datatype_id,qtfield_order,default_op) VALUES('@NEWKEY_I[qtfield][147]@','@KEY[qt][43]@',0,'gid'::varchar,'GID'::varchar,'1'::int2,0::int2,'3'::int2,null::varchar,null::int4,0::int4,'145'::int4,'1'::int2,'3'::int2,null::varchar);
+
+INSERT INTO qt_link(qt_id,link_id,resultype_id) VALUES('@KEY[qt][43]@',@FOREIGNKEY[link][11.1 Norme Urbanistiche generali]@,'3'::int2);
+
+INSERT INTO qt_link(qt_id,link_id,resultype_id) VALUES('@KEY[qt][43]@',@FOREIGNKEY[link][11.2 Norme di conformità]@,'3'::int2);
+
+INSERT INTO qt_link(qt_id,link_id,resultype_id) VALUES('@KEY[qt][43]@',@FOREIGNKEY[link][11.3 Norme di congruenza]@,'3'::int2);
+

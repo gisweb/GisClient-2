@@ -1,0 +1,3785 @@
+MAP
+	NAME "fivizzano_pubblica"
+	EXTENT 1582300 4884400 1600300 4907300
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "idrogeologico_628"
+	NAME "query_layer"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idrogeologico"
+		"ows_title"	"idrogeologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_LEGISLATIVI_SALVAGUARDIA_AMBIENTALI'"
+END
+LAYER #----------------1-----------------
+	GROUP "pericolosita_idraulica_622"
+	NAME "query_layer"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_idraulica"
+		"ows_title"	"pericolosita_idraulica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO'"
+END
+LAYER #----------------2-----------------
+	GROUP "sir_624"
+	NAME "query_layer"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sir"
+		"ows_title"	"sir"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "(nome_vincolo='VINCOLISTICA_AMBIENTALE_NATURALISTICA' and nome_tavola='SIR') or (nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI' and nome_zona in ('PARCO_APPENNINO_ZONA_2','PARCO_APPENNINO_ZONA_3','PARCO_APUANE','ZONA_CONTIGUA_PARCO_APUANE'))"
+END
+LAYER #----------------3-----------------
+	GROUP "qu_raster_695"
+	NAME "qu_raster"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"qu_raster"
+		"ows_title"	"qu_raster"
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "ctrn_10k_638"
+	NAME "linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"ctrn_10k"
+		"ows_title"	"ctrn_10k"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	CLASSITEM "layer"
+	OPACITY ALPHA
+	CLASS
+		NAME "strade"
+		TITLE "Strade"
+		EXPRESSION /^1/
+		STYLE
+			OUTLINECOLOR 60 60 60
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tratteggio_edifici"
+		TITLE "Tratteggio edifici"
+		EXPRESSION /^2(.*)V$/
+		MAXSCALEDENOM 15001
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "edifici"
+		TITLE "Edifici"
+		EXPRESSION /^2(.*)D$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+			MINWIDTH 1
+		END
+	END
+	CLASS
+		NAME "corsi_d_acqua"
+		TITLE "Corsi d'acqua"
+		EXPRESSION /^3/
+		MAXSCALEDENOM 15001
+		STYLE
+			OUTLINECOLOR 100 130 200
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "segni_vari"
+		TITLE "Segni vari"
+		EXPRESSION /^4|^5|^6|^7/
+		MAXSCALEDENOM 15001
+		STYLE
+			OUTLINECOLOR 200 200 200
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "curve_livello"
+		TITLE "Curve di livello direttrici"
+		EXPRESSION /^801/
+		STYLE
+			OUTLINECOLOR 100 100 100
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "curve_livello_ordinarie"
+		TITLE "Cure di livello ordinarie"
+		EXPRESSION /^802/
+		MAXSCALEDENOM 15001
+		STYLE
+			OUTLINECOLOR 150 150 150
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "ctrn_10k_638"
+	NAME "testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"ctrn_10k"
+		"ows_title"	"ctrn_10k"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	OPACITY ALPHA
+	CLASS
+		NAME "testi"
+		TITLE "testi"
+		MAXSCALEDENOM 20001
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 150 0 0
+			SIZE [dimensione]
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "idrogeologico_628"
+	NAME "idrogeologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idrogeologico"
+		"ows_title"	"idrogeologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_LEGISLATIVI_SALVAGUARDIA_AMBIENTALI' and nome_tavola='VINCOLO_IDROGEOLOGICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 50
+	CLASS
+		NAME "idrogeologico"
+		TITLE "Vincolo idrogeologico ex R.D. 3267/23"
+		EXPRESSION /^VINCOLO_IDROGEOLOGICO$/
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "centri_abitati_629"
+	NAME "centri_abitati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"centri_abitati"
+		"ows_title"	"centri_abitati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_LEGISLATIVI_SALVAGUARDIA_AMBIENTALI' and nome_tavola='CENTRI_ABITATI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "centri_abitati"
+		TITLE "Delimitazione centri abitati"
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 3
+			PATTERN 3 3 3 3 END
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "ambientale_630"
+	NAME "ambientale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambientale"
+		"ows_title"	"ambientale"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_LEGISLATIVI_SALVAGUARDIA_AMBIENTALI' and nome_tavola='COMPLESSI_PAESISTICI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "ambientale"
+		TITLE "Vincolo paesaggistico ambientale ex D.Lgs 42/2004"
+		EXPRESSION /^COMPLESSI_PAESISTICI$/
+		STYLE
+			COLOR 255 0 255
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "sir_624"
+	NAME "sir"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sir"
+		"ows_title"	"sir"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLISTICA_AMBIENTALE_NATURALISTICA' and nome_tavola='SIR'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 50
+	CLASS
+		NAME "sir"
+		TITLE "Siti di interesse regionale (SIR)"
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 255 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------10-----------------
+	GROUP "archeologico_631"
+	NAME "archeologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"archeologico"
+		"ows_title"	"archeologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_LEGISLATIVI_SALVAGUARDIA_AMBIENTALI' and nome_tavola='VINCOLO_ARCHEOLOGICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 80
+	CLASS
+		NAME "archeologico"
+		TITLE "Vincolo archeologico ex. L. 1089/39"
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------11-----------------
+	GROUP "lettera_b_632"
+	NAME "lettera_b"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"lettera_b"
+		"ows_title"	"lettera_b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004_ART_142'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lettera_b"
+		TITLE "Distanza dai laghi (lett. b)"
+		EXPRESSION /^DLGS_42_2004_ART_142_LETT_B$/
+		STYLE
+			COLOR 150 150 255
+			OUTLINECOLOR 0 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------12-----------------
+	GROUP "lettera_c_633"
+	NAME "lettera_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"lettera_c"
+		"ows_title"	"lettera_c"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004_ART_142'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lettera_c"
+		TITLE "Distanza acque pubbliche (lett. c)"
+		EXPRESSION /^DLGS_42_2004_ART_142_LETT_C$/
+		STYLE
+			COLOR 204 225 255
+			OUTLINECOLOR 0 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "lettera_d_634"
+	NAME "lettera_d"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"lettera_d"
+		"ows_title"	"lettera_d"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004_ART_142'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lettera_d"
+		TITLE "Quota sup. 1200 s.l.m. (lett. d)"
+		EXPRESSION /^DLGS_42_2004_ART_142_LETT_D$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------14-----------------
+	GROUP "lettera_e_635"
+	NAME "lettera_e"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"lettera_e"
+		"ows_title"	"lettera_e"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004_ART_142'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lettera_e"
+		TITLE "Ghiacci e circhi glaciali (lett. E)"
+		EXPRESSION /^DLGS_42_2004_ART_142_LETT_E$/
+		STYLE
+			COLOR 255 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------15-----------------
+	GROUP "lettera_h_636"
+	NAME "lettera_h"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"lettera_h"
+		"ows_title"	"lettera_h"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004_ART_142'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lettera_h"
+		TITLE "Usi civici (lett. H)"
+		EXPRESSION /^DLGS_42_2004_ART_142_LETT_H$/
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------16-----------------
+	GROUP "lettera_g_637"
+	NAME "lettera_g"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"lettera_g"
+		"ows_title"	"lettera_g"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DLGS_42_2004_ART_142'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "lettera_g"
+		TITLE "Aree boscate (lett. g)"
+		EXPRESSION /^DLGS_42_2004_ART_142_LETT_G$/
+		STYLE
+			COLOR 0 127 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------17-----------------
+	GROUP "strutture_funzionali_614"
+	NAME "livelli_b_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strutture_funzionali"
+		"ows_title"	"strutture_funzionali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURE_FUNZIONALI'"
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "livello_b"
+		TITLE "Livello B - Aree coltivate di collina"
+		EXPRESSION /^LIVELLO_B$/
+		STYLE
+			COLOR 0 255 255
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 135
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "livello_c"
+		TITLE "Livello C - Aree agricola produttiva"
+		EXPRESSION /^LIVELLO_C$/
+		STYLE
+			COLOR 0 255 255
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 135
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------18-----------------
+	GROUP "strutture_funzionali_614"
+	NAME "livello_a_bosco_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strutture_funzionali"
+		"ows_title"	"strutture_funzionali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURE_FUNZIONALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "livello_a_boschi_2"
+		TITLE "Livello A - Aree boscate"
+		EXPRESSION /^LIVELLO_A_BOSCO$/
+		MINSCALEDENOM 15000
+		STYLE
+			COLOR 0 225 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------19-----------------
+	GROUP "strutture_funzionali_614"
+	NAME "livello_a_bosco_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strutture_funzionali"
+		"ows_title"	"strutture_funzionali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURE_FUNZIONALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	CLASS
+		NAME "livello_a_boschi_1"
+		TITLE "Livello A - Aree boscate"
+		EXPRESSION /^LIVELLO_A_BOSCO$/
+		MAXSCALEDENOM 15001
+		STYLE
+			COLOR 0 225 0
+			SYMBOL "RU_BOSCO"
+			SIZE 30
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 225 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------20-----------------
+	GROUP "strutture_funzionali_614"
+	NAME "livello_a_fluviale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strutture_funzionali"
+		"ows_title"	"strutture_funzionali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURE_FUNZIONALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "livello_a_fluviale_1"
+		TITLE "Livello A - Ambito fluviale (1)"
+		EXPRESSION /^LIVELLO_A_FLUVIALE_1$/
+		STYLE
+			COLOR 200 200 200
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 0 200
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 200
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "livello_a_fluviale_2"
+		TITLE "Livello A - Ambito fluviale (2)"
+		EXPRESSION /^LIVELLO_A_FLUVIALE_2$/
+		STYLE
+			COLOR 0 0 200
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 200
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------21-----------------
+	GROUP "strutture_funzionali_614"
+	NAME "livello_d"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strutture_funzionali"
+		"ows_title"	"strutture_funzionali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURE_FUNZIONALI'"
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "livello_d"
+		TITLE "Livello D - Aree agricole nelle U.T.O.E."
+		EXPRESSION /^LIVELLO_D$/
+		STYLE
+			COLOR 255 255 220
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------22-----------------
+	GROUP "sistemi_territoriali_613"
+	NAME "sistemi_territoriali"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sistemi_territoriali"
+		"ows_title"	"sistemi_territoriali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	OPACITY 80
+	CLASS
+		NAME "progetto_speciale"
+		TITLE "Confine area progetto speciale"
+		EXPRESSION /^PROGETTO_SPECIALE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 9
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "parco_appennino_zona_2"
+		TITLE "Parco dell'Appennino - Zona 2"
+		EXPRESSION /^PARCO_APPENNINO_ZONA_2$/
+		STYLE
+			COLOR 128 0 160
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 120
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 128 0 160
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "parco_appennino_zona_3"
+		TITLE "Parco dell'Appennino - Zona 3"
+		EXPRESSION /^PARCO_APPENNINO_ZONA_3$/
+		STYLE
+			COLOR 128 0 160
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 120
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 128 0 160
+			WIDTH 3
+		END
+	END
+	CLASS
+		NAME "parco_apuane"
+		TITLE "Parco delle Apuane"
+		EXPRESSION /^PARCO_APUANE$/
+		STYLE
+			COLOR 128 0 160
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 120
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 128 0 160
+			WIDTH 6
+		END
+	END
+	CLASS
+		NAME "zona_contigua_parco_apuane"
+		TITLE "Zona contigua al parco delle Apuane"
+		EXPRESSION /^ZONA_CONTIGUA_PARCO_APUANE$/
+		STYLE
+			COLOR 128 0 160
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 120
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 128 0 160
+			WIDTH 6
+		END
+	END
+	CLASS
+		NAME "livello_e1"
+		TITLE "Livello E1 - Parco"
+		EXPRESSION /^LIVELLO_E1$/
+		STYLE
+			COLOR 128 0 160
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 120
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 128 0 160
+			WIDTH 6
+		END
+	END
+	CLASS
+		NAME "livello_e2"
+		TITLE "Livello E2 - Area contigua al parco"
+		EXPRESSION /^LIVELLO_E2$/
+		STYLE
+			COLOR 128 0 160
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 60
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 128 0 160
+			WIDTH 6
+		END
+	END
+	CLASS
+		NAME "livello_f"
+		TITLE "Livello F - Siti archeologici"
+		EXPRESSION /^LIVELLO_F$/
+		STYLE
+			COLOR 120 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 120 0 0
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "livello_g_zone_bcd"
+		TITLE "Livello G - Zone b, c, d"
+		EXPRESSION /^LIVELLO_G_ZONE_BCD$/
+		STYLE
+			COLOR 255 127 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "livello_g_bioitaly"
+		TITLE "Livello G - Bioitality"
+		EXPRESSION /^LIVELLO_G_BIOITALY$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "livello_h_emergenze_naturali"
+		TITLE "Livello H - Emergenze naturali"
+		EXPRESSION /^LIVELLO_H$/
+		STYLE
+			COLOR 0 255 255
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 120
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 4
+		END
+	END
+END
+LAYER #----------------23-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "fasce_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "rispetto_sorgenti"
+		TITLE "Fascia di rispetto delle sorgenti"
+		EXPRESSION /^RISPETTO_SORGENTI$/
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "rispetto_stradale"
+		TITLE "Fasce di rispetto stradale"
+		EXPRESSION /^RISPETTO_STRADALE$/
+		STYLE
+			COLOR 192 192 192
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 90 90 90
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+END
+LAYER #----------------24-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "assi_stradali"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='ASSI_STRADALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "strade_1"
+		TITLE "Strade provinciali e comunali"
+		EXPRESSION /^SP$|^SC$/
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "strade_2"
+		TITLE "Strade statali e regionali"
+		EXPRESSION /^SR$|^SS$/
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 6
+		END
+	END
+END
+LAYER #----------------25-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "fasce_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 80
+	CLASS
+		NAME "rispetto_adeguamento_viario"
+		TITLE "Fascia di rispetto per adeguamento viario"
+		EXPRESSION /^RISPETTO_ADEGUAMENTO_VIARIO$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "aree_attrezzate"
+		TITLE "Aree attrezzate"
+		EXPRESSION /^AREE_ATTREZZATE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_ATTREZZATA"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "aree_da_bonificare"
+		TITLE "Aree da bonificare"
+		EXPRESSION /^AREE_DA_BONIFICARE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_ONDE"
+			SIZE 8
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------26-----------------
+	GROUP "aree_attrezzature_pubbliche_617"
+	NAME "attrezzature_pubbliche"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_attrezzature_pubbliche"
+		"ows_title"	"aree_attrezzature_pubbliche"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_ATTREZZATURE_PUBBLICHE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	OPACITY 80
+	CLASS
+		NAME "parcheggi"
+		TITLE "Parcheggi"
+		EXPRESSION /^PARCHEGGI$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_CERCHI"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "sportive"
+		TITLE "Aree per attrezzature sportive"
+		EXPRESSION /^SPORTIVE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_PARALLELE"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "sanitarie"
+		TITLE "Aree per attrezzature sanitarie"
+		EXPRESSION /^SANITARIE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_SANITARIO"
+			SIZE 8
+			MINSIZE 4
+			MAXSIZE 16
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "scolastiche"
+		TITLE "Aree per attrezzature scolastiche"
+		EXPRESSION /^SCOLASTICHE$/
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "RU_SCOLASTICO"
+			SIZE 16
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "direzionali_e_culturali"
+		TITLE "Aree per attrezzature direzionali e culturali"
+		EXPRESSION /^DIREZIONALI_E_CULTURALI$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_PARALLELE"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tecnologiche"
+		TITLE "Aree per attrezzature tecnologiche"
+		EXPRESSION /^TECNOLOGICHE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_ONDE"
+			SIZE 8
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "rispetto_tecnologiche"
+		TITLE "Rispetto di aree per attrezzature tecnologiche"
+		EXPRESSION /^RISPETTO_TECNOLOGICHE$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "culto"
+		TITLE "Aree ed edifici di culto"
+		EXPRESSION /^CULTO$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_CULTO"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "cimiteriali"
+		TITLE "Aree per attrezzature cimiteriali"
+		EXPRESSION /^CIMITERIALI$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_CULTO"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "rispetto_cimiteriali"
+		TITLE "Rispetto aree per attrezzature cimiteriali"
+		EXPRESSION /^RISPETTO_CIMITERIALI$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "ferroviari"
+		TITLE "Aree per attrezzature ed impianti ferroviari"
+		EXPRESSION /^FERROVIARI$/
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "RU_FERROVIA"
+			SIZE 8
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "protezione_civile"
+		TITLE "Protezione civile"
+		EXPRESSION /^PROTEZIONE_CIVILE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------27-----------------
+	GROUP "aree_verdi_619"
+	NAME "aree_verdi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_verdi"
+		"ows_title"	"aree_verdi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_VERDI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	OPACITY 80
+	CLASS
+		NAME "verde_pubblico"
+		TITLE "Verde pubblico - Parco urbano"
+		EXPRESSION /^VERDE_PUBBLICO$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_VERDE"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "verde_privato"
+		TITLE "Verde privato - Orti urbani"
+		EXPRESSION /^VERDE_PRIVATO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 255 255
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------28-----------------
+	GROUP "aree_verdi_619"
+	NAME "alberature"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"aree_verdi"
+		"ows_title"	"aree_verdi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_VERDI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "alberature"
+		TITLE "Alberature"
+		EXPRESSION /^ALBERATURE$/
+		STYLE
+			OUTLINECOLOR 0 150 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------29-----------------
+	GROUP "struttura_funzionale_insediativa_620"
+	NAME "struttura_funzionale_insediativa"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"struttura_funzionale_insediativa"
+		"ows_title"	"struttura_funzionale_insediativa"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURA_FUNZIONALE_INSEDIATIVA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "is"
+		TITLE "Perimetro dell'area storica"
+		EXPRESSION /^IS$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ir1"
+		TITLE "Tessuti saturi relativamente storicizzati"
+		EXPRESSION /^IR1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 204 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 204 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ir2_a"
+		TITLE "Tessuti parzialmente saturi (0,4)"
+		EXPRESSION /^IR2_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 204 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 204 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ir3_a"
+		TITLE "Tessuti parzialmente saturi (0,25)"
+		EXPRESSION /^IR3_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 204 0
+			SYMBOL "HATCH"
+			SIZE 9
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 204 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ir2_c"
+		TITLE "Lotti liberi (0,4)"
+		EXPRESSION /^IR2_C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ir3_c"
+		TITLE "Lotti liberi (0,25)"
+		EXPRESSION /^IR3_C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 0
+			SYMBOL "HATCH"
+			SIZE 9
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ir4"
+		TITLE "Riqualificazione urbanistica"
+		EXPRESSION /^IR4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 153 0 204
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 153 0 204
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "uir_1"
+		TITLE "Insediamento residenziale di nuova urbanizzazione (0,35)"
+		EXPRESSION /^UIR_1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "uir_2"
+		TITLE "Insediamento residenziale di nuova urbanizzazione (0,2)"
+		EXPRESSION /^UIR_2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "insediamenti_produttivi"
+		TITLE "Insediamenti produttivi"
+		EXPRESSION /^IP$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 204 204 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			COLOR 204 204 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 204 204 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "aree_cava"
+		TITLE "Area di cava"
+		EXPRESSION /^AREE_CAVA$/
+		STYLE
+			OUTLINECOLOR 204 204 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "insediamenti_agricoli_dismessi"
+		TITLE "Insediamenti agricoli dismessi"
+		EXPRESSION /^INSEDIAMENTI_AGRICOLI_DISMESSI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------30-----------------
+	GROUP "aree_private_pubblico_interesse_618"
+	NAME "aree_private_pubblico_interesse"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_private_pubblico_interesse"
+		"ows_title"	"aree_private_pubblico_interesse"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_PRIVATE_PUBBLICO_INTERESSE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 80
+	CLASS
+		NAME "strutture_ricettivi"
+		TITLE "Strutture ricettive e di ospitalità"
+		EXPRESSION /^STRUTTURE_RICETTIVE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_PARALLELE"
+			SIZE 16
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "distribuzione_carburante"
+		TITLE "Attrezzature di distribuzione carburante"
+		EXPRESSION /^DISTRIBUZIONE_CARBURANTE$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_ONDE"
+			SIZE 8
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 255 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------31-----------------
+	GROUP "sistemi_territoriali_613"
+	NAME "utoe_apis"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sistemi_territoriali"
+		"ows_title"	"sistemi_territoriali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "utoe"
+		TITLE "Confine di U.T.O.E."
+		EXPRESSION /^UTOE$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "apis"
+		TITLE "Confine di area di pertinenza degli insediamenti storici"
+		EXPRESSION /^APIS$/
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+			PATTERN 3 3 3 3 END
+		END
+	END
+END
+LAYER #----------------32-----------------
+	GROUP "sistemi_territoriali_613"
+	NAME "utoe_apis_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"sistemi_territoriali"
+		"ows_title"	"sistemi_territoriali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	MAXSCALEDENOM 10001
+	OPACITY ALPHA
+	CLASS
+		NAME "testo"
+		TITLE "testo"
+		EXPRESSION /^UTOE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 10
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------33-----------------
+	GROUP "struttura_funzionale_insediativa_620"
+	NAME "perimetro_scheda_norma"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"struttura_funzionale_insediativa"
+		"ows_title"	"struttura_funzionale_insediativa"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURA_FUNZIONALE_INSEDIATIVA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "perimetro_scheda_norma"
+		TITLE "Perimetro di scheda norma"
+		EXPRESSION /^PERIMETRO_SCHEDA_NORMA$/
+		STYLE
+			OUTLINECOLOR 153 0 204
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------34-----------------
+	GROUP "struttura_funzionale_insediativa_620"
+	NAME "piano_attuativo_vigente"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"struttura_funzionale_insediativa"
+		"ows_title"	"struttura_funzionale_insediativa"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURA_FUNZIONALE_INSEDIATIVA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "piano_attuativo_vigente"
+		TITLE "Perimetro di piano attuativo vigente"
+		EXPRESSION /^PAV$/
+		STYLE
+			OUTLINECOLOR 153 0 204
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------35-----------------
+	GROUP "adeguamento_viario_616"
+	NAME "adeguamento_viario"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"adeguamento_viario"
+		"ows_title"	"adeguamento_viario"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='ADEGUAMENTO_VIARIO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 50
+	CLASS
+		NAME "adeguamento_viario"
+		TITLE "Adeguamento viario"
+		EXPRESSION /^ADEGUAMENTO_VIARIO$/
+		STYLE
+			COLOR 255 0 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------36-----------------
+	GROUP "adeguamento_viario_616"
+	NAME "adeguamento_viario_linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"adeguamento_viario"
+		"ows_title"	"adeguamento_viario"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='ADEGUAMENTO_VIARIO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "adeguamento_viario_linee"
+		TITLE "Disegno dell'adeguamento viario"
+		EXPRESSION /^ADEGUAMENTO_VIARIO_LINEE$/
+		STYLE
+			OUTLINECOLOR 204 0 204
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------37-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "sorgenti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	MAXSCALEDENOM 50001
+	OPACITY ALPHA
+	CLASS
+		NAME "sorgenti"
+		TITLE "Sorgenti"
+		EXPRESSION /^SORGENTI$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------38-----------------
+	GROUP "struttura_funzionale_insediativa_620"
+	NAME "struttura_funzionale_insediativa_simboli"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"struttura_funzionale_insediativa"
+		"ows_title"	"struttura_funzionale_insediativa"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='STRUTTURA_FUNZIONALE_INSEDIATIVA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "simboli"
+		TITLE "Simboli"
+		EXPRESSION /^SIMBOLI$/
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------39-----------------
+	GROUP "aree_attrezzature_pubbliche_617"
+	NAME "attrezzature_pubbliche_simboli"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"aree_attrezzature_pubbliche"
+		"ows_title"	"aree_attrezzature_pubbliche"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_ATTREZZATURE_PUBBLICHE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	MAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "simboli"
+		TITLE "Simboli"
+		EXPRESSION /^SIMBOLI$/
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------40-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "sorgenti_simboli"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	MAXSCALEDENOM 50001
+	OPACITY ALPHA
+	CLASS
+		NAME "simboli_sorgenti"
+		TITLE "simboli_sorgenti"
+		EXPRESSION /^SIMBOLI$/
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------41-----------------
+	GROUP "aree_verdi_619"
+	NAME "aree_verdi_simboli"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"aree_verdi"
+		"ows_title"	"aree_verdi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_VERDI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	MAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "aree_verdi_simboli"
+		TITLE "aree_verdi_simboli"
+		EXPRESSION /^SIMBOLI$/
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------42-----------------
+	GROUP "aree_private_pubblico_interesse_618"
+	NAME "aree_private_pubblico_interesse_simboli_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"aree_private_pubblico_interesse"
+		"ows_title"	"aree_private_pubblico_interesse"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_PRIVATE_PUBBLICO_INTERESSE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "attrezzature_pubbliche_simboli_testi"
+		TITLE "attrezzature_pubbliche_simboli_testi"
+		EXPRESSION /^SIMBOLI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------43-----------------
+	GROUP "aree_attrezzature_pubbliche_617"
+	NAME "attrezzature_pubbliche_simboli_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"aree_attrezzature_pubbliche"
+		"ows_title"	"aree_attrezzature_pubbliche"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_ATTREZZATURE_PUBBLICHE'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	MAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "attrezzature_pubbliche_simboli_testi"
+		TITLE "attrezzature_pubbliche_simboli_testi"
+		EXPRESSION /^SIMBOLI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 6
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------44-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "rispetti_riqualificazioni_simboli_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	MAXSCALEDENOM 10001
+	OPACITY ALPHA
+	CLASS
+		NAME "simboli"
+		TITLE "simboli"
+		EXPRESSION /^SIMBOLI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 6
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------45-----------------
+	GROUP "aree_verdi_619"
+	NAME "aree_verdi_simboli_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"aree_verdi"
+		"ows_title"	"aree_verdi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='AREE_VERDI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	MAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "aree_verdi_simboli_testi"
+		TITLE "aree_verdi_simboli_testi"
+		EXPRESSION /^SIMBOLI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 6
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------46-----------------
+	GROUP "sistemi_territoriali_613"
+	NAME "sistemi_territoriali_simboli"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"sistemi_territoriali"
+		"ows_title"	"sistemi_territoriali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 16001
+	MAXSCALEDENOM 16001
+	OPACITY ALPHA
+	CLASS
+		NAME "simboli"
+		TITLE "simboli"
+		EXPRESSION /^SIMBOLI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 255
+			SIZE 20
+		END
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "DISK"
+			SIZE 36
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------47-----------------
+	GROUP "sistemi_territoriali_613"
+	NAME "subsistemi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sistemi_territoriali"
+		"ows_title"	"sistemi_territoriali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "subsistemi"
+		TITLE "Subsistemi"
+		EXPRESSION /^SUBSISTEMI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 114 0 153
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 114 0 153
+			WIDTH 4
+		END
+	END
+END
+LAYER #----------------48-----------------
+	GROUP "fogli_621"
+	NAME "fogli_2000"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='FOGLI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	MINSCALEDENOM 10001
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli_2000"
+		TITLE "Fogli 1:2000"
+		EXPRESSION /^2000$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 0
+			SIZE 20
+			MINSIZE 10
+			MAXSIZE 35
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------49-----------------
+	GROUP "fogli_621"
+	NAME "fogli_5000"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='FOGLI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	MINSCALEDENOM 10001
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli_2000"
+		TITLE "Fogli 1:5000"
+		EXPRESSION /^5000$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 255
+			SIZE 20
+			MINSIZE 10
+			MAXSIZE 35
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------50-----------------
+	GROUP "acque_643"
+	NAME "acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.acque using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "acque"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			SIZE 10
+			WIDTH 1
+			MINWIDTH 5
+		END
+	END
+END
+LAYER #----------------51-----------------
+	GROUP "strade_644"
+	NAME "strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "STRADE"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------52-----------------
+	GROUP "pericolosita_idraulica_622"
+	NAME "tr500"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_idraulica"
+		"ows_title"	"pericolosita_idraulica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='PERICOLOSITA_IDRAULICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 50
+	CLASS
+		NAME "tr500"
+		TITLE "Tr 500 anni"
+		EXPRESSION /^TR500$/
+		STYLE
+			COLOR 249 246 191
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------53-----------------
+	GROUP "varie_646"
+	NAME "linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"varie"
+		"ows_title"	"varie"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from nct.varie using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS pixels
+	CLASSITEM "codice"
+	MAXSCALEDENOM 5001
+	CLASS
+		NAME "TIPO_1"
+		TITLE "Linee varie tipo 1"
+		EXPRESSION /^1$/
+		STYLE
+			COLOR 160 160 160
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "TIPO_5"
+		TITLE "Linee varie tipo 5"
+		EXPRESSION /^5$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "TIPO_6"
+		TITLE "Linee varie tipo 6"
+		EXPRESSION /^6$/
+		STYLE
+			COLOR 160 160 160
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "TIPO_11"
+		TITLE "Linee varie tipo 11"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------54-----------------
+	GROUP "pericolosita_idraulica_622"
+	NAME "tr200"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_idraulica"
+		"ows_title"	"pericolosita_idraulica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='PERICOLOSITA_IDRAULICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 50
+	CLASS
+		NAME "tr200"
+		TITLE "Tr 200 anni"
+		EXPRESSION /^TR200$/
+		STYLE
+			COLOR 249 223 152
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------55-----------------
+	GROUP "particelle_640"
+	NAME "particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 5001
+	CLASS
+		NAME "NERA"
+		TITLE "Particelle (<1:10000)"
+		MAXSCALEDENOM 10001
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRIGIA"
+		TITLE "Particelle (>1:10000)"
+		MINSCALEDENOM 10001
+		STYLE
+			OUTLINECOLOR 128 128 128
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------56-----------------
+	GROUP "pericolosita_idraulica_622"
+	NAME "tr30"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_idraulica"
+		"ows_title"	"pericolosita_idraulica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='PERICOLOSITA_IDRAULICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 50
+	CLASS
+		NAME "tr30"
+		TITLE "Tr 30 anni"
+		EXPRESSION /^TR30$/
+		STYLE
+			COLOR 249 123 123
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------57-----------------
+	GROUP "fabbricati_641"
+	NAME "fabbricati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	CLASS
+		NAME "FABBRICATO"
+		TITLE "Fabbricato"
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------58-----------------
+	GROUP "simboli_645"
+	NAME "simboli"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	LABELMAXSCALEDENOM 5001
+	MAXSCALEDENOM 5001
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "GRAFFAG"
+		TITLE "Graffa di annessione grande"
+		EXPRESSION /^9$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "OSSO"
+		TITLE "Osso di morto"
+		EXPRESSION /^4$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "OSSO MORTO"
+			SIZE 8
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "TERMINE"
+		TITLE "Termine Catastale Provinciale"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 6
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAP"
+		TITLE "Graffa di annessione - piccola"
+		EXPRESSION /^14$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 3
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "PICCHETTI"
+		TITLE "Picchetti"
+		EXPRESSION /^2$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "COPIA_DI_FLUSSO_SCORRIMENTO_ACQUE"
+		TITLE "Flusso scorrimento acque - medio"
+		EXPRESSION /^6$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "FRECCIA2"
+			SIZE 10
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "CONTROLOO"
+		TITLE "Punto di controllo per orientamento"
+		EXPRESSION /^1$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "+"
+			SIZE 10
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------59-----------------
+	GROUP "pericolosita_idraulica_622"
+	NAME "frf"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_idraulica"
+		"ows_title"	"pericolosita_idraulica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='PERICOLOSITA_IDRAULICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 40
+	CLASS
+		NAME "frf"
+		TITLE "Fascia di riassetto fluviale"
+		EXPRESSION /^FRF$/
+		STYLE
+			COLOR 0 0 200
+			SYMBOL "HATCH"
+			SIZE 7
+			ANGLE 45
+			WIDTH 3
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------60-----------------
+	GROUP "particelle_640"
+	NAME "freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from nct.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	MAXSCALEDENOM 2001
+	CLASS
+		NAME "CLS4"
+		STYLE
+			COLOR 100 100 100
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------61-----------------
+	GROUP "pericolosita_idraulica_622"
+	NAME "aree_approfondimento"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_idraulica"
+		"ows_title"	"pericolosita_idraulica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "aree_approfondimento"
+		TITLE "Fasce di rispetto dei corsi d'acqua privi di zonazione idraulica"
+		EXPRESSION /^AREE_APPROFODIMENTO$/
+		STYLE
+			COLOR 220 255 220
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 128 255
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+END
+LAYER #----------------62-----------------
+	GROUP "fiduciali_642"
+	NAME "fiduciali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	MAXSCALEDENOM 5001
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "FIDUCIALI_TRIANGOLO"
+		TITLE "Punto trigonometrico"
+		EXPRESSION /^8$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "TRIGONOMETRICO"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FIDUCIALI_CERCHIO"
+		TITLE "Punto fiduciale"
+		EXPRESSION /^20$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "FIDUCIALE"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------63-----------------
+	GROUP "fiduciali_642"
+	NAME "numeri_fiduciali"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "rappresentazione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	LABELITEM "numero"
+	LABELMAXSCALEDENOM 5001
+	MAXSCALEDENOM 5001
+	CLASS
+		NAME "TESTO_NUMERO"
+		TITLE "Numero di fiduciale"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 255 0 0
+			SIZE 4
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------64-----------------
+	GROUP "particelle_640"
+	NAME "numeri_particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	LABELITEM "mappale"
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	FORCE true
+	CLASS
+		NAME "testi_particelle"
+		TITLE "Testo Particelle Catastali"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 7
+			POSITION CC
+		END
+	END
+END
+LAYER #----------------65-----------------
+	GROUP "pericolosita_geomorfologica_623"
+	NAME "pericolosita_geomorfologica"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_geomorfologica"
+		"ows_title"	"pericolosita_geomorfologica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='PERICOLOSITA_GEOMORFOLOGICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY 75
+	CLASS
+		NAME "pg2"
+		TITLE "Pericolosità geomorfologica media"
+		EXPRESSION /^PG2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 249 165
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pg3"
+		TITLE "Pericolosità geomorfologica elevata"
+		EXPRESSION /^PG3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 191 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pg4"
+		TITLE "Pericolosità geomorfologica molto elevata"
+		EXPRESSION /^PG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------66-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "fascia_rispetto_ferroviario"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 75
+	CLASS
+		NAME "fascia_rispetto_ferroviario"
+		TITLE "Fascia di rispetto ferroviario (D.P.R. 753/80)"
+		EXPRESSION /^RISPETTO_FERROVIARIO$/
+		STYLE
+			COLOR 244 255 201
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------67-----------------
+	GROUP "rispetti_riqualificazioni_615"
+	NAME "ferrovia"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"rispetti_riqualificazioni"
+		"ows_title"	"rispetti_riqualificazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='RISPETTI_E_RIQUALIFICAZIONI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY 80
+	CLASS
+		NAME "ferrovia"
+		TITLE "Ferrovia"
+		EXPRESSION /^FERROVIA$/
+		STYLE
+			OUTLINECOLOR 254 220 67
+			WIDTH 4
+		END
+	END
+END
+LAYER #----------------68-----------------
+	GROUP "appennino_625"
+	NAME "appennino"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"appennino"
+		"ows_title"	"appennino"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 80
+	CLASS
+		NAME "appennino_2"
+		TITLE "Parco dell'Appennino - Zona 2"
+		EXPRESSION /^PARCO_APPENNINO_ZONA_2$/
+		STYLE
+			COLOR 20 160 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "appennino_3"
+		TITLE "Parco dell'Appennino - Zona 3"
+		EXPRESSION /^PARCO_APPENNINO_ZONA_3$/
+		STYLE
+			COLOR 20 160 10
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------69-----------------
+	GROUP "apuane_626"
+	NAME "apuane"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"apuane"
+		"ows_title"	"apuane"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='REGOLAMENTO_URBANISTICO' and nome_tavola='DISCIPLINA_SISTEMI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 80
+	CLASS
+		NAME "parco_apuane"
+		TITLE "Parco delle Apuane"
+		EXPRESSION /^PARCO_APUANE$/
+		STYLE
+			COLOR 20 160 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "contigua_apuane"
+		TITLE "Zona contigua al parco delle Apuane"
+		EXPRESSION /^ZONA_CONTIGUA_PARCO_APUANE$/
+		STYLE
+			COLOR 20 160 10
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------70-----------------
+	GROUP "testi_639"
+	NAME "testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"testi"
+		"ows_title"	"testi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	MAXSCALEDENOM 5001
+	CLASS
+		NAME "TESTI"
+		TITLE "Testi della Mappa"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 0 0 80
+			SIZE [dimensione]
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------71-----------------
+	GROUP "immobili_comunali_627"
+	NAME "immobili"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"immobili_comunali"
+		"ows_title"	"immobili_comunali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_LEGISLATIVI_SALVAGUARDIA_AMBIENTALI' and nome_tavola='IMMOBILI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "immobili_vincolati"
+		TITLE "Immobili vincolati"
+		STYLE
+			COLOR 200 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------72-----------------
+	GROUP "fogli_696"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_fivizzano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	LABELITEM "foglio"
+	LABELMINSCALEDENOM 2001
+	LABELMAXSCALEDENOM 25001
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli_1"
+		TITLE "Fogli"
+		MAXSCALEDENOM 5001
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 16
+			MINSIZE 8
+			MAXSIZE 32
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "fogli_2"
+		TITLE "Fogli"
+		MINSCALEDENOM 5001
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 16
+			MINSIZE 8
+			MAXSIZE 32
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 80 80 80
+			WIDTH 1
+		END
+	END
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "DISK"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED FALSE
+END
+SYMBOL
+	NAME "RU_BOSCO"
+TYPE vector
+	POINTS
+	1 0
+	2 2
+	0 2
+	1 0
+	-99 -99
+	7 0
+	8 2
+	6 2
+	7 0
+	-99 -99
+	5 3
+	6 5
+	4 5
+	5 3
+	-99 -99
+	11 3
+	12 5
+	10 5
+	11 3
+	-99 -99
+	2 4
+	3 6
+	1 6
+	2 4
+	-99 -99
+	8 6
+	9 8
+	7 8
+	8 6
+	-99 -99 
+	13 8
+	14 10
+	12 10
+	13 8
+	-99 -99
+	1 9
+	2 11
+	0 11
+	1 9
+	-99 -99
+	6 9
+	7 11
+	5 11
+	6 9
+	-99 -99
+	11 12
+	12 14
+	10 14
+	11 12
+	-99 -99
+	3 13
+	4 15
+	2 15
+	3 13
+	-99 -99
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_ATTREZZATA"
+TYPE vector
+	POINTS
+		3 2
+		1 1
+		2 3
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_ONDE"
+TYPE vector
+	POINTS
+		0 10
+		1 14
+		2 16
+		4 18
+		6 19
+		10 20
+		14 19
+		16 18
+		18 16
+		19 14
+		21 6
+		22 4
+		24 2
+		26 1
+		30 0
+		34 1
+		36 2
+		38 4
+		39 6
+		40 10
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_CERCHI"
+TYPE ellipse
+	POINTS
+		1 1
+		-99 -99
+		2 2
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_PARALLELE"
+TYPE vector
+	POINTS
+		0 8
+		2 12
+		-99 -99
+		2 6
+		4 10
+		-99 -99
+		4 4
+		6 8
+		-99 -99
+		6 2
+		8 6
+		-99 -99
+		8 0
+		10 4
+		-99 -99
+		11 0
+		12 2
+		-99 -99
+		10 10
+		11 12
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_SANITARIO"
+TYPE vector
+	POINTS
+		0 0
+		1 1
+		-99 -99
+		0 2
+		2 0
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_SCOLASTICO"
+TYPE vector
+	POINTS
+		0 4
+		1 0
+		2 4
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_CULTO"
+TYPE vector
+	POINTS
+		1 1
+		3 3
+		-99 -99
+		1 3
+		3 1
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_FERROVIA"
+TYPE vector
+	POINTS
+		4 0
+		0 1
+		4 2
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "RU_VERDE"
+TYPE vector
+	POINTS
+		2 11
+		0 16
+		-99 -99
+		3 12
+		1 16
+		-99 -99
+		6 9
+		2 16
+		-99 -99
+		5 13
+		4 16
+		-99 -99
+		7 12
+		6 16
+		-99 -99
+		9 11
+		7 16
+		-99 -99
+		14 6
+		9 16
+		-99 -99
+		14 10
+		11 16
+		-99 -99
+		14 13
+		12 16
+		-99 -99
+		17 8
+		14 16
+		-99 -99
+		20 6
+		15 16
+		-99 -99
+		19 11
+		16 16
+		-99 -99
+		19 13
+		17 16
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "+"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "C"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FIDUCIALE"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "B"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FRECCIA2"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "G"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "GRAFFA"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "E"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "OSSO MORTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "I"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PICCHETTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "D"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "TRIGONOMETRICO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "A"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

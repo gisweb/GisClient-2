@@ -1,0 +1,2216 @@
+MAP
+	NAME "stampa_ortofoto"
+	EXTENT 1415399 4856931 1425484 4866286
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "ortofoto_2003_20"
+	NAME "ortofoto_2003"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto_2003"
+		"ows_title"	"ortofoto_2003"
+	END
+	DATA "/data/imperia/cartografia/raster//ortofoto_2003/vrt_index.vrt"
+	SIZEUNITS feet
+END
+LAYER #----------------1-----------------
+	GROUP "ortofoto_2011_21"
+	NAME "ortofoto_2011"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto_2011"
+		"ows_title"	"ortofoto_2011"
+	END
+	DATA "/data/imperia/cartografia/raster//ortofoto_2011/vrt_index.vrt"
+	SIZEUNITS feet
+END
+LAYER #----------------2-----------------
+	GROUP "porto_maurizio__4_23"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__4"
+		"ows_title"	"porto_maurizio__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------3-----------------
+	GROUP "oneglia__2_24"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__2"
+		"ows_title"	"oneglia__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "oneglia__6_25"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__6"
+		"ows_title"	"oneglia__6"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='06'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "torrazza__4_26"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__4"
+		"ows_title"	"torrazza__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "torrazza__3_27"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__3"
+		"ows_title"	"torrazza__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "castelvecchio__1_28"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"castelvecchio__1"
+		"ows_title"	"castelvecchio__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='C' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "moltedo__1_29"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"moltedo__1"
+		"ows_title"	"moltedo__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='E' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "poggi__4_30"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"poggi__4"
+		"ows_title"	"poggi__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='I' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------10-----------------
+	GROUP "moltedo__4_31"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"moltedo__4"
+		"ows_title"	"moltedo__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='E' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------11-----------------
+	GROUP "caramagna__1_32"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"caramagna__1"
+		"ows_title"	"caramagna__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='B' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------12-----------------
+	GROUP "borgo_s_agata__2_33"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"borgo_s_agata__2"
+		"ows_title"	"borgo_s_agata__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='A' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "montegrazie__1_34"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"montegrazie__1"
+		"ows_title"	"montegrazie__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='F' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------14-----------------
+	GROUP "caramagna__2_35"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"caramagna__2"
+		"ows_title"	"caramagna__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='B' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------15-----------------
+	GROUP "costa_di_oneglia__2_36"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"costa_di_oneglia__2"
+		"ows_title"	"costa_di_oneglia__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='D' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------16-----------------
+	GROUP "castelvecchio__2_37"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"castelvecchio__2"
+		"ows_title"	"castelvecchio__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='C' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------17-----------------
+	GROUP "castelvecchio__4_38"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"castelvecchio__4"
+		"ows_title"	"castelvecchio__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='C' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------18-----------------
+	GROUP "oneglia__7_39"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__7"
+		"ows_title"	"oneglia__7"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='07'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------19-----------------
+	GROUP "poggi__2_40"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"poggi__2"
+		"ows_title"	"poggi__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='I' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------20-----------------
+	GROUP "piani__2_41"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piani__2"
+		"ows_title"	"piani__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='H' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------21-----------------
+	GROUP "castelvecchio__6_42"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"castelvecchio__6"
+		"ows_title"	"castelvecchio__6"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='C' and substring(nomefile,8,2)='06'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------22-----------------
+	GROUP "caramagna__4_43"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"caramagna__4"
+		"ows_title"	"caramagna__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='B' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------23-----------------
+	GROUP "oneglia__5_44"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__5"
+		"ows_title"	"oneglia__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------24-----------------
+	GROUP "costa_di_oneglia__4_45"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"costa_di_oneglia__4"
+		"ows_title"	"costa_di_oneglia__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='D' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------25-----------------
+	GROUP "oneglia__1_46"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__1"
+		"ows_title"	"oneglia__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------26-----------------
+	GROUP "caramagna__5_47"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"caramagna__5"
+		"ows_title"	"caramagna__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='B' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------27-----------------
+	GROUP "moltedo__3_48"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"moltedo__3"
+		"ows_title"	"moltedo__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='E' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------28-----------------
+	GROUP "porto_maurizio__3_49"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__3"
+		"ows_title"	"porto_maurizio__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------29-----------------
+	GROUP "moltedo__2_50"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"moltedo__2"
+		"ows_title"	"moltedo__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='E' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------30-----------------
+	GROUP "porto_maurizio__2_51"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__2"
+		"ows_title"	"porto_maurizio__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------31-----------------
+	GROUP "torrazza__5_52"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__5"
+		"ows_title"	"torrazza__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------32-----------------
+	GROUP "piani__1_53"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piani__1"
+		"ows_title"	"piani__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='H' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------33-----------------
+	GROUP "poggi__1_54"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"poggi__1"
+		"ows_title"	"poggi__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='I' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------34-----------------
+	GROUP "torrazza__2_55"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__2"
+		"ows_title"	"torrazza__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------35-----------------
+	GROUP "porto_maurizio__5_56"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__5"
+		"ows_title"	"porto_maurizio__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------36-----------------
+	GROUP "moltedo__5_57"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"moltedo__5"
+		"ows_title"	"moltedo__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='E' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------37-----------------
+	GROUP "castelvecchio__3_58"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"castelvecchio__3"
+		"ows_title"	"castelvecchio__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='C' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------38-----------------
+	GROUP "borgo_s_agata__4_59"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"borgo_s_agata__4"
+		"ows_title"	"borgo_s_agata__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='A' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------39-----------------
+	GROUP "torrazza__7_60"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__7"
+		"ows_title"	"torrazza__7"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='07'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------40-----------------
+	GROUP "costa_di_oneglia__3_61"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"costa_di_oneglia__3"
+		"ows_title"	"costa_di_oneglia__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='D' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------41-----------------
+	GROUP "torrazza__6_62"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__6"
+		"ows_title"	"torrazza__6"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='06'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------42-----------------
+	GROUP "borgo_s_agata__3_63"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"borgo_s_agata__3"
+		"ows_title"	"borgo_s_agata__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='A' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------43-----------------
+	GROUP "torrazza__1_64"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"torrazza__1"
+		"ows_title"	"torrazza__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='M' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------44-----------------
+	GROUP "castelvecchio__5_65"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"castelvecchio__5"
+		"ows_title"	"castelvecchio__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='C' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------45-----------------
+	GROUP "porto_maurizio__8_66"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__8"
+		"ows_title"	"porto_maurizio__8"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='08'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------46-----------------
+	GROUP "porto_maurizio__6_67"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__6"
+		"ows_title"	"porto_maurizio__6"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='06'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------47-----------------
+	GROUP "montegrazie__3_68"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"montegrazie__3"
+		"ows_title"	"montegrazie__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='F' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------48-----------------
+	GROUP "montegrazie__4_69"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"montegrazie__4"
+		"ows_title"	"montegrazie__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='F' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------49-----------------
+	GROUP "montegrazie__2_70"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"montegrazie__2"
+		"ows_title"	"montegrazie__2"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='F' and substring(nomefile,8,2)='02'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------50-----------------
+	GROUP "caramagna__3_71"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"caramagna__3"
+		"ows_title"	"caramagna__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='B' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------51-----------------
+	GROUP "caramagna__6_72"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"caramagna__6"
+		"ows_title"	"caramagna__6"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='B' and substring(nomefile,8,2)='06'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------52-----------------
+	GROUP "piani__3_73"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piani__3"
+		"ows_title"	"piani__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='H' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------53-----------------
+	GROUP "porto_maurizio__7_74"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__7"
+		"ows_title"	"porto_maurizio__7"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='07'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------54-----------------
+	GROUP "oneglia__4_75"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__4"
+		"ows_title"	"oneglia__4"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='04'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------55-----------------
+	GROUP "porto_maurizio__1_76"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"porto_maurizio__1"
+		"ows_title"	"porto_maurizio__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='L' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------56-----------------
+	GROUP "costa_di_oneglia__1_77"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"costa_di_oneglia__1"
+		"ows_title"	"costa_di_oneglia__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='D' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------57-----------------
+	GROUP "oneglia__8_78"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__8"
+		"ows_title"	"oneglia__8"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='08'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------58-----------------
+	GROUP "oneglia__3_79"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__3"
+		"ows_title"	"oneglia__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------59-----------------
+	GROUP "borgo_s_agata__1_80"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"borgo_s_agata__1"
+		"ows_title"	"borgo_s_agata__1"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='A' and substring(nomefile,8,2)='01'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------60-----------------
+	GROUP "montegrazie__5_81"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"montegrazie__5"
+		"ows_title"	"montegrazie__5"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='F' and substring(nomefile,8,2)='05'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------61-----------------
+	GROUP "oneglia__10_82"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__10"
+		"ows_title"	"oneglia__10"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='10'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------62-----------------
+	GROUP "oneglia__9_12"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"oneglia__9"
+		"ows_title"	"oneglia__9"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='G' and substring(nomefile,8,2)='09'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------63-----------------
+	GROUP "fogli_9"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	LABELITEM "foglio"
+	LABELMAXSCALEDENOM 12001
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------64-----------------
+	GROUP "poggi__3_22"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"poggi__3"
+		"ows_title"	"poggi__3"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_imperia host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "substring(nomefile,5,1)='I' and substring(nomefile,8,2)='03'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	OPACITY ALPHA
+	CLASS
+		NAME "fogli"
+		TITLE "Fogli"
+		STYLE
+			OUTLINECOLOR 255 255 255
+			WIDTH 4
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

@@ -1,0 +1,4840 @@
+MAP
+	NAME "rapallo_2"
+	EXTENT 1513200 4909050 1521550 4916050
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_01"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav1.tif"
+END
+LAYER #----------------1-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_02"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav2.tif"
+END
+LAYER #----------------2-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_03"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav3.tif"
+END
+LAYER #----------------3-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_04"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav4.tif"
+END
+LAYER #----------------4-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_05"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav5.tif"
+END
+LAYER #----------------5-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_06"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav6.tif"
+END
+LAYER #----------------6-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_07"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav7.tif"
+END
+LAYER #----------------7-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_08"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav8.tif"
+END
+LAYER #----------------8-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_09"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav9.tif"
+END
+LAYER #----------------9-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_10"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav10.tif"
+END
+LAYER #----------------10-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_11"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav11.tif"
+END
+LAYER #----------------11-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_12"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav12.tif"
+END
+LAYER #----------------12-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_13"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav13.tif"
+END
+LAYER #----------------13-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_14"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav14.tif"
+END
+LAYER #----------------14-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_15"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav15.tif"
+END
+LAYER #----------------15-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_16"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav16.tif"
+END
+LAYER #----------------16-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_17"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav17.tif"
+END
+LAYER #----------------17-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_18"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav18.tif"
+END
+LAYER #----------------18-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_19"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav19.tif"
+END
+LAYER #----------------19-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_20"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav20.tif"
+END
+LAYER #----------------20-----------------
+	GROUP "ortofoto_693"
+	NAME "ortofoto_tavola_21"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ortofoto"
+		"ows_title"	"ortofoto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster//tav21.tif"
+END
+LAYER #----------------21-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_01"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//01.tif"
+END
+LAYER #----------------22-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_02"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//02.tif"
+END
+LAYER #----------------23-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_03"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//03.tif"
+END
+LAYER #----------------24-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_04"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//04.tif"
+END
+LAYER #----------------25-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_05"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//05.tif"
+END
+LAYER #----------------26-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_06"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//06.tif"
+END
+LAYER #----------------27-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_07"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//07.tif"
+END
+LAYER #----------------28-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_08"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//08.tif"
+END
+LAYER #----------------29-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_09"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//09.tif"
+END
+LAYER #----------------30-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_10"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//10.tif"
+END
+LAYER #----------------31-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_11"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//11.tif"
+END
+LAYER #----------------32-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_12"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//12.tif"
+END
+LAYER #----------------33-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_12a"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//12a.tif"
+END
+LAYER #----------------34-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_12b"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//12b.tif"
+END
+LAYER #----------------35-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_13"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//13.tif"
+END
+LAYER #----------------36-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_14"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//14.tif"
+END
+LAYER #----------------37-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_15"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//15.tif"
+END
+LAYER #----------------38-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_16"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//16.tif"
+END
+LAYER #----------------39-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_17"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//17.tif"
+END
+LAYER #----------------40-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_17a"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//17a.tif"
+END
+LAYER #----------------41-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_18"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//18.tif"
+END
+LAYER #----------------42-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_19"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//19.tif"
+END
+LAYER #----------------43-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_19a"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//19a.tif"
+END
+LAYER #----------------44-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_20"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//20.tif"
+END
+LAYER #----------------45-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_20a"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//20a.tif"
+END
+LAYER #----------------46-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_20b"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//20b.tif"
+END
+LAYER #----------------47-----------------
+	GROUP "tavole_694"
+	NAME "ctc_tavola_21"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"tavole"
+		"ows_title"	"tavole"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	DATA "/data/rapallo/cartografia/raster/ctrn71//21.tif"
+END
+LAYER #----------------48-----------------
+	GROUP "morfologia_672"
+	NAME "ctrn_morfologia"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"morfologia"
+		"ows_title"	"morfologia"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile ilike '4%' and substring(nomefile,4,1)='v'"
+	CLASSITEM "nomefile"
+	CLASS
+		NAME "morfologia"
+		TITLE "Morfologia del terreno"
+		STYLE
+			COLOR 220 220 220
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------49-----------------
+	GROUP "acqua_671"
+	NAME "ctrn_acqua"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"acqua"
+		"ows_title"	"acqua"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile ilike '3%' and substring(nomefile,4,1)='v'"
+	SIZEUNITS pixels
+	CLASS
+		NAME "acqua"
+		TITLE "Corsi d'acqua"
+		STYLE
+			COLOR 0 170 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------50-----------------
+	GROUP "viabilita_670"
+	NAME "ctrn_viabilita"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"viabilita"
+		"ows_title"	"viabilita"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile ilike '1%' and substring(nomefile,4,1)='v'"
+	SIZEUNITS pixels
+	CLASSITEM "nomefile"
+	CLASS
+		NAME "viabilita"
+		TITLE "Viabilità"
+		STYLE
+			COLOR 160 160 160
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------51-----------------
+	GROUP "edifici_669"
+	NAME "ctrn_tutti_gli_edifici"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"edifici"
+		"ows_title"	"edifici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile ilike '2%' and substring(nomefile,4,1)='v' and not nomefile ilike '280%'"
+	SIZEUNITS pixels
+	OPACITY ALPHA
+	CLASS
+		NAME "edifici"
+		TITLE "Edifici"
+		STYLE
+			COLOR 0 0 0
+			WIDTH 2
+			MINWIDTH 1
+		END
+	END
+END
+LAYER #----------------52-----------------
+	GROUP "edifici_669"
+	NAME "ctrn_elettrodotti"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"edifici"
+		"ows_title"	"edifici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile ilike '280%'"
+	SIZEUNITS pixels
+	CLASS
+		NAME "elettrodotti"
+		TITLE "Elettrodotti"
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------53-----------------
+	GROUP "simboli_675"
+	NAME "ctrn_simboli"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_simboli_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	CLASS
+		NAME "simboli"
+		TITLE "Simbologia della carta"
+		STYLE
+			COLOR 0 100 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------54-----------------
+	GROUP "simboli_675"
+	NAME "ctrn_simboli_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile like '420%'"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	LABELMAXSCALEDENOM 12001
+	CLASS
+		NAME "testo"
+		TITLE "nomefile like '420%'"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 128 0 0
+			SIZE [dimensione]
+			POSITION CC
+		FORCE true
+		END
+	END
+END
+LAYER #----------------55-----------------
+	GROUP "morfologia_672"
+	NAME "ctrn_curve_di_livello_testi"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"morfologia"
+		"ows_title"	"morfologia"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile like '410%'"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	LABELMAXSCALEDENOM 12001
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "testo"
+		TITLE "Testo"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 150 0 0
+			SIZE [dimensione]
+			POSITION UR
+		FORCE true
+		END
+	END
+END
+LAYER #----------------56-----------------
+	GROUP "testi_vari_674"
+	NAME "ctrn_testo"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"testi_vari"
+		"ows_title"	"testi_vari"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	LABELMAXSCALEDENOM 10001
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "testo"
+		TITLE "Testo nella mappa"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 150 0 0
+			SIZE [dimensione]
+			POSITION UR
+		FORCE true
+		END
+	END
+END
+LAYER #----------------57-----------------
+	GROUP "confini_673"
+	NAME "ctrn_confini_comunali"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"confini"
+		"ows_title"	"confini"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from ctrn.ctrn_linee using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nomefile ilike '8%'"
+	SIZEUNITS pixels
+	CLASSITEM "layer"
+	CLASS
+		NAME "confini_comunali"
+		TITLE "Confini comunali"
+		EXPRESSION /^80004000$|^80006000$/
+		STYLE
+			COLOR 0 0 192
+			WIDTH 2
+			MINWIDTH 1
+		END
+	END
+END
+LAYER #----------------58-----------------
+	GROUP "reticolo_idrografico_1"
+	NAME "pdb_reticolo_idrografico"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"reticolo_idrografico"
+		"ows_title"	"reticolo_idrografico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_DI_BACINO' and nome_tavola='FASCE_INONDABILITA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "reticolo_idrografico"
+		TITLE "Reticolo idrografico"
+		EXPRESSION /^RETICOLO_IDROGRAFICO$/
+		STYLE
+			OUTLINECOLOR 0 0 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------59-----------------
+	GROUP "prg_663"
+	NAME "prg_zone_a_b_c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "a1"
+		TITLE "A1"
+		EXPRESSION /^A1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "a2"
+		TITLE "A2"
+		EXPRESSION /^A2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "a3"
+		TITLE "A3"
+		EXPRESSION /^A3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "a4"
+		TITLE "A4"
+		EXPRESSION /^A4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "b1"
+		TITLE "B1"
+		EXPRESSION /^B1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "b2"
+		TITLE "B2"
+		EXPRESSION /^B2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "b3"
+		TITLE "B3"
+		EXPRESSION /^B3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "b4"
+		TITLE "B4"
+		EXPRESSION /^B4$|^B4_I$|^B4_II$|^B4_III$|^B4_IV$|^B4_V$|^B4_VI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "bf"
+		TITLE "BF"
+		EXPRESSION /^BF$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "c1"
+		TITLE "C1"
+		EXPRESSION /^C1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "c2"
+		TITLE "C2"
+		EXPRESSION /^C2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "c3a"
+		TITLE "C3a"
+		EXPRESSION /^C3A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "c3b"
+		TITLE "C3b"
+		EXPRESSION /^C3B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------60-----------------
+	GROUP "prg_663"
+	NAME "prg_zone_d_e_pv_cimitero_s1c"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "d1"
+		TITLE "D1"
+		EXPRESSION /^D1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d1_p"
+		TITLE "D1.P"
+		EXPRESSION /^D1_P$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d2"
+		TITLE "D2"
+		EXPRESSION /^D2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d2_p"
+		TITLE "D2.P"
+		EXPRESSION /^D2_P$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d3"
+		TITLE "D3"
+		EXPRESSION /^D3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d3_p"
+		TITLE "D3.P"
+		EXPRESSION /^D3_P$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d4a"
+		TITLE "D4a"
+		EXPRESSION /^D4A$|^D4AQ$|^D4AT$|^D4A_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "d4b"
+		TITLE "D4b"
+		EXPRESSION /^D4B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "e1a"
+		TITLE "E1a"
+		EXPRESSION /^E1A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 192 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "e1b"
+		TITLE "E1b"
+		EXPRESSION /^E1B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "e2"
+		TITLE "E2"
+		EXPRESSION /^E2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 60 255 60
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "e2_p"
+		TITLE "E2.P"
+		EXPRESSION /^E2_P$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 60 255 60
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "e3"
+		TITLE "E3"
+		EXPRESSION /^E3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 127 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "e4"
+		TITLE "E4"
+		EXPRESSION /^E4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 220 255 220
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pv1"
+		TITLE "PV1"
+		EXPRESSION /^PV1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 192 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pv2"
+		TITLE "PV2"
+		EXPRESSION /^PV2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 192 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "cimitero"
+		TITLE "Cimitero"
+		EXPRESSION /^CIMITERO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1c"
+		TITLE "S1C"
+		EXPRESSION /^S1C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 150 150 150
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1c_f"
+		TITLE "S1C.F"
+		EXPRESSION /^S1C_F$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 150 150 150
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1p"
+		TITLE "S1P"
+		EXPRESSION /^S1P$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 150 150 150
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "sr"
+		TITLE "SR"
+		EXPRESSION /^SR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 150 150 150
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------61-----------------
+	GROUP "prg_663"
+	NAME "prg_zone_cg_art_23_5_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "cg"
+		TITLE "CG"
+		EXPRESSION /^CG_ART_23_5_1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 240 190 110
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------62-----------------
+	GROUP "prg_663"
+	NAME "prg_zone_pa_composte"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "pa"
+		TITLE "PA"
+		EXPRESSION /^PA$|^PA1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 127 192 63
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "zone_composte"
+		TITLE "Zone composte"
+		EXPRESSION /^IT$|^ITD$|^PA_D3_P$|^S1C_D3_P$|^X$|^S1VC_C_S1P$|^S1C_I_S2I$|^S1C_P$|^S1C_S1I_S2I$|^S1C_VA$|^S1C_VB$|^S1C_VC$|^S1IC_S2I$|^S1I_S2I_F$|^S1L_VB$|^S1P_C$|^S1VA_B$|^S1VA_B_1$|^S1VA_P$|^S1VB_C_F$|^S1VB_P$|^S1VB_P_C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 130 130 130
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------63-----------------
+	GROUP "prg_663"
+	NAME "prg_zone_varie"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "piano_particolareggiato"
+		TITLE "Piano particolareggiato"
+		EXPRESSION /^PARTICOLAREGGIATO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 12
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 12
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "rete_ferroviaria"
+		TITLE "Rete ferroviaria"
+		EXPRESSION /^RETE_FERROVIARIA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 190 150 150
+			SYMBOL "HATCH"
+			SIZE 20
+			ANGLE 60
+			WIDTH 10
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1i"
+		TITLE "S1I"
+		EXPRESSION /^S1I$|^S1C_I$|^S1I_C$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1va"
+		TITLE "S1Va"
+		EXPRESSION /^S1VA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "DISK"
+			SIZE 10
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1vb"
+		TITLE "S1Vb"
+		EXPRESSION /^S1VB$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "DISK"
+			SIZE 10
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1vc"
+		TITLE "S1Vc"
+		EXPRESSION /^S1VC$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "DISK"
+			SIZE 10
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "s1vd"
+		TITLE "S1Vd"
+		EXPRESSION /^S1VD$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 100 100 100
+			SYMBOL "DISK"
+			SIZE 10
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "art_24_4"
+		TITLE "Riassetto del litorale (Art. 24.4)"
+		EXPRESSION /^ART_24_4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 150 150 150
+			SYMBOL "HATCH"
+			SIZE 20
+			ANGLE 90
+			WIDTH 10
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "art_30_1_1_ap"
+		TITLE "ART. 30.1.1 AP"
+		EXPRESSION /^ART_30_1_1_AP$|^ART_30_1_1_AP_S1VA$|^ART_30_1_1_AT$|^ART_30_1_1$|^ART_29_N_A$|^ARTT_19_29BIS_30_N_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 150 150 150
+			SYMBOL "HATCH"
+			SIZE 20
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			COLOR 150 150 150
+			SYMBOL "HATCH"
+			SIZE 20
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "art_23_2_6"
+		TITLE "ART. 23.2.6"
+		EXPRESSION /^ART_23_2_6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------64-----------------
+	GROUP "prg_663"
+	NAME "prg_zone_risp_cim_viabilita"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 40
+	CLASS
+		NAME "fascia_rispetto_cimiteriale"
+		TITLE "Fascia di rispetto cimiteriale"
+		EXPRESSION /^RISPETTO_CIMITERIALE$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "strade_nuove"
+		TITLE "Strade nuove"
+		EXPRESSION /^STRADA_NUOVA$/
+		STYLE
+			COLOR 60 60 60
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "strade_pedonali"
+		TITLE "Strade pedonali"
+		EXPRESSION /^STRADA_PEDONALE$/
+		STYLE
+			COLOR 60 60 60
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "strade_pedonali_vincolate"
+		TITLE "Strade pedonali vincolate"
+		EXPRESSION /^STRADA_VINCOLATA$/
+		STYLE
+			COLOR 60 60 60
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "area_destinata_viabilita"
+		TITLE "Area destinata alla viabilità"
+		EXPRESSION /^AREA_PER_VIABILITA$/
+		STYLE
+			COLOR 120 80 80
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------65-----------------
+	GROUP "prg_663"
+	NAME "prg_sua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"prg"
+		"ows_title"	"prg"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY ALPHA
+	CLASS
+		NAME "sua"
+		TITLE "SUA"
+		EXPRESSION /^SUA$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 6
+		END
+		STYLE
+			OUTLINECOLOR 255 255 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------66-----------------
+	GROUP "simboli_664"
+	NAME "prg_simboli"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='SIMBOLI'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "edifici_di_pregio"
+		TITLE "Edifi di pregio"
+		EXPRESSION /^EDIFICI_DI_PREGIO$/
+		STYLE
+			COLOR 60 50 50
+			SYMBOL "esri_11_94"
+			SIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "cimitero"
+		TITLE "Cimitero"
+		EXPRESSION /^CIMITERO$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "esri_1_esri_1_170"
+			SIZE 25
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "svincolo"
+		TITLE "Svincolo"
+		EXPRESSION /^SVINCOLO$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "esri_9_114"
+			SIZE 25
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "rispetto_stradale"
+		TITLE "Rispetto stradale"
+		EXPRESSION /^RISPETTO_15M$|^RISPETTO_20M$|^RISPETTO_60M$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			SIZE 8
+		END
+		STYLE
+			COLOR 255 255 255
+			SYMBOL "CIRCLE"
+			SIZE 16
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "DISK"
+			SIZE 16
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------67-----------------
+	GROUP "centri_abitati_678"
+	NAME "centri_abitati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"centri_abitati"
+		"ows_title"	"centri_abitati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "centri_abitati"
+		TITLE "Centri abitati"
+		EXPRESSION /^CENTRI_ABITATI$/
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------68-----------------
+	GROUP "incendi_677"
+	NAME "incendi_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"incendi"
+		"ows_title"	"incendi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "incendio_1991"
+		TITLE "1991"
+		EXPRESSION /^I_1991$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_1995"
+		TITLE "1995"
+		EXPRESSION /^I_1995$/
+		STYLE
+			COLOR 255 135 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_1999"
+		TITLE "1999"
+		EXPRESSION /^I_1999$/
+		STYLE
+			COLOR 255 15 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2003"
+		TITLE "2003"
+		EXPRESSION /^I_2003$/
+		STYLE
+			COLOR 180 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2007"
+		TITLE "2007"
+		EXPRESSION /^I_2007$/
+		STYLE
+			COLOR 60 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------69-----------------
+	GROUP "incendi_677"
+	NAME "incendi_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"incendi"
+		"ows_title"	"incendi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "incendio_1992"
+		TITLE "1992"
+		EXPRESSION /^I_1992$/
+		STYLE
+			COLOR 255 225 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_1996"
+		TITLE "1996"
+		EXPRESSION /^I_1996$/
+		STYLE
+			COLOR 255 105 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2000"
+		TITLE "2000"
+		EXPRESSION /^I_2000$/
+		STYLE
+			COLOR 255 15 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2004"
+		TITLE "2004"
+		EXPRESSION /^I_2004$/
+		STYLE
+			COLOR 150 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------70-----------------
+	GROUP "incendi_677"
+	NAME "incendi_3"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"incendi"
+		"ows_title"	"incendi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "incendio_1993"
+		TITLE "1993"
+		EXPRESSION /^I_1993$/
+		STYLE
+			COLOR 255 195 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_1997"
+		TITLE "1997"
+		EXPRESSION /^I_1997$/
+		STYLE
+			COLOR 255 75 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2001"
+		TITLE "2001"
+		EXPRESSION /^I_2001$/
+		STYLE
+			COLOR 240 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2005"
+		TITLE "2005"
+		EXPRESSION /^I_2005$/
+		STYLE
+			COLOR 120 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------71-----------------
+	GROUP "incendi_677"
+	NAME "incendi_4"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"incendi"
+		"ows_title"	"incendi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "incendio_1994"
+		TITLE "1994"
+		EXPRESSION /^I_1994$/
+		STYLE
+			COLOR 255 165 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_1998"
+		TITLE "1998"
+		EXPRESSION /^I_1998$/
+		STYLE
+			COLOR 255 45 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2002"
+		TITLE "2002"
+		EXPRESSION /^I_2002$/
+		STYLE
+			COLOR 210 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "incendio_2006"
+		TITLE "2006"
+		EXPRESSION /^I_2006$/
+		STYLE
+			COLOR 90 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------72-----------------
+	GROUP "idrogeologico_676"
+	NAME "vincolo_idrogeologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"idrogeologico"
+		"ows_title"	"idrogeologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI_TERRITORIALI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "vincolo_idrogeologico"
+		TITLE "Vincolo idrogeologico"
+		EXPRESSION /^VINCOLO_IDROGEOLOGICO$/
+		STYLE
+			COLOR 127 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------73-----------------
+	GROUP "asservimenti_679"
+	NAME "asservimenti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"asservimenti"
+		"ows_title"	"asservimenti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ASSERVIMENTI' and nome_tavola='ASSERVIMENTI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "mappali_asserviti"
+		TITLE "Mappali asserviti"
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 255 255 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------74-----------------
+	GROUP "asservimenti_679"
+	NAME "asservimenti_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"asservimenti"
+		"ows_title"	"asservimenti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ASSERVIMENTI' and nome_tavola='ASSERVIMENTI'"
+	SIZEUNITS meters
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "asservimenti_testi"
+		TITLE "Testi degli asservimenti"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 0
+			SIZE 12
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------75-----------------
+	GROUP "assetto_insediativo_680"
+	NAME "assetto_insediativo"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "ani_ma"
+		TITLE "ANI-MA"
+		EXPRESSION /^ANI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 127 255 223
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is1_ma"
+		TITLE "IS1-MA"
+		EXPRESSION /^IS1_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 223 255 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is2_ma"
+		TITLE "IS2-MA"
+		EXPRESSION /^IS2_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 223 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is3_ma"
+		TITLE "IS3-MA"
+		EXPRESSION /^IS3_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 159 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id1_ce"
+		TITLE "ID1-CE"
+		EXPRESSION /^ID1_CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 159
+			OUTLINECOLOR 255 0 0
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "id2_ce"
+		TITLE "ID2-CE"
+		EXPRESSION /^ID2_CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 255
+			OUTLINECOLOR 255 0 0
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "id1_ma"
+		TITLE "ID1-MA"
+		EXPRESSION /^ID1_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 159
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id2_ma"
+		TITLE "ID2-MA"
+		EXPRESSION /^ID2_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 191 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id3_ma"
+		TITLE "ID3-MA"
+		EXPRESSION /^ID3_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 159 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id4_mo_a"
+		TITLE "ID4-MO-A"
+		EXPRESSION /^ID4_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id1_co"
+		TITLE "ID1-CO"
+		EXPRESSION /^ID1_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 0 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id2_mo_a"
+		TITLE "ID2-MO-A"
+		EXPRESSION /^ID2_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 127 223
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id3_mo_a"
+		TITLE "ID3-MO-A"
+		EXPRESSION /^ID3_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 165 165 82
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_co"
+		TITLE "NI-CO"
+		EXPRESSION /^NI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 165 82 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_ma"
+		TITLE "NI-MA"
+		EXPRESSION /^NI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 179 179 179
+			OUTLINECOLOR 0 0 0
+			WIDTH 4
+		END
+	END
+	CLASS
+		NAME "tu"
+		TITLE "TU"
+		EXPRESSION /^TU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 192 192 192
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "su"
+		TITLE "SU"
+		EXPRESSION /^SU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 63 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pu"
+		TITLE "PU"
+		EXPRESSION /^PU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 191 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ai_ma"
+		TITLE "AI-MA"
+		EXPRESSION /^AI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 127 63 79
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ai_co"
+		TITLE "AI-CO"
+		EXPRESSION /^AI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 165 82 103
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "me"
+		TITLE "ME"
+		EXPRESSION /^ME$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 38 38
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------76-----------------
+	GROUP "civici_689"
+	NAME "civici"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"civici"
+		"ows_title"	"civici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from civici.civici using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 1000
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "civici"
+		TITLE "Civici"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 128
+			SIZE 6
+			MINSIZE 3
+			MAXSIZE 15
+			POSITION CR
+		PARTIALS true
+FORCE true
+		END
+		STYLE
+			COLOR 0 255 50
+			SYMBOL "PUNKT"
+			SIZE 6
+			MINSIZE 3
+			MAXSIZE 15
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------77-----------------
+	GROUP "nomi_strade_690"
+	NAME "nomi_strade"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"nomi_strade"
+		"ows_title"	"nomi_strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from civici.assistradali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "name!='SENZA NOME'"
+	SIZEUNITS meters
+	LABELITEM "name"
+	OPACITY ALPHA
+	CLASS
+		NAME "nomi_strade"
+		TITLE "Nomi strade"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE auto
+			COLOR 128 128 128
+			OUTLINECOLOR 255 255 255
+			SIZE 2
+			MINSIZE 3
+			MAXSIZE 7
+			POSITION CC
+		FORCE true
+		END
+	END
+END
+LAYER #----------------78-----------------
+	GROUP "acustica_691"
+	NAME "acustica"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acustica"
+		"ows_title"	"acustica"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ZONIZZAZIONE_ACUSTICA' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "classe_1"
+		TITLE "Aree particolarmente protette"
+		EXPRESSION /^CLASSE_1$/
+		STYLE
+			COLOR 0 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "classe_2"
+		TITLE "Aree prevalentemente residenziali"
+		EXPRESSION /^CLASSE_2$/
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "classe_3"
+		TITLE "Aree di tipo misto"
+		EXPRESSION /^CLASSE_3$/
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "classe_4"
+		TITLE "Aree di intensa attività umana"
+		EXPRESSION /^CLASSE_4$/
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "classe_5"
+		TITLE "Aree prevalentemente industriali"
+		EXPRESSION /^CLASSE_5$/
+		STYLE
+			COLOR 255 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "classe_6"
+		TITLE "Aree esclusivamente industriali"
+		EXPRESSION /^CLASSE_6$/
+		STYLE
+			COLOR 0 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "classe_1_4"
+		TITLE "Aree di intensa attività umana particolarmente protette"
+		EXPRESSION /^CLASSE_1_4$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 24
+			ANGLE 135
+			WIDTH 12
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------79-----------------
+	GROUP "teleferiche_692"
+	NAME "teleferiche_linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"teleferiche"
+		"ows_title"	"teleferiche"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='TELEFERICHE'"
+	SIZEUNITS pixels
+	OPACITY ALPHA
+	CLASS
+		NAME "teleferiche"
+		TITLE "Teleferiche"
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------80-----------------
+	GROUP "teleferiche_692"
+	NAME "teleferiche_punti"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"teleferiche"
+		"ows_title"	"teleferiche"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='TELEFERICHE'"
+	SIZEUNITS pixels
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "teleferiche"
+		TITLE "Teleferiche"
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "PUNKT"
+			SIZE 12
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------81-----------------
+	GROUP "vincolati_706"
+	NAME "vincolati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"vincolati"
+		"ows_title"	"vincolati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ALBERGHI' and nome_tavola in ('VINCOLATI')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "alberghi_attivita"
+		TITLE "Alberghi in attività"
+		EXPRESSION /^ATTIVITA_/
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "alberghi_non_attivita"
+		TITLE "Alberghi non in attività"
+		EXPRESSION /^NON_ATTIVITA_/
+		STYLE
+			COLOR 0 191 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------82-----------------
+	GROUP "censiti_703"
+	NAME "censiti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"censiti"
+		"ows_title"	"censiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ALBERGHI' and nome_tavola in ('VINCOLATI','NON_VINCOLATI')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "alberghi_attivita"
+		TITLE "Alberghi in attività"
+		EXPRESSION /^ATTIVITA_/
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "alberghi_non_attivita"
+		TITLE "Alberghi non in attività"
+		EXPRESSION /^NON_ATTIVITA_/
+		STYLE
+			COLOR 0 191 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "b_b"
+		TITLE "B&B"
+		EXPRESSION /^B_B$/
+		STYLE
+			COLOR 191 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "locande"
+		TITLE "Locande"
+		EXPRESSION /^LOCANDE_/
+		STYLE
+			COLOR 255 127 127
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "condoni"
+		TITLE "Condoni"
+		EXPRESSION /^CONDONI_/
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "varie"
+		TITLE "Varie"
+		EXPRESSION /^VAR_/
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------83-----------------
+	GROUP "vincolati_706"
+	NAME "vincolati_testi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"vincolati"
+		"ows_title"	"vincolati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ALBERGHI' and nome_tavola in ('VINCOLATI')"
+	SIZEUNITS meters
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "numeri"
+		TITLE "Numeri"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 14
+			POSITION CC
+		END
+	END
+END
+LAYER #----------------84-----------------
+	GROUP "censiti_703"
+	NAME "censiti_testi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"censiti"
+		"ows_title"	"censiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='ALBERGHI' and nome_tavola in ('VINCOLATI','NON_VINCOLATI')"
+	SIZEUNITS meters
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "numeri"
+		TITLE "Numeri"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 14
+			POSITION CC
+		END
+	END
+END
+LAYER #----------------85-----------------
+	GROUP "zonizzazione_2"
+	NAME "zonizzazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"zonizzazione"
+		"ows_title"	"zonizzazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY 60
+	CLASS
+		NAME "ai_co"
+		TITLE "AI-CO"
+		EXPRESSION /^AI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 102 127
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ai_ma"
+		TITLE "AI-MA"
+		EXPRESSION /^AI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 153 76 95
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ani_ma"
+		TITLE "ANI-MA"
+		EXPRESSION /^ANI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 214 214 214
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id1_ce"
+		TITLE "ID1-CE"
+		EXPRESSION /^ID1_CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 159
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id1_co"
+		TITLE "ID1-CO"
+		EXPRESSION /^ID1_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 204 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id1_ma"
+		TITLE "ID1-MA"
+		EXPRESSION /^ID1_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 102 204 178
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id2_ma"
+		TITLE "ID2-MA"
+		EXPRESSION /^ID2_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 255 223
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id2_mo_a"
+		TITLE "ID2-MO.A"
+		EXPRESSION /^ID2_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 223
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id3_ma"
+		TITLE "ID3-MA"
+		EXPRESSION /^ID3_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 159 127 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id3_mo_a"
+		TITLE "ID3-MO.A"
+		EXPRESSION /^ID3_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 204 102
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "id4_mo_a"
+		TITLE "ID4-MO.A"
+		EXPRESSION /^ID4_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is1_ma"
+		TITLE "IS1-MA"
+		EXPRESSION /^IS1_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 223 255 127
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is2_ma"
+		TITLE "IS2-MA"
+		EXPRESSION /^IS2_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 159 255 127
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is3_ma"
+		TITLE "IS3-MA"
+		EXPRESSION /^IS3_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 102 204 102
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "is_mo_b"
+		TITLE "IS-MO.B"
+		EXPRESSION /^IS_MO_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 102 204
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "iu"
+		TITLE "IU"
+		EXPRESSION /^IU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 223 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_co"
+		TITLE "NI-CO"
+		EXPRESSION /^NI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 102 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ni_ma"
+		TITLE "NI-MA"
+		EXPRESSION /^NI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pu"
+		TITLE "PU"
+		EXPRESSION /^PU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 191 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "su"
+		TITLE "SU"
+		EXPRESSION /^SU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 63 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tu"
+		TITLE "TU"
+		EXPRESSION /^TU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 192 192 192
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------86-----------------
+	GROUP "emergenze_4"
+	NAME "emergenze_1"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "giardini_parchi"
+		TITLE "Aree a giardino e parco di pregio"
+		EXPRESSION /^GIARDINI_PARCHI$/
+		STYLE
+			COLOR 127 255 191
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "golf"
+		TITLE "Campo da golf"
+		EXPRESSION /^GOLF$/
+		STYLE
+			COLOR 165 165 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "oliveti"
+		TITLE "Oliveti"
+		EXPRESSION /^OLIVETI$/
+		STYLE
+			COLOR 124 165 82
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------87-----------------
+	GROUP "zonizzazione_2"
+	NAME "manufatti_emergenti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"zonizzazione"
+		"ows_title"	"zonizzazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 20001
+	OPACITY ALPHA
+	CLASS
+		NAME "manufatti_emergenti"
+		TITLE "Manufatti emergenti"
+		EXPRESSION /^ME$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------88-----------------
+	GROUP "emergenze_4"
+	NAME "insediamenti_storici"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "insediamenti_storici"
+		TITLE "Insediamenti storici"
+		EXPRESSION /^INSEDIAMENTI_STORICI$/
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------89-----------------
+	GROUP "reticolo_idrografico_5"
+	NAME "reticolo_idrografico_linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"reticolo_idrografico"
+		"ows_title"	"reticolo_idrografico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "reticolo_idrografico_linee"
+		TITLE "Reticolo idrografico"
+		EXPRESSION /^CORSI_D_ACQUA$/
+		STYLE
+			OUTLINECOLOR 0 191 255
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------90-----------------
+	GROUP "emergenze_4"
+	NAME "crinali"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "crinali_principali"
+		TITLE "Crinali principali"
+		EXPRESSION /^CRINALI_PRINCIPALI$/
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "crinali_secondari_non_insediati"
+		TITLE "Crinali secondari non insediati"
+		EXPRESSION /^CRINALI_SECONDARI_NON_INSEDIATI$/
+		STYLE
+			OUTLINECOLOR 63 255 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "crinali_secondari_storicamente_insediati"
+		TITLE "Crinali secondari storicamente insediati"
+		EXPRESSION /^CRINALI_SECONDARI_STORICAMENTE_INSEDIATI$/
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------91-----------------
+	GROUP "emergenze_4"
+	NAME "funivia"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "funivia"
+		TITLE "Funivia"
+		EXPRESSION /^FUNIVIA$/
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------92-----------------
+	GROUP "emergenze_4"
+	NAME "viabilita_rilevanza_paesistica"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "sentieri_escursionistici"
+		TITLE "Percorsi di esclusiva o prevalente fruizione pedonale"
+		EXPRESSION /^SENTIERI_ESCURSIONISTICI$/
+		STYLE
+			OUTLINECOLOR 255 255 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "viabilita_principale"
+		TITLE "Viabilità principale di potenziale fruizione veicolare"
+		EXPRESSION /^VIABILITA_PRINCIPALE$/
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "viabilita_secondaria"
+		TITLE "Viabilità secondaria di potenziale fruizione veicolare"
+		EXPRESSION /^VIABILITA_SECONDARIA$/
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "autostrada"
+		TITLE "Autostrada"
+		EXPRESSION /^AUTOSTRADA$/
+		STYLE
+			OUTLINECOLOR 165 41 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------93-----------------
+	GROUP "emergenze_4"
+	NAME "emergenze_2"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "emergenze_storico_architettoniche"
+		TITLE "Emergenze storico architettoniche"
+		EXPRESSION /^EMERGENZE_STORICO_ARCHITETTONICHE$/
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 10
+		END
+	END
+	CLASS
+		NAME "visuali_panoramiche"
+		TITLE "Visuali panoramiche"
+		EXPRESSION /^VISUALI_PANORAMICHE$/
+		STYLE
+			OUTLINECOLOR 0 191 255
+			WIDTH 10
+		END
+	END
+	CLASS
+		NAME "landmark"
+		TITLE "Landmark"
+		EXPRESSION /^LANDMARK$/
+		STYLE
+			OUTLINECOLOR 0 255 0
+			WIDTH 10
+		END
+	END
+END
+LAYER #----------------94-----------------
+	GROUP "emergenze_4"
+	NAME "poggio_insediato"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"emergenze"
+		"ows_title"	"emergenze"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "poggio_insediato"
+		TITLE "Poggio insediato"
+		EXPRESSION /^POGGIO_INSEDIATO$/
+		STYLE
+			COLOR 0 165 0
+			SYMBOL "QUADRATO"
+			SIZE 48
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------95-----------------
+	GROUP "suddivisione_ambiti_paesistici_3"
+	NAME "unita_paesistiche"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"suddivisione_ambiti_paesistici"
+		"ows_title"	"suddivisione_ambiti_paesistici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "unita_paesistiche"
+		TITLE "Unita paesistiche"
+		EXPRESSION /^UNITA_PAESISTICA_/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 102 153
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 102 153
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------96-----------------
+	GROUP "suddivisione_ambiti_paesistici_3"
+	NAME "settori_paesistici"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"suddivisione_ambiti_paesistici"
+		"ows_title"	"suddivisione_ambiti_paesistici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "settori_paesistici"
+		TITLE "Settori paesistici"
+		EXPRESSION /^SETTORE_PAESISTICO_/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 102 153
+			OUTLINECOLOR 255 255 255
+			SIZE 18
+			MINSIZE 8
+			MAXSIZE 30
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 102 153
+			WIDTH 5
+		END
+	END
+END
+LAYER #----------------97-----------------
+	GROUP "suddivisione_ambiti_paesistici_3"
+	NAME "nuclei_omogenei"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"suddivisione_ambiti_paesistici"
+		"ows_title"	"suddivisione_ambiti_paesistici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	CLASS
+		NAME "nuclei_omogenei"
+		TITLE "Nuclei omogenei"
+		EXPRESSION /^NUCLEO_OMOGENEO_/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 255 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------98-----------------
+	GROUP "reticolo_idrografico_5"
+	NAME "reticolo_idrografico_poligoni"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"reticolo_idrografico"
+		"ows_title"	"reticolo_idrografico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='DISCIPLINA_PAESISTICA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "reticolo_idrografico_poligoni"
+		TITLE "Reticolo idrografico"
+		EXPRESSION /^CORSI_D_ACQUA$/
+		STYLE
+			COLOR 0 191 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------99-----------------
+	GROUP "piano_casa_6"
+	NAME "aree_escluse"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piano_casa"
+		"ows_title"	"piano_casa"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_CASA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "aree_escluse"
+		TITLE "Aree escluse"
+		EXPRESSION /^AREE_ESCLUSE$/
+		STYLE
+			COLOR 255 63 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------100-----------------
+	GROUP "piano_casa_6"
+	NAME "aree_proposta_esclusione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piano_casa"
+		"ows_title"	"piano_casa"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_rapallo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PIANO_CASA'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "aree_proposta_esclusione"
+		TITLE "Aree di cui si propone esclusione"
+		EXPRESSION /^AREE_PROPOSTA_ESCLUSIONE$/
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 3
+		END
+	END
+END
+SYMBOL
+	NAME "CIRCLE"
+TYPE ELLIPSE
+FILLED TRUE
+POINTS
+1 1
+END
+END
+SYMBOL
+	NAME "QUADRATO"
+TYPE VECTOR
+POINTS
+0 0
+2 0
+2 2
+0 2
+0 0
+END
+FILLED FALSE
+END
+SYMBOL
+	NAME "PUNKT"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED TRUE
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "DISK"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED FALSE
+END
+SYMBOL
+	NAME "esri_11_94"
+	TYPE TRUETYPE
+	FONT "esri_11"
+	CHARACTER "^"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "esri_1_esri_1_170"
+	TYPE TRUETYPE
+	FONT "esri_1"
+	CHARACTER "ª"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "esri_9_114"
+	TYPE TRUETYPE
+	FONT "esri_9"
+	CHARACTER "r"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

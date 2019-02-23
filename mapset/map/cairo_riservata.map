@@ -1,0 +1,5922 @@
+MAP
+	NAME "cairo_riservata"
+	EXTENT 1436980 4910620 1454790 4922830
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229012.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229012.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------1-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211123.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211123.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------2-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229023.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229023.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------3-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229051.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229051.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------4-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228041.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228041.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------5-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229064.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229064.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------6-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228042.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228042.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------7-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211122.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211122.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------8-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211112.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211112.tif"
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------9-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212134.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212134.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------10-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228032.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228032.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------11-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211161.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211161.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------12-----------------
+	GROUP "assetto_insediativo_127"
+	NAME "puntuali_numeri"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	MINSCALEDENOM 950
+	CLASS
+		NAME "ie_numeri"
+		TITLE "numeri"
+		EXPRESSION /^IE11$|^IE12$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			SIZE 22
+			POSITION LC
+			FORCE TRUE
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229014.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229014.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------14-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212143.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212143.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------15-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212131.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212131.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------16-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229013.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229013.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------17-----------------
+	GROUP "20002011_308"
+	NAME "20002011"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"20002011"
+		"ows_title"	"20002011"
+	END
+	DATA "/data/cairo/raster//20002011/vrt_index.vrt"
+END
+LAYER #----------------18-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228044.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228044.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------19-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212103.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212103.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------20-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212144.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212144.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------21-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228081.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228081.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------22-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229054.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229054.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------23-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228084.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228084.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------24-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212092.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212092.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------25-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212132.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212132.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------26-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212133.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212133.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------27-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228071.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228071.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------28-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229011.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229011.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------29-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211162.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211162.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------30-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211152.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211152.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------31-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211164.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211164.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------32-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228031.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228031.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------33-----------------
+	GROUP "ctr_18"
+	NAME "tavola_228043.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/228043.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------34-----------------
+	GROUP "20080623_8"
+	NAME "20080623"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"20080623"
+		"ows_title"	"20080623"
+	END
+	DATA "/data/cairo/raster//20080623/vrt_index.vrt"
+END
+LAYER #----------------35-----------------
+	GROUP "ctr_18"
+	NAME "tavola_229024.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/229024.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------36-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211163.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211163.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------37-----------------
+	GROUP "ctr_18"
+	NAME "tavola_211151.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/211151.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------38-----------------
+	GROUP "ctr_18"
+	NAME "tavola_212093.tif"
+	STATUS ON
+	TYPE RASTER              
+	METADATA
+		"wms_group_title"	"ctr"
+		"ows_title"	"ctr"
+	END
+	PROJECTION
+		"init=epsg:4806"
+	END
+	DATA "/data/cairo/raster//2007_CTR/212093.tif"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 10001
+	OFFSITE 255 255 255
+END
+LAYER #----------------39-----------------
+	GROUP "acque_136"
+	NAME "acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.acque using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione in (0,1)"
+	SIZEUNITS pixels
+	OPACITY 60
+	CLASS
+		NAME "acque"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------40-----------------
+	GROUP "strade_137"
+	NAME "strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione in(0,1)"
+	SIZEUNITS pixels
+	OPACITY 60
+	CLASS
+		NAME "strade"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------41-----------------
+	GROUP "particelle_139"
+	NAME "particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione in (0,1)"
+	SIZEUNITS pixels
+	CLASS
+		NAME "bordo_particelle"
+		TITLE "Particelle (<1:6000)"
+		MAXSCALEDENOM 6000
+		STYLE
+			OUTLINECOLOR 70 70 70
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "particelle2"
+		TITLE "Particelle (>1:6000)"
+		MINSCALEDENOM 6000
+		STYLE
+			OUTLINECOLOR 192 192 192
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------42-----------------
+	GROUP "fabbricati_138"
+	NAME "fabbricati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione in (0,1)"
+	SIZEUNITS pixels
+	SYMBOLSCALEDENOM 1000
+	CLASS
+		NAME "fabbricati"
+		TITLE "Fabbricati"
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 45
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------43-----------------
+	GROUP "particelle_139"
+	NAME "numeri_particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione in (0,1) and mappale not in ('x','xx')"
+	SIZEUNITS pixels
+	LABELITEM "mappale"
+	MAXSCALEDENOM 3501
+	OPACITY ALPHA
+	CLASS
+		NAME "numeri_particelle"
+		TITLE "Numeri particelle"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION UR
+			FORCE TRUE
+		END
+	END
+END
+LAYER #----------------44-----------------
+	GROUP "zonizzazione_126"
+	NAME "zonizzazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"zonizzazione"
+		"ows_title"	"zonizzazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo = 'PRG' and nome_tavola='ZONIZZAZIONE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 15001
+	SYMBOLSCALEDENOM 5000
+	OPACITY 60
+	CLASS
+		NAME "a"
+		TITLE "A - Centri storici"
+		EXPRESSION /^A$|^A1$|^A2$|^A3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ba"
+		TITLE "Ba - Nuclei periferici"
+		EXPRESSION /^BA1$|^BA2$|^BA3$|^BA4$|^BA5$|^BA6$|^BA7$|^BA8$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 191
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "bd"
+		TITLE "Bd - Tessuti urbani"
+		EXPRESSION /^BD1$|^BD2$|^BD3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "bp"
+		TITLE "Bp - Prossimo a tessuto urbano"
+		EXPRESSION /^BP1$|^BP10$|^BP11$|^BP12$|^BP13$|^BP14$|^BP3$|^BP4$|^BP5$|^BP6$|^BP7$|^BP8$|^BP9$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 245 135 238
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "br"
+		TITLE "Br - Zone residenziali semirurali"
+		EXPRESSION /^BR10$|^BR11$|^BR3$|^BR4$|^BR5$|^BR6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 216 177 164
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "brag"
+		TITLE "Brag - Edifici inutilizzati"
+		EXPRESSION /^BRAG$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 247 250 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "bm"
+		TITLE "Bm - Tessuti urbani periferici"
+		EXPRESSION /^BM10$|^BM11$|^BM12$|^BM13$|^BM14$|^BM3$|^BM4$|^BM5$|^BM6$|^BM7$|^BM8$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 232 167 152
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "bs"
+		TITLE "Bs - Zone residenziali sature"
+		EXPRESSION /^BS1$|^BS10$|^BS2$|^BS3$|^BS4$|^BS5$|^BS6$|^BS7$|^BS8$|^BS9$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 243 109 63
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "C"
+		TITLE "C - Aree di espansione"
+		EXPRESSION /^C$|^CD1$|^CD2$|^CM1$|^CM2$|^CM3$|^CM4$|^CP1$|^CP2$|^CP3$|^CP4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 127
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "d"
+		TITLE "D"
+		EXPRESSION /^D/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 100 200 180
+			OUTLINECOLOR 48 136 118
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "e"
+		TITLE "E"
+		EXPRESSION /^E$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 222 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ebo"
+		TITLE "Ebo"
+		EXPRESSION /^EBO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 127 0
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "eo"
+		TITLE "Eo - Orti"
+		EXPRESSION /^EO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 204 204 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ES"
+		TITLE "Pu"
+		EXPRESSION /^PU1$|^PU2$|^PU3$|^PU4$|^PU5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 153 114 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "f"
+		TITLE "F"
+		EXPRESSION /^F1$|^F2$|^F3$|^F4$|^F5$|^F6$|^F7$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "fiume"
+		TITLE "Fiume"
+		EXPRESSION /^FIUME$/
+		STYLE
+			COLOR 127 192 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "strade"
+		TITLE "Strade"
+		EXPRESSION /^STRADA$/
+		STYLE
+			COLOR 127 127 127
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "s"
+		TITLE "S"
+		EXPRESSION /^S1$|^S10$|^S11$|^S12$|^S13$|^S14$|^S15$|^S16$|^S17$|^S18$|^S19$|^S2$|^S20$|^S21$|^S22$|^S23$|^S24$|^S25$|^S26$|^S27$|^S28$|^S29$|^S3$|^S30$|^S31$|^S32$|^S33$|^S34$|^S35$|^S36$|^S37$|^S38$|^S39$|^S4$|^S40$|^S41$|^S42$|^S43$|^S44$|^S45$|^S46$|^S47$|^S48$|^S49$|^S5$|^S50$|^S51$|^S52$|^S53$|^S54$|^S55$|^S56$|^S57$|^S58$|^S59$|^S6$|^S60$|^S61$|^S62$|^S63$|^S7$|^S8$|^S9$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 191 255
+			OUTLINECOLOR 0 155 206
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "if"
+		TITLE "IF"
+		EXPRESSION /^IF$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 15
+			MINSIZE 10
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 115 45 147
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------45-----------------
+	GROUP "assetto_insediativo_127"
+	NAME "assetto_insediativo"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "ae"
+		TITLE "Autostrade"
+		EXPRESSION /^AE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ai_co"
+		TITLE "Attrezzature e impianti - Consolidamento"
+		EXPRESSION /^AI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 215 215 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ai_ma"
+		TITLE "Attrezzature e impianti - Mantenimento"
+		EXPRESSION /^AI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 185 185 185
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ani_ce"
+		TITLE "Area non insediata - Conservazione"
+		EXPRESSION /^ANI_CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 255 185
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ani_ma"
+		TITLE "Area non insediata - Mantenimento"
+		EXPRESSION /^ANI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 145 255 190
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ani_tr_id"
+		TITLE "Area non insediata - Trasformabilità (ID)"
+		EXPRESSION /^ANI_TR_ID$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 220 255 220
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ani_tr_ni"
+		TITLE "Area non insediata - Trasformabilità (NI)"
+		EXPRESSION /^ANI_TR_NI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 220 255 220
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "id_co"
+		TITLE "Insediamento diffuso - Consolidamento"
+		EXPRESSION /^ID_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 210 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "id_ma"
+		TITLE "Insediamento diffuso - Mantenimento"
+		EXPRESSION /^ID_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 170 70
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "id_mo_a"
+		TITLE "Insediamento diffuso - Modificabilità tipo A"
+		EXPRESSION /^ID_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 210 120
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "id_tr_tu"
+		TITLE "lnsediamento diffuso - Trasformabilità"
+		EXPRESSION /^ID_TR_TU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 230 120
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "is_ma"
+		TITLE "Insediamento sparso - Mantenimento"
+		EXPRESSION /^IS_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 230 173 153
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "is_mo_b"
+		TITLE "Insediamento sparso - Modificabilità tipo B"
+		EXPRESSION /^IS_MO_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 192 164
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "is_tr_id"
+		TITLE "Insediamento sparso - Trasformabilità in insediamento diffuso"
+		EXPRESSION /^IS_TR_ID$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 218 215
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ni_ce"
+		TITLE "Nucleo isolato - Conservazione"
+		EXPRESSION /^NI_CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 145 0 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ni_co"
+		TITLE "Nucleo isolato - Consolidamento"
+		EXPRESSION /^NI_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 185 110 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ni_ma"
+		TITLE "Nucleo isolato - Mantenimento"
+		EXPRESSION /^NI_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 186 36 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ni_mo_a"
+		TITLE "Nuclei isolati - Modificabilità di tipo A"
+		EXPRESSION /^NI_MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 220 180 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pu"
+		TITLE "Parco urbano"
+		EXPRESSION /^PU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "su"
+		TITLE "Area urbana - Mantenimento"
+		EXPRESSION /^SU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "trz"
+		TITLE "Trasformazione"
+		EXPRESSION /^TRZ$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 125 180
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "tu"
+		TITLE "Tessuto urbano"
+		EXPRESSION /^TU$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------46-----------------
+	GROUP "assetto_vegetazionale_807"
+	NAME "assetto_vegetazionale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_vegetazionale"
+		"ows_title"	"assetto_vegetazionale"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_VEGETAZIONALE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "ba_co"
+		TITLE "Bosco di angiosperme - Consolidamento"
+		EXPRESSION /^BA_CO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 160 187 90
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "bct_mo_ba"
+		TITLE "Bosco di conifere termofile - Modificabilita in bosco di angiosperme"
+		EXPRESSION /^BCT_MO_BA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 127 50
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "col_iss_ma"
+		TITLE "Insediamenti sparsi serre - Mantenimento"
+		EXPRESSION /^COL_ISS_MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 243 215 152
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "prt_trz_ba"
+		TITLE "Prateria termofila - Trasformazione in bosco di angiosperme"
+		EXPRESSION /^PRT_TRZ_BA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 192 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------47-----------------
+	GROUP "assetto_insediativo_127"
+	NAME "manufatti_emergenti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "me"
+		TITLE "Manufatti emergenti"
+		EXPRESSION /^ME$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			COLOR 255 10 10
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------48-----------------
+	GROUP "assetto_insediativo_127"
+	NAME "puntuali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"assetto_insediativo"
+		"ows_title"	"assetto_insediativo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_INSEDIATIVO'"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "me"
+		TITLE "Manufatti emergenti"
+		EXPRESSION /^ME$/
+		STYLE
+			COLOR 210 10 10
+			SYMBOL "ME - Manufatti emergenti"
+			SIZE 60
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ie"
+		TITLE "Itinerario escursionistico"
+		EXPRESSION /^IE11$|^IE12$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "IEn - Itinerario escursionistico con spazio per il numero"
+			SIZE 60
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ps"
+		TITLE "Itinerario storico-etnografico"
+		EXPRESSION /^PS$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PS - Itinerario storico-etnografico"
+			SIZE 60
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "pa"
+		TITLE "Percorribilità lungo i corsi d'acqua"
+		EXPRESSION /^PA$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PA - Percorribilità lungo i corsi d acqua"
+			SIZE 60
+			ANGLE 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------49-----------------
+	GROUP "fogli_1"
+	NAME "fogli_sopra_24001"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli_elaborati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	CLASSITEM "foglio"
+	LABELITEM "foglio"
+	MINSCALEDENOM 24001
+	OPACITY 60
+	CLASS
+		NAME "foglio_01"
+		TITLE "Foglio 1"
+		EXPRESSION /^1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_02"
+		TITLE "Foglio 2"
+		EXPRESSION /^2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_03"
+		TITLE "Foglio 3"
+		EXPRESSION /^3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_04"
+		TITLE "Foglio 4"
+		EXPRESSION /^4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_05"
+		TITLE "Foglio 5"
+		EXPRESSION /^5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_06"
+		TITLE "Foglio 6"
+		EXPRESSION /^6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_07"
+		TITLE "Foglio 7"
+		EXPRESSION /^7$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_08"
+		TITLE "Foglio 8"
+		EXPRESSION /^8$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_09"
+		TITLE "Foglio 9"
+		EXPRESSION /^9$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_10"
+		TITLE "Foglio 10"
+		EXPRESSION /^10$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_11"
+		TITLE "Foglio 11"
+		EXPRESSION /^11$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_12"
+		TITLE "Foglio 12"
+		EXPRESSION /^12$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_13"
+		TITLE "Foglio 13"
+		EXPRESSION /^13$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_14"
+		TITLE "Foglio 14"
+		EXPRESSION /^14$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_15"
+		TITLE "Foglio 15"
+		EXPRESSION /^15$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_16"
+		TITLE "Foglio 16"
+		EXPRESSION /^16$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_17"
+		TITLE "Foglio 17"
+		EXPRESSION /^17$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_18"
+		TITLE "Foglio 18"
+		EXPRESSION /^18$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_19"
+		TITLE "Foglio 19"
+		EXPRESSION /^19$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_20"
+		TITLE "Foglio 20"
+		EXPRESSION /^20$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_21"
+		TITLE "Foglio 21"
+		EXPRESSION /^21$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_22"
+		TITLE "Foglio 22"
+		EXPRESSION /^22$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_23"
+		TITLE "Foglio 23"
+		EXPRESSION /^23$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_24"
+		TITLE "Foglio 24"
+		EXPRESSION /^24$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_25"
+		TITLE "Foglio 25"
+		EXPRESSION /^25$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_26"
+		TITLE "Foglio 26"
+		EXPRESSION /^26$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_27"
+		TITLE "Foglio 27"
+		EXPRESSION /^27$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_28"
+		TITLE "Foglio 28"
+		EXPRESSION /^28$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_29"
+		TITLE "Foglio 29"
+		EXPRESSION /^29$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_30"
+		TITLE "Foglio 30"
+		EXPRESSION /^30$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_31"
+		TITLE "Foglio 31"
+		EXPRESSION /^31$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_32"
+		TITLE "Foglio 32"
+		EXPRESSION /^32$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_33"
+		TITLE "Foglio 33"
+		EXPRESSION /^33$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_34"
+		TITLE "Foglio 34"
+		EXPRESSION /^34$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_35"
+		TITLE "Foglio 35"
+		EXPRESSION /^35$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_36"
+		TITLE "Foglio 36"
+		EXPRESSION /^36$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_37"
+		TITLE "Foglio 37"
+		EXPRESSION /^37$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_38"
+		TITLE "Foglio 38"
+		EXPRESSION /^38$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_39"
+		TITLE "Foglio 39"
+		EXPRESSION /^39$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_40"
+		TITLE "Foglio 40"
+		EXPRESSION /^40$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_41"
+		TITLE "Foglio 41"
+		EXPRESSION /^41$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_42"
+		TITLE "Foglio 42"
+		EXPRESSION /^42$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_43"
+		TITLE "Foglio 43"
+		EXPRESSION /^43$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_44"
+		TITLE "Foglio 44"
+		EXPRESSION /^44$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_45"
+		TITLE "Foglio 45"
+		EXPRESSION /^45$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_46"
+		TITLE "Foglio 46"
+		EXPRESSION /^46$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_47"
+		TITLE "Foglio 47"
+		EXPRESSION /^47$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_48"
+		TITLE "Foglio 48"
+		EXPRESSION /^48$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_49"
+		TITLE "Foglio 49"
+		EXPRESSION /^49$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_50"
+		TITLE "Foglio 50"
+		EXPRESSION /^50$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_51"
+		TITLE "Foglio 51"
+		EXPRESSION /^51$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_52"
+		TITLE "Foglio 52"
+		EXPRESSION /^52$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_53"
+		TITLE "Foglio 53"
+		EXPRESSION /^53$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_54"
+		TITLE "Foglio 54"
+		EXPRESSION /^54$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_55"
+		TITLE "Foglio 55"
+		EXPRESSION /^55$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_56"
+		TITLE "Foglio 56"
+		EXPRESSION /^56$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_57"
+		TITLE "Foglio 57"
+		EXPRESSION /^57$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_58"
+		TITLE "Foglio 58"
+		EXPRESSION /^58$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_59"
+		TITLE "Foglio 59"
+		EXPRESSION /^59$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_60"
+		TITLE "Foglio 60"
+		EXPRESSION /^60$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_61"
+		TITLE "Foglio 61"
+		EXPRESSION /^61$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_62"
+		TITLE "Foglio 62"
+		EXPRESSION /^62$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_63"
+		TITLE "Foglio 63"
+		EXPRESSION /^63$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_64"
+		TITLE "Foglio 64"
+		EXPRESSION /^64$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_65"
+		TITLE "Foglio 65"
+		EXPRESSION /^65$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_66"
+		TITLE "Foglio 66"
+		EXPRESSION /^66$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_67"
+		TITLE "Foglio 67"
+		EXPRESSION /^67$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_68"
+		TITLE "Foglio 68"
+		EXPRESSION /^68$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_69"
+		TITLE "Foglio 69"
+		EXPRESSION /^69$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_70"
+		TITLE "Foglio 70"
+		EXPRESSION /^70$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_71"
+		TITLE "Foglio 71"
+		EXPRESSION /^71$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_72"
+		TITLE "Foglio 72"
+		EXPRESSION /^72$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_73"
+		TITLE "Foglio 73"
+		EXPRESSION /^73$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_74"
+		TITLE "Foglio 74"
+		EXPRESSION /^74$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_75"
+		TITLE "Foglio 75"
+		EXPRESSION /^75$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_76"
+		TITLE "Foglio 76"
+		EXPRESSION /^76$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_77"
+		TITLE "Foglio 77"
+		EXPRESSION /^77$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_78"
+		TITLE "Foglio 78"
+		EXPRESSION /^78$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_79"
+		TITLE "Foglio 79"
+		EXPRESSION /^79$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_80"
+		TITLE "Foglio 80"
+		EXPRESSION /^80$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_81"
+		TITLE "Foglio 81"
+		EXPRESSION /^81$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_82"
+		TITLE "Foglio 82"
+		EXPRESSION /^82$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_83"
+		TITLE "Foglio 83"
+		EXPRESSION /^83$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_84"
+		TITLE "Foglio 84"
+		EXPRESSION /^84$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_85"
+		TITLE "Foglio 85"
+		EXPRESSION /^85$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_86"
+		TITLE "Foglio 86"
+		EXPRESSION /^86$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_87"
+		TITLE "Foglio 87"
+		EXPRESSION /^87$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_88"
+		TITLE "Foglio 88"
+		EXPRESSION /^88$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_89"
+		TITLE "Foglio 89"
+		EXPRESSION /^89$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "foglio_90"
+		TITLE "Foglio 90"
+		EXPRESSION /^90$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 8
+			MINSIZE 2
+			MAXSIZE 12
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------50-----------------
+	GROUP "particelle_139"
+	NAME "freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from nct.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	CLASS
+		NAME "freccette"
+		TITLE "Freccette"
+		STYLE
+			COLOR 100 100 100
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------51-----------------
+	GROUP "fogli_1"
+	NAME "fogli_sotto_12001"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli_elaborati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	LABELITEM "foglio"
+	LABELMAXSCALEDENOM 12001
+	MAXSCALEDENOM 12001
+	OPACITY ALPHA
+	CLASS
+		NAME "foglio"
+		TITLE "Foglio"
+		TEXT (('Fg. '+'[foglio]'))
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------52-----------------
+	GROUP "testi_3"
+	NAME "testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"testi"
+		"ows_title"	"testi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	LABELMAXSCALEDENOM 10001
+	CLASS
+		NAME "testi"
+		TITLE "Testi della Mappa"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 0 0 80
+			SIZE [dimensione]
+			POSITION UR
+			FORCE TRUE
+		END
+	END
+END
+LAYER #----------------53-----------------
+	GROUP "aree_percorse_dal_fuoco_4"
+	NAME "aree_percorse_dal_fuoco"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"aree_percorse_dal_fuoco"
+		"ows_title"	"aree_percorse_dal_fuoco"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI' and nome_tavola='AREE_PERCORSE_DAL_FUOCO'"
+	SIZEUNITS pixels
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "aree_percorse_dal_fuoco"
+		TITLE "Aree percorse dal fuoco"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------54-----------------
+	GROUP "fasce_di_rispetto_9"
+	NAME "aree_a_rischio_di_inondazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fasce_di_rispetto"
+		"ows_title"	"fasce_di_rispetto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='VINCOLI' and nome_zona in ('AREE_RISCHIO_INONDAZIONE','FASCIA_DI_RISPETTO_CIMITERIALE','FASCIA_DI_RISPETTO_FLUVIALE')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "aree_rischio_inondazione"
+		TITLE "Aree a rischio di inondazione"
+		EXPRESSION /^AREE_RISCHIO_INONDAZIONE$/
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------55-----------------
+	GROUP "fasce_di_rispetto_9"
+	NAME "fascia_di_rispetto_cimiteriale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fasce_di_rispetto"
+		"ows_title"	"fasce_di_rispetto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='VINCOLI' and nome_zona in ('AREE_RISCHIO_INONDAZIONE','FASCIA_DI_RISPETTO_CIMITERIALE','FASCIA_DI_RISPETTO_FLUVIALE')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "fascia_rispetto_cimiteriale"
+		TITLE "Fascia di rispetto cimiteriale"
+		EXPRESSION /^FASCIA_DI_RISPETTO_CIMITERIALE$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------56-----------------
+	GROUP "fasce_di_rispetto_9"
+	NAME "fascia_di_rispetto_fluviale"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fasce_di_rispetto"
+		"ows_title"	"fasce_di_rispetto"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='VINCOLI' and nome_zona in ('AREE_RISCHIO_INONDAZIONE','FASCIA_DI_RISPETTO_CIMITERIALE','FASCIA_DI_RISPETTO_FLUVIALE')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY 60
+	CLASS
+		NAME "fascia_di_rispetto_fluviale"
+		TITLE "Fascia di rispetto fluviale"
+		EXPRESSION /^FASCIA_DI_RISPETTO_FLUVIALE$/
+		STYLE
+			COLOR 64 127 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------57-----------------
+	GROUP "pericolosita_esondazione_5"
+	NAME "pericolosita_esondazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"pericolosita_esondazione"
+		"ows_title"	"pericolosita_esondazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='VINCOLI' and nome_zona in ('PERICOLOSITA_ESONDAZIONE_EM','PERICOLOSITA_ESONDAZIONE_EB','PERICOLOSITA_ESONDAZIONE_EE')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	MAXSCALEDENOM 6001
+	OPACITY 60
+	CLASS
+		NAME "pericolosita_esondazione_media"
+		TITLE "Aree a pericolosita di esondazione media"
+		EXPRESSION /^PERICOLOSITA_ESONDAZIONE_EM$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 255 64
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pericolosita_esondazione_elevata"
+		TITLE "Aree a pericolosita di esondazione elevata"
+		EXPRESSION /^PERICOLOSITA_ESONDAZIONE_EB$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pericolosita_esondazione_molto_elevata"
+		TITLE "Aree a pericolosita di esondazione molo elevata"
+		EXPRESSION /^PERICOLOSITA_ESONDAZIONE_EE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------58-----------------
+	GROUP "servizi_esistenti_7"
+	NAME "servizi_esistenti"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"servizi_esistenti"
+		"ows_title"	"servizi_esistenti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='VINCOLI' and nome_zona in ('SERVIZI_ESISTENTI')"
+	SIZEUNITS meters
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "servizi_esistenti"
+		TITLE "Servizi esistenti"
+		EXPRESSION /^SERVIZI_ESISTENTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 128 0 128
+			SIZE 36
+			FORCE TRUE
+		END
+	END
+END
+LAYER #----------------59-----------------
+	GROUP "piste_ciclabili_6"
+	NAME "piste_ciclabili"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"piste_ciclabili"
+		"ows_title"	"piste_ciclabili"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_l using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PRG' and nome_tavola='VINCOLI' and nome_zona in ('PISTE_CICLABILI')"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "piste_ciclabili"
+		TITLE "Piste ciclabili"
+		EXPRESSION /^PISTE_CICLABILI$/
+		STYLE
+			OUTLINECOLOR 255 127 0
+			WIDTH 4
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------60-----------------
+	GROUP "bellezze_d_insieme_10"
+	NAME "bellezze_d_insieme"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"bellezze_d_insieme"
+		"ows_title"	"bellezze_d_insieme"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI' and nome_tavola='BELLEZZE_D_INSIEME'"
+	SIZEUNITS pixels
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY 60
+	CLASS
+		NAME "bellezze_d_insieme"
+		TITLE "Bellezze d'insieme"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------61-----------------
+	GROUP "vincoli_architettonici_11"
+	NAME "vincoli_architettonici"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"vincoli_architettonici"
+		"ows_title"	"vincoli_architettonici"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_p using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI' and nome_tavola='VINCOLI_ARCHITETTONICI'"
+	SIZEUNITS meters
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 10001
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "vincoli_architettonici"
+		TITLE "Vincoli architettonici"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 127 192 255
+			OUTLINECOLOR 0 0 0
+			SIZE 6
+			POSITION CC
+			FORCE TRUE
+		OFFSET 0 13
+		END
+		STYLE
+			COLOR 127 192 255
+			SYMBOL "PUNKT"
+			OUTLINECOLOR 0 0 0
+			SIZE 12
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------62-----------------
+	GROUP "sic_13"
+	NAME "sic"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sic"
+		"ows_title"	"sic"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='VINCOLI' and nome_tavola='SIC'"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "sic"
+		TITLE "S.I.C."
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------63-----------------
+	GROUP "uso_del_suolo_14"
+	NAME "uso_del_suolo"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"uso_del_suolo"
+		"ows_title"	"uso_del_suolo"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='USO_DEL_SUOLO' and nome_tavola='USO_DEL_SUOLO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 6001
+	OPACITY 60
+	CLASS
+		NAME "1121_tessuto_residenziale_discontinuo_e_mediamente_denso"
+		TITLE "Tessuto residenziale discontinuo e mediamente denso"
+		EXPRESSION /^1121_TESSUTO_RESIDENZIALE_DISCONTINUO_E_MEDIAMENTE_DENSO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1212_aree_commerciali"
+		TITLE "Aree commerciali"
+		EXPRESSION /^1212_AREE_COMMERCIALI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1213_aree_occupate_da_grandi_impianti_di_servizi_pubblici_militari_e_privati_ospedali"
+		TITLE "Aree occupate da grandi impianti di servizi pubblici, militari e privati (ospedali, ecc.)"
+		EXPRESSION /^1213_AREE_OCCUPATE_DA_GRANDI_IMPIANTI_DI_SERVIZI_PUBBLICI_MILITARI_E_PRIVATI_OSPEDALI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1222_superstrade_grandi_arterie_di_viabilita_e_spazi_accessori"
+		TITLE "Superstrade, grandi arterie di viabilita e spazi accessori"
+		EXPRESSION /^1222_SUPERSTRADE_GRANDI_ARTERIE_DI_VIABILITA_E_SPAZI_ACCESSORI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1221_reti_autostradali_e_spazi_accessori"
+		TITLE "Reti autostradali e spazi accessori"
+		EXPRESSION /^1221_RETI_AUTOSTRADALI_E_SPAZI_ACCESSORI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 64 64
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "1223_altre_strade_della_rete_di_viabilita_extraurbana_e_spazi_accessori"
+		TITLE "Altre strade della rete di viabilita extraurbana e spazi accessori"
+		EXPRESSION /^1223_ALTRE_STRADE_DELLA_RETE_DI_VIABILITA_EXTRAURBANA_E_SPAZI_ACCESSORI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "131_aree_estrattive"
+		TITLE "Aree estrattive"
+		EXPRESSION /^131_AREE_ESTRATTIVE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "132_discariche"
+		TITLE "Discariche"
+		EXPRESSION /^132_DISCARICHE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1211_aree_industriali_o_artigianali"
+		TITLE "Aree industriali o artigianali"
+		EXPRESSION /^1211_AREE_INDUSTRIALI_O_ARTIGIANALI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1331_cantieri__spazi_in_costruzione_e_scavi"
+		TITLE "Cantieri, spazi in costruzione e scavi"
+		EXPRESSION /^1331_CANTIERI__SPAZI_IN_COSTRUZIONE_E_SCAVI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1332_suoli_rimaneggiati_e_artefatti"
+		TITLE "Suoli rimaneggiati e artefatti"
+		EXPRESSION /^1332_SUOLI_RIMANEGGIATI_E_ARTEFATTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "141_aree_verdi_urbane"
+		TITLE "Aree verdi urbane"
+		EXPRESSION /^141_AREE_VERDI_URBANE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1422_aree_sportive"
+		TITLE "Aree sportive"
+		EXPRESSION /^1422_AREE_SPORTIVE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "143_aree_cimiteriali"
+		TITLE "Aree cimiteriali"
+		EXPRESSION /^143_AREE_CIMITERIALI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "2122_vivai"
+		TITLE "Vivai"
+		EXPRESSION /^2122_VIVAI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "2123_colture_orticole_in_pieno_campo_in_piena_aria"
+		TITLE "Colture orticole in pieno campo in piena aria"
+		EXPRESSION /^2123_COLTURE_ORTICOLE_IN_PIENO_CAMPO_IN_PIENA_ARIA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "2221_frutteti_e_agrumeti"
+		TITLE "Frutteti e agrumeti"
+		EXPRESSION /^2221_FRUTTETI_E_AGRUMETI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "224_arboricoltura_da_legno"
+		TITLE "Arboricoltura da legno"
+		EXPRESSION /^224_ARBORICOLTURA_DA_LEGNO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "241_colture_annuali_associate_a_colture_permanenti"
+		TITLE "Colture annuali associate a colture permanenti"
+		EXPRESSION /^241_COLTURE_ANNUALI_ASSOCIATE_A_COLTURE_PERMANENTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "242_sistemi_colturali_e_particellari_complessi"
+		TITLE "Sistemi colturali e particellari complessi"
+		EXPRESSION /^242_SISTEMI_COLTURALI_E_PARTICELLARI_COMPLESSI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "243_colture_agrarie_prevalenti_con_presenza_di_spazi_naturali"
+		TITLE "Colture agrarie prevalenti con presenza di spazi naturali"
+		EXPRESSION /^243_COLTURE_AGRARIE_PREVALENTI_CON_PRESENZA_DI_SPAZI_NATURALI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "244_aree_agroforestali"
+		TITLE "Aree agroforestali"
+		EXPRESSION /^244_AREE_AGROFORESTALI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "3116_castagneti_da_frutto"
+		TITLE "Castagneti da frutto"
+		EXPRESSION /^3116_CASTAGNETI_DA_FRUTTO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "313_boschi_misti"
+		TITLE "Boschi misti"
+		EXPRESSION /^313_BOSCHI_MISTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "322_brughiere_e_cespuglieti"
+		TITLE "Brughiere e cespuglieti"
+		EXPRESSION /^322_BRUGHIERE_E_CESPUGLIETI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "324_aree_a_vegetazione_boschiva_e_arbustiva_in_evoluzione"
+		TITLE "Aree a vegetazione boschiva e arbustiva in evoluzione"
+		EXPRESSION /^324_AREE_A_VEGETAZIONE_BOSCHIVA_E_ARBUSTIVA_IN_EVOLUZIONE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "333_aree_con_vegetazione_rada"
+		TITLE "Aree con vegetazione rada"
+		EXPRESSION /^333_AREE_CON_VEGETAZIONE_RADA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "1224_reti_ferroviarie_e_spazi_accessori"
+		TITLE "Reti ferroviarie e spazi accessori"
+		EXPRESSION /^1224_RETI_FERROVIARIE_E_SPAZI_ACCESSORI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 64 64
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "221_vigneti"
+		TITLE "Vigneti"
+		EXPRESSION /^221_VIGNETI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 90 90 188
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "231_prati_stabili"
+		TITLE "Prati stabili"
+		EXPRESSION /^231_PRATI_STABILI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 80 240 80
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "3117_bosco_di_specie_igrofile"
+		TITLE "Bosco di specie igrofile"
+		EXPRESSION /^3117_BOSCO_DI_SPECIE_IGROFILE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 192 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "211_seminativi__in_aree_non_irrigue"
+		TITLE "Seminativi in aree non irrigue"
+		EXPRESSION /^211_SEMINATIVI__IN_AREE_NON_IRRIGUE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 221 203 81
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "3113_bosco_misto_mesofilo"
+		TITLE "Bosco misto mesofilo"
+		EXPRESSION /^3113_BOSCO_MISTO_MESOFILO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "312_boschi_di_conifere"
+		TITLE "Boschi di conifere"
+		EXPRESSION /^312_BOSCHI_DI_CONIFERE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 64 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "3112_bosco_misto_termofilo"
+		TITLE "Bosco misto termofilo"
+		EXPRESSION /^3112_BOSCO_MISTO_TERMOFILO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 64 192 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "5111_alvei_di_fiumi_e_torrenti_con_vegetazione_scarsa"
+		TITLE "Alvei di fiumi e torrenti con vegetazione scarsa"
+		EXPRESSION /^5111_ALVEI_DI_FIUMI_E_TORRENTI_CON_VEGETAZIONE_SCARSA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "5114_alvei_di_fiumi_e_torrenti_con_vegetazione_abbondante"
+		TITLE "Alvei di fiumi e torrenti con vegetazione abbondante"
+		EXPRESSION /^5114_ALVEI_DI_FIUMI_E_TORRENTI_CON_VEGETAZIONE_ABBONDANTE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "332_rocce_nude_falesie_rupi_affioramenti"
+		TITLE "Rocce nude, falesie, rupi, affioramenti"
+		EXPRESSION /^332_ROCCE_NUDE_FALESIE_RUPI_AFFIORAMENTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "321_aree_a_pascolo_naturale_e_praterie_d_alta_quota"
+		TITLE "Aree a pascolo naturale e praterie d'alta quota"
+		EXPRESSION /^321_AREE_A_PASCOLO_NATURALE_E_PRATERIE_D_ALTA_QUOTA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "134_terreni_non_utilizzati_e_o_abbandonati_all_interno_delle_aree_urbane"
+		TITLE "Terreni non utilizzati e/o abbandonati all'interno delle aree urbane"
+		EXPRESSION /^134_TERRENI_NON_UTILIZZATI_E_O_ABBANDONATI_ALL_INTERNO_DELLE_AREE_URBANE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "3115_bosco_a_prevalenza_di_castagno"
+		TITLE "Bosco a prevalenza di castagno"
+		EXPRESSION /^3115_BOSCO_A_PREVALENZA_DI_CASTAGNO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 96 79
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "3114_bosco_a_prevalenza_di_faggio"
+		TITLE "Bosco a prevalenza di faggio"
+		EXPRESSION /^3114_BOSCO_A_PREVALENZA_DI_FAGGIO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 187 188 154
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "1112_tessuto_urbano_residenziale_continuo_mediamente_denso"
+		TITLE "Tessuto urbano residenziale continuo mediamente denso"
+		EXPRESSION /^1112_TESSUTO_URBANO_RESIDENZIALE_CONTINUO_MEDIAMENTE_DENSO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 100 25
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "1111_tessuto_urbano_residenziale_continuo_e_denso"
+		TITLE "Tessuto urbano residenziale continuo e denso"
+		EXPRESSION /^1111_TESSUTO_URBANO_RESIDENZIALE_CONTINUO_E_DENSO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "1122_tessuto_residenziale_discontinuo_e_sparso_case_sparse"
+		TITLE "Tessuto residenziale discontinuo e sparso (case sparse)"
+		EXPRESSION /^1122_TESSUTO_RESIDENZIALE_DISCONTINUO_E_SPARSO_CASE_SPARSE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "1225_reti_tecnologiche_e_aree_di_servizio"
+		TITLE "Reti tecnologiche e aree di servizio"
+		EXPRESSION /^1225_RETI_TECNOLOGICHE_E_AREE_DI_SERVIZIO$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+	CLASS
+		NAME "1426_strutture_per_competizioni_motoristiche_e_spazi_accessori"
+		TITLE "Strutture per competizioni motoristiche e spazi accessori"
+		EXPRESSION /^1426_STRUTTURE_PER_COMPETIZIONI_MOTORISTICHE_E_SPAZI_ACCESSORI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 127 127 127
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 3 3 3 3 END
+		END
+	END
+END
+LAYER #----------------64-----------------
+	GROUP "assetto_geomorfologico_15"
+	NAME "ptcp_geomorfologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"assetto_geomorfologico"
+		"ows_title"	"assetto_geomorfologico"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PTCP' and nome_tavola='ASSETTO_GEOMORFOLOGICO'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 60
+	CLASS
+		NAME "ca"
+		TITLE "Cave a cielo aperto"
+		EXPRESSION /^CA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 168 85 45
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ce"
+		TITLE "Conservazione"
+		EXPRESSION /^CE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 127 0
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ma"
+		TITLE "Mantenimento"
+		EXPRESSION /^MA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 166 72
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "mo_a"
+		TITLE "Modificabilita di tipo A"
+		EXPRESSION /^MO_A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 212 120
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "mo_b"
+		TITLE "Modificabilita di tipo B"
+		EXPRESSION /^MO_B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 185
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "trz"
+		TITLE "Trasformazione"
+		EXPRESSION /^TRZ$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 125 180
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------65-----------------
+	GROUP "frane_17"
+	NAME "frane"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"frane"
+		"ows_title"	"frane"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PAI' and nome_tavola='FRANE'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "fa"
+		TITLE "Frane attive (Fa)"
+		EXPRESSION /^FA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 15
+			ANGLE 45
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 6
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "fq"
+		TITLE "Frane quiescenti (Fq)"
+		EXPRESSION /^FQ$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 15
+			ANGLE 90
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 6
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "fs"
+		TITLE "Frane stabilizzate (Fs)"
+		EXPRESSION /^FS$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 15
+			ANGLE 135
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 6
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------66-----------------
+	GROUP "esondazioni_16"
+	NAME "esondazioni"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"esondazioni"
+		"ows_title"	"esondazioni"
+	END
+	PROJECTION
+		"init=epsg:3003"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_cairo host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PAI' and nome_tavola='ESONDAZIONI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "eb"
+		TITLE "Esondazioni a pericolosita elevata (Eb)"
+		EXPRESSION /^EB$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 165 0 0
+			SYMBOL "HATCH"
+			SIZE 15
+			ANGLE 45
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 165 0 0
+			WIDTH 6
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "ee"
+		TITLE "Esondazioni a pericolosita molto elevata (Ee)"
+		EXPRESSION /^EE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 165 0 0
+			SYMBOL "HATCH"
+			SIZE 15
+			ANGLE 135
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 165 0 0
+			WIDTH 6
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "em"
+		TITLE "Esondazioni a pericolosita media (Em)"
+		EXPRESSION /^EM$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 165 0 0
+			SYMBOL "HATCH"
+			SIZE 15
+			ANGLE 90
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 165 0 0
+			WIDTH 6
+			PATTERN 1 0 END
+		END
+	END
+END
+SYMBOL
+	NAME "PUNKT"
+TYPE ELLIPSE
+POINTS
+1 1
+END
+FILLED TRUE
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "IEn - Itinerario escursionistico con spazio per il numero"
+	TYPE TRUETYPE
+	FONT "PTCP"
+	CHARACTER "I"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "ME - Manufatti emergenti"
+	TYPE TRUETYPE
+	FONT "PTCP"
+	CHARACTER "A"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PA - Percorribilità lungo i corsi d acqua"
+	TYPE TRUETYPE
+	FONT "PTCP"
+	CHARACTER "D"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PS - Itinerario storico-etnografico"
+	TYPE TRUETYPE
+	FONT "PTCP"
+	CHARACTER "K"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap

@@ -1,0 +1,4467 @@
+MAP
+	NAME "bolano_prova"
+	EXTENT 1569100 4889600 1574700 4895700
+	IMAGECOLOR 255 255 255
+	SIZE 540 430
+	RESOLUTION 96
+	UNITS meters
+	FONTSET "../fonts/fonts.list"
+	OUTPUTFORMAT
+		 NAME AGG24
+		 DRIVER AGG/PNG
+		 IMAGEMODE RGB
+		FORMATOPTION  INTERLACE=ON
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+WEB
+	IMAGEPATH "/tmp/ms_tmp/"
+	IMAGEURL "/tmp/"
+	METADATA
+		"ows_enable_request" "*"
+	END
+END
+LAYER #----------------0-----------------
+	GROUP "ambiti_conservazione_524"
+	NAME "ambiti_conservazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_conservazione"
+		"ows_title"	"ambiti_conservazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "ace_bsp_co"
+		TITLE "ACE_BSP_Co"
+		EXPRESSION /^ACE_BSP_CO$/
+		STYLE
+			COLOR 178 34 34
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_bsc_co"
+		TITLE "ACE_BSC_Co"
+		EXPRESSION /^ACE_BSC_CO$/
+		STYLE
+			COLOR 253 82 82
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_nrc_co"
+		TITLE "ACE_NRC_Co"
+		EXPRESSION /^ACE_NRC_CO$/
+		STYLE
+			COLOR 255 99 71
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_vip_ma"
+		TITLE "ACE-VIP-Ma"
+		EXPRESSION /^ACE_VIP_MA$/
+		STYLE
+			COLOR 6 177 3
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_tiu_ma"
+		TITLE "ACE_TIU_Ma"
+		EXPRESSION /^ACE_TIU_MA$/
+		STYLE
+			COLOR 254 180 180
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_tipc_ma"
+		TITLE "ACE_TIPC_Ma"
+		EXPRESSION /^ACE_TIPC_MA$/
+		STYLE
+			COLOR 255 69 0
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tni_bcm_tn"
+		TITLE "TNI_BCM_Tn"
+		EXPRESSION /^TNI_BCM_TN$/
+		STYLE
+			COLOR 202 237 213
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tni_bc_cpa"
+		TITLE "TNI_BC_CPA"
+		EXPRESSION /^TNI_BC_CPA$/
+		STYLE
+			COLOR 158 215 175
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tni_pf_tn"
+		TITLE "TNI-PF-Tn"
+		EXPRESSION /^TNI_PF_TN$/
+		STYLE
+			COLOR 195 252 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------1-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "apa_ct_cs"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "apa_ct_cs"
+		TITLE "APA-CT-Cs"
+		EXPRESSION /^APA_CT_CS$/
+		STYLE
+			COLOR 225 253 179
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------2-----------------
+	GROUP "ambiti_6"
+	NAME "apa_ct_cs"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "apa_ct_cs"
+		TITLE "APA-CT-Cs"
+		EXPRESSION /^APA_CT_CS$/
+		STYLE
+			COLOR 225 253 179
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------3-----------------
+	GROUP "ambiti_6"
+	NAME "apa_ct_ma"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "apa_ct_ma"
+		TITLE "APA-CT-Ma"
+		EXPRESSION /^APA_CT_MA$/
+		STYLE
+			COLOR 247 242 133
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------4-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "apa_ac_ma"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "apa_ac_ma"
+		TITLE "APA-AC-Ma"
+		EXPRESSION /^APA_AC_MA$/
+		STYLE
+			COLOR 237 253 145
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------5-----------------
+	GROUP "ambiti_6"
+	NAME "apa_ac_ma"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "apa_ac_ma"
+		TITLE "APA-AC-Ma"
+		EXPRESSION /^APA_AC_MA$/
+		STYLE
+			COLOR 237 253 145
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------6-----------------
+	GROUP "ambiti_6"
+	NAME "sua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY 75
+	CLASS
+		NAME "ari_tiu_a"
+		TITLE "ARI-TIU-A"
+		EXPRESSION /^ARI_TIU_A$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_a"
+		TITLE "ARI-TIF-A"
+		EXPRESSION /^ARI_TIF_A$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 130 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 0 130 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 130 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpr_a"
+		TITLE "ARI-ZPR-A"
+		EXPRESSION /^ARI_ZPR_A$/
+		STYLE
+			COLOR 200 200 200
+			WIDTH 1
+		END
+		STYLE
+			COLOR 202 0 220
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 202 0 220
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 202 0 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpc_a"
+		TITLE "ARI-ZPC-A"
+		EXPRESSION /^ARI_ZPC_A$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 146 149 219
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 146 149 219
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 146 149 219
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------7-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "sua"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	SYMBOLSCALEDENOM 3000
+	OPACITY 75
+	CLASS
+		NAME "ari_tiu_a"
+		TITLE "ARI-TIU-A"
+		EXPRESSION /^ARI_TIU_A$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_a"
+		TITLE "ARI-TIF-A"
+		EXPRESSION /^ARI_TIF_A$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 130 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 0 130 0
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 130 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpr_a"
+		TITLE "ARI-ZPR-A"
+		EXPRESSION /^ARI_ZPR_A$/
+		STYLE
+			COLOR 200 200 200
+			WIDTH 1
+		END
+		STYLE
+			COLOR 202 0 220
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 202 0 220
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 202 0 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpc_a"
+		TITLE "ARI-ZPC-A"
+		EXPRESSION /^ARI_ZPC_A$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 146 149 219
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 146 149 219
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 146 149 219
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------8-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "ari_arc"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "ari_tiu_cs"
+		TITLE "ARI-TIU-Cs"
+		EXPRESSION /^ARI_TIU_CS$/
+		STYLE
+			COLOR 254 180 180
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tiu_rq"
+		TITLE "ARI-TIU-Rq"
+		EXPRESSION /^ARI_TIU_RQ$/
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 250 128 114
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tiu_cp"
+		TITLE "ARC-TIU-Cp"
+		EXPRESSION /^ARC_TIU_CP$/
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 250 128 114
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tiumix_cp"
+		TITLE "ARC-TIUmix-Cp"
+		EXPRESSION /^ARC_TIUMIX_CP$/
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 250 128 114
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_cs"
+		TITLE "ARI-TIF-Cs"
+		EXPRESSION /^ARI_TIF_CS$/
+		STYLE
+			COLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_rq"
+		TITLE "ARI-TIF-Rq"
+		EXPRESSION /^ARI_TIF_RQ$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_st"
+		TITLE "ARI-TIF-St"
+		EXPRESSION /^ARI_TIF_ST$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tif_cp"
+		TITLE "ARC-TIF-Cp"
+		EXPRESSION /^ARC_TIF_CP$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tipc_cs"
+		TITLE "ARI-TIPC-Cs"
+		EXPRESSION /^ARI_TIPC_CS$/
+		STYLE
+			COLOR 255 222 173
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tipc_st"
+		TITLE "ARI-TIPC-St"
+		EXPRESSION /^ARI_TIPC_ST$/
+		STYLE
+			COLOR 255 222 173
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 222 173
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tipc_cp"
+		TITLE "ARC-TIPC-Cp"
+		EXPRESSION /^ARC_TIPC_CP$/
+		STYLE
+			COLOR 255 222 173
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 222 173
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tic_cs"
+		TITLE "ARI-TIC-Cs"
+		EXPRESSION /^ARI_TIC_CS$/
+		STYLE
+			COLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tic_rq"
+		TITLE "ARI-TIC-Rq"
+		EXPRESSION /^ARI_TIC_RQ$/
+		STYLE
+			COLOR 255 173 0
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tic_st"
+		TITLE "ARI-TIC-St"
+		EXPRESSION /^ARI_TIC_ST$/
+		STYLE
+			COLOR 255 173 0
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tic_cp"
+		TITLE "ARC-TIC-Cp"
+		EXPRESSION /^ARC_TIC_CP$/
+		STYLE
+			COLOR 255 173 0
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_aic_cs"
+		TITLE "ARI-AIC-Cs"
+		EXPRESSION /^ARI_AIC_CS$/
+		STYLE
+			COLOR 0 209 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_arc_aic_cp"
+		TITLE "ARI_ARC-AIC-Cp"
+		EXPRESSION /^ARI_ARC_AIC_CP$/
+		STYLE
+			COLOR 0 209 220
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 209 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_amc_rq"
+		TITLE "ARI-AMC-Rq"
+		EXPRESSION /^ARI_AMC_RQ$/
+		STYLE
+			COLOR 0 209 220
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 209 220
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 209 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_ztr_cs"
+		TITLE "ARI-ZTR-Cs"
+		EXPRESSION /^ARI_ZTR_CS$/
+		STYLE
+			COLOR 0 124 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_ztr_sv"
+		TITLE "ARC-ZTR-Sv"
+		EXPRESSION /^ARC_ZTR_SV$/
+		STYLE
+			COLOR 0 124 254
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 124 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpc_cs"
+		TITLE "ARI-ZPC-Cs"
+		EXPRESSION /^ARI_ZPC_CS$/
+		STYLE
+			COLOR 153 142 254
+			SYMBOL "QUADRATI"
+			SIZE 4
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_zpc_sv"
+		TITLE "ARC-ZPC-Sv"
+		EXPRESSION /^ARC_ZPC_SV$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 187 0 255
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 153 142 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpr_cs"
+		TITLE "ARI-ZPR-Cs"
+		EXPRESSION /^ARI_ZPR_CS$/
+		STYLE
+			COLOR 181 149 252
+			SYMBOL "QUADRATI"
+			SIZE 4
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_zpr_sv"
+		TITLE "ARC-ZPR-Sv"
+		EXPRESSION /^ARC_ZPR_SV$/
+		STYLE
+			COLOR 185 124 253
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 185 124 253
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------9-----------------
+	GROUP "ambiti_6"
+	NAME "ari_arc"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "ari_tiu_cs"
+		TITLE "ARI-TIU-Cs"
+		EXPRESSION /^ARI_TIU_CS$/
+		STYLE
+			COLOR 254 180 180
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tiu_rq"
+		TITLE "ARI-TIU-Rq"
+		EXPRESSION /^ARI_TIU_RQ$/
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 250 128 114
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tiu_cp"
+		TITLE "ARC-TIU-Cp"
+		EXPRESSION /^ARC_TIU_CP$/
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 250 128 114
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tiu_mix_cp"
+		TITLE "ARC-TIUmix-Cp"
+		EXPRESSION /^ARC_TIU_MIX_CP$/
+		STYLE
+			COLOR 254 180 180
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 250 128 114
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_cs"
+		TITLE "ARI-TIF-Cs"
+		EXPRESSION /^ARI_TIF_CS$/
+		STYLE
+			COLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_rq"
+		TITLE "ARI-TIF-Rq"
+		EXPRESSION /^ARI_TIF_RQ$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tif_st"
+		TITLE "ARI-TIF-St"
+		EXPRESSION /^ARI_TIF_ST$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tif_cp"
+		TITLE "ARC-TIF-Cp"
+		EXPRESSION /^ARC_TIF_CP$/
+		STYLE
+			COLOR 255 0 255
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tipc_cs"
+		TITLE "ARI-TIPC-Cs"
+		EXPRESSION /^ARI_TIPC_CS$/
+		STYLE
+			COLOR 255 222 173
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tipc_st"
+		TITLE "ARI-TIPC-St"
+		EXPRESSION /^ARI_TIPC_ST$/
+		STYLE
+			COLOR 255 222 173
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 222 173
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tipc_cp"
+		TITLE "ARC-TIPC-Cp"
+		EXPRESSION /^ARC_TIPC_CP$/
+		STYLE
+			COLOR 255 222 173
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 222 173
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tic_cs"
+		TITLE "ARI-TIC-Cs"
+		EXPRESSION /^ARI_TIC_CS$/
+		STYLE
+			COLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tic_rq"
+		TITLE "ARI-TIC-Rq"
+		EXPRESSION /^ARI_TIC_RQ$/
+		STYLE
+			COLOR 255 173 0
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_tic_st"
+		TITLE "ARI-TIC-St"
+		EXPRESSION /^ARI_TIC_ST$/
+		STYLE
+			COLOR 255 173 0
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_tic_cp"
+		TITLE "ARC-TIC-Cp"
+		EXPRESSION /^ARC_TIC_CP$/
+		STYLE
+			COLOR 255 173 0
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 255 173 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_aic_cs"
+		TITLE "ARI-AIC-Cs"
+		EXPRESSION /^ARI_AIC_CS$/
+		STYLE
+			COLOR 0 209 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_arc_aic_cp"
+		TITLE "ARI_ARC-AIC-Cp"
+		EXPRESSION /^ARI_ARC_AIC_CP$/
+		STYLE
+			COLOR 0 209 220
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 209 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_amc_rq"
+		TITLE "ARI-AMC-Rq"
+		EXPRESSION /^ARI_AMC_RQ$/
+		STYLE
+			COLOR 0 209 220
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 209 220
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 209 220
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_ztr_cs"
+		TITLE "ARI-ZTR-Cs"
+		EXPRESSION /^ARI_ZTR_CS$/
+		STYLE
+			COLOR 0 124 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_ztr_sv"
+		TITLE "ARC-ZTR-Sv"
+		EXPRESSION /^ARC_ZTR_SV$/
+		STYLE
+			COLOR 0 124 254
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 124 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpc_cs"
+		TITLE "ARI-ZPC-Cs"
+		EXPRESSION /^ARI_ZPC_CS$/
+		STYLE
+			COLOR 153 142 254
+			SYMBOL "QUADRATI"
+			SIZE 4
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_zpc_sv"
+		TITLE "ARC-ZPC-Sv"
+		EXPRESSION /^ARC_ZPC_SV$/
+		STYLE
+			COLOR 255 255 100
+			WIDTH 1
+		END
+		STYLE
+			COLOR 187 0 255
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 153 142 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ari_zpr_cs"
+		TITLE "ARI-ZPR-Cs"
+		EXPRESSION /^ARI_ZPR_CS$/
+		STYLE
+			COLOR 181 149 252
+			SYMBOL "QUADRATI"
+			SIZE 4
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "arc_zpr_sv"
+		TITLE "ARC-ZPR-Sv"
+		EXPRESSION /^ARC_ZPR_SV$/
+		STYLE
+			COLOR 185 124 253
+			SYMBOL "ROMBI"
+			SIZE 6
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 185 124 253
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------10-----------------
+	GROUP "ambiti_6"
+	NAME "tpa"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "tpa_bcm_asp"
+		TITLE "TPA-BCM-ASP"
+		EXPRESSION /^TPA_BCM_ASP$/
+		STYLE
+			COLOR 0 130 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 130 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tpa_bac_vp"
+		TITLE "TPA-BAC-VP"
+		EXPRESSION /^TPA_BAC_VP$/
+		STYLE
+			COLOR 61 169 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 61 169 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tpa_ac_di"
+		TITLE "TPA-AC-DI"
+		EXPRESSION /^TPA_AC_DI$/
+		STYLE
+			COLOR 176 165 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 176 165 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tpa_app_fpa"
+		TITLE "TPA-APP-FPA"
+		EXPRESSION /^TPA_APP_FPA$/
+		STYLE
+			COLOR 178 214 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 178 214 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------11-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "tpa"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "tpa_bcm_asp"
+		TITLE "TPA-BCM-ASP"
+		EXPRESSION /^TPA_BCM_ASP$/
+		STYLE
+			COLOR 0 130 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 130 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tpa_bac_vp"
+		TITLE "TPA-BAC-VP"
+		EXPRESSION /^TPA_BAC_VP$/
+		STYLE
+			COLOR 61 169 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 61 169 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tpa_ac_di"
+		TITLE "TPA-AC-DI"
+		EXPRESSION /^TPA_AC_DI$/
+		STYLE
+			COLOR 176 165 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 176 165 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tpa_app_fpa"
+		TITLE "TPA-APP-FPA"
+		EXPRESSION /^TPA_APP_FPA$/
+		STYLE
+			COLOR 178 214 0
+			SYMBOL "BRICIOLE"
+			SIZE 4
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 178 214 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------12-----------------
+	GROUP "distretti_di_trasformazione_526"
+	NAME "puc_distretti_trasformazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"distretti_di_trasformazione"
+		"ows_title"	"distretti_di_trasformazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "dtr_asu_res"
+		TITLE "DTR-ASU-Res"
+		EXPRESSION /^DTR_ASU_RES$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "DISTRETTI"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "dtr_asu_mix"
+		TITLE "DTR-ASU-Mix"
+		EXPRESSION /^DTR_ASU_MIX$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 150 0
+			SYMBOL "DISTRETTI"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 150 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "dtr_pf_rq"
+		TITLE "DTR-PF-Rq"
+		EXPRESSION /^DTR_PF_RQ$/
+		STYLE
+			COLOR 0 197 229
+			SYMBOL "DISTRETTI"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 197 229
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------13-----------------
+	GROUP "ambiti_6"
+	NAME "distretti_trasformazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "dtr_asu_res"
+		TITLE "DTR-ASU-Res"
+		EXPRESSION /^DTR_ASU_RES$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "DISTRETTI"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "dtr_asu_mix"
+		TITLE "DTR-ASU-Mix"
+		EXPRESSION /^DTR_ASU_MIX$/
+		STYLE
+			COLOR 255 255 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 0 150 0
+			SYMBOL "DISTRETTI"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 150 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "dtr_pf_rq"
+		TITLE "DTR-PF-Rq"
+		EXPRESSION /^DTR_PF_RQ$/
+		STYLE
+			COLOR 0 197 229
+			SYMBOL "DISTRETTI"
+			SIZE 12
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 197 229
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------14-----------------
+	GROUP "ambiti_6"
+	NAME "servizi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "serv_esistenti"
+		TITLE "Servizi esistenti"
+		EXPRESSION /^SERVIZI_ESISTENTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 181 254 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "servizi_confermati"
+		TITLE "Servizi confermati da PRG 1993"
+		EXPRESSION /^SERVIZI_CONFERMATI$/
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 30
+			WIDTH 2
+		END
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 150
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 181 254 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "serv_progetto"
+		TITLE "Servizi di progetto"
+		EXPRESSION /^SERVIZI_PROGETTO$/
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 181 254 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "cimitero"
+		TITLE "Cimitero"
+		EXPRESSION /^AREA_CIMITERIALE$/
+		STYLE
+			COLOR 180 15 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "rispetto_cimiteriale"
+		TITLE "Rispetto cimiteriale"
+		EXPRESSION /^RISPETTO_CIMITERIALE$/
+		STYLE
+			OUTLINECOLOR 180 15 254
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "cimitero_prog"
+		TITLE "Cimitero di progetto"
+		EXPRESSION /^AREE_CIMITERIALI_PROGETTO$/
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 180 15 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "serv_cimiteriali"
+		TITLE "Servizi cimiteriali"
+		EXPRESSION /^SERVIZI_CIMITERIALI$/
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 180 15 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "stazione_esistente"
+		TITLE "Stazione di servizio esistente"
+		EXPRESSION /^STAZIONE_ESISTENTE$/
+		STYLE
+			COLOR 0 255 171
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tecn_munic_esistenti"
+		TITLE "Zone tecnologiche municipali e di altri enti esistenti"
+		EXPRESSION /^TECNOLOGICHE_ESISTENTI$|^ZONE_TECNOLOG_MUNICIPALI$/
+		STYLE
+			COLOR 0 64 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tecn_munic_prog"
+		TITLE "Zone tecnologiche municipali e di altri enti di progetto"
+		EXPRESSION /^TECNOLOGICHE_PROGETTO$|^DEPURATORE_COMUNALE$/
+		STYLE
+			COLOR 0 64 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 0 64 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 64 254
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------15-----------------
+	GROUP "servizi_527"
+	NAME "puc_servizi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"servizi"
+		"ows_title"	"servizi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "serv_esistenti"
+		TITLE "Servizi esistenti"
+		EXPRESSION /^SERVIZI_ESISTENTI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 181 254 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "servizi_confermati"
+		TITLE "Servizi confermati da PRG 1993"
+		EXPRESSION /^SERVIZI_CONFERMATI$/
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 30
+			WIDTH 2
+		END
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 150
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 181 254 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "serv_progetto"
+		TITLE "Servizi di progetto"
+		EXPRESSION /^SERVIZI_PROGETTO$/
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 181 254 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 181 254 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "cimitero"
+		TITLE "Cimitero"
+		EXPRESSION /^AREA_CIMITERIALE$/
+		STYLE
+			COLOR 180 15 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "rispetto_cimiteriale"
+		TITLE "Rispetto cimiteriale"
+		EXPRESSION /^RISPETTO_CIMITERIALE$/
+		STYLE
+			OUTLINECOLOR 180 15 254
+			WIDTH 2
+		END
+	END
+	CLASS
+		NAME "cimitero_prog"
+		TITLE "Cimitero di progetto"
+		EXPRESSION /^AREE_CIMITERIALI_PROGETTO$/
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 1
+		END
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 180 15 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "serv_cimiteriali"
+		TITLE "Servizi cimiteriali"
+		EXPRESSION /^SERVIZI_CIMITERIALI$/
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			COLOR 180 15 254
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 180 15 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "stazione_esistente"
+		TITLE "Stazione di servizio esistente"
+		EXPRESSION /^STAZIONE_ESISTENTE$/
+		STYLE
+			COLOR 0 255 171
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tecn_munic_esistenti"
+		TITLE "Zone tecnologiche"
+		EXPRESSION /^TECNOLOGICHE_ESISTENTI$/
+		STYLE
+			COLOR 0 64 254
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tecn_munic_prog"
+		TITLE "Zone tecnologiche in progetto"
+		EXPRESSION /^TECNOLOGICHE_PROGETTO$/
+		STYLE
+			COLOR 0 64 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 2
+		END
+		STYLE
+			COLOR 0 64 254
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 0 64 254
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------16-----------------
+	GROUP "fogli_1"
+	NAME "fogli"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fogli"
+		"ows_title"	"fogli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fogli_elaborati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	CLASSITEM "foglio"
+	LABELITEM "foglio"
+	MINSCALEDENOM 24001
+	OPACITY 60
+	CLASS
+		NAME "foglio_01"
+		TITLE "Foglio 1"
+		EXPRESSION /^1$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_02"
+		TITLE "Foglio 2"
+		EXPRESSION /^2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 150 150 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_03"
+		TITLE "Foglio 3"
+		EXPRESSION /^3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_04"
+		TITLE "Foglio 4"
+		EXPRESSION /^4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 110 50 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_05"
+		TITLE "Foglio 5"
+		EXPRESSION /^5$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_06"
+		TITLE "Foglio 6"
+		EXPRESSION /^6$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_07"
+		TITLE "Foglio 7"
+		EXPRESSION /^7$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_08"
+		TITLE "Foglio 8"
+		EXPRESSION /^8$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 170 0 255
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_09"
+		TITLE "Foglio 9"
+		EXPRESSION /^9$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 200 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_10"
+		TITLE "Foglio 10"
+		EXPRESSION /^10$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 10 90 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_11"
+		TITLE "Foglio 11"
+		EXPRESSION /^11$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 255 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_12"
+		TITLE "Foglio 12"
+		EXPRESSION /^12$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 0 0
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "foglio_13"
+		TITLE "Foglio 13"
+		EXPRESSION /^13$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 127 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------17-----------------
+	GROUP "ambiti_6"
+	NAME "ari_arc_numeri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 75
+	CLASS
+		NAME "ari_arc_numeri"
+		TITLE "Numeri di ARI/ARC"
+		EXPRESSION /^ARC$|^ARI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------18-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "ari_arc_numeri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 75
+	CLASS
+		NAME "ari_arc_numeri"
+		TITLE "Numeri di ARI/ARC"
+		EXPRESSION /^ARC$|^ARI$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------19-----------------
+	GROUP "ambiti_6"
+	NAME "dtr_numeri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 75
+	CLASS
+		NAME "numero"
+		TITLE "Numero di DTR"
+		EXPRESSION /^DTR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------20-----------------
+	GROUP "distretti_di_trasformazione_526"
+	NAME "dtr_numeri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"distretti_di_trasformazione"
+		"ows_title"	"distretti_di_trasformazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 75
+	CLASS
+		NAME "numero"
+		TITLE "Numero di DTR"
+		EXPRESSION /^DTR$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------21-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "sua_numeri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	OPACITY 75
+	CLASS
+		NAME "numero"
+		TITLE "Numero di S.U.A."
+		EXPRESSION /^SUA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------22-----------------
+	GROUP "ambiti_6"
+	NAME "ambiti_conservazione"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "ace_bsp_co"
+		TITLE "ACE_BSP_Co"
+		EXPRESSION /^ACE_BSP_CO$/
+		STYLE
+			COLOR 178 34 34
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_bsc_co"
+		TITLE "ACE_BSC_Co"
+		EXPRESSION /^ACE_BSC_CO$/
+		STYLE
+			COLOR 253 82 82
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_nrc_co"
+		TITLE "ACE_NRC_Co"
+		EXPRESSION /^ACE_NRC_CO_PIENO$/
+		STYLE
+			COLOR 255 99 71
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_vip_ma"
+		TITLE "ACE-VIP-Ma"
+		EXPRESSION /^ACE_VIP_MA$/
+		STYLE
+			COLOR 6 177 3
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_tiu_ma"
+		TITLE "ACE_TIU_Ma"
+		EXPRESSION /^ACE_TIU_MA$/
+		STYLE
+			COLOR 254 180 180
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "ace_tipc_ma"
+		TITLE "ACE_TIPC_Ma"
+		EXPRESSION /^ACE_TIPC_MA$/
+		STYLE
+			COLOR 255 69 0
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tni_bcm_tn"
+		TITLE "TNI_BCM_Tn"
+		EXPRESSION /^TNI_BCM_TN$/
+		STYLE
+			COLOR 202 237 213
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tni_bc_cpa"
+		TITLE "TNI_BC_CPA"
+		EXPRESSION /^TNI_BC_CPA$/
+		STYLE
+			COLOR 158 215 175
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "tni_pf_tn"
+		TITLE "TNI-PF-Tn"
+		EXPRESSION /^TNI_PF_TN$/
+		STYLE
+			COLOR 195 252 255
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------23-----------------
+	GROUP "ambiti_6"
+	NAME "ambiti_conservazione_2"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "ace_nrc_co"
+		TITLE "ACE_NRC_Co"
+		EXPRESSION /^ACE_NRC_CO_VUOTO$/
+		STYLE
+			OUTLINECOLOR 255 99 71
+			WIDTH 4
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------24-----------------
+	GROUP "ambiti_6"
+	NAME "sua_numeri"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 75
+	CLASS
+		NAME "numero"
+		TITLE "Numero di S.U.A."
+		EXPRESSION /^SUA$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------25-----------------
+	GROUP "ambiti_6"
+	NAME "centri_abitati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "centri_abitati"
+		TITLE "Centri abitati"
+		EXPRESSION /^CENTRO_ABITATO$/
+		STYLE
+			OUTLINECOLOR 34 116 228
+			WIDTH 5
+		END
+	END
+END
+LAYER #----------------26-----------------
+	GROUP "centri_abitati_528"
+	NAME "puc_centri_abitati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"centri_abitati"
+		"ows_title"	"centri_abitati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "centri_abitati"
+		TITLE "Centri abitati"
+		EXPRESSION /^CENTRO_ABITATO$/
+		STYLE
+			OUTLINECOLOR 34 116 228
+			WIDTH 5
+		END
+	END
+END
+LAYER #----------------27-----------------
+	GROUP "piani_di_recupero_504"
+	NAME "puc_piani_di_recupero"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"piani_di_recupero"
+		"ows_title"	"piani_di_recupero"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	OPACITY ALPHA
+	CLASS
+		NAME "piani_di_recupero"
+		TITLE "Piani di recupero"
+		EXPRESSION /^PIANO_RECUPERO$/
+		STYLE
+			OUTLINECOLOR 23 0 220
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------28-----------------
+	GROUP "ambiti_6"
+	NAME "piani_di_recupero"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "piani_di_recupero"
+		TITLE "Piani di recupero"
+		EXPRESSION /^PIANO_RECUPERO$/
+		STYLE
+			OUTLINECOLOR 23 0 220
+			WIDTH 2
+		END
+	END
+END
+LAYER #----------------29-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "sub_pco"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "sub_pco"
+		TITLE "Sub-PCo"
+		EXPRESSION /^SUB_PCO$/
+		STYLE
+			COLOR 178 34 34
+			SYMBOL "HATCH"
+			SIZE 12
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 178 34 34
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------30-----------------
+	GROUP "ambiti_6"
+	NAME "sub_pco"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "sub_pco"
+		TITLE "Sub-PCo"
+		EXPRESSION /^SUB_PCO$/
+		STYLE
+			COLOR 178 34 34
+			SYMBOL "HATCH"
+			SIZE 12
+			ANGLE 45
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 178 34 34
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------31-----------------
+	GROUP "ambiti_riqualificazione_525"
+	NAME "sub_pbo"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_riqualificazione"
+		"ows_title"	"ambiti_riqualificazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "sub_pbo"
+		TITLE "Sub-PBo"
+		EXPRESSION /^SUB_PBO$/
+		STYLE
+			COLOR 178 34 34
+			SYMBOL "HATCH"
+			SIZE 12
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 178 34 34
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------32-----------------
+	GROUP "ambiti_6"
+	NAME "sub_pbo"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "sub_pbo"
+		TITLE "Sub-PBo"
+		EXPRESSION /^SUB_PBO$/
+		STYLE
+			COLOR 178 34 34
+			SYMBOL "HATCH"
+			SIZE 12
+			ANGLE 135
+			WIDTH 2
+		END
+		STYLE
+			OUTLINECOLOR 178 34 34
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------33-----------------
+	GROUP "acque_540"
+	NAME "ct_acque"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"acque"
+		"ows_title"	"acque"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.acque using unique bordo_cs"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	OPACITY 60
+	CLASS
+		NAME "ACQUE"
+		TITLE "Acque"
+		STYLE
+			COLOR 0 192 192
+			SIZE 10
+			WIDTH 1
+			MINWIDTH 5
+		END
+	END
+END
+LAYER #----------------34-----------------
+	GROUP "strade_541"
+	NAME "ct_strade"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"strade"
+		"ows_title"	"strade"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.strade using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	OPACITY 60
+	CLASS
+		NAME "STRADE"
+		TITLE "Strade"
+		STYLE
+			COLOR 234 234 234
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------35-----------------
+	GROUP "particelle_537"
+	NAME "ct_particelle"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	CLASS
+		NAME "NERA"
+		TITLE "Particelle (<1:10000)"
+		MAXSCALEDENOM 10000
+		STYLE
+			OUTLINECOLOR 0 0 0
+			SIZE 1
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRIGIA"
+		TITLE "Particelle (>1:10000)"
+		MINSCALEDENOM 10000
+		STYLE
+			OUTLINECOLOR 128 128 128
+			SIZE 1
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------36-----------------
+	GROUP "varie_543"
+	NAME "ct_linee"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"varie"
+		"ows_title"	"varie"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom_gb from nct.varie using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS pixels
+	CLASSITEM "codice"
+	OPACITY 30
+	CLASS
+		NAME "linee_varie"
+		TITLE "Linee varie"
+		EXPRESSION /^1$|^2$|^29$|^32$|^5$|^6$/
+		STYLE
+			COLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------37-----------------
+	GROUP "fabbricati_538"
+	NAME "ct_fabbricati"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"fabbricati"
+		"ows_title"	"fabbricati"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "bordo_gb from nct.fabbricati using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS pixels
+	SYMBOLSCALEDENOM 2000
+	OPACITY ALPHA
+	CLASS
+		NAME "fabbricati_1"
+		TITLE "Fabbricati"
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 4
+			ANGLE 135
+			WIDTH 1
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------38-----------------
+	GROUP "simboli_542"
+	NAME "ct_simboli"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"simboli"
+		"ows_title"	"simboli"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.simboli using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "PICCHETTI"
+		TITLE "Picchetti"
+		EXPRESSION /^2$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 4
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "OSSO"
+		TITLE "Osso di morto"
+		EXPRESSION /^4$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "OSSO MORTO"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FLUSSO_SCORRIMENTO_ACQUE"
+		TITLE "Flusso scorrimento acque - medio"
+		EXPRESSION /^5$|^6$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "FRECCIA2"
+			SIZE 9
+			MINSIZE 5
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAG"
+		TITLE "Graffa di annessione grande"
+		EXPRESSION /^9$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "TERMINE"
+		TITLE "Termine Catastale Provinciale"
+		EXPRESSION /^11$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "PICCHETTO"
+			SIZE 6
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "GRAFFAP"
+		TITLE "Graffa di annessione - piccola"
+		EXPRESSION /^14$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "GRAFFA"
+			SIZE 4
+			MINSIZE 3
+			MAXSIZE 20
+			ANGLE [angolo]
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------39-----------------
+	GROUP "fiduciali_539"
+	NAME "ct_fiduciali"
+	STATUS ON
+	TYPE POINT               
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	OPACITY ALPHA
+	POSTLABELCACHE TRUE
+	CLASS
+		NAME "FIDUCIALI_CERCHIO"
+		TITLE "Punto fiduciale"
+		EXPRESSION /^20$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "FIDUCIALE"
+			SIZE 10
+			WIDTH 1
+		END
+	END
+	CLASS
+		NAME "FIDUCIALI_TRIANGOLO"
+		TITLE "Punto trigonometrico"
+		EXPRESSION /^8$/
+		STYLE
+			COLOR 255 0 0
+			SYMBOL "TRIGONOMETRICO"
+			SIZE 12
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------40-----------------
+	GROUP "fiduciali_539"
+	NAME "ct_numeri_fiduciali"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"fiduciali"
+		"ows_title"	"fiduciali"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "rappresentazione_gb from nct.fiduciali using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS meters
+	CLASSITEM "codice"
+	LABELITEM "numero"
+	CLASS
+		NAME "TESTO_NUMERO"
+		TITLE "Numero di fiduciale"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 255 0 0
+			SIZE 4
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------41-----------------
+	GROUP "testi_503"
+	NAME "ct_testi"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"testi"
+		"ows_title"	"testi"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.testi using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "fuorimappa=0"
+	SIZEUNITS meters
+	LABELITEM "testo"
+	LABELMINSCALEDENOM 200
+	LABELMAXSCALEDENOM 5000
+	MAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "testi_strade"
+		TITLE "Testi delle strade"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			ANGLE [angolo]
+			COLOR 80 80 80
+			SIZE 6
+			MINSIZE 3
+			MAXSIZE 12
+			POSITION UR
+		PARTIALS false
+		END
+	END
+END
+LAYER #----------------42-----------------
+	GROUP "particelle_537"
+	NAME "ct_freccette"
+	STATUS ON
+	TYPE LINE                
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from nct.vista_freccette using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	SIZEUNITS pixels
+	MAXSCALEDENOM 2001
+	OPACITY ALPHA
+	CLASS
+		NAME "freccette"
+		TITLE "Freccette"
+		STYLE
+			COLOR 150 150 150
+			WIDTH 1
+		END
+	END
+END
+LAYER #----------------43-----------------
+	GROUP "particelle_537"
+	NAME "ct_numeri_particelle"
+	STATUS ON
+	TYPE ANNOTATION          
+	METADATA
+		"wms_group_title"	"particelle"
+		"ows_title"	"particelle"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "posizione_gb from nct.particelle using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "q_unione=0 or q_unione=1"
+	SIZEUNITS meters
+	LABELITEM "mappale"
+	MAXSCALEDENOM 5001
+	FORCE true
+	CLASS
+		NAME "TESTI_PARTICELLE"
+		TITLE "Testo Particelle Catastali"
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial"
+			ANGLE [angolo]
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE [dimensione]
+			POSITION UR
+		END
+	END
+END
+LAYER #----------------44-----------------
+	GROUP "ambiti_6"
+	NAME "fascia_inedificabilita"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti"
+		"ows_title"	"ambiti"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP2'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "fascia_inedificabilita"
+		TITLE "Fascia di inedificabilità (ACE-NRC-Co)"
+		EXPRESSION /^FASCIA_INEDIFICABILITA$/
+		STYLE
+			OUTLINECOLOR 230 108 93
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------45-----------------
+	GROUP "ambiti_conservazione_524"
+	NAME "fascia_inedificabilita"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"ambiti_conservazione"
+		"ows_title"	"ambiti_conservazione"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC' and nome_tavola='AMBITI'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	SYMBOLSCALEDENOM 3000
+	OPACITY ALPHA
+	CLASS
+		NAME "fascia_inedificabilita"
+		TITLE "Fascia di inedificabilità (ACE-NRC-Co)"
+		EXPRESSION /^FASCIA_INEDIFICABILITA$/
+		STYLE
+			OUTLINECOLOR 230 108 93
+			WIDTH 3
+		END
+	END
+END
+LAYER #----------------46-----------------
+	GROUP "sp1b_4"
+	NAME "pg"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "pg4"
+		TITLE "Aree a pericolosità geomorfologica molto elevata"
+		EXPRESSION /^PG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 221 9 7
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "assim_pg3"
+		TITLE "Aree a pericolosità geomorfologica molto elevata assimilabili alle Pg3"
+		EXPRESSION /^ASSIM_PG3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 191 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 90
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 255 191 0
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "assim_pg4"
+		TITLE "Aree a pericolosità geomorfologica molto elevata assimilabili alle Pg4"
+		EXPRESSION /^ASSIM_PG4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 221 9 7
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 90
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 221 9 7
+			SYMBOL "HATCH"
+			SIZE 5
+			ANGLE 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg3"
+		TITLE "Aree a pericolosità geomorfologica elevata"
+		EXPRESSION /^PG3$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 191 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pg2"
+		TITLE "Aree a pericolosità geomorfologica media"
+		EXPRESSION /^PG2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 231 159
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------47-----------------
+	GROUP "sp1b_4"
+	NAME "ari_arc"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "ari_arc"
+		TITLE "Ambiti di riqualificazione ARI-ARC"
+		EXPRESSION /^ARI|^ARC/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 3
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------48-----------------
+	GROUP "sp1b_4"
+	NAME "dtr"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "dtr"
+		TITLE "Distretti di trasformazione"
+		EXPRESSION /^DTR/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			OUTLINECOLOR 255 255 255
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "HATCH"
+			SIZE 8
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------49-----------------
+	GROUP "sp1b_4"
+	NAME "ambiti_normativi"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "riassetto_fluviale"
+		TITLE "Riassetto fluviale"
+		EXPRESSION /^RIASSETTO_FLUVIALE$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 0 191 255
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pi4"
+		TITLE "PI4"
+		EXPRESSION /^PI4$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 182 0 159
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pi3a"
+		TITLE "PI3A"
+		EXPRESSION /^PI3A$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 207 127
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pi3b"
+		TITLE "PI3B"
+		EXPRESSION /^PI3B$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 105 189 69
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "pi2"
+		TITLE "PI2"
+		EXPRESSION /^PI2$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 255 255 191
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------50-----------------
+	GROUP "sp1b_4"
+	NAME "acque_pubbliche"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "acque_pubbliche"
+		TITLE "Acque pubbliche"
+		EXPRESSION /^ACQUE_PUBBLICHE$/
+		STYLE
+			OUTLINECOLOR 0 0 211
+			WIDTH 4
+			PATTERN 1 5 1 5 END
+		END
+	END
+END
+LAYER #----------------51-----------------
+	GROUP "sp1b_4"
+	NAME "aree_inondabili"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY 60
+	CLASS
+		NAME "aree_inond_tr30"
+		TITLE "Aree inondabili per T=30"
+		EXPRESSION /^AREE_INOND_TR30$/
+		STYLE
+			COLOR 123 124 186
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "aree_inond_tr200"
+		TITLE "Aree inondabili per T=200"
+		EXPRESSION /^AREE_INOND_TR200$/
+		STYLE
+			COLOR 81 201 244
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------52-----------------
+	GROUP "sp1b_4"
+	NAME "parco_montemarcello_magra"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "parco_montemarcello_magra"
+		TITLE "Parco Naturale Montemarcello Magra"
+		EXPRESSION /^AREA_PARCO_MM$/
+		STYLE
+			OUTLINECOLOR 219 138 41
+			WIDTH 4
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------53-----------------
+	GROUP "sp1b_4"
+	NAME "castello_giustiniani"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "castello_giustiniani_rispetto_relativo"
+		TITLE "Castello Giustiniani: fascia di rispetto relativo"
+		EXPRESSION /^CASTELLO_GIUSTINIANI_RISPETTO_RELATIVO$/
+		STYLE
+			COLOR 182 83 159
+			SYMBOL "HATCH"
+			SIZE 6
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 210 138 188
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+	CLASS
+		NAME "castello_giustiniani_rispetto_assoluto"
+		TITLE "Castello Giustiniani: fascia di rispetto assoluto"
+		EXPRESSION /^CASTELLO_GIUSTINIANI_RISPETTO_ASSOLUTO$/
+		STYLE
+			COLOR 130 67 153
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 0
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			COLOR 130 67 153
+			SYMBOL "HATCH"
+			SIZE 2
+			ANGLE 90
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 150 85 162
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------54-----------------
+	GROUP "sp1b_4"
+	NAME "elettrodotti"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "elettrodotti"
+		TITLE "Elettrodotti"
+		EXPRESSION /^ELETTRODOTTI$/
+		STYLE
+			COLOR 0 0 0
+			SYMBOL "RU_ONDE"
+			SIZE 6
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 0 0 0
+			WIDTH 3
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------55-----------------
+	GROUP "sp1b_4"
+	NAME "sic"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "sic"
+		TITLE "S.I.C. - Natura 2000- IT 1343502"
+		EXPRESSION /^SIC$/
+		LABEL
+			TYPE TRUETYPE
+			PARTIALS TRUE
+			FONT "arial-bold"
+			COLOR 0 0 0
+			SIZE 12
+			MINSIZE 5
+			MAXSIZE 20
+			POSITION CC
+			FORCE TRUE
+		END
+		STYLE
+			COLOR 221 30 38
+			SYMBOL "HATCH"
+			SIZE 10
+			ANGLE 45
+			WIDTH 1
+			PATTERN 1 0 END
+		END
+		STYLE
+			OUTLINECOLOR 221 30 38
+			WIDTH 2
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------56-----------------
+	GROUP "sp1b_4"
+	NAME "paesistico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "paesistico"
+		TITLE "Beni paesaggistici- immobili ed aree di notevole interesse pubblico art.136 D.Lgs 42/04 e ss.mm.ii."
+		EXPRESSION /^PAESISTICO$/
+		STYLE
+			OUTLINECOLOR 19 100 52
+			WIDTH 4
+			PATTERN 1 0 END
+		END
+	END
+END
+LAYER #----------------57-----------------
+	GROUP "sp1b_4"
+	NAME "vincolo_idrogeologico"
+	STATUS ON
+	TYPE POLYGON             
+	METADATA
+		"wms_group_title"	"sp1b"
+		"ows_title"	"sp1b"
+	END
+	PROJECTION
+		"init=epsg:3003"
+		"+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68"
+	END
+	CONNECTIONTYPE postgis
+	TEMPLATE "FOO"
+	CONNECTION "user=mapserver password=mapserver dbname=gw_bolano host=127.0.0.1 port=5432"
+	DATA "the_geom from vincoli.zona_plg using unique gid"
+	PROCESSING "CLOSE_CONNECTION=DEFER"
+	FILTER "nome_vincolo='PUC_DEF' and nome_tavola='SP1B'"
+	SIZEUNITS pixels
+	CLASSITEM "nome_zona"
+	LABELITEM "label"
+	LABELMAXSCALEDENOM 5001
+	OPACITY ALPHA
+	CLASS
+		NAME "vincolo_idrogeologico"
+		TITLE "Vincolo idrogeologico"
+		EXPRESSION /^VINCOLO_IDROGEOLOGICO$/
+		STYLE
+			OUTLINECOLOR 186 84 160
+			WIDTH 4
+			PATTERN 1 0 END
+		END
+	END
+END
+SYMBOL
+	NAME "BRICIOLE"
+TYPE vector
+	POINTS
+		2 2
+		3 2
+		3 3
+		2 3
+		2 2
+	END
+	FILLED true
+END
+SYMBOL
+	NAME "ROMBI"
+TYPE vector
+	POINTS
+		1 0
+		2 1
+		1 2
+		0 1
+		1 0
+	END
+	FILLED true
+END
+SYMBOL
+	NAME "QUADRATI"
+TYPE vector
+	POINTS
+		0 0
+		1 0
+		1 1
+		0 1
+		0 0
+		-99 -99
+		1 1
+		2 1
+		2 2
+		1 2
+		1 1
+	END
+	FILLED true
+END
+SYMBOL
+	NAME "DISTRETTI"
+TYPE vector
+	POINTS
+		1 1
+		3 1
+		3 3
+		1 3
+		1 1
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "HATCH"
+TYPE HATCH
+END
+SYMBOL
+	NAME "RU_ONDE"
+TYPE vector
+	POINTS
+		0 10
+		1 14
+		2 16
+		4 18
+		6 19
+		10 20
+		14 19
+		16 18
+		18 16
+		19 14
+		21 6
+		22 4
+		24 2
+		26 1
+		30 0
+		34 1
+		36 2
+		38 4
+		39 6
+		40 10
+	END
+	FILLED false
+END
+SYMBOL
+	NAME "FIDUCIALE"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "B"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "FRECCIA2"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "G"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "GRAFFA"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "E"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "OSSO MORTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "I"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "PICCHETTO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "D"
+ANTIALIAS TRUE
+END
+SYMBOL
+	NAME "TRIGONOMETRICO"
+	TYPE TRUETYPE
+	FONT "catasto"
+	CHARACTER "A"
+ANTIALIAS TRUE
+END
+SYMBOL
+NAME "line_select"
+TYPE ELLIPSE
+POINTS 1 1 END
+FILLED TRUE
+END
+
+ SCALEBAR	
+   INTERVALS 1
+   SIZE 100 3
+   IMAGECOLOR 255 255 255
+   BACKGROUNDCOLOR 204 204 204
+   COLOR 0 0 255
+   OUTLINECOLOR 0 0 0
+   UNITS meters
+   STYLE 0
+   LABEL
+		COLOR 0 0 0
+		TYPE bitmap
+		SIZE small
+		FONT 'arial'
+   END
+END
+END #endmap
