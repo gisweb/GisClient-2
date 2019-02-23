@@ -71,6 +71,7 @@ class sql_db
 					$this->connect_string .= "host=$sqlserver ";
 				}
 			}
+			//echo $this->connect_string;
 		}
 
 		if( $database )
