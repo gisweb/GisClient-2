@@ -22,7 +22,6 @@ require("report_common.php");//COMUNE A TUTTI I REPORT
 
 		$db->sql_query($sql);
 
-		
 		$idp=$db->sql_fetchrowset(); 
 		$numidp = $db->sql_numrows();
 			// CICLO SU PRATICHE TROVATE

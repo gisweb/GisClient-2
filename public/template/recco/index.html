@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>GisClient Base Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../../jslib/GisClient.js"></script>
+<!--Carico le librerie javascript e i file css -->
+<script  type="text/javascript">/* <![CDATA[ */window.GisClient.LoadLibs();window.GisClient.LoadCss();/* ]]> */</script>
+
+<script  type="text/javascript">
+/* <![CDATA[ */
+var myMap;
+
+window.addEvent('domready', function() {
+	myMap = new GisClient.Mapset('GCDiv',{
+	'left':0,
+	'right':0,
+	'bottom':0,
+	'top':35,
+	'resultWin':false,
+	'cleanForm':false,
+	'minWidth':800,
+	'minHeight':600,
+	'zoomstep': 2,
+	'toolbarHeight':30,//horizontal
+	'toolbarWidth':0,//vertical
+	'statusbarHeight':20,
+	'panelWidth':350,//width of right tab panel 
+	'refmapHeight':258,//reference map height
+	//'refmapWidth':200, //reference map height
+	'minSliderScale':100,//min scale for slider
+
+	//per mapbox
+	'point_diameter':5,
+    'color': '#00ff00',
+	'thickness': 2,
+	'color_move': 'red',
+	'thickness_move': 2,
+	'jitter': 4 // minimum size (in pixels_ of a mouse event resulting in a point. (default: 10).
+	
+	//Vedere altri alltributi su Gisclient.Mapset.js
+	
+	});
+	
+	//Assegnazione ad un oggetto su opener per automazione (esempi)
+	//if(opener && opener.gisclientMap) opener.gisclientMap=myMap;
+	//if(opener && opener.gcEditGeometry) GisClient.gcEditGeometry = opener.gcEditGeometry; 
+});
+
+
+/* ]]> */
+</script>
+
+</head>
+<body>
+<!-- Esempio intestazione  template-->
+	<style>
+		div#intestazione { background-color:rgb(59,76,107); background-image:url(sfondo.png); width:100%; border-right:1px solid #000000; height:35px; background-repeat:repeat-x; padding:0px; margin-top:0px; border-right:1px solid #000000; width:100%; }
+		div#top_menu A:link	{COLOR: #FFFFFF; text-decoration:none; }
+		div#top_menu A:visited {COLOR: #FFFFFF; text-decoration:none;}
+		div#top_menu A:hover {Color: #FF8000;text-decoration:none;}
+		
+	</style>
+	<div id="intestazione">
+			<div style="float:left; text-align:right; color:white; font-size:22px; font-family:tahoma, verdana, arial; width:524px">
+				<span id="gisclient_mapset_title" style="text-align:right;top:10px">Avvio della mappa....</span>
+			</div>
+			<div style="float:right;margin-top:10px;font-size:22px">
+				<b style="color:#FF8000">GisClient <small>2.2</small></b>&nbsp;&nbsp;
+			</div>
+	</div>
+<!-- Fine dell'intestazione-->
+<div id="GCDiv"></div>
+
+</body>
+</html>
+
+

@@ -10,7 +10,7 @@ require_once (ROOT_PATH.'lib/functions.php');
 //print_r($_REQUEST);
 //print_r($_SESSION);
 //trovo la stringa di conessione e altre info dato il layerid
-$db = new sql_db(DB_HOST,DB_USER,DB_PWD,DB_NAME, false);
+$db = new sql_db(DB_HOST.":5434",DB_USER,DB_PWD,DB_NAME, false);
 if(!$db->db_connect_id) die( "Impossibile connettersi al database " . DB_NAME); 
 $dbschema=DB_SCHEMA; 
 $layerGroupId = $_REQUEST["grpid"];
@@ -50,7 +50,7 @@ foreach($v as $opt){
 	$aConn[trim($v1[0])]=trim($v1[1]);
 }
 
-$db = new sql_db($aConn["host"],$aConn["user"],$aConn["password"],$aConn["dbname"], false);
+$db = new sql_db($aConn["host"].":5434",$aConn["user"],$aConn["password"],$aConn["dbname"], false);
 if(!$db->db_connect_id) die( "Impossibile connettersi al database " . $aConn["dbname"]);
 
 

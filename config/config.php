@@ -19,7 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 */
-if(!isset($_SESSION)) session_start();
+
+session_start();
 
 //Max tempo di esecuzione x script in sec
 ini_set('max_execution_time',240);
@@ -31,13 +32,14 @@ error_reporting (E_ERROR | E_PARSE);
 
 //error_reporting  (E_ERROR | E_ALL);
 //error_reporting  (E_ALL);
+error_reporting(E_ERROR);
 
 //tempo max di esecuzione (sec.) e quantità di memoria disponibile (MB) in caso di operazioni tipo export/import
 define('LONG_EXECUTIONE_TIME',300);
 define('LONG_EXECUTION_MEMORY','512M');
 
 /*******************Installation path *************************/
-define('ROOT_PATH','/apps/gisclient-2.2/');
+define('ROOT_PATH','/apps/GisClient-2/');
 define('IMAGE_PATH','/tmp/ms_tmp/');
 define('IMAGE_URL','/tmp/');
 /*******************                  *************************/

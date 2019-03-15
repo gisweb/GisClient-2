@@ -9,7 +9,7 @@ require_once('../../../../config/config.php');
 //print_r($_REQUEST);
 //print_r($_SESSION);
 //trovo la stringa di conessione e altre info dato il layerid
-$db = new sql_db(DB_HOST,DB_USER,DB_PWD,DB_NAME, false);
+$db = new sql_db(DB_HOST.":5434",DB_USER,DB_PWD,DB_NAME, false);
 if(!$db->db_connect_id) die( "Impossibile connettersi al database " . DB_NAME); 
 
 
@@ -24,10 +24,10 @@ if ($layerFilter) $layerFilter=" and " .$layerFilter;
 
 $viewVincoli="(select vincolo.descrizione as descvincolo,vincolo.norma,tavola.descrizione as desctavola,zona.descrizione as desczona,zona.sigla as siglazona,zona.nome_vincolo,zona.nome_tavola,zona.nome_zona,zona_plg.the_geom,vincolo.ordine as ordvincolo,tavola.ordine as ordtavola,zona.ordine as ordzona from vincoli.zona_plg inner join vincoli.zona using(nome_vincolo,nome_tavola,nome_zona) inner join vincoli.tavola using (nome_vincolo,nome_tavola) inner join vincoli.vincolo using (nome_vincolo))";
 
-$queryString="select view_vincoli.descvincolo,view_vincoli.norma,view_vincoli.desctavola,view_vincoli.desczona,view_vincoli.siglazona,view_vincoli.nome_vincolo,view_vincoli.nome_tavola,view_vincoli.nome_zona,sezione,foglio,mappale,round(sum(area(intersection(particelle.".THE_GEOM.",view_vincoli.the_geom))/area (particelle.".THE_GEOM.")*100)::numeric,1) as perc_area
+$queryString="select view_vincoli.descvincolo,view_vincoli.norma,view_vincoli.desctavola,view_vincoli.desczona,view_vincoli.siglazona,view_vincoli.nome_vincolo,view_vincoli.nome_tavola,view_vincoli.nome_zona,sezione,foglio,mappale,round(sum(st_area(st_intersection(particelle.".THE_GEOM.",view_vincoli.the_geom))/st_area (particelle.".THE_GEOM.")*100)::numeric,1) as perc_area
 	from nct.particelle,$viewVincoli as view_vincoli
 	where particelle.$layerUniqueField in ($resultIdList)
-	and (area(intersection (particelle.".THE_GEOM.",view_vincoli.the_geom))>10 or area(intersection(particelle.".THE_GEOM.",view_vincoli.the_geom))/area (particelle.".THE_GEOM.")>=0.02)
+	and (st_area(st_intersection (particelle.".THE_GEOM.",view_vincoli.the_geom))>10 or st_area(st_intersection(particelle.".THE_GEOM.",view_vincoli.the_geom))/st_area (particelle.".THE_GEOM.")>=0.02)
 	group by particelle.".THE_GEOM.",1,2,3,4,5,6,7,8,9,10,11,ordvincolo,ordtavola,ordzona order by ordvincolo,ordtavola,ordzona,perc_area desc;";
 	//print "<p>$queryString</p>";
 	$db->sql_query ($queryString);

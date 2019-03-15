@@ -1,219 +1,141 @@
 <?php
 
-	$domain=explode(".",$_SERVER["HTTP_HOST"]); 
-	$userIp=$_SERVER['REMOTE_ADDR'];
-	$dbName='gisclient_demo';
+$domain=explode(".",$_SERVER["HTTP_HOST"]);
+$userIp=$_SERVER['REMOTE_ADDR'];
+$charSet='UTF-8';
+$port='5434';
+$dbUser='gwAdmin';
+$dbPwd='!{!dpQ3!Hg7kdCA9';
+
+
+if (isset($_REQUEST["db"])) $_SESSION["gisclient_database"]=$_REQUEST["db"];
+if (isset($_SESSION["gisclient_database"])){
+    $dbName=$_SESSION["gisclient_database"];
+    $charSet='UTF-8';
+    $dbSchema='gisclient_22';
+    $dbport='5434';
+    $userSchema=$dbSchema;
+}
+else{
 	$dbSchema='gisclient_22';
 	$userSchema=$dbSchema;
-	$charSet='UTF-8';
-	
-//$domain = array('camogli');
 
-
-	if(in_array('portalesit',$domain)){
-		$dbName='gisclient';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}	
-
-	if(in_array('imperia',$domain)){
-		$dbName='gw_imperia';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
+	if (in_array('sanremo',$domain)){
+		$dbName='gw_sanremo';
 	}
-
-	if(in_array('lavagna',$domain)){
-		$dbName='gw_lavagna';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}	
-
-	if(in_array('carasco',$domain)){
-		$dbName='gw_carasco';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-	if(in_array('savignone',$domain)){
-		$dbName='gw_savignone';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-	
-	if(in_array('noli',$domain)){
-                $dbName='gw_noli';
-                $charSet='ISO-8859-15';
-                $dbSchema='gisclient_22';
-                $userSchema=$dbSchema;
-        }
-
-	if(in_array('demo',$domain)){
-		$dbName='gw_demo';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-	if(in_array('vezzano',$domain)){
-		$dbName='gw_vezzano';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-	if(in_array('sori',$domain)){
-		$dbName='gw_sori';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-	if(in_array('rapallo',$domain)){
-		$dbName='gw_rapallo';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema='admin';
-	}
-
-      if(in_array('moneglia',$domain)){
-		$dbName='gw_moneglia';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-      if(in_array('pieveligure',$domain)){
+	if (in_array('pieveligure',$domain)){
 		$dbName='gw_pieveligure';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
 	}
-
-      if(in_array('camogli',$domain)){
+	if (in_array('bolano',$domain)){
+		$dbName='gw_bolano';      
+	}
+	if (in_array('recco',$domain)){
+		$dbName='gw_recco';
+	}
+	if (in_array('taggia',$domain)){
+		$dbName='gw_taggia';
+	}
+	if (in_array('imperia',$domain)){
+			$dbName='gw_imperia';
+	}
+	if (in_array('andora',$domain)){
+			$dbName='gw_andora';
+	}
+	if (in_array('noli',$domain)){
+			$dbName='gw_noli';
+	}
+	if (in_array('camogli',$domain)){
 		$dbName='gw_camogli';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
 	}
-
-       if(in_array('bolano',$domain)){
-		$dbName='gw_bolano';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-       if(in_array('busalla',$domain)){
-		$dbName='gw_busalla';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('fivizzano',$domain)){
+	if (in_array('fivizzano',$domain)){
 		$dbName='gw_fivizzano';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('vernazza',$domain)){
-		$dbName='gw_vernazza';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('dego',$domain)){
-		$dbName='gw_dego';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('ceriale',$domain)){
-		$dbName='gw_ceriale';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('leivi',$domain)){
-		$dbName='gw_leivi';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-       if(in_array('dianosanpietro',$domain)){
-		$dbName='gw_dianosanpietro';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-      if(in_array('pianacrixia',$domain)){
-		$dbName='gw_pianacrixia';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-
-       if(in_array('plone3',$domain)){
-		$dbName='gw_savona';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-
-       if(in_array('cairomontenotte',$domain)){
-		$dbName='gw_cairo';
-		$charSet='UTF8';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('giusvalla',$domain)){
-		$dbName='gw_giusvalla';
-		$charSet='ISO-8859-15';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-
-       if(in_array('sestrilevante',$domain)){
-		$dbName='sit';
-		$charSet='UTF8';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
-	}
-       if(in_array('magliolo',$domain)){
+	}	
+	if (in_array('magliolo',$domain)){
 		$dbName='gw_magliolo';
-		$charSet='UTF8';
-		$dbSchema='gisclient_22';
-		$userSchema=$dbSchema;
+	}	
+	if (in_array('dianosanpietro',$domain)){
+		$dbName='gw_dianosanpietro';
+	}	
+	if (in_array('dego',$domain)){
+		$dbName='gw_dego';
+	}	
+	if (in_array('vernazza',$domain)){
+		$dbName='gw_vernazza';
+	}	
+	if (in_array('lavagna',$domain)){
+		$dbName='gw_lavagna';
+	}	
+	if (in_array('sestrilevante',$domain)){
+		$dbName='sit';
+	}	
+	if (in_array('sori',$domain)){
+		$dbName='gw_sori';
+	}	
+	if (in_array('savignone',$domain)){
+		$dbName='gw_savignone';
+	}	
+	if (in_array('leivi',$domain)){
+		$dbName='gw_leivi';
+	}		
+	if (in_array('pianacrixia',$domain)){
+		$dbName='gw_pianacrixia';
+	}		
+	if (in_array('ceriale',$domain)){
+		$dbName='gw_ceriale';
+	}		
+	if (in_array('sori',$domain)){
+		$dbName='gw_sori';
+	}		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	if (in_array('vezzanoligure',$domain) || in_array('vezzano',$domain)){
+		$dbName='gw_vezzano';
+	}
+	
+	
+	////NUOVI
+    if (in_array('moneglia',$domain)){
+			$dbName='gw_moneglia';
+	}
+	
+if (in_array('gisclient',$domain)){
+			$dbName='gw_sanremo';
 	}
 
+}
 
 
+//Impostazioni database Postgresql
+define('DB_NAME', $dbName);
+define('DB_SCHEMA', $dbSchema);
+define('USER_SCHEMA', $userSchema);
+define('CHAR_SET', 'UTF-8');
+define('DB_HOST', '195.88.6.158');
+define('DB_PORT', $port);
+define('DB_USER', $dbUser); //Superutente
+define('DB_PWD', $dbPwd);
 
-	//Impostazioni database Postgresql
-	define('DB_NAME',$dbName);
-	define('DB_SCHEMA',$dbSchema);
-	define('USER_SCHEMA',$userSchema);
-	define('CHAR_SET',$charSet);
-	define('DB_HOST','127.0.0.1');
-	define('DB_PORT','5432');
-	define('DB_USER','postgres');//Superutente
-	define('DB_PWD','postgres');
+define('MAP_USER','mapserver');
+define('MAP_PWD','mapserver');
 	
-	//Utente scritto sul file .map
-	define('MAP_USER','mapserver');
-	define('MAP_PWD','mapserver');
-	
-	//Superutente per l'accesso ad Author
-	define('SUPER_USER','Admin');
-	define('SUPER_PWD','@1sw3b');	
-	
-
+//Superutente per l'accesso ad Author
+define('SUPER_USER','claudio');
 	
 ?>

@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+session_start();
 require("report_common.php");//COMUNE A TUTTI I REPORT
 
 /*
@@ -20,10 +20,14 @@ require("report_common.php");//COMUNE A TUTTI I REPORT
 		$sql.="(select distinct pratica from nct.particelle,pe.curbano 
 			where coalesce(particelle.sezione,'')=coalesce(curbano.sezione,'') and particelle.foglio=curbano.foglio and particelle.mappale=curbano.mappale and particelle.gid=$resultIdList)";
 
-		$db->sql_query($sql);
-	      			
+		$db->sql_query ($sql);
 	
-		$idp=$db->sql_fetchrowset(); 
+
+
+			
+			
+		
+		$idp=$db->sql_fetchrowset();
 		$numidp = $db->sql_numrows();
 			// CICLO SU PRATICHE TROVATE
 				// CONTROLLO CHE PRATICA SIA DI TIPO GIUSTO 2000/2100/10000/10200/11000/11220
@@ -31,7 +35,6 @@ require("report_common.php");//COMUNE A TUTTI I REPORT
 			for($i=0;$i<count($idp);$i++) {
 				$sql="SELECT tipo FROM pe.avvioproc WHERE pratica=".$idp[$i]["pratica"].";";
 				
-
 				$db->sql_query ($sql);
 				$nrec = $db->sql_numrows();
 				$tipop = $db->sql_fetchrow();
@@ -134,7 +137,7 @@ require("report_common.php");//COMUNE A TUTTI I REPORT
 			unset($elenco_indirizzi);
 			unset($elenco_terreni);
 		}
-	
+		
 ?>
 <html>
 	<head>

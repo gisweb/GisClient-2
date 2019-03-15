@@ -852,7 +852,7 @@ class GCMap{
 				$count=0;
 				
 				
-				if($this->msVersion=='6'){
+				if($this->msVersion=='6' || $this->msVersion=='7'){
 					$tmpExpr = array();
 					//TOLGO LA CLASSIFICAZIONE CHE CREA PROBLEMI
 					for ($cl=0; $cl < $oLayer->numclasses; $cl++) {
@@ -1037,12 +1037,12 @@ class GCMap{
 			$oLayer->set('sizeunits', MS_PIXELS);	
 			
 			$oClass = ms_newClassObj($oLayer);
-			$oClass->label->set('type', MS_TRUETYPE);
-			$oClass->label->set('font', $sFont);
-			$oClass->label->color->setRGB($colorList[0], $colorList[1], $colorList[2]);
-			$oClass->label->set('size', $Size);
-			$oClass->label->outlinecolor->setRGB(255, 255, 255);
-			$oClass->label->set('position', $iPosition);			
+			//$oClass->label->set('type', MS_TRUETYPE);
+			//$oClass->label->set('font', $sFont);
+			//$oClass->label->color->setRGB($colorList[0], $colorList[1], $colorList[2]);
+			//$oClass->label->set('size', $Size);
+			//$oClass->label->outlinecolor->setRGB(255, 255, 255);
+			//$oClass->label->set('position', $iPosition);			
 			
 			$oLayer->addFeature($oShape);
 

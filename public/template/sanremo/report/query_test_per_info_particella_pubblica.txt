@@ -1,0 +1,19 @@
+## usata per vedere se ci sono problemi sul database
+
+select view_vincoli.descvincolo,view_vincoli.norma,
+view_vincoli.desctavola,view_vincoli.desczona,view_vincoli.siglazona,view_vincoli.nome_vincolo,
+view_vincoli.nome_tavola,view_vincoli.nome_zona,sezione,foglio,mappale,
+round(sum(area(intersection(particelle.bordo_gb,view_vincoli.the_geom))/area (particelle.bordo_gb)*100)::numeric,1) as perc_area 
+from nct.particelle,
+(select vincolo.descrizione as descvincolo,vincolo.norma,tavola.descrizione as desctavola,
+zona.descrizione as desczona,zona.sigla as siglazona,zona.nome_vincolo,zona.nome_tavola,zona.nome_zona,
+zona_plg.the_geom,vincolo.ordine as ordvincolo,tavola.ordine as ordtavola,zona.ordine as ordzona 
+from vincoli.zona_plg inner join vincoli.zona using(nome_vincolo,nome_tavola,nome_zona) 
+inner join vincoli.tavola using (nome_vincolo,nome_tavola) inner join vincoli.vincolo using (nome_vincolo) 
+where (data_a is null or data_a>=current_date) and (data_da<=current_date or data_da is null)) as 
+view_vincoli where particelle.gid = 4445 and view_vincoli.nome_vincolo!='PUC' and (area(intersection (particelle.bordo_gb,view_vincoli.the_geom))>5 
+or area(intersection(particelle.bordo_gb,view_vincoli.the_geom))/area (particelle.bordo_gb)>=0.02) 
+group by particelle.bordo_gb,1,2,3,4,5,6,7,8,9,10,11,ordvincolo,ordtavola,ordzona order by ordvincolo,ordtavola,ordzona,perc_area desc;
+
+##########
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+
+<script type="text/javascript" src="../../jslib/GisClient.js"></script>
+
+<script  type="text/javascript">
+/* <![CDATA[ */
+	var ua = navigator.userAgent.toLowerCase();
+	var isIE6 = ua.indexOf("msie 6") > -1, isIE7 = ua.indexOf("msie 788") > -1;
+	if(isIE6)
+		document.write("<link rel=\"StyleSheet\" media=\"screen\" href=\"../../css/ie6.css\" type=\"text/css\" />");
+	if(isIE7)
+		document.write("<link rel=\"StyleSheet\" media=\"screen\" href=\"../../css/ie7.css\" type=\"text/css\" />");
+/* ]]> */
+</script>
+<link rel="StyleSheet" media="screen" href="../../css/jxtheme.css" type="text/css"/>
+<link rel="StyleSheet" media="screen" href="../../css/jxCheckTree.css" type="text/css"/>
+<link rel="StyleSheet" media="screen" href="../../css/Autocompleter.css" type="text/css"/>
+<link rel="stylesheet" media="screen" href="../../css/vlaCal-v2.1.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="../../css/vlaCal-v2.1-adobe_cs3.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="../../css/vlaCal-v2.1-apple_widget.css" type="text/css" />
+<link rel="StyleSheet" media="screen" href="../../css/newcss.css" type="text/css"/>
+<link rel="StyleSheet" media="screen" href="../../css/result.css" type="text/css"/>
+<link rel="StyleSheet" media="screen" href="../../css/global-0.14.css" type="text/css"/>
+
+<script  type="text/javascript">
+/* <![CDATA[ */
+
+var myMap;
+window.addEvent('domready', function() {
+	myMap = new GisClient.Mapset('GCDiv',{
+	'left':0,
+	'right':0,
+	'bottom':0,
+	'top':0,
+	'minWidth':800,
+	'minHeight':600,
+	'zoomstep': 2,
+	'toolbarHeight':30,//horizontal
+	'toolbarWidth':0,//vertical
+	'statusbarHeight':20,
+	'panelWidth':350,//width of right tab panel 
+	'refmapHeight':258,//reference map height
+	//'refmapWidth':200, //reference map height
+	'minSliderScale':100,//min scale for slider
+
+	//per mapbox
+	'point_diameter':5,
+    'color': '#00ff00',
+	'thickness': 2,
+	'color_move': 'yellow',
+	'thickness_move': 2,
+	'jitter': 4, // minimum size (in pixels_ of a mouse event resulting in a point. (default: 10).
+	
+	'boooo':0
+	
+	});
+	//myMap.addEvent('addObject',Aggiornamappa);
+	//myMap.addEvent('authenticationFailed',Loggati);
+
+
+	qb=new GisClient.QueryBuilder('GCDiv',{});
+	$('gc_ButtonAdvancedSearch').addEvent('click',function(){
+		if($('list_gc_mode').value==MODE_SELECT){
+			return;
+		}
+		var param='qt='+$('list_gc_qt').value;
+		var request = new Request.JSON({
+			url: GisClient.BaseUrl +'xserver/xMain.php',
+			onSuccess: function(response){
+				qb.writeObject(response.object,response.fieldList)
+			},
+			onComplete: function(response) {
+				qb.qbdialog.open();
+			}
+		}).send('action=init.QB&'+param);
+	});
+
+});
+
+if(opener && opener.gcMap) opener.gcMap=myMap;
+
+/* ]]> */
+</script>
+
+
+
+
+
+<title>GisClient Default Template</title>
+</head>
+<body>
+
+
+<div id="GCDiv"></div>
+
+
+</body>
+</html>
+
+

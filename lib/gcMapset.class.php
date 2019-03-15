@@ -820,7 +820,15 @@ class GCMapset{
 			if(!empty($layerFilter)) $layText[]="FILTER \"$layerFilter\"";
 			
 */
-			if(!empty($aLayer["data_filter"])) $layText[]="FILTER \"". $aLayer["data_filter"] ."\"";
+			if(!empty($aLayer["data_filter"])){
+				if ($this->msVersion >= 7) {
+					$layText[] = "PROCESSING \"NATIVE_FILTER=" . str_replace('"', '\"', $aLayer["data_filter"]) . "\"";
+				}
+				else {
+					$layText[] = "FILTER \"" . $aLayer["data_filter"] . "\"";
+				}
+			}
+
 			if($aLayer["sizeunits_name"]) $layText[]="SIZEUNITS ". $aLayer["sizeunits_name"];		
 			if($aLayer["classitem"] && $aLayer["layertype_ms"]!=7) $layText[]="CLASSITEM \"". $aLayer["classitem"]."\"";
 			if($aLayer["labelitem"]) $layText[]="LABELITEM \"". $aLayer["labelitem"]."\"";		
