@@ -1,0 +1,8 @@
+*.ttf
+mapset/map
+mapset/fonts
+public/images
+config/debug
+public/admin/export
+config/config.php
+config/config.db.php

@@ -138,7 +138,7 @@ class PgQuery{
 			$qtId=intval($row["qt_id"]);
 			$linkId=intval($row["link_id"]);
 			$link=$row["link_def"];
-			$linkTitle=$row["link_name_alt"]?$row["link_name_alt"]:$row["link_name"];
+			$linkTitle=isset($row["link_name_alt"])?$row["link_name_alt"]:$row["link_name"];
 			$qLink[$qtId][$linkId]=array($link,$linkTitle,intval($row["winw"]),intval($row["winh"]));
 		}		
 		print_debug($sqlLink,null,'template');
@@ -736,7 +736,7 @@ class PgQuery{
 		E SOSTITUENDO L'EXTENT CON IL BOX CHE CONTIENE TUTTI GLI OGGETTI. IN QUESTO MODO OTTENGO UN OGGETTO VIRTUALE 
 		COSTITUITO DA DIVERSI RECORD 																	*/
 			
-			eval("if (!".$myArray."[\"data\"]) ".$myArray."[\"data\"] = array();");
+			eval("if (!isset(".$myArray."[\"data\"])) ".$myArray."[\"data\"] = array();");
 			if($groupobject){
 				eval("\$key = array_search(\$Row,".$myArray."[\"data\"]);");			
 				if($key===false){	

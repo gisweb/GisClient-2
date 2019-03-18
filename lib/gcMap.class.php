@@ -869,7 +869,7 @@ class GCMap{
 				$count=0;
 				
 				
-				if($this->msVersion=='6'){
+				if($this->msVersion >= '6'){
 					$tmpExpr = array();
 					//TOLGO LA CLASSIFICAZIONE CHE CREA PROBLEMI
 					for ($cl=0; $cl < $oLayer->numclasses; $cl++) {
@@ -878,7 +878,12 @@ class GCMap{
 						$oCls->setExpression('');
 					}
 					foreach($idList as $id){
-						$ret = $oLayer->queryByAttributes($idField,$idField."=".$id,MS_SINGLE);	
+						if ($this->msVersion >= 7){
+							$ret = $oLayer->queryByAttributes($idField,$id,MS_SINGLE);	
+						}
+						else{
+							$ret = $oLayer->queryByAttributes($idField,$idField."=".$id,MS_SINGLE);	
+						}
 						if($oLayer->getNumResults()>0){
 							$resShape = $oLayer->getShape($oLayer->getResult(0));
 							if($resShape) $selLayer->addFeature($resShape);
@@ -1050,20 +1055,23 @@ class GCMap{
 			$oLayer->set('name', $sLayer);
 			$oLayer->set('status', MS_DEFAULT);
 			$oLayer->set('transform', MS_FALSE);
-			$oLayer->set('type', MS_LAYER_ANNOTATION);
+			$oLayer->set('type', MS_LAYER_POINT);
 			$oLayer->set('sizeunits', MS_PIXELS);	
 			
 			$oClass = ms_newClassObj($oLayer);
+			
 			//MAPSERVER >6.2
-			try{
+
+			if ($this->msVersion < 6){
 				$label = $oClass->label;
 			}
-			catch (Exception $e) {
+			else {
 				$label = new labelObj();
 				$oClass->addLabel($label);
 			}
-			
-			$label->set('type', MS_TRUETYPE);
+			if ($this->msVersion < 7){
+				$label->set('type', MS_TRUETYPE);
+			}
 			$label->set('font', $sFont);
 			$label->color->setRGB($colorList[0], $colorList[1], $colorList[2]);
 			$label->set('size', $Size);

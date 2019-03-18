@@ -13,6 +13,10 @@ if(defined('USER_SCHEMA') && USER_SCHEMA == "admin"){ //Utenti PLONE
 $usr=new userApps($usrObj);
 
 //Accesso all'Author da superutente
+if (!defined('SUPER_PWD')){
+	define('SUPER_PWD','');
+}
+
 if ((SUPER_PWD=='') ||
     (substr(SUPER_PWD, 0, 4) == 'md5:' && isset($_POST["username"]) && $_POST["username"]==SUPER_USER && $_POST["enc_password"]==substr(SUPER_PWD, 4)) ||
     (isset($_POST["username"]) && $_POST["username"]==SUPER_USER && $_POST["enc_password"]==md5(SUPER_PWD))||
