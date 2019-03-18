@@ -867,9 +867,25 @@ class GCMap{
 				if($sProj) $selLayer->setProjection($sProj);		
 				//Aggiungo un riferimento ogni oggetto selezionato ai layer di selezione
 				$count=0;
-				
-				
-				if($this->msVersion >= '6'){
+
+				if($this->msVersion >= '7'){
+					//In ms7 queryByAttributes filtra tutt il layer quindi devo fare un clone
+					$tmpExpr = array();
+					$clone = ms_newLayerObj($oMap, $oLayer);
+					foreach($idList as $id){
+						$ret = $clone->queryByAttributes($idField,$id,MS_SINGLE);	
+						if($clone->getNumResults()>0){
+							$resShape = $clone->getShape($clone->getResult(0));
+							if($resShape) $selLayer->addFeature($resShape);
+							$count++;						
+							if (MAX_OBJ_SELECTED && $count==MAX_OBJ_SELECTED){
+								$this->message="Superato il massimo numero di oggetti selezionabili";
+								break;
+							}
+						}
+					}
+				}
+				elseif($this->msVersion >= '6'){
 					$tmpExpr = array();
 					//TOLGO LA CLASSIFICAZIONE CHE CREA PROBLEMI
 					for ($cl=0; $cl < $oLayer->numclasses; $cl++) {
@@ -878,12 +894,7 @@ class GCMap{
 						$oCls->setExpression('');
 					}
 					foreach($idList as $id){
-						if ($this->msVersion >= 7){
-							$ret = $oLayer->queryByAttributes($idField,$id,MS_SINGLE);	
-						}
-						else{
-							$ret = $oLayer->queryByAttributes($idField,$idField."=".$id,MS_SINGLE);	
-						}
+						$ret = $oLayer->queryByAttributes($idField,$idField."=".$id,MS_SINGLE);	
 						if($oLayer->getNumResults()>0){
 							$resShape = $oLayer->getShape($oLayer->getResult(0));
 							if($resShape) $selLayer->addFeature($resShape);
@@ -898,8 +909,8 @@ class GCMap{
 					for ($cl=0; $cl < $oLayer->numclasses; $cl++) {
 						$oCls = $oLayer->getClass($cl);
 						$oCls->setExpression($tmpExpr[$cl]);
-					}
-				}
+					}					
+			    }
 				else{
 					$oLayer->open();
 					foreach($idList as $id){
