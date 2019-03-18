@@ -395,10 +395,58 @@ class GCMap{
 				//Setto al volo il filtro mapset
 				if($_SESSION[$myMap]["FILTER"] && in_array($oLayer->name, $_SESSION[$myMap]["FILTER_LAYER"][$idx])){
 					$layerFilter = $_SESSION[$myMap]["FILTER"];
-					//print_debug($oLayer->getFilterString());
-					if($oLayer->getFilterString()) $layerFilter = str_replace("\"","",$oLayer->getFilterString())." AND " .$layerFilter;
-					$oLayer->setFilter($layerFilter);
+					if($this->msVersion=='7'){
+						//TODO DA FINIRE ORA PRENDE SOLO UN FILTRO
+						$processing=$oLayer->getProcessing(); ///.......TODO
+						print_debug($processing,null,'processing');
+						for($i=0;$i<count($processing);$i++){
+							if(strpos("NATIVE_FILTER",$processing[$i])!==false){
+								$layerFilter = $processing[$i];
+							}
+						}
+						$oLayer->setprocessing("NATIVE_FILTER=" . $layerFilter);
+					}
+					else{
+						if($oLayer->getFilterString()) $layerFilter = str_replace("\"","",$oLayer->getFilterString())." AND " .$layerFilter;
+						$oLayer->setFilter($layerFilter);
+					}
 				} 
+			/*
+			
+				if($_SESSION[$myMap]["FILTER"] && in_array($oLayer->name, $_SESSION[$myMap]["FILTER_LAYER"][$idx])){
+					$layerFilter = $_SESSION[$myMap]["FILTER"];
+					if($this->msVersion=='8'){
+						$processing=$oLayer->getProcessing(); 
+						$indexFilter = null;
+						for($i=0;$i<count($processing);$i++){
+							print_debug(strpos($processing[$i],"NATIVE_FILTER"),null,'processing2');
+							if(strpos($processing[$i],"NATIVE_FILTER")==0){
+								$indexFilter = $i;
+							}
+						}
+						if ($indexFilter != null){
+							$processing[$indexFilter] = str_replace("\"","",$processing[$indexFilter])." AND " .$layerFilter;
+						}
+						//$oLayer->clearProcessing();
+						//for($i=0;$i<count($processing);$i++){
+						//	$oLayer->setprocessing($processing[$i]);
+						//}
+					}
+					else{
+						$currentFilter = $oLayer->getFilterString();
+						if ($currentFilter!=''){
+							$layerFilter = str_replace("\"","",$currentFilter)." AND " .$layerFilter;
+						}						
+						$oLayer->setFilter($layerFilter);
+					}
+				} 
+			
+			
+			
+			*/
+			
+			
+			
 			
 				$dynamicFilter = $this->getDynamicFilter($oLayer->name);
 				//print_debug($dynamicFilter,null,'filter');
