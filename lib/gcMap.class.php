@@ -400,10 +400,13 @@ class GCMap{
 						$processing=$oLayer->getProcessing();
 						if(count($processing)>1){
 							$layerFilter = str_replace("\"","",$processing[1])." AND " .$layerFilter;
+							$oLayer->clearProcessing();
+							$oLayer->setprocessing("CLOSE_CONNECTION=DEFER");
+							$oLayer->setprocessing($layerFilter);
 						}
-						$oLayer->clearProcessing();
-						$oLayer->setprocessing("CLOSE_CONNECTION=DEFER");
-						$oLayer->setprocessing($layerFilter);
+						else{
+							$oLayer->setprocessing("NATIVE_FILTER=" . $layerFilter);
+						}
 					}
 					else{
 						if($oLayer->getFilterString()) $layerFilter = str_replace("\"","",$oLayer->getFilterString())." AND " .$layerFilter;
@@ -418,10 +421,13 @@ class GCMap{
 						$processing=$oLayer->getProcessing();
 						if(count($processing)>1){
 							$dynamicFilter = str_replace("\"","",$processing[1])." AND " .$dynamicFilter;
+							$oLayer->clearProcessing();
+							$oLayer->setprocessing("CLOSE_CONNECTION=DEFER");
+							$oLayer->setprocessing($dynamicFilter);
 						}
-						$oLayer->clearProcessing();
-						$oLayer->setprocessing("CLOSE_CONNECTION=DEFER");
-						$oLayer->setprocessing($dynamicFilter);					
+						else{
+							$oLayer->setprocessing("NATIVE_FILTER=" . $dynamicFilter);
+						}
 					}
 					else{					
 						if($oLayer->getFilterString()) $dynamicFilter = str_replace("\"","",$oLayer->getFilterString())." AND " .$dynamicFilter;
