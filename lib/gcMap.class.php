@@ -638,9 +638,23 @@ class GCMap{
 					//Setto al volo il filtro mapset
 					if($_SESSION[$myMap]["FILTER"] && in_array($oLayer->name, $_SESSION[$myMap]["FILTER_LAYER"][$idx])){
 						$layerFilter = $_SESSION[$myMap]["FILTER"];
-						print_debug($oLayer->getFilterString());
-						if($oLayer->getFilterString()) $layerFilter = str_replace("\"","",$oLayer->getFilterString())." AND " .$layerFilter;
-						$oLayer->setFilter($layerFilter);
+						if($this->msVersion=='7'){
+							//ATTENZIONE per velocizzare considero che processing sia fatto da 2 voci CLOSE_CONNECTION e NATIVE_FILTER
+							$processing=$oLayer->getProcessing();
+							if(count($processing)>1){
+								$layerFilter = str_replace("\"","",$processing[1])." AND " .$layerFilter;
+								$oLayer->clearProcessing();
+								$oLayer->setprocessing("CLOSE_CONNECTION=DEFER");
+								$oLayer->setprocessing($layerFilter);
+							}
+							else{
+								$oLayer->setprocessing("NATIVE_FILTER=" . $layerFilter);
+							}
+						}
+						else{
+							if($oLayer->getFilterString()) $layerFilter = str_replace("\"","",$oLayer->getFilterString())." AND " .$layerFilter;
+							$oLayer->setFilter($layerFilter);
+						}
 					} 
 				}
 			}
