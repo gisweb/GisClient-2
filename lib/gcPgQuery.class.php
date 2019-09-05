@@ -434,7 +434,7 @@ class PgQuery{
 		if($srid>0 && $srid!=$datalayerSRID){
 			$layerSRS = $_SESSION[$myMap]["SRS"][$datalayerSRID];
 			$mapsetSRS = $_SESSION[$myMap]["SRS"][$srid];
-			$geomColumn="transform_geometry(".DATALAYER_ALIAS_TABLE.".".$datalayerGeom.",'$layerSRS','$mapsetSRS',$srid)";
+			$geomColumn="postgis_transform_geometry(".DATALAYER_ALIAS_TABLE.".".$datalayerGeom.",'$layerSRS','$mapsetSRS',$srid)";
 		}
 		else
 			$geomColumn=DATALAYER_ALIAS_TABLE.".".$datalayerGeom;	
@@ -912,7 +912,7 @@ class PgQuery{
 		if($mapSRID>0 && $mapSRID!=$datalayerSRID){
 			$layerSRS = $_SESSION[$myMap]["SRS"][$datalayerSRID];
 			$mapsetSRS = $_SESSION[$myMap]["SRS"][$mapSRID];
-			$datalayerGeom="transform_geometry($datalayerGeom,'$layerSRS','$mapsetSRS',$mapSRID)";
+			$datalayerGeom="postgis_transform_geometry($datalayerGeom,'$layerSRS','$mapsetSRS',$mapSRID)";
 		}
 		
 		if(count($idList)==1)
