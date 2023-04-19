@@ -95,7 +95,7 @@ class GCMap{
 				$this->geoExtent = $_SESSION[$myMap]["HISTORY"][$hindex];
 		}		
 		
-		//Se il comando è reload ripulisco la sessione
+		//Se il comando Ã¨ reload ripulisco la sessione
 		if (($action == "reload")||($action=="initmap")){
 			unset($_SESSION[$myMap]["LAYERS_ORDER"]);
 			unset($_SESSION[$myMap]["SELECTION_POLYGON"]);
@@ -115,7 +115,7 @@ class GCMap{
 			$_SESSION[$myMap]["HISTORY_INDEX"] = 0;
 		}
 		elseif(!(isset($_REQUEST["history"]) || isset($_REQUEST["layers"]))) {
-			//Se ho raggiunto il numero massimo di viste tolgo la più vecchia
+			//Se ho raggiunto il numero massimo di viste tolgo la piÃ¹ vecchia
 			if(!isset($_SESSION[$myMap]["HISTORY_INDEX"])) {
 				$_SESSION[$myMap]["HISTORY_INDEX"] = 1;
 			} else if($_SESSION[$myMap]["HISTORY_INDEX"] == MAX_HISTORY) {
@@ -380,7 +380,7 @@ class GCMap{
 		}
 		
 		$groupsDisabled=Array();
-		//Verifica della disponibilità dei layergroup in funzione della scala. Trovo l'elenco dei check da disabilitare in quanto layer non visibili alla scala corrente 
+		//Verifica della disponibilitÃ  dei layergroup in funzione della scala. Trovo l'elenco dei check da disabilitare in quanto layer non visibili alla scala corrente 
 		//Imposta per ogni layer lo stato ed eventualmente il labelitem
 		foreach($allGroup as $idx=>$grpName){
 			$aLayersIndexes=$oMap->getLayersIndexByGroup($grpName);
@@ -464,7 +464,7 @@ class GCMap{
 					if((($class->maxscaledenom == -1) || ($scale <= $class->maxscaledenom)) && (($class->minscaledenom == -1) || ($scale >= $class->minscaledenom))){
 						$disabled = false;
 						break;	
-						//Esiste almeno una classe visibile, il layer è abilitato
+						//Esiste almeno una classe visibile, il layer Ã¨ abilitato
 					}
 				}
 			}
@@ -475,7 +475,7 @@ class GCMap{
 	}
 	
 	function getLayersDisabled(){
-		//ritorna i nomi layer o gruppi da disabilitare nella gestione dei livelli perché non visibili
+		//ritorna i nomi layer o gruppi da disabilitare nella gestione dei livelli perchÃ© non visibili
 		$layers_disabled = implode(",",$this->layers_disabled);
 		return $layers_disabled;
 	}		
@@ -747,7 +747,7 @@ class GCMap{
 				$_SESSION[$myMap]["RESULT"][$qtId]["COLOR"] = $_REQUEST["selcolor"];
 				$_SESSION[$myMap]["RESULT"][$qtId]["ID_LIST"] = $_REQUEST["objid"];
 				/*
-				Il porta in promo piano delle selezioni NON funziona perchè le aggiungo dopo (da vedere)
+				Il porta in promo piano delle selezioni NON funziona perchÃ¨ le aggiungo dopo (da vedere)
 				$oLayer = $oMap->getLayerByName(LAYER_SELECTION.$_REQUEST["layername"]);
 				$idxlayer = $oLayer->index;	
 				$layNum = $oMap->numlayers;
@@ -840,7 +840,7 @@ class GCMap{
         // Label properties
         $label->set("position", MS_UC);
         $label->set("font", "arial");
-        $label->set("type", MS_TRUETYPE);
+        // $label->set("type", MS_TRUETYPE);non va in 
         $label->set("size", 14);
         $label->set("wrap", ord(WRAP_READLINE));
         $label->color->setRGB($color[0], $color[1], $color[2]);
